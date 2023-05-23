@@ -1,3 +1,4 @@
+import 'package:ecommerce_application/core/constants/color.dart';
 import 'package:ecommerce_application/routes.dart';
 import 'package:ecommerce_application/view/screen/onboarding.dart';
 import 'package:flutter/material.dart';
@@ -16,6 +17,20 @@ class ShopSavvy extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'ShopSavvy',
       theme: ThemeData(
+        fontFamily: "RobotoMono",
+        textTheme: const TextTheme(
+          displayLarge: TextStyle(
+            fontWeight: FontWeight.bold,
+            color: Colors.black,
+            fontSize: 20,
+          ),
+          bodyLarge: TextStyle(
+            height: 2,
+            fontSize: 18,
+            color: AppColors.grey,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
         primarySwatch: Colors.blue,
       ),
       home: const OnBoarding(),

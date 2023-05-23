@@ -69,10 +69,22 @@ flutter:
 
   uses-material-design: true
   assets:
-     - assets/images/
+    - assets/images/
   fonts:
-     - family: Cairo
-       fonts:
-         - asset: assets/fonts/Cairo/Cairo-Regular.ttf
-         - asset: assets/fonts/Cairo/Cairo-Bold.ttf
-         - weight: 700
+    - family: Cairo
+      fonts:
+        - asset: assets/fonts/Cairo/Cairo-Regular.ttf
+        - asset: assets/fonts/Cairo/Cairo-Bold.ttf
+        - weight: 700
+
+    - family: PlayFairDisplay
+      fonts:
+        - asset: assets/fonts/PlayfairDisplay/PlayfairDisplay-Regular.ttf
+        - asset: assets/fonts/PlayfairDisplay/PlayfairDisplay-Bold.ttf
+        - weight: 700
+
+    - family: RobotoMono
+      fonts:
+        - asset: assets/fonts/RobotoMono/RobotoMono-Regular.ttf
+        - asset: assets/fonts/RobotoMono/RobotoMono-Bold.ttf
+        - weight: 700

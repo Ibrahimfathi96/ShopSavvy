@@ -23,10 +23,7 @@ class OnBoardingCustomSlider extends GetView<OnBoardingControllerImp> {
         children: [
           Text(
             onBoardingList[index].title!,
-            style: const TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 20,
-            ),
+            style: Theme.of(context).textTheme.displayLarge,
           ),
           Image.asset(
             onBoardingList[index].image!,
@@ -40,12 +37,7 @@ class OnBoardingCustomSlider extends GetView<OnBoardingControllerImp> {
             child: Text(
               onBoardingList[index].body!,
               textAlign: TextAlign.center,
-              style: const TextStyle(
-                height: 2,
-                fontSize: 18,
-                color: AppColors.grey,
-                fontWeight: FontWeight.w600,
-              ),
+              style: Theme.of(context).textTheme.bodyLarge,
             ),
           ),
         ],

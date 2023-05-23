@@ -26,7 +26,7 @@ class OnBoardingCustomButton extends GetView<OnBoardingControllerImp> {
         padding: const EdgeInsets.symmetric(horizontal: 100),
         child: const Text(
           "Continue",
-          style: TextStyle(fontSize: 18),
+          style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),
         ),
       ),
     );
