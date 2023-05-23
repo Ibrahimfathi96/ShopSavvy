@@ -1,3 +1,4 @@
+import 'package:ecommerce_application/routes.dart';
 import 'package:ecommerce_application/view/screen/onboarding.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
@@ -18,6 +19,7 @@ class ShopSavvy extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: const OnBoarding(),
+      routes: routes,
     );
   }
 }
