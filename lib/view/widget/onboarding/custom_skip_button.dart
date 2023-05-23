@@ -1,6 +1,8 @@
+import 'package:ecommerce_application/controller/onboarding_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-class OnBoardingSkipButton extends StatelessWidget {
+class OnBoardingSkipButton extends GetView<OnBoardingControllerImp> {
   const OnBoardingSkipButton({
     super.key,
   });
@@ -8,7 +10,9 @@ class OnBoardingSkipButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialButton(
-      onPressed: () {},
+      onPressed: () {
+        controller.skipOnBoarding();
+      },
       color: Colors.transparent,
       elevation: 0,
       textColor: Colors.black,

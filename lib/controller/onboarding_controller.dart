@@ -7,6 +7,8 @@ abstract class OnBoardingController extends GetxController {
   nextPage();
 
   onPageChanged(int index);
+
+  skipOnBoarding();
 }
 
 class OnBoardingControllerImp extends OnBoardingController {
@@ -22,6 +24,10 @@ class OnBoardingControllerImp extends OnBoardingController {
       pageController.animateToPage(currentPage,
           duration: const Duration(milliseconds: 900), curve: Curves.easeInOut);
     }
+  }
+  @override
+  skipOnBoarding(){
+    Get.offAllNamed(LoginScreen.routeName);
   }
 
   @override
