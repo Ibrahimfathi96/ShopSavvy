@@ -17,6 +17,7 @@ class ShopSavvy extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'ShopSavvy',
       theme: ThemeData(
+        scaffoldBackgroundColor: Colors.white,
         fontFamily: "RobotoMono",
         textTheme: const TextTheme(
           displayLarge: TextStyle(
