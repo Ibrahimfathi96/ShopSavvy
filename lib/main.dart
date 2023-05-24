@@ -28,10 +28,15 @@ class ShopSavvy extends StatelessWidget {
         scaffoldBackgroundColor: Colors.white,
         fontFamily: "RobotoMono",
         textTheme: const TextTheme(
-          displayLarge: TextStyle(
+          displayMedium: TextStyle(
             fontWeight: FontWeight.bold,
             color: Colors.black,
             fontSize: 20,
+          ),
+          displayLarge: TextStyle(
+            fontWeight: FontWeight.bold,
+            color: Colors.black,
+            fontSize: 26,
           ),
           bodyLarge: TextStyle(
             height: 2,

@@ -22,7 +22,7 @@ class OnBoardingCustomSlider extends GetView<OnBoardingControllerImp> {
         children: [
           Text(
             onBoardingList[index].title!,
-            style: Theme.of(context).textTheme.displayLarge,
+            style: Theme.of(context).textTheme.displayMedium,
           ),
           Image.asset(
             onBoardingList[index].image!,
