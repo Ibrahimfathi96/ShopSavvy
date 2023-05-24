@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:shop_savvy/view/widget/auth/auth_body_text.dart';
+import 'package:shop_savvy/view/widget/auth/auth_logo.dart';
+import 'package:shop_savvy/view/widget/auth/auth_nav_button.dart';
 import 'package:shop_savvy/view/widget/auth/auth_title_text.dart';
 import 'package:shop_savvy/view/widget/auth/custom_text_form.dart';
+import 'package:shop_savvy/view/widget/auth/cutom_auth_button.dart';
 
 class LoginScreen extends StatelessWidget {
   // final TextEditingController emailController = TextEditingController();
@@ -24,34 +27,52 @@ class LoginScreen extends StatelessWidget {
       body: Container(
         padding: const EdgeInsets.symmetric(horizontal: 36, vertical: 16),
         child: ListView(
-          children: const [
-            SizedBox(
-              height: 20,
+          children: [
+            const AuthLogo(),
+            const SizedBox(
+              height: 6,
             ),
-            CustomAuthTitleText(
+            const CustomAuthTitleText(
               text: "Welcome Back",
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
-            CustomAuthBodyText(
+            const CustomAuthBodyText(
               text:
                   "Sign In with your Email & Password Or Continue With Social Media.",
             ),
-            SizedBox(
-              height: 65,
+            const SizedBox(
+              height: 20,
             ),
-            CustomAuthTextFormField(
+            const CustomAuthTextFormField(
               // controller: emailController,
               hintText: "Enter Your Email",
               labelText: "Email",
               iconData: Icons.email_outlined,
             ),
-            CustomAuthTextFormField(
+            const CustomAuthTextFormField(
               // controller: emailController,
               hintText: "Enter Your Password",
               labelText: "Password",
               iconData: Icons.lock_outline,
+            ),
+            Text(
+              "Forget Password?",
+              textAlign: TextAlign.end,
+              style: Theme.of(context).textTheme.bodyMedium,
+            ),
+            CustomAuthButton(
+              onPressed: () {},
+              text: "Sign In",
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            AuthNavButton(
+              onTap: () {},
+              text1: "Don't have an account? ",
+              text2: "Sign Up",
             ),
           ],
         ),
@@ -59,3 +80,4 @@ class LoginScreen extends StatelessWidget {
     );
   }
 }
+

@@ -5,6 +5,7 @@ import 'package:shop_savvy/core/localization/change_locale.dart';
 import 'package:shop_savvy/core/localization/translations.dart';
 import 'package:shop_savvy/core/services/services.dart';
 import 'package:shop_savvy/routes.dart';
+import 'package:shop_savvy/view/screen/auth/login.dart';
 import 'package:shop_savvy/view/screen/languages.dart';
 
 void main() async {
@@ -44,10 +45,21 @@ class ShopSavvy extends StatelessWidget {
             color: AppColors.grey,
             fontWeight: FontWeight.w600,
           ),
+          bodyMedium: TextStyle(
+            fontWeight: FontWeight.bold,
+            color: Colors.deepOrangeAccent,
+            fontSize: 16,
+          ),
+          bodySmall: TextStyle(
+            height: 1.5,
+            fontSize: 12,
+            color: AppColors.grey,
+            fontWeight: FontWeight.w300,
+          ),
         ),
         primarySwatch: Colors.blue,
       ),
-      home: const Language(),
+      home: const LoginScreen(),
       routes: routes,
     );
   }
