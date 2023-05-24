@@ -1,8 +1,8 @@
-import 'package:ecommerce_application/core/constants/color.dart';
-import 'package:ecommerce_application/routes.dart';
-import 'package:ecommerce_application/view/screen/onboarding.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:shop_savvy/core/constants/color.dart';
+import 'package:shop_savvy/routes.dart';
+import 'package:shop_savvy/view/screen/onboarding.dart';
 
 void main() {
   runApp(const ShopSavvy());

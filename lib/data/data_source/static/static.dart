@@ -1,5 +1,5 @@
-import 'package:ecommerce_application/core/constants/image_assets.dart';
-import 'package:ecommerce_application/data/model/onboarding_model.dart';
+import 'package:shop_savvy/core/constants/image_assets.dart';
+import 'package:shop_savvy/data/model/onboarding_model.dart';
 
 List<OnBoardingModel> onBoardingList = [
   OnBoardingModel(

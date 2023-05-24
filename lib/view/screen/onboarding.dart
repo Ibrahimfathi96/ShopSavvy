@@ -1,8 +1,8 @@
-import 'package:ecommerce_application/controller/onboarding_controller.dart';
-import 'package:ecommerce_application/view/widget/onboarding/custom_button.dart';
-import 'package:ecommerce_application/view/widget/onboarding/custom_dots.dart';
-import 'package:ecommerce_application/view/widget/onboarding/custom_skip_button.dart';
-import 'package:ecommerce_application/view/widget/onboarding/custom_slider.dart';
+import 'package:shop_savvy/controller/onboarding_controller.dart';
+import 'package:shop_savvy/view/widget/onboarding/custom_button.dart';
+import 'package:shop_savvy/view/widget/onboarding/custom_dots.dart';
+import 'package:shop_savvy/view/widget/onboarding/custom_skip_button.dart';
+import 'package:shop_savvy/view/widget/onboarding/custom_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
