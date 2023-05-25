@@ -16,9 +16,9 @@ class OnBoardingSkipButton extends GetView<OnBoardingControllerImp> {
       color: Colors.transparent,
       elevation: 0,
       textColor: Colors.black,
-      child: const Text(
-        "Skip",
-        style: TextStyle(
+      child: Text(
+        "5".tr,
+        style: const TextStyle(
           fontSize: 18,fontWeight: FontWeight.bold
         ),
       ),

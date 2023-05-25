@@ -5,6 +5,7 @@ import 'package:shop_savvy/core/localization/change_locale.dart';
 import 'package:shop_savvy/core/localization/translations.dart';
 import 'package:shop_savvy/core/services/services.dart';
 import 'package:shop_savvy/routes.dart';
+import 'package:shop_savvy/view/screen/languages.dart';
 import 'package:shop_savvy/view/screen/onboarding.dart';
 
 void main() async {
@@ -59,7 +60,7 @@ class ShopSavvy extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       // home: const Test(),
-      home: const OnBoarding(),
+      home: const Language(),
       routes: routes,
     );
   }
