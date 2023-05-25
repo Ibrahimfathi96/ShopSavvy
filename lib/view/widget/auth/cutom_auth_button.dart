@@ -14,7 +14,7 @@ class CustomAuthButton extends StatelessWidget {
       margin: const EdgeInsets.only(top: 12),
       child: MaterialButton(
         onPressed: onPressed,
-        color: Colors.orange,
+        color: Colors.deepOrangeAccent,
         padding: const EdgeInsets.symmetric(vertical: 16),
         textColor: Colors.white,
         shape: RoundedRectangleBorder(

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:shop_savvy/view/widget/auth/auth_body_text.dart';
 import 'package:shop_savvy/view/widget/auth/auth_logo.dart';
 import 'package:shop_savvy/view/widget/auth/auth_nav_button.dart';
+import 'package:shop_savvy/view/widget/auth/auth_or_widget.dart';
+import 'package:shop_savvy/view/widget/auth/auth_socials.dart';
 import 'package:shop_savvy/view/widget/auth/auth_title_text.dart';
 import 'package:shop_savvy/view/widget/auth/custom_text_form.dart';
 import 'package:shop_savvy/view/widget/auth/cutom_auth_button.dart';
@@ -73,6 +75,13 @@ class LoginScreen extends StatelessWidget {
               onTap: () {},
               text1: "Don't have an account? ",
               text2: "Sign Up",
+            ),
+            const CustomAuthORWidget(),
+            AuthSocialsWidget(
+              facebookOnPressed: (){},
+              googleOnPressed: (){},
+              twitterOnPressed: (){},
+              githubOnPressed: (){},
             ),
           ],
         ),

@@ -7,7 +7,7 @@ class AuthLogo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Image.asset(
-      ImageFromAssets.authLogo,
+      AppImageFromAssets.authLogo,
       height: 150,
     );
   }

@@ -38,7 +38,7 @@ class CustomAuthTextFormField extends StatelessWidget {
           ),
           labelStyle: const TextStyle(
             fontSize: 20,
-            fontWeight: FontWeight.w300,
+            fontWeight: FontWeight.w600,
           ),
           suffixIcon: Icon(
             iconData,
