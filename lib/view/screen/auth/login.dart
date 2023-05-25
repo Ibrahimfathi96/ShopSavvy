@@ -55,6 +55,7 @@ class LoginScreen extends StatelessWidget {
             ),
             const CustomAuthTextFormField(
               // controller: emailController,
+              obscureText: true,
               hintText: "Enter Your Password",
               labelText: "Password",
               iconData: Icons.lock_outline,
