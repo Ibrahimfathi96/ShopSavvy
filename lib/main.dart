@@ -5,8 +5,7 @@ import 'package:shop_savvy/core/localization/change_locale.dart';
 import 'package:shop_savvy/core/localization/translations.dart';
 import 'package:shop_savvy/core/services/services.dart';
 import 'package:shop_savvy/routes.dart';
-import 'package:shop_savvy/view/screen/auth/login.dart';
-import 'package:shop_savvy/view/screen/languages.dart';
+import 'package:shop_savvy/view/screen/auth/sign_in.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -59,7 +58,7 @@ class ShopSavvy extends StatelessWidget {
         ),
         primarySwatch: Colors.blue,
       ),
-      home: const LoginScreen(),
+      home: const SignIn(),
       routes: routes,
     );
   }

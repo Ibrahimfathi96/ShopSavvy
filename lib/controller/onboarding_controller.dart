@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:shop_savvy/data/data_source/static/static.dart';
-import 'package:shop_savvy/view/screen/auth/login.dart';
+import 'package:shop_savvy/view/screen/auth/sign_in.dart';
 
 abstract class OnBoardingController extends GetxController {
   nextPage();
@@ -19,7 +19,7 @@ class OnBoardingControllerImp extends OnBoardingController {
   nextPage() {
     currentPage++;
     if (currentPage > onBoardingList.length - 1) {
-      Get.offAllNamed(LoginScreen.routeName);
+      Get.offAllNamed(SignIn.routeName);
     } else {
       pageController.animateToPage(currentPage,
           duration: const Duration(milliseconds: 900), curve: Curves.easeInOut);
@@ -27,7 +27,7 @@ class OnBoardingControllerImp extends OnBoardingController {
   }
   @override
   skipOnBoarding(){
-    Get.offAllNamed(LoginScreen.routeName);
+    Get.offAllNamed(SignIn.routeName);
   }
 
   @override
