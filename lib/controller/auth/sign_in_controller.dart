@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:shop_savvy/view/screen/auth/sign_up.dart';
+import 'package:shop_savvy/view/screen/auth/forget_password/forget_password.dart';
+import 'package:shop_savvy/view/screen/auth/sign_up/sign_up.dart';
 
 abstract class SignInController extends GetxController {
   singIn();
   goToSignUP();
+  goToForgetPassword();
 }
 
 class SignInControllerImp extends SignInController {
@@ -32,4 +34,9 @@ class SignInControllerImp extends SignInController {
 
   @override
   singIn() {}
+
+  @override
+  goToForgetPassword() {
+    Get.toNamed(ForgetPassword.routeName);
+  }
 }

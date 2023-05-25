@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shop_savvy/controller/auth/sign_in_controller.dart';
 import 'package:shop_savvy/view/widget/auth/auth_body_text.dart';
+import 'package:shop_savvy/view/widget/auth/auth_forget_password.dart';
 import 'package:shop_savvy/view/widget/auth/auth_logo.dart';
 import 'package:shop_savvy/view/widget/auth/auth_nav_button.dart';
 import 'package:shop_savvy/view/widget/auth/auth_or_widget.dart';
@@ -62,11 +63,7 @@ class SignIn extends StatelessWidget {
               labelText: "Password",
               iconData: Icons.lock_outline,
             ),
-            Text(
-              "Forget Password?",
-              textAlign: TextAlign.end,
-              style: Theme.of(context).textTheme.bodyMedium,
-            ),
+            const AuthForgetPassword(),
             CustomAuthButton(
               onPressed: () {},
               text: "Sign In",
@@ -95,4 +92,5 @@ class SignIn extends StatelessWidget {
     );
   }
 }
+
 

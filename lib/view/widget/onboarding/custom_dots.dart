@@ -1,6 +1,5 @@
 
 import 'package:shop_savvy/controller/onboarding_controller.dart';
-import 'package:shop_savvy/core/constants/color.dart';
 import 'package:shop_savvy/data/data_source/static/static.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -24,7 +23,7 @@ class OnBoardingCustomDotsController extends StatelessWidget {
                 width: controller.currentPage == index? 20:5,
                 height: 6,
                 decoration: BoxDecoration(
-                  color: AppColors.primaryColor,
+                  color: Colors.deepOrangeAccent,
                   borderRadius: BorderRadius.circular(10),
                 ),
                 duration: const Duration(

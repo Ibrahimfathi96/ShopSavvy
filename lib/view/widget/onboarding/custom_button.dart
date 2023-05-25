@@ -21,7 +21,7 @@ class OnBoardingCustomButton extends GetView<OnBoardingControllerImp> {
         onPressed: () {
           controller.nextPage();
         },
-        color: AppColors.primaryColor,
+        color: Colors.deepOrangeAccent,
         textColor: Colors.white,
         padding: const EdgeInsets.symmetric(horizontal: 100),
         child: const Text(

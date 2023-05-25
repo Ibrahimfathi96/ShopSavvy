@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shop_savvy/view/screen/auth/sign_in.dart';
+import 'package:shop_savvy/view/screen/auth/sign_up/check_email.dart';
 
 abstract class SignUpController extends GetxController {
   singUp();
@@ -33,9 +34,11 @@ class SignUpControllerImp extends SignUpController {
 
   @override
   goToSignIn() {
-    Get.toNamed(SignIn.routeName);
+    Get.offNamed(SignIn.routeName);
   }
 
   @override
-  singUp() {}
+  singUp() {
+    Get.offAllNamed(CheckEmail.routeName);
+  }
 }

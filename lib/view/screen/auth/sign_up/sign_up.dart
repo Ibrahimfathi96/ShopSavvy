@@ -73,7 +73,9 @@ class SignUp extends StatelessWidget {
               iconData: Icons.lock_outline,
             ),
             CustomAuthButton(
-              onPressed: () {},
+              onPressed: () {
+                controller.singUp();
+              },
               text: "Sign Up",
             ),
             const SizedBox(
@@ -86,6 +88,7 @@ class SignUp extends StatelessWidget {
               text1: "Already have an account! ",
               text2: "Sign In",
             ),
+            const SizedBox(height: 26,),
             const CustomAuthORWidget(),
             AuthSocialsWidget(
               facebookOnPressed: (){},
