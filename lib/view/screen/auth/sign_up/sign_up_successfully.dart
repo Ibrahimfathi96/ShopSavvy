@@ -18,7 +18,7 @@ class SignUpSuccessfully extends StatelessWidget {
         centerTitle: true,
         title: const Text(
           "Signed-Up Successfully",
-          style: TextStyle(color: Colors.black),
+          style: TextStyle(color: Colors.black,fontWeight: FontWeight.w600),
         ),
       ),
       body: Container(
@@ -36,9 +36,14 @@ class SignUpSuccessfully extends StatelessWidget {
               color: Colors.deepOrangeAccent,
             ),
             const Text(
-              "Email Verified Successfully.",
+              "Congratulations",
               textAlign: TextAlign.center,
-              style: TextStyle(color: Colors.black),
+              style: TextStyle(color: Colors.black,fontSize: 26,fontWeight: FontWeight.bold),
+            ),
+            const Text(
+              "Your Account is successfully created.",
+              textAlign: TextAlign.center,
+              style: TextStyle(color: Colors.black,fontSize: 18,fontWeight: FontWeight.w300),
             ),
             const Spacer(flex: 8,),
             CustomAuthButton(

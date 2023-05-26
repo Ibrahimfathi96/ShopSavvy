@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
-import 'package:get/get.dart';
-import 'package:shop_savvy/controller/auth/verify_code_controller.dart';
 
 class OTPTextFields extends StatelessWidget {
+  final void Function(String) onSubmit;
+  final void Function(String) onCodeChanged;
   const OTPTextFields({
-    super.key,
+    super.key, required this.onSubmit, required this.onCodeChanged,
   });
 
   @override
   Widget build(BuildContext context) {
-    VerifyCodeControllerImp controller = Get.put(VerifyCodeControllerImp());
     return OtpTextField(
       fieldWidth: 50,
       borderRadius: BorderRadius.circular(20),
@@ -19,12 +18,8 @@ class OTPTextFields extends StatelessWidget {
       //set to true to show as box or false to show as dash
       showFieldAsBox: true,
       //runs when a code is typed in
-      onCodeChanged: (String code) {
-        //handle validation or checks here
-      },
-      onSubmit: (String verificationCode) {
-        controller.goToResetPassword();
-      }, // end onSubmit
+      onCodeChanged:onCodeChanged,
+      onSubmit: onSubmit, // end onSubmit
     );
   }
 }

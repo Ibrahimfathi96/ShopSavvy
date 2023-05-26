@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-import 'package:shop_savvy/view/screen/auth/forget_password/verify_code.dart';
+import 'package:shop_savvy/view/screen/auth/forget_password/verify_code_forget_pass.dart';
 
 
 
@@ -35,7 +35,7 @@ class ForgetPasswordControllerImp extends ForgetPasswordController {
 
   @override
   goToVerifyCode() {
-    Get.offAllNamed(VerifyCode.routeName);
+    Get.offAllNamed(ForgetPasswordVerifyCode.routeName);
   }
 
   @override

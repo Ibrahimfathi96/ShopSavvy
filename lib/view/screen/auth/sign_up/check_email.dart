@@ -26,8 +26,8 @@ class CheckEmail extends StatelessWidget {
           children: [
             const SizedBox(height: 60,),
             const ForgetPasswordTexts(
-              text1: "Signed-Up Successfully",
-              text2: "Enter your email address again to check it.",
+              text1: "Account Created Successfully",
+              text2: "Please Enter your email address to receive a verification code.",
             ),
             const SizedBox(
               height: 30,
@@ -41,7 +41,7 @@ class CheckEmail extends StatelessWidget {
             CustomAuthButton(
               text: "Check Email",
               onPressed: () {
-                controller.goToSignUpSuccessfully();
+                controller.goToVerifyCode();
               },
             ),
           ],

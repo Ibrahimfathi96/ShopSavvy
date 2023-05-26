@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:shop_savvy/controller/auth/sign_up_verify_controller.dart';
 import 'package:shop_savvy/core/constants/image_assets.dart';
 import 'package:shop_savvy/view/widget/auth/forget_password_texts.dart';
 import 'package:shop_savvy/view/widget/auth/otp_text_field.dart';
 
-class VerifyCode extends StatelessWidget {
-  static const String routeName = '/verify-code';
+class SignUpVerifyCode extends StatelessWidget {
+  static const String routeName = '/verify-code-sign-up';
 
-  const VerifyCode({Key? key}) : super(key: key);
+  const SignUpVerifyCode({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    SignUpVerifyCodeControllerImp controller =
+        Get.put(SignUpVerifyCodeControllerImp());
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -38,7 +42,14 @@ class VerifyCode extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            const OTPTextFields(),
+            OTPTextFields(
+              onSubmit: (String verificationCode) {
+                controller.goToSignUpSuccess();
+              },
+              onCodeChanged: (String code) {
+                //handle validation or checks here
+              },
+            ),
           ],
         ),
       ),
