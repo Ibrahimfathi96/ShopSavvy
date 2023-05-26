@@ -5,7 +5,7 @@ publish_to: 'none'
 version: 1.0.0+1
 
 environment:
-  sdk: '>=2.19.4 <3.0.0'
+  sdk: '>=3.0.2 <4.0.0'
 
 dependencies:
   flutter:
@@ -51,7 +51,6 @@ dependencies:
   dartz: ^0.10.1
   # Google Auth
   google_sign_in: ^6.1.1
-  device_preview: ^0.1.4-beta
   responsive_builder: ^0.7.0
   image_pickers: ^2.0.4+1
   # otp
