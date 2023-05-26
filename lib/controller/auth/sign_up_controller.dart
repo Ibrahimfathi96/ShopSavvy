@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shop_savvy/view/screen/auth/sign_in.dart';
-import 'package:shop_savvy/view/screen/auth/sign_up/check_email.dart';
+import 'package:shop_savvy/view/screen/auth/sign_up/verify_code_sign_up.dart';
 
 abstract class SignUpController extends GetxController {
   singUp();
@@ -13,6 +13,7 @@ class SignUpControllerImp extends SignUpController {
   late TextEditingController phoneController;
   late TextEditingController emailController;
   late TextEditingController passwordController;
+  GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   @override
   void onInit() {
@@ -39,6 +40,12 @@ class SignUpControllerImp extends SignUpController {
 
   @override
   singUp() {
-    Get.offAllNamed(CheckEmail.routeName);
+    var formData = formKey.currentState;
+    if(formData!.validate()){
+    Get.offAllNamed(SignUpVerifyCode.routeName);
+    debugPrint("Valid");
+    }else{
+      debugPrint("Not Valid");
+    }
   }
 }

@@ -25,7 +25,7 @@ class CustomLangButton extends StatelessWidget {
           const SizedBox(height: 10,),
           Text(
             text,
-            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18,color: Colors.black),
           ),
         ],
       ),

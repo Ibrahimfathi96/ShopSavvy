@@ -10,6 +10,7 @@ abstract class SignInController extends GetxController {
 }
 
 class SignInControllerImp extends SignInController {
+  GlobalKey<FormState> formKey = GlobalKey<FormState>();
   late TextEditingController emailController;
   late TextEditingController passwordController;
 
@@ -33,7 +34,14 @@ class SignInControllerImp extends SignInController {
   }
 
   @override
-  singIn() {}
+  singIn() {
+    var formData = formKey.currentState;
+    if(formData!.validate()){
+      debugPrint("Valid");
+    }else{
+      debugPrint("Not Valid");
+    }
+  }
 
   @override
   goToForgetPassword() {

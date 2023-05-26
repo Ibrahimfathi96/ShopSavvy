@@ -10,6 +10,7 @@ class Language extends GetView<LocaleController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Column(
         children: [
           Container(

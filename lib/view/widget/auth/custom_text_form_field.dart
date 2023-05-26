@@ -6,6 +6,9 @@ class CustomAuthTextFormField extends StatelessWidget {
   final IconData iconData;
   final TextEditingController controller;
   final bool obscureText;
+  final TextInputType keyboardType;
+  final TextInputAction textInputAction;
+  final String? Function(String?)? validator ;
 
   const CustomAuthTextFormField({
     super.key,
@@ -13,7 +16,7 @@ class CustomAuthTextFormField extends StatelessWidget {
     required this.labelText,
     required this.iconData,
     required this.controller,
-    this.obscureText = false,
+    this.obscureText = false, required this.keyboardType, required this.textInputAction, required this.validator,
   });
 
   @override
@@ -21,12 +24,19 @@ class CustomAuthTextFormField extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.only(top: 16, bottom: 16),
       child: TextFormField(
+        validator: validator,
+        textInputAction: textInputAction,
         obscureText: obscureText,
         controller: controller,
+        keyboardType: keyboardType,
         decoration: InputDecoration(
           floatingLabelBehavior: FloatingLabelBehavior.always,
           contentPadding:
               const EdgeInsets.symmetric(vertical: 6, horizontal: 30),
+          border: OutlineInputBorder(
+            borderSide: const BorderSide(color: Colors.deepOrangeAccent),
+            borderRadius: BorderRadius.circular(30),
+          ),
           focusedBorder: OutlineInputBorder(
             borderSide: const BorderSide(color: Colors.deepOrangeAccent),
             borderRadius: BorderRadius.circular(30),

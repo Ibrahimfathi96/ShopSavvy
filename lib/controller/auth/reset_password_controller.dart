@@ -10,6 +10,7 @@ abstract class ResetPasswordController extends GetxController{
 class ResetPasswordControllerImp extends ResetPasswordController{
   late TextEditingController newPassword;
   late TextEditingController confirmPassword;
+  GlobalKey<FormState> formKey = GlobalKey<FormState>();
   @override
   void onInit() {
     newPassword = TextEditingController();
@@ -24,12 +25,17 @@ class ResetPasswordControllerImp extends ResetPasswordController{
   }
   @override
   resetPassword() {
-    
   }
 
   @override
   goToResetPasswordSuccessfully() {
-    Get.offNamed(ResetPasswordSuccessfully.routeName);
+    var formData = formKey.currentState;
+    if(formData!.validate()){
+      Get.offNamed(ResetPasswordSuccessfully.routeName);
+      debugPrint("Valid");
+    }else{
+      debugPrint("Not Valid");
+    }
   }
   
 }
