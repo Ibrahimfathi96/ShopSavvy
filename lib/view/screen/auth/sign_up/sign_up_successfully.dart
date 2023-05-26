@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:shop_savvy/controller/auth/sign_up_controller.dart';
+import 'package:shop_savvy/controller/auth/sign_up_success_controller.dart';
 import 'package:shop_savvy/view/widget/auth/cutom_auth_button.dart';
 
 class SignUpSuccessfully extends StatelessWidget {
@@ -10,7 +10,7 @@ class SignUpSuccessfully extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    SignUpControllerImp controller = Get.put(SignUpControllerImp());
+    SignUpSuccessControllerImp controller = Get.put(SignUpSuccessControllerImp());
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,

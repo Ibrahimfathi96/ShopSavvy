@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:shop_savvy/controller/auth/sign_up_controller.dart';
+import 'package:shop_savvy/controller/auth/fp_success_controller.dart';
 import 'package:shop_savvy/view/widget/auth/cutom_auth_button.dart';
 
 class ResetPasswordSuccessfully extends StatelessWidget {
@@ -9,7 +9,7 @@ class ResetPasswordSuccessfully extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    SignUpControllerImp controller = Get.put(SignUpControllerImp());
+    ForgetPasswordSuccessControllerImp controller = Get.put(ForgetPasswordSuccessControllerImp());
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
