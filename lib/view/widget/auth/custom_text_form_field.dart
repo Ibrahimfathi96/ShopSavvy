@@ -8,7 +8,8 @@ class CustomAuthTextFormField extends StatelessWidget {
   final bool obscureText;
   final TextInputType keyboardType;
   final TextInputAction textInputAction;
-  final String? Function(String?)? validator ;
+  final String? Function(String?)? validator;
+  final void Function()? onPressed;
 
   const CustomAuthTextFormField({
     super.key,
@@ -16,7 +17,11 @@ class CustomAuthTextFormField extends StatelessWidget {
     required this.labelText,
     required this.iconData,
     required this.controller,
-    this.obscureText = false, required this.keyboardType, required this.textInputAction, required this.validator,
+    this.obscureText = false,
+    required this.keyboardType,
+    required this.textInputAction,
+    required this.validator,
+    this.onPressed,
   });
 
   @override
@@ -59,8 +64,9 @@ class CustomAuthTextFormField extends StatelessWidget {
               fontSize: 20,
               fontWeight: FontWeight.w600,
               color: Colors.deepOrangeAccent),
-          suffixIcon: Icon(
-            iconData,
+          suffixIcon: IconButton(
+            onPressed: onPressed,
+            icon: Icon(iconData),
             color: Colors.deepOrangeAccent,
           ),
         ),

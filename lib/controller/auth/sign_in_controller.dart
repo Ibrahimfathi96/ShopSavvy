@@ -7,12 +7,20 @@ abstract class SignInController extends GetxController {
   singIn();
   goToSignUP();
   goToForgetPassword();
+  showPassword();
 }
 
 class SignInControllerImp extends SignInController {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   late TextEditingController emailController;
   late TextEditingController passwordController;
+  bool isVisible = true;
+
+  @override
+  showPassword(){
+    isVisible = isVisible == true? false:true;
+    update();
+  }
 
   @override
   void onInit() {

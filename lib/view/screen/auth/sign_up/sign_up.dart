@@ -93,10 +93,13 @@ class SignUp extends StatelessWidget {
                     textInputAction: TextInputAction.done,
                     keyboardType: TextInputType.visiblePassword,
                     controller: controller.passwordController,
-                    obscureText: true,
+                    onPressed: (){
+                      controller.showPassword();
+                    },
+                    obscureText: controller.isVisible,
                     hintText: "17".tr,
                     labelText: "18".tr,
-                    iconData: Icons.lock_outline,
+                    iconData: controller.isVisible?Icons.visibility_off:Icons.visibility,
                   ),
                   CustomAuthButton(
                     onPressed: () {

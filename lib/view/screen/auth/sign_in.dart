@@ -20,7 +20,6 @@ class SignIn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    SignInControllerImp controller = Get.put(SignInControllerImp());
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -33,83 +32,92 @@ class SignIn extends StatelessWidget {
       ),
       body: WillPopScope(
         onWillPop: exitAppAlert,
-        child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 36, vertical: 16),
-          child: Form(
-            key: controller.formKey,
-            child: ListView(
-              physics: const BouncingScrollPhysics(),
-              children: [
-                const AuthLogo(),
-                const SizedBox(
-                  height: 6,
-                ),
-                CustomAuthTitleText(
-                  text: "13".tr,
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                CustomAuthBodyText(
-                  text: "14".tr,
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                CustomAuthTextFormField(
-                  validator: (val) {
-                    return validInput(val!, 5, 30, "email");
-                  },
-                  textInputAction: TextInputAction.next,
-                  keyboardType: TextInputType.emailAddress,
-                  controller: controller.emailController,
-                  hintText: "15".tr,
-                  labelText: "16".tr,
-                  iconData: Icons.email_outlined,
-                ),
-                CustomAuthTextFormField(
-                  validator: (val) {
-                    return validInput(val!, 5, 30, "password");
-                  },
-                  textInputAction: TextInputAction.done,
-                  keyboardType: TextInputType.visiblePassword,
-                  controller: controller.passwordController,
-                  obscureText: true,
-                  hintText: "17".tr,
-                  labelText: "18".tr,
-                  iconData: Icons.lock_outline,
-                ),
-                const AuthForgetPassword(),
-                CustomAuthButton(
-                  onPressed: () {
-                    controller.singIn();
-                  },
-                  text: "12".tr,
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                AuthNavButton(
-                  onTap: () {
-                    controller.goToSignUP();
-                  },
-                  text1: "20".tr,
-                  text2: "21".tr,
-                ),
-                const SizedBox(
-                  height: 26,
-                ),
-                const CustomAuthORWidget(),
-                AuthSocialsWidget(
-                  facebookOnPressed: () {},
-                  googleOnPressed: () {},
-                  twitterOnPressed: () {},
-                  githubOnPressed: () {},
-                ),
-              ],
+        child: GetBuilder<SignInControllerImp>(
+          builder: (controller) => Container(
+            padding: const EdgeInsets.symmetric(horizontal: 36, vertical: 16),
+            child: Form(
+              key: controller.formKey,
+              child: ListView(
+                physics: const BouncingScrollPhysics(),
+                children: [
+                  const AuthLogo(),
+                  const SizedBox(
+                    height: 6,
+                  ),
+                  CustomAuthTitleText(
+                    text: "13".tr,
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  CustomAuthBodyText(
+                    text: "14".tr,
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  CustomAuthTextFormField(
+                    validator: (val) {
+                      return validInput(val!, 5, 30, "email");
+                    },
+                    textInputAction: TextInputAction.next,
+                    keyboardType: TextInputType.emailAddress,
+                    controller: controller.emailController,
+                    hintText: "15".tr,
+                    labelText: "16".tr,
+                    iconData: Icons.email_outlined,
+                  ),
+                  GetBuilder<SignInControllerImp>(
+                    builder: (controller) => CustomAuthTextFormField(
+                      validator: (val) {
+                        return validInput(val!, 5, 30, "password");
+                      },
+                      onPressed: () {
+                        controller.showPassword();
+                      },
+                      textInputAction: TextInputAction.done,
+                      keyboardType: TextInputType.visiblePassword,
+                      controller: controller.passwordController,
+                      obscureText: controller.isVisible,
+                      hintText: "17".tr,
+                      labelText: "18".tr,
+                      iconData: controller.isVisible?Icons.visibility_off:Icons.visibility,
+                    ),
+                  ),
+                  const AuthForgetPassword(),
+                  CustomAuthButton(
+                    onPressed: () {
+                      controller.singIn();
+                    },
+                    text: "12".tr,
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  AuthNavButton(
+                    onTap: () {
+                      controller.goToSignUP();
+                    },
+                    text1: "20".tr,
+                    text2: "21".tr,
+                  ),
+                  const SizedBox(
+                    height: 26,
+                  ),
+                  const CustomAuthORWidget(),
+                  AuthSocialsWidget(
+                    facebookOnPressed: () {},
+                    googleOnPressed: () {},
+                    twitterOnPressed: () {},
+                    githubOnPressed: () {},
+                  ),
+                ],
+              ),
             ),
           ),
-        ),
+        )
+
+
       ),
     );
   }
