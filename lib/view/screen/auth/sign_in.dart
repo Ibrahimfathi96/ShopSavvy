@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shop_savvy/controller/auth/sign_in_controller.dart';
+import 'package:shop_savvy/core/functions/exit_app_alert.dart';
 import 'package:shop_savvy/core/functions/valid_input.dart';
 import 'package:shop_savvy/view/widget/auth/auth_body_text.dart';
 import 'package:shop_savvy/view/widget/auth/auth_forget_password.dart';
@@ -30,84 +31,86 @@ class SignIn extends StatelessWidget {
           style: Theme.of(context).textTheme.displayMedium,
         ),
       ),
-      body: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 36, vertical: 16),
-        child: Form(
-          key: controller.formKey,
-          child: ListView(
-            physics: const BouncingScrollPhysics(),
-            children: [
-              const AuthLogo(),
-              const SizedBox(
-                height: 6,
-              ),
-              CustomAuthTitleText(
-                text: "13".tr,
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              CustomAuthBodyText(
-                text:
-                    "14".tr,
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              CustomAuthTextFormField(
-                validator: (val){
-                  return validInput(val!, 5, 30, "email");
-                },
-                textInputAction: TextInputAction.next,
-                keyboardType: TextInputType.emailAddress,
-                controller: controller.emailController,
-                hintText: "15".tr,
-                labelText: "16".tr,
-                iconData: Icons.email_outlined,
-              ),
-              CustomAuthTextFormField(
-                validator: (val){
-                  return validInput(val!, 5, 30, "password");
-                },
-                textInputAction: TextInputAction.done,
-                keyboardType: TextInputType.visiblePassword,
-                controller: controller.passwordController,
-                obscureText: true,
-                hintText: "17".tr,
-                labelText: "18".tr,
-                iconData: Icons.lock_outline,
-              ),
-              const AuthForgetPassword(),
-              CustomAuthButton(
-                onPressed: () {
-                  controller.singIn();
-                },
-                text: "12".tr,
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              AuthNavButton(
-                onTap: () {
-                  controller.goToSignUP();
-                },
-                text1: "20".tr,
-                text2: "21".tr,
-              ),
-              const SizedBox(height: 26,),
-              const CustomAuthORWidget(),
-              AuthSocialsWidget(
-                facebookOnPressed: (){},
-                googleOnPressed: (){},
-                twitterOnPressed: (){},
-                githubOnPressed: (){},
-              ),
-            ],
+      body: WillPopScope(
+        onWillPop: exitAppAlert,
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 36, vertical: 16),
+          child: Form(
+            key: controller.formKey,
+            child: ListView(
+              physics: const BouncingScrollPhysics(),
+              children: [
+                const AuthLogo(),
+                const SizedBox(
+                  height: 6,
+                ),
+                CustomAuthTitleText(
+                  text: "13".tr,
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                CustomAuthBodyText(
+                  text: "14".tr,
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                CustomAuthTextFormField(
+                  validator: (val) {
+                    return validInput(val!, 5, 30, "email");
+                  },
+                  textInputAction: TextInputAction.next,
+                  keyboardType: TextInputType.emailAddress,
+                  controller: controller.emailController,
+                  hintText: "15".tr,
+                  labelText: "16".tr,
+                  iconData: Icons.email_outlined,
+                ),
+                CustomAuthTextFormField(
+                  validator: (val) {
+                    return validInput(val!, 5, 30, "password");
+                  },
+                  textInputAction: TextInputAction.done,
+                  keyboardType: TextInputType.visiblePassword,
+                  controller: controller.passwordController,
+                  obscureText: true,
+                  hintText: "17".tr,
+                  labelText: "18".tr,
+                  iconData: Icons.lock_outline,
+                ),
+                const AuthForgetPassword(),
+                CustomAuthButton(
+                  onPressed: () {
+                    controller.singIn();
+                  },
+                  text: "12".tr,
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                AuthNavButton(
+                  onTap: () {
+                    controller.goToSignUP();
+                  },
+                  text1: "20".tr,
+                  text2: "21".tr,
+                ),
+                const SizedBox(
+                  height: 26,
+                ),
+                const CustomAuthORWidget(),
+                AuthSocialsWidget(
+                  facebookOnPressed: () {},
+                  googleOnPressed: () {},
+                  twitterOnPressed: () {},
+                  githubOnPressed: () {},
+                ),
+              ],
+            ),
           ),
         ),
       ),
     );
   }
 }
-
-
