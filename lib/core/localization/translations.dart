@@ -61,7 +61,7 @@ class MyTranslations extends Translations {
           "25":"FullName",
           "26":"Enter Your Phone Number",
           "27":"Phone Number",
-          "28":"Already have an account!  ",
+          "28":"Already have an account! ",
          }
       };
 }
