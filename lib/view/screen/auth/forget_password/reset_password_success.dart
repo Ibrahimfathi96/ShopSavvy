@@ -11,6 +11,7 @@ class ResetPasswordSuccessfully extends StatelessWidget {
   Widget build(BuildContext context) {
     ForgetPasswordSuccessControllerImp controller = Get.put(ForgetPasswordSuccessControllerImp());
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,

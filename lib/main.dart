@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shop_savvy/binding.dart';
 import 'package:shop_savvy/core/constants/color.dart';
 import 'package:shop_savvy/core/localization/change_locale.dart';
 import 'package:shop_savvy/core/localization/translations.dart';
@@ -28,6 +29,7 @@ class ShopSavvy extends StatelessWidget {
       theme: localeController.appTheme,
       // home: const Test(),
       home: const Language(),
+      initialBinding: MyBinding(),
       routes: routes,
     );
   }

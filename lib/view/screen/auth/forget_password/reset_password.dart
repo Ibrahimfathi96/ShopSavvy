@@ -28,6 +28,7 @@ class ResetPassword extends StatelessWidget {
         child: Form(
           key: controller.formKey,
           child: ListView(
+            physics: const BouncingScrollPhysics(),
             children: [
               const SizedBox(
                 height: 60,

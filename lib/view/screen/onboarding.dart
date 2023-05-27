@@ -13,18 +13,19 @@ class OnBoarding extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Get.put(OnBoardingControllerImp());
-    return Scaffold(
+    return const Scaffold(
+      resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: Column(
           children: [
-            const Expanded(
+            Expanded(
               flex: 3,
               child: OnBoardingCustomSlider(),
             ),
             Expanded(
               flex: 1,
               child: Column(
-                children:  const [
+                children:  [
                   OnBoardingCustomDotsController(),
                   Spacer(
                     flex: 2,

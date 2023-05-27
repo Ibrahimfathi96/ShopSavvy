@@ -26,7 +26,7 @@ class SignIn extends StatelessWidget {
         elevation: 0,
         centerTitle: true,
         title: Text(
-          "Sign In",
+          "12".tr,
           style: Theme.of(context).textTheme.displayMedium,
         ),
       ),
@@ -35,20 +35,21 @@ class SignIn extends StatelessWidget {
         child: Form(
           key: controller.formKey,
           child: ListView(
+            physics: const BouncingScrollPhysics(),
             children: [
               const AuthLogo(),
               const SizedBox(
                 height: 6,
               ),
-              const CustomAuthTitleText(
-                text: "Welcome Back",
+              CustomAuthTitleText(
+                text: "13".tr,
               ),
               const SizedBox(
                 height: 10,
               ),
-              const CustomAuthBodyText(
+              CustomAuthBodyText(
                 text:
-                    "Sign In with your Email & Password Or Continue With Social Media.",
+                    "14".tr,
               ),
               const SizedBox(
                 height: 20,
@@ -60,8 +61,8 @@ class SignIn extends StatelessWidget {
                 textInputAction: TextInputAction.next,
                 keyboardType: TextInputType.emailAddress,
                 controller: controller.emailController,
-                hintText: "Enter Your Email",
-                labelText: "Email",
+                hintText: "15".tr,
+                labelText: "16".tr,
                 iconData: Icons.email_outlined,
               ),
               CustomAuthTextFormField(
@@ -72,8 +73,8 @@ class SignIn extends StatelessWidget {
                 keyboardType: TextInputType.visiblePassword,
                 controller: controller.passwordController,
                 obscureText: true,
-                hintText: "Enter Your Password",
-                labelText: "Password",
+                hintText: "17".tr,
+                labelText: "18".tr,
                 iconData: Icons.lock_outline,
               ),
               const AuthForgetPassword(),
@@ -81,7 +82,7 @@ class SignIn extends StatelessWidget {
                 onPressed: () {
                   controller.singIn();
                 },
-                text: "Sign In",
+                text: "12".tr,
               ),
               const SizedBox(
                 height: 10,
@@ -90,8 +91,8 @@ class SignIn extends StatelessWidget {
                 onTap: () {
                   controller.goToSignUP();
                 },
-                text1: "Don't have an account? ",
-                text2: "Sign Up",
+                text1: "20".tr,
+                text2: "21".tr,
               ),
               const SizedBox(height: 26,),
               const CustomAuthORWidget(),

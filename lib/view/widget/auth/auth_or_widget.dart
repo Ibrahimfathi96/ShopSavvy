@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class CustomAuthORWidget extends StatelessWidget {
   const CustomAuthORWidget({Key? key}) : super(key: key);
@@ -15,7 +16,7 @@ class CustomAuthORWidget extends StatelessWidget {
             height: 2,
             color: Colors.black,
           ),
-          const Text("OR"),
+          Text("22".tr),
           Container(
             width: MediaQuery.of(context).size.width / 4,
             height: 2,

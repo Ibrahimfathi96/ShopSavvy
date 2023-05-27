@@ -35,6 +35,7 @@ class ForgetPassword extends StatelessWidget {
         child: Form(
           key: controller.formKey,
           child: ListView(
+            physics: const BouncingScrollPhysics(),
             children: [
               const ForgetPasswordLockIcon(),
               const ForgetPasswordTexts(

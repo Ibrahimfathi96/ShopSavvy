@@ -15,7 +15,7 @@ class AuthForgetPassword extends StatelessWidget {
         controller.goToForgetPassword();
       },
       child: Text(
-        "Forget Password?",
+        "19".tr,
         textAlign: TextAlign.end,
         style: Theme.of(context).textTheme.bodyMedium,
       ),

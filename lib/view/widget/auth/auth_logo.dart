@@ -8,7 +8,7 @@ class AuthLogo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Image.asset(
       AppImageFromAssets.authLogo,
-      height: 150,
+      height: MediaQuery.of(context).size.height / 8,
     );
   }
 }

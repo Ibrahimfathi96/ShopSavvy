@@ -30,7 +30,7 @@ class SignInControllerImp extends SignInController {
 
   @override
   goToSignUP() {
-    Get.toNamed(SignUp.routeName);
+    Get.offNamed(SignUp.routeName);
   }
 
   @override

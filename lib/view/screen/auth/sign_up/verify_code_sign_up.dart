@@ -24,6 +24,7 @@ class SignUpVerifyCode extends StatelessWidget {
       body: Container(
         padding: const EdgeInsets.symmetric(horizontal: 36.0),
         child: ListView(
+          physics: const BouncingScrollPhysics(),
           children: [
             const SizedBox(
               height: 30,
