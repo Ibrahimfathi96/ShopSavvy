@@ -16,9 +16,9 @@ class ResetPasswordSuccessfully extends StatelessWidget {
         backgroundColor: Colors.transparent,
         elevation: 0,
         centerTitle: true,
-        title: const Text(
-          "Reset Password Successfully",
-          style: TextStyle(color: Colors.black),
+        title: Text(
+          "49".tr,
+          style: const TextStyle(color: Colors.black),
         ),
       ),
       body: Container(
@@ -35,14 +35,14 @@ class ResetPasswordSuccessfully extends StatelessWidget {
               size: 200,
               color: Colors.deepOrangeAccent,
             ),
-            const Text(
-              "Reset Password Successfully.",
+            Text(
+              "49".tr,
               textAlign: TextAlign.center,
-              style: TextStyle(color: Colors.black),
+              style: const TextStyle(color: Colors.black),
             ),
             const Spacer(flex: 8,),
             CustomAuthButton(
-              text: "Go To Sign-In",
+              text: "35".tr,
               onPressed: () {
                 controller.goToSignIn();
               },

@@ -22,7 +22,7 @@ class ForgetPassword extends StatelessWidget {
         centerTitle: true,
         elevation: 0,
         backgroundColor: Colors.deepOrangeAccent,
-        title: const Text("Forgotten Password"),
+        title: Text("36".tr),
         leading: IconButton(
           onPressed: () {
             controller.goBackToSignIn();
@@ -38,9 +38,9 @@ class ForgetPassword extends StatelessWidget {
             physics: const BouncingScrollPhysics(),
             children: [
               const ForgetPasswordLockIcon(),
-              const ForgetPasswordTexts(
-                text1: "Forgot Your Password?",
-                text2: "Please Enter your email address below to receive a verification code.",
+              ForgetPasswordTexts(
+                text1: "37".tr,
+                text2: "38".tr,
               ),
               const SizedBox(
                 height: 30,
@@ -51,13 +51,13 @@ class ForgetPassword extends StatelessWidget {
                 },
                 textInputAction: TextInputAction.done,
                 keyboardType: TextInputType.emailAddress,
-                hintText: "Enter your email",
-                labelText: "Email",
+                hintText: "15".tr,
+                labelText: "16".tr,
                 iconData: Icons.email_outlined,
                 controller: controller.emailController,
               ),
               CustomAuthButton(
-                text: "Check Email",
+                text: "39".tr,
                 onPressed: () {
                   controller.checkEmail();
                 },
@@ -66,8 +66,8 @@ class ForgetPassword extends StatelessWidget {
                 height: 10,
               ),
               AuthNavButton(
-                text1: "Remember your email? ",
-                text2: "Sign In",
+                text1: "40".tr,
+                text2: "12".tr,
                 onTap: () {
                   controller.goBackToSignIn();
                 },

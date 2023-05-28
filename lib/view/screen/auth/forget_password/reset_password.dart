@@ -19,71 +19,73 @@ class ResetPassword extends StatelessWidget {
         backgroundColor: Colors.deepOrangeAccent,
         centerTitle: true,
         elevation: 0,
-        title: const Text("Reset Password"),
+        title: Text("41".tr),
       ),
-      body: GetBuilder<ResetPasswordControllerImp>(
-        builder: (controller) {
-          return Container(
-            padding: const EdgeInsets.symmetric(horizontal: 36.0),
-            child: Form(
-              key: controller.formKey,
-              child: ListView(
-                physics: const BouncingScrollPhysics(),
-                children: [
-                  const SizedBox(
-                    height: 60,
-                  ),
-                  const CustomAuthTitleText(
-                    text: "Create New Password",
-                  ),
-                  const CustomAuthBodyText(
-                      text:
-                          "Your New Password must be different from the previous used passwords."),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  CustomAuthTextFormField(
-                    validator: (val){
-                     return validInput(val!, 8, 30, "password");
-                    },
-                    textInputAction: TextInputAction.next,
-                    onPressed: (){
-                      controller.showPassword1();
-                    },
-                    keyboardType: TextInputType.visiblePassword,
-                    hintText: "Enter a new password",
-                    labelText: "New Password",
-                    iconData: controller.isVisible1?Icons.visibility_off:Icons.visibility,
-                    obscureText: controller.isVisible1,
-                    controller: controller.newPassword,
-                  ),
-                  CustomAuthTextFormField(
-                    validator: (val){
-                      return validInput(val!, 8, 30, "password");
-                    },
-                    textInputAction: TextInputAction.done,
-                    keyboardType: TextInputType.visiblePassword,
-                    hintText: "Re-Enter your Password",
-                    labelText: "Confirm Password",
-                    iconData: controller.isVisible2?Icons.visibility_off:Icons.visibility,
-                    obscureText: controller.isVisible2,
-                    controller: controller.confirmPassword,
-                    onPressed: (){
-                      controller.showPassword2();
-                    },
-                  ),
-                  CustomAuthButton(
-                    text: "Submit",
-                    onPressed: () {
-                      controller.goToResetPasswordSuccessfully();
-                    },
-                  ),
-                ],
-              ),
+      body: GetBuilder<ResetPasswordControllerImp>(builder: (controller) {
+        return Container(
+          padding: const EdgeInsets.symmetric(horizontal: 36.0),
+          child: Form(
+            key: controller.formKey,
+            child: ListView(
+              physics: const BouncingScrollPhysics(),
+              children: [
+                const SizedBox(
+                  height: 60,
+                ),
+                CustomAuthTitleText(
+                  text: "42".tr,
+                ),
+                CustomAuthBodyText(
+                  text: "43".tr,
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                CustomAuthTextFormField(
+                  validator: (val) {
+                    return validInput(val!, 8, 30, "password");
+                  },
+                  textInputAction: TextInputAction.next,
+                  onPressed: () {
+                    controller.showPassword1();
+                  },
+                  keyboardType: TextInputType.visiblePassword,
+                  hintText: "44".tr,
+                  labelText: "45".tr,
+                  iconData: controller.isVisible1
+                      ? Icons.visibility_off
+                      : Icons.visibility,
+                  obscureText: controller.isVisible1,
+                  controller: controller.newPassword,
+                ),
+                CustomAuthTextFormField(
+                  validator: (val) {
+                    return validInput(val!, 8, 30, "password");
+                  },
+                  textInputAction: TextInputAction.done,
+                  keyboardType: TextInputType.visiblePassword,
+                  hintText: "46".tr,
+                  labelText: "47".tr,
+                  iconData: controller.isVisible2
+                      ? Icons.visibility_off
+                      : Icons.visibility,
+                  obscureText: controller.isVisible2,
+                  controller: controller.confirmPassword,
+                  onPressed: () {
+                    controller.showPassword2();
+                  },
+                ),
+                CustomAuthButton(
+                  text: "48".tr,
+                  onPressed: () {
+                    controller.goToResetPasswordSuccessfully();
+                  },
+                ),
+              ],
             ),
-          );
-        }
-      ),
+          ),
+        );
+      }),
     );
   }
 }
