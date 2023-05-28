@@ -32,6 +32,13 @@ class MyTranslations extends Translations {
           "26":"قم بإدخال رقمك المحمول",
           "27":"رقمك المحمول",
           "28":"لديك حساب بالفعل!  ",
+          "29":"كود التفعيل",
+          "30":"تحقق من كود التفعيل",
+          "31":"من فضلك قم بإدخال كود التفعيل \n المرسل إالي البريد الإلكتروني الخاص بك.",
+          "32":"تم الإشتراك بنجاح",
+          "33":"تهانينا",
+          "34":"تم إنشاء حسابك بنجاح.",
+          "35":"اذهب لتسجيل الدخول",
         },
         "en": {
           "1": "Select a Language",
@@ -62,6 +69,13 @@ class MyTranslations extends Translations {
           "26":"Enter Your Phone Number",
           "27":"Phone Number",
           "28":"Already have an account! ",
+          "29":"Verification Code",
+          "30":"Check Verification Code",
+          "31":"Please Enter The Digit Code Sent To \n your email.",
+          "32":"Signed-Up Successfully",
+          "33":"Congratulations",
+          "34":"Your Account is successfully created.",
+          "35":"Go To Sign-In",
          }
       };
 }

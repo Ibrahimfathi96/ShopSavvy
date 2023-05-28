@@ -16,9 +16,9 @@ class SignUpSuccessfully extends StatelessWidget {
         backgroundColor: Colors.transparent,
         elevation: 0,
         centerTitle: true,
-        title: const Text(
-          "Signed-Up Successfully",
-          style: TextStyle(color: Colors.black,fontWeight: FontWeight.w600),
+        title: Text(
+          "32".tr,
+          style: const TextStyle(color: Colors.black,fontWeight: FontWeight.w600),
         ),
       ),
       body: Container(
@@ -35,19 +35,19 @@ class SignUpSuccessfully extends StatelessWidget {
               size: 200,
               color: Colors.deepOrangeAccent,
             ),
-            const Text(
-              "Congratulations",
+            Text(
+              "33".tr,
               textAlign: TextAlign.center,
-              style: TextStyle(color: Colors.black,fontSize: 26,fontWeight: FontWeight.bold),
+              style: const TextStyle(color: Colors.black,fontSize: 26,fontWeight: FontWeight.bold),
             ),
-            const Text(
-              "Your Account is successfully created.",
+            Text(
+              "34".tr,
               textAlign: TextAlign.center,
-              style: TextStyle(color: Colors.black,fontSize: 18,fontWeight: FontWeight.w300),
+              style: const TextStyle(color: Colors.black,fontSize: 18,fontWeight: FontWeight.w300),
             ),
             const Spacer(flex: 8,),
             CustomAuthButton(
-              text: "Go To Sign-In",
+              text: "35".tr,
               onPressed: () {
                 controller.goToSignIn();
               },

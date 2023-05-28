@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.IBMF.ecommerce_application">
    <application
-        android:label="ecommerce_application"
+        android:label="ShopSavvy"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

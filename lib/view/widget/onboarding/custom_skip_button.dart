@@ -9,17 +9,14 @@ class OnBoardingSkipButton extends GetView<OnBoardingControllerImp> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialButton(
-      onPressed: () {
+    return GestureDetector(
+      onTap: () {
         controller.skipOnBoarding();
       },
-      color: Colors.transparent,
-      elevation: 0,
-      textColor: Colors.black,
       child: Text(
         "5".tr,
         style: const TextStyle(
-          fontSize: 18,fontWeight: FontWeight.bold
+          fontSize: 18,fontWeight: FontWeight.bold,color: Colors.black
         ),
       ),
     );

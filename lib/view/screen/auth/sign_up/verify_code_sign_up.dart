@@ -19,7 +19,7 @@ class SignUpVerifyCode extends StatelessWidget {
         elevation: 0,
         backgroundColor: Colors.deepOrangeAccent,
         centerTitle: true,
-        title: const Text("Verification Code"),
+        title: Text("29".tr),
       ),
       body: Container(
         padding: const EdgeInsets.symmetric(horizontal: 36.0),
@@ -36,9 +36,9 @@ class SignUpVerifyCode extends StatelessWidget {
             const SizedBox(
               height: 30,
             ),
-            const ForgetPasswordTexts(
-              text1: "Check Verification Code",
-              text2: "Please Enter The Digit Code Sent To \n your email.",
+            ForgetPasswordTexts(
+              text1: "30".tr,
+              text2: "31".tr,
             ),
             const SizedBox(
               height: 20,

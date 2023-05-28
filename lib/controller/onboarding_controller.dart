@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+import 'package:shop_savvy/core/services/services.dart';
 import 'package:shop_savvy/data/data_source/static/static.dart';
 import 'package:shop_savvy/view/screen/auth/sign_in.dart';
 
@@ -14,11 +15,13 @@ abstract class OnBoardingController extends GetxController {
 class OnBoardingControllerImp extends OnBoardingController {
   late PageController pageController;
   int currentPage = 0;
+  MyServices myServices = Get.find();
 
   @override
   nextPage() {
     currentPage++;
     if (currentPage > onBoardingList.length - 1) {
+      myServices.prefs.setString("onBoarding", "1");
       Get.offAllNamed(SignIn.routeName);
     } else {
       pageController.animateToPage(currentPage,
