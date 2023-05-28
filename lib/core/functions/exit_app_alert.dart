@@ -5,23 +5,23 @@ import 'package:get/get.dart';
 
 Future<bool> exitAppAlert() {
   Get.defaultDialog(
-    title: "Alert",
-    middleText: "Do you want to exit the application?",
+    title: "50".tr,
+    middleText: "51".tr,
     actions: [
       ElevatedButton(
         onPressed: () {
           exit(0);
         },
-        child: const Text(
-          "Exit",
+        child: Text(
+          "52".tr,
         ),
       ),
       ElevatedButton(
         onPressed: () {
           Get.back();
         },
-        child: const Text(
-          "Cancel",
+        child: Text(
+          "53".tr,
         ),
       ),
     ],

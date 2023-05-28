@@ -53,6 +53,16 @@ class MyTranslations extends Translations {
           "47":"تأكيد كلمة المرور",
           "48":"تقدم",
           "49":"تهانينا \n تمت إعادة تعيين كلمة المرور الخاصة بك بنجاح",
+          "50":"تنبيه",
+          "51":"هل تريد الخروج من التطبيق؟",
+          "52":"خروج",
+          "53":"إلغاء",
+          "54":"إسم المستخدم غير صالح",
+          "55":"البريد إلكتروني غير صالح",
+          "56":"رقم الهاتف غير صالح",
+          "57":"هذا الحقل لا يمكن ان يكون فارغ",
+          "58":"لا يمكن ان يكون اقل من",
+          "59":"لا يمكن ان يكون اكبر من",
         },
         "en": {
           "1": "Select a Language",
@@ -104,6 +114,16 @@ class MyTranslations extends Translations {
           "47":"Confirm Password",
           "48":"Submit",
           "49":"Reset Password Successfully",
+          "50":"Alert",
+          "51":"Do you want to exit the application?",
+          "52":"Exit",
+          "53":"Cancel",
+          "54":"Not Valid User Name",
+          "55":"Not Valid Email Address",
+          "56":"Not Valid Phone Number",
+          "57":"Required Field! Can't be empty.",
+          "58":"Can't be less than ",
+          "59":"Can't be larger than ",
          }
       };
 }
