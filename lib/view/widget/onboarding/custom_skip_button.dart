@@ -13,10 +13,13 @@ class OnBoardingSkipButton extends GetView<OnBoardingControllerImp> {
       onTap: () {
         controller.skipOnBoarding();
       },
-      child: Text(
-        "5".tr,
-        style: const TextStyle(
-          fontSize: 18,fontWeight: FontWeight.bold,color: Colors.black
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Text(
+          "5".tr,
+          style: const TextStyle(
+            fontSize: 18,fontWeight: FontWeight.bold,color: Colors.black
+          ),
         ),
       ),
     );

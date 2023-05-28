@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:shop_savvy/binding.dart';
-import 'package:shop_savvy/core/constants/color.dart';
 import 'package:shop_savvy/core/localization/change_locale.dart';
 import 'package:shop_savvy/core/localization/translations.dart';
 import 'package:shop_savvy/core/services/services.dart';
 import 'package:shop_savvy/routes.dart';
 import 'package:shop_savvy/view/screen/languages.dart';
-import 'package:shop_savvy/view/screen/onboarding.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -27,10 +24,8 @@ class ShopSavvy extends StatelessWidget {
       locale: localeController.startingLanguage,
       title: 'ShopSavvy',
       theme: localeController.appTheme,
-      // home: const Test(),
-      home: const Language(),
-      initialBinding: MyBinding(),
-      routes: routes,
+      // initialBinding: MyBinding(),
+      getPages:routes,
     );
   }
 }

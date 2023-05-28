@@ -6,6 +6,7 @@ import 'package:shop_savvy/view/screen/onboarding.dart';
 import 'package:shop_savvy/view/widget/language/custom_lang_button.dart';
 
 class Language extends GetView<LocaleController> {
+  static const String routeName = '/';
   const Language({Key? key}) : super(key: key);
 
   @override

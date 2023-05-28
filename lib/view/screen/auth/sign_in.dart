@@ -20,6 +20,7 @@ class SignIn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SignInControllerImp controller = Get.put(SignInControllerImp());
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
