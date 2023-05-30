@@ -8,10 +8,16 @@ abstract class SignUpVerifyCodeController extends GetxController{
 
 class SignUpVerifyCodeControllerImp extends SignUpVerifyCodeController{
   late String verifyCode;
-  @override
-  checkCode() {
+  String? phone;
 
+  @override
+  void onInit() {
+    phone = Get.arguments["phone"];
+    super.onInit();
   }
+
+  @override
+  checkCode() {}
 
   @override
   goToSignUpSuccess() {

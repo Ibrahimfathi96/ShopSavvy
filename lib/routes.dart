@@ -13,10 +13,10 @@ import 'package:shop_savvy/view/screen/languages.dart';
 import 'package:shop_savvy/view/screen/onboarding.dart';
 
 List<GetPage<dynamic>> routes = [
-  // GetPage(name: Language.routeName, page: () => const Language(),middlewares: [
-  //   MyMiddleWare(),
-  // ]),
-  GetPage(name: TestView.routeName, page: () => const TestView()),
+  GetPage(name: Language.routeName, page: () => const Language(),middlewares: [
+    MyMiddleWare(),
+  ]),
+  // GetPage(name: TestView.routeName, page: () => const TestView()),
   //AUTH
   GetPage(name: SignIn.routeName, page: () => const SignIn()),
   GetPage(name: SignUp.routeName, page: () => const SignUp()),

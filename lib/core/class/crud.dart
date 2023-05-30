@@ -21,7 +21,7 @@ class Crud {
         return const Left(StatusRequest.internetFailure);
       }
     } catch (_) {
-      return const Left(StatusRequest.serverFailure);
+      return const Left(StatusRequest.serverException);
     }
   }
 }

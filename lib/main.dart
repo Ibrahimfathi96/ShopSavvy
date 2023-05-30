@@ -29,8 +29,8 @@ class ShopSavvy extends StatelessWidget {
       locale: localeController.startingLanguage,
       title: 'ShopSavvy',
       theme: localeController.appTheme,
-      getPages:routes,
-      initialBinding:  InitialBindings(),
+      getPages: routes,
+      initialBinding: InitialBindings(),
     );
   }
 }

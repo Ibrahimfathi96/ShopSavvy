@@ -40,6 +40,12 @@ class SignUpVerifyCode extends StatelessWidget {
               text1: "30".tr,
               text2: "31".tr,
             ),
+            const SizedBox(height: 10,),
+            Text(
+              "+${controller.phone!}",
+              textAlign: TextAlign.center,
+              style: const TextStyle(color: Colors.black),
+            ),
             const SizedBox(
               height: 20,
             ),
