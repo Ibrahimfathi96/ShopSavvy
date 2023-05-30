@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
+import 'package:shop_savvy/core/functions/check_internet.dart';
 
 class Test extends StatefulWidget {
+  static const String routeName = '/';
   const Test({Key? key}) : super(key: key);
 
   @override
@@ -9,6 +11,19 @@ class Test extends StatefulWidget {
 }
 
 class _TestState extends State<Test> {
+  var res;
+
+  checkingInternet() async {
+    res = await checkInternet();
+    print(res);
+  }
+
+  @override
+  void initState() {
+    checkingInternet();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,7 +47,7 @@ class _TestState extends State<Test> {
               onCodeChanged: (String code) {
                 //handle validation or checks here
               },
-              onSubmit: (String verificationCode){}, // end onSubmit
+              onSubmit: (String verificationCode) {}, // end onSubmit
             ),
           ],
         ),
