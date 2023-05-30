@@ -5,8 +5,11 @@ import 'package:shop_savvy/view/screen/auth/sign_up/verify_code_sign_up.dart';
 
 abstract class SignUpController extends GetxController {
   singUp();
+
   goToSignIn();
+
   showPassword();
+
 }
 
 class SignUpControllerImp extends SignUpController {
@@ -17,9 +20,9 @@ class SignUpControllerImp extends SignUpController {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   bool isVisible = true;
 
-  @override
-  showPassword(){
-    isVisible = isVisible == true? false:true;
+ @override
+  showPassword() {
+    isVisible = isVisible == true ? false : true;
     update();
   }
 
@@ -47,12 +50,12 @@ class SignUpControllerImp extends SignUpController {
   }
 
   @override
-  singUp() {
+  singUp() async{
     var formData = formKey.currentState;
-    if(formData!.validate()){
-    Get.offAllNamed(SignUpVerifyCode.routeName);
-    debugPrint("Valid");
-    }else{
+    if (formData!.validate()) {
+      Get.offAllNamed(SignUpVerifyCode.routeName);
+      debugPrint("Valid");
+    } else {
       debugPrint("Not Valid");
     }
   }

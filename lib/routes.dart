@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:shop_savvy/core/middleware/middleware.dart';
+import 'package:shop_savvy/test/test_view.dart';
 import 'package:shop_savvy/view/screen/auth/forget_password/forget_password.dart';
 import 'package:shop_savvy/view/screen/auth/forget_password/reset_password.dart';
 import 'package:shop_savvy/view/screen/auth/forget_password/reset_password_success.dart';
@@ -12,10 +13,10 @@ import 'package:shop_savvy/view/screen/languages.dart';
 import 'package:shop_savvy/view/screen/onboarding.dart';
 
 List<GetPage<dynamic>> routes = [
-  GetPage(name: Language.routeName, page: () => const Language(),middlewares: [
-    MyMiddleWare(),
-  ]),
-  // GetPage(name: Test.routeName, page: () => const Test()),
+  // GetPage(name: Language.routeName, page: () => const Language(),middlewares: [
+  //   MyMiddleWare(),
+  // ]),
+  GetPage(name: TestView.routeName, page: () => const TestView()),
   //AUTH
   GetPage(name: SignIn.routeName, page: () => const SignIn()),
   GetPage(name: SignUp.routeName, page: () => const SignUp()),

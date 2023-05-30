@@ -5,6 +5,7 @@ import 'package:shop_savvy/core/localization/change_locale.dart';
 import 'package:shop_savvy/core/localization/translations.dart';
 import 'package:shop_savvy/core/services/services.dart';
 import 'package:shop_savvy/firebase_options.dart';
+import 'package:shop_savvy/initial_binding.dart';
 import 'package:shop_savvy/routes.dart';
 
 void main() async {
@@ -29,6 +30,7 @@ class ShopSavvy extends StatelessWidget {
       title: 'ShopSavvy',
       theme: localeController.appTheme,
       getPages:routes,
+      initialBinding:  InitialBindings(),
     );
   }
 }
