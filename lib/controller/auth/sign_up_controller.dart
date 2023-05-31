@@ -12,6 +12,8 @@ abstract class SignUpController extends GetxController {
   goToSignIn();
 
   showPassword();
+
+  signUpWithPhoneNumber();
 }
 
 class SignUpControllerImp extends SignUpController {
@@ -88,4 +90,7 @@ class SignUpControllerImp extends SignUpController {
       debugPrint("Not Valid");
     }
   }
+
+  @override
+  signUpWithPhoneNumber() {}
 }
