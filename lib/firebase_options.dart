@@ -44,38 +44,40 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyB50B5DsF-77DQFmXiRUf73rEXggYms_-A',
-    appId: '1:36928575052:web:afe2832c329204855706e9',
-    messagingSenderId: '36928575052',
-    projectId: 'shopsavvy-47a7a',
-    authDomain: 'shopsavvy-47a7a.firebaseapp.com',
-    storageBucket: 'shopsavvy-47a7a.appspot.com',
-    measurementId: 'G-T3G26Z6B3E',
+    apiKey: 'AIzaSyCXmPG-mmm-iNk-cdPb7I0_SDodH32UitQ',
+    appId: '1:516437365566:web:4eb63731ff5c339c7f126f',
+    messagingSenderId: '516437365566',
+    projectId: 'shopsavvy-b9b62',
+    authDomain: 'shopsavvy-b9b62.firebaseapp.com',
+    storageBucket: 'shopsavvy-b9b62.appspot.com',
+    measurementId: 'G-BHLZFPLQRP',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyARhZV95o1x-tFlnACcVoPcINJoWZZardk',
-    appId: '1:36928575052:android:a22803bc45c5d7295706e9',
-    messagingSenderId: '36928575052',
-    projectId: 'shopsavvy-47a7a',
-    storageBucket: 'shopsavvy-47a7a.appspot.com',
+    apiKey: 'AIzaSyBEzwzDrrhBI08Kts5y7m90gNZuRwPdNr8',
+    appId: '1:516437365566:android:3cb5fcd61f7318e07f126f',
+    messagingSenderId: '516437365566',
+    projectId: 'shopsavvy-b9b62',
+    storageBucket: 'shopsavvy-b9b62.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyDrIMbHt6hF_cX7FoGTRoo86mpcjK5NQPs',
-    appId: '1:36928575052:ios:2c307c66494703815706e9',
-    messagingSenderId: '36928575052',
-    projectId: 'shopsavvy-47a7a',
-    storageBucket: 'shopsavvy-47a7a.appspot.com',
+    apiKey: 'AIzaSyAZ73hdLjULVthCEn-nSeXtLegFK-M81og',
+    appId: '1:516437365566:ios:25a7000fa7360c747f126f',
+    messagingSenderId: '516437365566',
+    projectId: 'shopsavvy-b9b62',
+    storageBucket: 'shopsavvy-b9b62.appspot.com',
+    iosClientId: '516437365566-5dd0g4fso49rb94nafdh1c8gudbifk5c.apps.googleusercontent.com',
     iosBundleId: 'com.IBMF.ecommerceApplication',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyDrIMbHt6hF_cX7FoGTRoo86mpcjK5NQPs',
-    appId: '1:36928575052:ios:2c307c66494703815706e9',
-    messagingSenderId: '36928575052',
-    projectId: 'shopsavvy-47a7a',
-    storageBucket: 'shopsavvy-47a7a.appspot.com',
+    apiKey: 'AIzaSyAZ73hdLjULVthCEn-nSeXtLegFK-M81og',
+    appId: '1:516437365566:ios:25a7000fa7360c747f126f',
+    messagingSenderId: '516437365566',
+    projectId: 'shopsavvy-b9b62',
+    storageBucket: 'shopsavvy-b9b62.appspot.com',
+    iosClientId: '516437365566-5dd0g4fso49rb94nafdh1c8gudbifk5c.apps.googleusercontent.com',
     iosBundleId: 'com.IBMF.ecommerceApplication',
   );
 }
