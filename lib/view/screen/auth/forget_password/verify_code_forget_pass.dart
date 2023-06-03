@@ -44,11 +44,9 @@ class ForgetPasswordVerifyCode extends StatelessWidget {
               height: 20,
             ),
             OTPTextFields(
-              onSubmit: (String verificationCode) {
+              onCompleted: (code){
+                //otpCode = code
                 controller.goToResetPassword();
-              },
-              onCodeChanged: (String code) {
-                //handle validation or checks here
               },
             ),
           ],

@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shop_savvy/core/class/status_request.dart';
@@ -13,7 +14,7 @@ abstract class SignUpController extends GetxController {
 
   showPassword();
 
-  signUpWithPhoneNumber();
+  verifyPhone(String phone);
 }
 
 class SignUpControllerImp extends SignUpController {
@@ -26,6 +27,29 @@ class SignUpControllerImp extends SignUpController {
   StatusRequest? statusRequest;
   SignUpData signUpData = SignUpData(Get.find());
   List data = [];
+  var authState = ''.obs;
+  String verificationID = '';
+  var auth = FirebaseAuth.instance;
+
+  @override
+  verifyPhone(String phone) async {
+    await auth.verifyPhoneNumber(
+      phoneNumber: '+201156789207',
+      timeout: const Duration(seconds: 40),
+      verificationCompleted: (PhoneAuthCredential credential) {},
+      verificationFailed: (authException) {
+        Get.snackbar("Error", "Problem when send the code.");
+      },
+      codeSent: (String id, int? forceResent) {
+        verificationID = id;
+        authState.value = "Login Success";
+      },
+      codeAutoRetrievalTimeout: (id) {
+        verificationID = id;
+      },
+    );
+  }
+
 
   @override
   showPassword() {
@@ -90,7 +114,4 @@ class SignUpControllerImp extends SignUpController {
       debugPrint("Not Valid");
     }
   }
-
-  @override
-  signUpWithPhoneNumber() {}
 }

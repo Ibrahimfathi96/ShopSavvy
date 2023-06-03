@@ -1,25 +1,44 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
+import 'package:pin_code_fields/pin_code_fields.dart';
+import 'package:shop_savvy/core/constants/color.dart';
 
 class OTPTextFields extends StatelessWidget {
-  final void Function(String) onSubmit;
-  final void Function(String) onCodeChanged;
+  final void Function(String) onCompleted;
+
   const OTPTextFields({
-    super.key, required this.onSubmit, required this.onCodeChanged,
+    super.key, required this.onCompleted,
   });
 
   @override
   Widget build(BuildContext context) {
-    return OtpTextField(
-      fieldWidth: 50,
-      borderRadius: BorderRadius.circular(20),
-      numberOfFields: 5,
-      borderColor: const Color(0xFF512DA8),
-      //set to true to show as box or false to show as dash
-      showFieldAsBox: true,
-      //runs when a code is typed in
-      onCodeChanged:onCodeChanged,
-      onSubmit: onSubmit, // end onSubmit
+    return PinCodeTextField(
+      appContext: context,
+      length: 6,
+      cursorColor: Colors.black,
+      keyboardType: TextInputType.number,
+      autoFocus: true,
+      obscureText: false,
+      animationType: AnimationType.scale,
+      pinTheme: PinTheme(
+        shape: PinCodeFieldShape.box,
+        borderRadius: BorderRadius.circular(5),
+        fieldHeight: 50,
+        fieldWidth: 40,
+        activeFillColor: Colors.black12,
+        inactiveFillColor: Colors.white,
+        selectedColor: AppColors.primaryColor,
+        selectedFillColor: Colors.white,
+        borderWidth: 1,
+        activeColor: AppColors.primaryColor,
+        inactiveColor: Colors.black12,
+      ),
+      animationDuration: const Duration(milliseconds: 300),
+      backgroundColor: Colors.white,
+      enableActiveFill: true,
+      onCompleted: onCompleted,
+      onChanged: (value) {
+        print(value);
+      },
     );
   }
 }

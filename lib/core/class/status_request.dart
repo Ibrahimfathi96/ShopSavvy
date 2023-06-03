@@ -1,3 +1,3 @@
 enum StatusRequest{
- loading, success, failure, serverFailure, serverException, internetFailure,
+ loading, success, failure, serverFailure, serverException, internetFailure, onFirebaseErrors
 }
