@@ -1,6 +1,5 @@
 import 'package:get/get.dart';
 import 'package:shop_savvy/core/middleware/middleware.dart';
-import 'package:shop_savvy/test/test_view.dart';
 import 'package:shop_savvy/view/screen/auth/forget_password/forget_password.dart';
 import 'package:shop_savvy/view/screen/auth/forget_password/reset_password.dart';
 import 'package:shop_savvy/view/screen/auth/forget_password/reset_password_success.dart';
