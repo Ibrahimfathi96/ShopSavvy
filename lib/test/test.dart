@@ -11,11 +11,11 @@ class Test extends StatefulWidget {
 }
 
 class _TestState extends State<Test> {
-  var res;
+  var result;
 
   checkingInternet() async {
-    res = await checkInternet();
-    print(res);
+    result = await checkInternet();
+    print(result);
   }
 
   @override
@@ -33,7 +33,7 @@ class _TestState extends State<Test> {
         elevation: 0,
       ),
       body: Container(
-        padding: EdgeInsets.all(20),
+        padding: const EdgeInsets.all(20),
         child: ListView(
           children: [
             OtpTextField(

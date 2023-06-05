@@ -1,6 +1,5 @@
 
 import 'package:shop_savvy/controller/onboarding_controller.dart';
-import 'package:shop_savvy/core/constants/color.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

@@ -11,6 +11,7 @@ import 'package:shop_savvy/routes.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
+    name: "ShopSavvy",
     options: DefaultFirebaseOptions.currentPlatform,
   );
   await initServices();

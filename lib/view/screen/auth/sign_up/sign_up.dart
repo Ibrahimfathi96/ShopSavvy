@@ -4,7 +4,6 @@ import 'package:shop_savvy/controller/auth/sign_up_controller.dart';
 import 'package:shop_savvy/core/class/status_request.dart';
 import 'package:shop_savvy/core/functions/exit_app_alert.dart';
 import 'package:shop_savvy/core/functions/valid_input.dart';
-import 'package:shop_savvy/view/screen/auth/sign_up/verify_code_sign_up.dart';
 import 'package:shop_savvy/view/widget/auth/auth_body_text.dart';
 import 'package:shop_savvy/view/widget/auth/auth_nav_button.dart';
 import 'package:shop_savvy/view/widget/auth/auth_or_widget.dart';
@@ -115,7 +114,6 @@ class SignUp extends StatelessWidget {
                         CustomAuthButton(
                           onPressed: ()async {
                             controller.singUp();
-                            controller.verifyPhone('+201156789207');
                           },
                           text: "21".tr,
                         ),

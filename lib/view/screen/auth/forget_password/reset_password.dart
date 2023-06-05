@@ -14,7 +14,7 @@ class ResetPassword extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ResetPasswordControllerImp controller = Get.put(ResetPasswordControllerImp());
+    Get.put(ResetPasswordControllerImp());
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.deepOrangeAccent,

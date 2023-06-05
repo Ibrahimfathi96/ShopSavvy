@@ -14,7 +14,7 @@ abstract class SignUpController extends GetxController {
 
   showPassword();
 
-  verifyPhone(String phone);
+  verifyPhoneNumber(String phone);
 }
 
 class SignUpControllerImp extends SignUpController {
@@ -29,27 +29,7 @@ class SignUpControllerImp extends SignUpController {
   List data = [];
   var authState = ''.obs;
   String verificationID = '';
-  var auth = FirebaseAuth.instance;
-
-  @override
-  verifyPhone(String phone) async {
-    await auth.verifyPhoneNumber(
-      phoneNumber: '+201156789207',
-      timeout: const Duration(seconds: 40),
-      verificationCompleted: (PhoneAuthCredential credential) {},
-      verificationFailed: (authException) {
-        Get.snackbar("Error", "Problem when send the code.");
-      },
-      codeSent: (String id, int? forceResent) {
-        verificationID = id;
-        authState.value = "Login Success";
-      },
-      codeAutoRetrievalTimeout: (id) {
-        verificationID = id;
-      },
-    );
-  }
-
+  var authServices = FirebaseAuth.instance;
 
   @override
   showPassword() {
@@ -88,6 +68,8 @@ class SignUpControllerImp extends SignUpController {
       update();
       var response = await signUpData.postData(fullNameController.text,
           passwordController.text, emailController.text, phoneController.text);
+      await verifyPhoneNumber(phoneController.text);
+      await createAccountWithFirebaseAuth();
       statusRequest = handlingData(response);
       if (StatusRequest.success == statusRequest) {
         if (response['status'] == 'success') {
@@ -112,6 +94,52 @@ class SignUpControllerImp extends SignUpController {
       debugPrint("Valid");
     } else {
       debugPrint("Not Valid");
+    }
+  }
+
+  @override
+  verifyPhoneNumber(String phone) async {
+    await authServices.verifyPhoneNumber(
+      phoneNumber: phone,
+      timeout: const Duration(seconds: 40),
+      verificationCompleted: (PhoneAuthCredential credential) async {
+        await authServices.signInWithCredential(credential);
+      },
+      verificationFailed: (FirebaseAuthException authException) {
+        if (authException.code == 'invalid-phone-number') {
+          Get.snackbar(
+              "Code Error!", 'The provided phone number is not valid.');
+        } else {
+          Get.snackbar(
+              "Unknown Error!", "Something Went Wrong While Sending the code");
+        }
+      },
+      codeSent: (String id, int? resendToken) {
+        verificationID = id;
+        authState.value = "Success Login With Phone";
+      },
+      codeAutoRetrievalTimeout: (String id) {
+        verificationID = id;
+      },
+    );
+  }
+
+  createAccountWithFirebaseAuth() async {
+    try {
+      var credential = await authServices.createUserWithEmailAndPassword(
+        email: emailController.text,
+        password: passwordController.text,
+      );
+      Get.snackbar("UserID!", credential.user?.uid ?? "");
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'weak-password') {
+        Get.snackbar("Warning!", "The password provided is too weak.");
+      } else if (e.code == 'email-already-in-use') {
+        Get.snackbar("Warning!", "The account already exists for that email.");
+      }
+    } catch (e) {
+      Get.snackbar("Warning!",
+          "something went wrong, please try again later,\n${e.toString()}");
     }
   }
 }

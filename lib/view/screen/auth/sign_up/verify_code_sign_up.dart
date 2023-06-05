@@ -42,7 +42,7 @@ class SignUpVerifyCode extends StatelessWidget {
             ),
             const SizedBox(height: 10,),
             Text(
-              "+2${controller.phone!}",
+              controller.phone!,
               textAlign: TextAlign.center,
               style: const TextStyle(color: Colors.black),
             ),
@@ -51,7 +51,6 @@ class SignUpVerifyCode extends StatelessWidget {
             ),
             OTPTextFields(
               onCompleted: (code){
-                //otpCode = code
                 controller.goToSignUpSuccess();
               },
             ),
