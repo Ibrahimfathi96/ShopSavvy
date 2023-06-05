@@ -8,6 +8,7 @@ import 'package:shop_savvy/view/screen/auth/sign_up/sign_up.dart';
 import 'package:shop_savvy/view/screen/auth/sign_up/sign_up_successfully.dart';
 import 'package:shop_savvy/view/screen/auth/forget_password/verify_code_forget_pass.dart';
 import 'package:shop_savvy/view/screen/auth/sign_up/verify_code_sign_up.dart';
+import 'package:shop_savvy/view/screen/home/home.dart';
 import 'package:shop_savvy/view/screen/languages.dart';
 import 'package:shop_savvy/view/screen/onboarding.dart';
 
@@ -27,4 +28,6 @@ List<GetPage<dynamic>> routes = [
   GetPage(name: SignUpSuccessfully.routeName  , page: () => const SignUpSuccessfully()),
   //OnBoarding
   GetPage(name: OnBoarding.routeName  , page: () => const OnBoarding()),
+  //Home
+  GetPage(name: HomeView.routeName  , page: () => const HomeView()),
 ];

@@ -32,12 +32,13 @@ class SignUpVerifyCodeControllerImp extends SignUpVerifyCodeController {
     Get.offAllNamed(SignUpSuccessfully.routeName);
   }
 
+
   @override
   verifyOtp(String otp) async {
     var credential = await auth.signInWithCredential(
         PhoneAuthProvider.credential(
             verificationId: verificationID, smsCode: otp));
-    if (credential.user != null) {
+    if(credential.user?.uid != null){
       goToSignUpSuccess();
     }
   }

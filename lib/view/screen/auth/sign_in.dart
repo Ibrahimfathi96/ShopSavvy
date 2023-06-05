@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shop_savvy/controller/auth/sign_in_controller.dart';
+import 'package:shop_savvy/core/class/status_request.dart';
 import 'package:shop_savvy/core/functions/exit_app_alert.dart';
 import 'package:shop_savvy/core/functions/valid_input.dart';
 import 'package:shop_savvy/view/widget/auth/auth_body_text.dart';
@@ -34,7 +35,10 @@ class SignIn extends StatelessWidget {
       body: WillPopScope(
         onWillPop: exitAppAlert,
         child: GetBuilder<SignInControllerImp>(
-          builder: (controller) => Container(
+          builder: (controller) =>
+              controller.statusRequest == StatusRequest.loading?
+                  const Center(child: Text("Loading"),):
+              Container(
             padding: const EdgeInsets.symmetric(horizontal: 36, vertical: 16),
             child: Form(
               key: controller.formKey,
