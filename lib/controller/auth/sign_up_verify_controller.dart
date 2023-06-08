@@ -17,7 +17,7 @@ abstract class SignUpVerifyCodeController extends GetxController {
 class SignUpVerifyCodeControllerImp extends SignUpVerifyCodeController {
   String? email;
   VerifyCodeSignUpData verifyCodeSignUpData = VerifyCodeSignUpData(Get.find());
-  StatusRequest? statusRequest;
+  StatusRequest statusRequest = StatusRequest.none;
   String verificationID = '';
 
   var auth = FirebaseAuth.instance;

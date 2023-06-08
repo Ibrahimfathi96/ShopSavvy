@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shop_savvy/controller/forget_password/forget_password_controller.dart';
-import 'package:shop_savvy/core/class/status_request.dart';
+import 'package:shop_savvy/core/class/handling_data_view.dart';
 import 'package:shop_savvy/core/functions/valid_input.dart';
 import 'package:shop_savvy/view/widget/auth/auth_nav_button.dart';
 import 'package:shop_savvy/view/widget/auth/custom_text_form_field.dart';
@@ -33,56 +33,55 @@ class ForgetPassword extends StatelessWidget {
       ),
       body: GetBuilder<ForgetPasswordControllerImp>(
           builder: (controller) =>
-              controller.statusRequest == StatusRequest.loading
-                  ? const Center(
-                      child: Text("Loading..."),
-                    )
-                  : Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 36.0),
-                      child: Form(
-                        key: controller.formKey,
-                        child: ListView(
-                          physics: const BouncingScrollPhysics(),
-                          children: [
-                            const ForgetPasswordLockIcon(),
-                            ForgetPasswordTexts(
-                              text1: "37".tr,
-                              text2: "38".tr,
-                            ),
-                            const SizedBox(
-                              height: 30,
-                            ),
-                            CustomAuthTextFormField(
-                              validator: (val) {
-                                return validInput(val!, 5, 100, "email");
-                              },
-                              textInputAction: TextInputAction.done,
-                              keyboardType: TextInputType.emailAddress,
-                              hintText: "15".tr,
-                              labelText: "16".tr,
-                              iconData: Icons.email_outlined,
-                              controller: controller.emailController,
-                            ),
-                            CustomAuthButton(
-                              text: "39".tr,
-                              onPressed: () {
-                                controller.checkEmail();
-                              },
-                            ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            AuthNavButton(
-                              text1: "40".tr,
-                              text2: "12".tr,
-                              onTap: () {
-                                controller.goBackToSignIn();
-                              },
-                            )
-                          ],
+            HandlingRequests(
+              statusRequest: controller.statusRequest,
+              widget: Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 36.0),
+                        child: Form(
+                          key: controller.formKey,
+                          child: ListView(
+                            physics: const BouncingScrollPhysics(),
+                            children: [
+                              const ForgetPasswordLockIcon(),
+                              ForgetPasswordTexts(
+                                text1: "37".tr,
+                                text2: "38".tr,
+                              ),
+                              const SizedBox(
+                                height: 30,
+                              ),
+                              CustomAuthTextFormField(
+                                validator: (val) {
+                                  return validInput(val!, 5, 100, "email");
+                                },
+                                textInputAction: TextInputAction.done,
+                                keyboardType: TextInputType.emailAddress,
+                                hintText: "15".tr,
+                                labelText: "16".tr,
+                                iconData: Icons.email_outlined,
+                                controller: controller.emailController,
+                              ),
+                              CustomAuthButton(
+                                text: "39".tr,
+                                onPressed: () {
+                                  controller.checkEmail();
+                                },
+                              ),
+                              const SizedBox(
+                                height: 10,
+                              ),
+                              AuthNavButton(
+                                text1: "40".tr,
+                                text2: "12".tr,
+                                onTap: () {
+                                  controller.goBackToSignIn();
+                                },
+                              )
+                            ],
+                          ),
                         ),
                       ),
-                    )),
+            )),
     );
   }
 }

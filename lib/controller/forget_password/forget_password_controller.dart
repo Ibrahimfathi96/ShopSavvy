@@ -30,7 +30,7 @@ class ForgetPasswordControllerImp extends ForgetPasswordController {
   CheckPhoneForgetPasswordData(Get.find());
   CheckEmailForgetPasswordData checkEmailData =
   CheckEmailForgetPasswordData(Get.find());
-  StatusRequest? statusRequest;
+  StatusRequest statusRequest = StatusRequest.none;
   var authServices = FirebaseAuth.instance;
   String verificationID = '';
   var authState = ''.obs;

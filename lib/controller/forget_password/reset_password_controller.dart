@@ -22,7 +22,7 @@ class ResetPasswordControllerImp extends ResetPasswordController {
   bool isVisible1 = true;
   bool isVisible2 = true;
   ResetPasswordData resetPasswordData = ResetPasswordData(Get.find());
-  StatusRequest? statusRequest;
+  StatusRequest statusRequest = StatusRequest.none;
   String? email;
 
   @override

@@ -20,7 +20,7 @@ class ForgetPasswordVerifyCodeControllerImp
   VerifyCodeForgetPasswordData verifyCodeForgetPasswordData =
       VerifyCodeForgetPasswordData(Get.find());
   String verificationID = '';
-  StatusRequest? statusRequest;
+  StatusRequest statusRequest = StatusRequest.none;
 
   @override
   void onInit() {
