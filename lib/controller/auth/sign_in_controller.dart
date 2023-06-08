@@ -23,7 +23,7 @@ class SignInControllerImp extends SignInController {
   late TextEditingController emailController;
   late TextEditingController passwordController;
   bool isVisible = true;
-  StatusRequest? statusRequest;
+  StatusRequest statusRequest = StatusRequest.none;
   SignInData signInData = SignInData(Get.find());
   FirebaseAuth authServices = FirebaseAuth.instance;
 
@@ -62,12 +62,12 @@ class SignInControllerImp extends SignInController {
         emailController.text,
         passwordController.text,
       );
-      await signInWithFirebase();
+      debugPrint("============= SignInController $response");
+      // await signInWithFirebase();
       statusRequest = handlingData(response);
       if (StatusRequest.success == statusRequest) {
         if (response['status'] == 'success') {
-          // if we only use api verification , here we should navigate
-          debugPrint("Success");
+          Get.offAllNamed(HomeView.routeName);
         } else {
           Get.defaultDialog(
               title: "Warning!",

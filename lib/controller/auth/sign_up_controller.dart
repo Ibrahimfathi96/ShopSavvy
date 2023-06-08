@@ -68,13 +68,13 @@ class SignUpControllerImp extends SignUpController {
       update();
       var response = await signUpData.postData(fullNameController.text,
           passwordController.text, emailController.text, phoneController.text);
-      await verifyPhoneNumber(phoneController.text);
-      await createAccountWithFirebaseAuth();
+      // await verifyPhoneNumber(phoneController.text);
+      // await createAccountWithFirebaseAuth();
       statusRequest = handlingData(response);
       if (StatusRequest.success == statusRequest) {
         if (response['status'] == 'success') {
           Get.offAllNamed(SignUpVerifyCode.routeName,
-              arguments: {"phone": phoneController.text});
+              arguments: {"email": emailController.text});
         } else {
           Get.defaultDialog(
               title: "Warning!",

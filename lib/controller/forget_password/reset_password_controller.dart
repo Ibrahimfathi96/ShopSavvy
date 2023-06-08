@@ -57,18 +57,27 @@ class ResetPasswordControllerImp extends ResetPasswordController {
     var formData = formKey.currentState;
     if (newPassword.text != confirmPassword.text) {
       return Get.defaultDialog(
-          title: "Warning!", middleText: "Password not match.");
+          title: "Warning!",
+          middleText: "Password doesn't match.",
+          actions: [
+            ElevatedButton(
+              onPressed: () {
+                Get.back();
+              },
+              child: const Text("Ok"),
+            ),
+          ]);
     }
     if (formData!.validate()) {
       statusRequest = StatusRequest.loading;
       update();
       var response = await resetPasswordData.postData(email!, newPassword.text);
+      debugPrint(
+          "============== ResetPasswordSuccessfullyController: $response");
       statusRequest = handlingData(response);
       if (StatusRequest.success == statusRequest) {
         if (response['status'] == 'success') {
-          // if we only use api verification , here we should navigate
           goToResetPasswordSuccessfully();
-          debugPrint("Success");
         } else {
           Get.defaultDialog(
               title: "Warning!",
@@ -93,12 +102,6 @@ class ResetPasswordControllerImp extends ResetPasswordController {
 
   @override
   goToResetPasswordSuccessfully() {
-    var formData = formKey.currentState;
-    if (formData!.validate()) {
-      Get.offNamed(ResetPasswordSuccessfully.routeName);
-      debugPrint("Valid");
-    } else {
-      debugPrint("Not Valid");
-    }
+    Get.offNamed(ResetPasswordSuccessfully.routeName);
   }
 }

@@ -73,13 +73,11 @@ class ForgetPasswordControllerImp extends ForgetPasswordController {
       var response = await checkEmailData.postData(
         emailController.text,
       );
-      await checkFirebaseEmail();
+      // await checkFirebaseEmail();
       statusRequest = handlingData(response);
       if (StatusRequest.success == statusRequest) {
         if (response['status'] == 'success') {
-          goToResetPassword();
-          // if we only use api verification , here we should navigate
-          debugPrint("Success");
+          goToVerifyCode();
         } else {
           Get.defaultDialog(
               title: "Warning!",

@@ -8,9 +8,10 @@ class AppLink{
 /*================ AUTH =================*/
   static const String signup = "$server/auth/sign_up.php";
   static const String signIn = "$server/auth/sign_in.php";
+  static const String signupVerifyCode = "$server/auth/verify_code.php";
   /*================ ForgetPassword =================*/
   static const String checkEmail = "$server/forget_password/check_email.php";
   static const String checkPhone = "$server/forget_password/check_phone_number.php";
   static const String resetPassword = "$server/forget_password/reset_password.php";
-  static const String verifyCode = "$server/forget_password/verify_code.php";
+  static const String fpVerifyCode = "$server/forget_password/verify_code.php";
 }
