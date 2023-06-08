@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:shop_savvy/controller/auth/fp_verify_code_controller.dart';
+import 'package:shop_savvy/controller/auth/sign_up_controller.dart';
+import 'package:shop_savvy/controller/forget_password/fp_verify_code_controller.dart';
+import 'package:shop_savvy/core/constants/color.dart';
 import 'package:shop_savvy/core/constants/image_assets.dart';
 import 'package:shop_savvy/view/widget/auth/forget_password_texts.dart';
 import 'package:shop_savvy/view/widget/auth/otp_text_field.dart';
@@ -14,6 +16,7 @@ class ForgetPasswordVerifyCode extends StatelessWidget {
   Widget build(BuildContext context) {
     ForgetPasswordVerifyCodeControllerImp controller =
         Get.put(ForgetPasswordVerifyCodeControllerImp());
+
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -41,13 +44,37 @@ class ForgetPasswordVerifyCode extends StatelessWidget {
               text2: "31".tr,
             ),
             const SizedBox(
+              height: 6,
+            ),
+            Text(
+              controller.phone!,
+              textAlign: TextAlign.center,
+              style: const TextStyle(color: Colors.black,fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(
               height: 20,
             ),
             OTPTextFields(
-              onCompleted: (code){
-                //otpCode = code
+              onCompleted: (code) {
+                controller.verifyOtp(code);
                 controller.goToResetPassword();
               },
+            ),
+            SizedBox(
+              height: MediaQuery.of(context).size.height / 3,
+            ),
+            Align(
+              alignment: Alignment.center,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: AppColors.primaryColor,
+                  minimumSize: const Size(110, 50),
+                ),
+                onPressed: () {
+                  SignUpControllerImp().verifyPhoneNumber(controller.phone!);
+                },
+                child: const Text("Re-send Code"),
+              ),
             ),
           ],
         ),

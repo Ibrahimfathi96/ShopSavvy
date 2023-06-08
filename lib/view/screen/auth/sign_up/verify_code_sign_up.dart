@@ -57,6 +57,7 @@ class SignUpVerifyCode extends StatelessWidget {
               onCompleted: (code) {
                 debugPrint(code);
                 controller.verifyOtp(code);
+                controller.goToSignUpSuccess();
               },
             ),
             SizedBox(

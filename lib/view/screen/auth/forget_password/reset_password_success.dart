@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:shop_savvy/controller/auth/fp_success_controller.dart';
+import 'package:shop_savvy/controller/forget_password/fp_success_controller.dart';
 import 'package:shop_savvy/view/widget/auth/cutom_auth_button.dart';
 
 class ResetPasswordSuccessfully extends StatelessWidget {
