@@ -81,7 +81,7 @@ class ForgetPasswordControllerImp extends ForgetPasswordController {
         } else {
           Get.defaultDialog(
               title: "Warning!",
-              middleText: ("Email Address isn't found."),
+              middleText: ("E-mail Address not found."),
               actions: [
                 ElevatedButton(
                   onPressed: () {
