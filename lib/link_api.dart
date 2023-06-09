@@ -27,4 +27,5 @@ class AppLink {
   static const String imagesLink = "$server/uploads";
   static const String imagesCategories = "$imagesLink/categories";
   static const String imagesItems = "$imagesLink/items";
+  static const String laptops = "$imagesItems/laptop";
 }

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
 class HomeNotificationIcon extends StatelessWidget {
+  final void Function()? onNotificationPress;
   const HomeNotificationIcon({
-    super.key,
+    super.key, this.onNotificationPress,
   });
 
   @override
@@ -10,7 +11,7 @@ class HomeNotificationIcon extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 8),
       child: IconButton(
-        onPressed: () {},
+        onPressed: onNotificationPress,
         icon: Icon(
           Icons.notifications_active_outlined,
           size: 36,

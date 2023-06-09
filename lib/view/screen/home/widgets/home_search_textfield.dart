@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 
 class HomeSearchTextField extends StatelessWidget {
+  final String appBarTitle ;
+  final void Function()? onSearchPress ;
   const HomeSearchTextField({
-    super.key,
+    super.key, required this.appBarTitle, this.onSearchPress,
   });
 
   @override
@@ -11,8 +13,11 @@ class HomeSearchTextField extends StatelessWidget {
       child: TextFormField(
         decoration: InputDecoration(
           contentPadding: EdgeInsets.zero,
-          prefixIcon: const Icon(Icons.search_outlined),
-          hintText: "Find your product..",
+          prefixIcon: IconButton(
+            icon: const Icon(Icons.search_outlined),
+            onPressed: onSearchPress,
+          ),
+          hintText: appBarTitle,
           border: OutlineInputBorder(
             borderSide: BorderSide.none,
             borderRadius: BorderRadius.circular(16),

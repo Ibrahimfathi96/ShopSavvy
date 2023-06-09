@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:shop_savvy/core/constants/color.dart';
-import 'package:shop_savvy/core/constants/image_assets.dart';
 
 class HomeCashBackWidget extends StatelessWidget {
+  final String homeBannerTitle;
+  final String homeBannerOffer;
+  final String lottieFile;
   const HomeCashBackWidget({
-    super.key,
+    super.key, required this.homeBannerTitle, required this.homeBannerOffer, required this.lottieFile,
   });
 
   @override
@@ -19,17 +21,17 @@ class HomeCashBackWidget extends StatelessWidget {
             color: AppColors.primaryColor,
             borderRadius: BorderRadius.circular(16),
           ),
-          child: const ListTile(
+          child: ListTile(
             title: Text(
-              "A Summer Surprise",
-              style: TextStyle(
+              homeBannerTitle,
+              style: const TextStyle(
                 color: Colors.white,
                 fontSize: 20,
               ),
             ),
             subtitle: Text(
-              "Cashback 20%",
-              style: TextStyle(
+              homeBannerOffer,
+              style: const TextStyle(
                 color: Colors.white,
                 fontSize: 30,
               ),
@@ -47,7 +49,7 @@ class HomeCashBackWidget extends StatelessWidget {
               borderRadius: BorderRadius.circular(140),
             ),
             child: LottieBuilder.asset(
-              AppImageFromAssets.cashBack,
+              lottieFile,
               width: 500,
               height: 500,
             ),

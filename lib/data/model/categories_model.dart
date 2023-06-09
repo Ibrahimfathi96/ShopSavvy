@@ -1,5 +1,5 @@
 class CategoriesMD {
-  String? categoriesId;
+  int? categoriesId;
   String? categoriesName;
   String? categoriesNameAr;
   String? categoriesImage;
