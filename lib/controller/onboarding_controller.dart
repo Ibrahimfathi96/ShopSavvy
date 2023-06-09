@@ -21,7 +21,7 @@ class OnBoardingControllerImp extends OnBoardingController {
   nextPage() {
     currentPage++;
     if (currentPage > onBoardingList.length - 1) {
-      myServices.prefs.setString("onBoarding", "1");
+      myServices.prefs.setString("step", "1");
       Get.offAllNamed(SignIn.routeName);
     } else {
       pageController.animateToPage(currentPage,

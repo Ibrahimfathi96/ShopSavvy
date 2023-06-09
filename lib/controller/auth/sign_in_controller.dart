@@ -1,8 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shop_savvy/core/class/status_request.dart';
 import 'package:shop_savvy/core/functions/handling_data.dart';
+import 'package:shop_savvy/core/services/services.dart';
 import 'package:shop_savvy/data/data_source/remote/auth/sign_in_remote.dart';
 import 'package:shop_savvy/view/screen/auth/forget_password/forget_password.dart';
 import 'package:shop_savvy/view/screen/auth/sign_up/sign_up.dart';
@@ -26,6 +28,7 @@ class SignInControllerImp extends SignInController {
   StatusRequest statusRequest = StatusRequest.none;
   SignInData signInData = SignInData(Get.find());
   FirebaseAuth authServices = FirebaseAuth.instance;
+  MyServices services = Get.find();
 
   @override
   showPassword() {
@@ -35,6 +38,10 @@ class SignInControllerImp extends SignInController {
 
   @override
   void onInit() {
+    FirebaseMessaging.instance.getToken().then((value) {
+      debugPrint("=========================FirebaseToken $value");
+      String? token = value;
+    });
     emailController = TextEditingController();
     passwordController = TextEditingController();
     super.onInit();
@@ -67,6 +74,11 @@ class SignInControllerImp extends SignInController {
       statusRequest = handlingData(response);
       if (StatusRequest.success == statusRequest) {
         if (response['status'] == 'success') {
+          services.prefs.setString("id", response['data']['users_id'].toString());
+          services.prefs.setString("email", response['data']['users_email']);
+          services.prefs.setString("phone", response['data']['users_phone']);
+          services.prefs.setString("userName", response['data']['users_name']);
+          services.prefs.setString("step", "2");
           Get.offAllNamed(HomeView.routeName);
         } else {
           Get.defaultDialog(
