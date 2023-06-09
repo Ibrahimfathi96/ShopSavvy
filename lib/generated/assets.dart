@@ -10,12 +10,14 @@ class Assets {
   static const String cairoCairoSemiBold = 'assets/fonts/Cairo/Cairo-SemiBold.ttf';
   static const String flagsEn = 'assets/flags/en.png';
   static const String flagsSa = 'assets/flags/sa.png';
+  static const String imagesCashBack = 'assets/images/cash_back.png';
   static const String imagesCode = 'assets/images/code.png';
   static const String imagesLogo = 'assets/images/logo.png';
   static const String imagesOnboardingfour = 'assets/images/onboardingfour.PNG';
   static const String imagesOnboardingone = 'assets/images/onboardingone.PNG';
   static const String imagesOnboardingthree = 'assets/images/onboardingthree.PNG';
   static const String imagesOnboardingtwo = 'assets/images/onboardingtwo.PNG';
+  static const String lottieCashBack = 'assets/lottie/cash_back.json';
   static const String lottieLoading = 'assets/lottie/loading.json';
   static const String lottieNodata = 'assets/lottie/nodata.json';
   static const String lottieOffline = 'assets/lottie/offline.json';
