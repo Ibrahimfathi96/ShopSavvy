@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shop_savvy/core/constants/color.dart';
 import 'package:shop_savvy/data/model/ItemsMD.dart';
 import 'package:shop_savvy/link_api.dart';
 
@@ -32,6 +33,7 @@ class OffersListViewItem extends StatelessWidget {
           height: 370,
           width: 270,
           decoration: BoxDecoration(
+            border: Border.all(color: AppColors.darkColor,width: 2),
             color: Colors.black.withOpacity(0.2),
             borderRadius: BorderRadius.circular(
               16,

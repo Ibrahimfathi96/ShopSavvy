@@ -58,6 +58,7 @@ dependencies:
   # otp
   flutter_otp_text_field: ^1.1.1
   pin_code_fields: ^7.4.0
+  persistent_bottom_nav_bar_v2: ^4.2.8
 
 
 

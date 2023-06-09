@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shop_savvy/core/services/services.dart';
 import 'package:shop_savvy/view/screen/auth/sign_in.dart';
-import 'package:shop_savvy/view/screen/home/home.dart';
+import 'package:shop_savvy/view/screen/home/home_screen.dart';
 
 class MyMiddleWare extends GetMiddleware {
   @override
@@ -11,7 +11,7 @@ class MyMiddleWare extends GetMiddleware {
   @override
   RouteSettings? redirect(String? route) {
     if(myServices.prefs.getString("step") == "2"){
-      return const RouteSettings(name: HomeView.routeName);
+      return const RouteSettings(name: HomeScreen.routeName);
     }
     if(myServices.prefs.getString("step") == "1"){
       return const RouteSettings(name: SignIn.routeName);

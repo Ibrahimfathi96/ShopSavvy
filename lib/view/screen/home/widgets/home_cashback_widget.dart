@@ -18,6 +18,7 @@ class HomeCashBackWidget extends StatelessWidget {
           height: 150,
           alignment: Alignment.center,
           decoration: BoxDecoration(
+            border: Border.all(color: AppColors.darkColor,width: 2),
             color: AppColors.primaryColor,
             borderRadius: BorderRadius.circular(16),
           ),
