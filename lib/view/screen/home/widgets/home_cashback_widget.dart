@@ -10,52 +10,50 @@ class HomeCashBackWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Stack(
-        children: [
-          Container(
-            height: 150,
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
-              color: AppColors.primaryColor,
-              borderRadius: BorderRadius.circular(16),
-            ),
-            child: const ListTile(
-              title: Text(
-                "A Summer Surprise",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 20,
-                ),
+    return Stack(
+      children: [
+        Container(
+          height: 150,
+          alignment: Alignment.center,
+          decoration: BoxDecoration(
+            color: AppColors.primaryColor,
+            borderRadius: BorderRadius.circular(16),
+          ),
+          child: const ListTile(
+            title: Text(
+              "A Summer Surprise",
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 20,
               ),
-              subtitle: Text(
-                "Cashback 20%",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 30,
-                ),
+            ),
+            subtitle: Text(
+              "Cashback 20%",
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 30,
               ),
             ),
           ),
-          Positioned(
-            top: -10,
-            right: -35,
-            child: Container(
-              height: 170,
-              width: 160,
-              decoration: BoxDecoration(
-                color: const Color(0xFFF79F1F),
-                borderRadius: BorderRadius.circular(160),
-              ),
-              child: LottieBuilder.asset(
-                AppImageFromAssets.cashBack,
-                width: 500,
-                height: 500,
-              ),
+        ),
+        Positioned(
+          top: -10,
+          right: -35,
+          child: Container(
+            height: 170,
+            width: 160,
+            decoration: BoxDecoration(
+              color: const Color(0xFFbdc3c7),
+              borderRadius: BorderRadius.circular(140),
             ),
-          )
-        ],
-      ),
+            child: LottieBuilder.asset(
+              AppImageFromAssets.cashBack,
+              width: 500,
+              height: 500,
+            ),
+          ),
+        )
+      ],
     );
   }
 }

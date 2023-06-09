@@ -18,6 +18,8 @@ abstract class SignInController extends GetxController {
   goToForgetPassword();
 
   showPassword();
+
+  signInWithFirebase();
 }
 
 class SignInControllerImp extends SignInController {
@@ -74,7 +76,8 @@ class SignInControllerImp extends SignInController {
       statusRequest = handlingData(response);
       if (StatusRequest.success == statusRequest) {
         if (response['status'] == 'success') {
-          services.prefs.setString("id", response['data']['users_id'].toString());
+          services.prefs
+              .setString("id", response['data']['users_id'].toString());
           services.prefs.setString("email", response['data']['users_email']);
           services.prefs.setString("phone", response['data']['users_phone']);
           services.prefs.setString("userName", response['data']['users_name']);
@@ -107,6 +110,7 @@ class SignInControllerImp extends SignInController {
     Get.toNamed(ForgetPassword.routeName);
   }
 
+  @override
   signInWithFirebase() async {
     try {
       var credential = await authServices.signInWithEmailAndPassword(

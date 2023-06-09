@@ -10,9 +10,12 @@ class Assets {
   static const String cairoCairoSemiBold = 'assets/fonts/Cairo/Cairo-SemiBold.ttf';
   static const String flagsEn = 'assets/flags/en.png';
   static const String flagsSa = 'assets/flags/sa.png';
+  static const String imagesAsusROGZephyrusM16 = 'assets/images/Asus-ROG-Zephyrus-M16.jpeg';
   static const String imagesCashBack = 'assets/images/cash_back.png';
   static const String imagesCode = 'assets/images/code.png';
+  static const String imagesLenovoIdeapad3 = 'assets/images/lenovo-ideapad3.jpg';
   static const String imagesLogo = 'assets/images/logo.png';
+  static const String imagesMac Book Air = 'assets/images/Mac-Book-Air.jpg';
   static const String imagesOnboardingfour = 'assets/images/onboardingfour.PNG';
   static const String imagesOnboardingone = 'assets/images/onboardingone.PNG';
   static const String imagesOnboardingthree = 'assets/images/onboardingthree.PNG';

@@ -15,6 +15,7 @@ abstract class SignUpController extends GetxController {
   showPassword();
 
   verifyPhoneNumber(String phone);
+  createAccountWithFirebaseAuth();
 }
 
 class SignUpControllerImp extends SignUpController {
@@ -124,6 +125,7 @@ class SignUpControllerImp extends SignUpController {
     );
   }
 
+  @override
   createAccountWithFirebaseAuth() async {
     try {
       var credential = await authServices.createUserWithEmailAndPassword(
