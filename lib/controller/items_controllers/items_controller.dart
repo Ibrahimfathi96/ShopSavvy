@@ -11,6 +11,8 @@ abstract class ItemsController extends GetxController {
   changeCategoryOnTap(int val);
 
   getItems();
+
+  addToFavourite();
 }
 
 class ItemsControllerImp extends ItemsController {
@@ -19,6 +21,7 @@ class ItemsControllerImp extends ItemsController {
   ItemsData itemsData = ItemsData(Get.find());
   List data = [];
   StatusRequest statusRequest = StatusRequest.none;
+  bool addedToFavourite = false;
 
   @override
   void onInit() {
@@ -56,6 +59,12 @@ class ItemsControllerImp extends ItemsController {
         statusRequest = StatusRequest.failure;
       }
     }
+    update();
+  }
+
+  @override
+  addToFavourite() {
+    addedToFavourite = addedToFavourite == false? true:false;
     update();
   }
 }

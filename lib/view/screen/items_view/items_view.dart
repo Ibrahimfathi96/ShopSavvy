@@ -15,35 +15,35 @@ class ItemsView extends StatelessWidget {
   Widget build(BuildContext context) {
     Get.put(ItemsControllerImp());
     return Scaffold(
-      body: Container(
-        padding: const EdgeInsets.all(16),
-        child: GetBuilder<ItemsControllerImp>(
-          builder: (controller) {
-            return HandlingDataView(
-              statusRequest: controller.statusRequest,
-              widget: ListView(
-                physics: const BouncingScrollPhysics(),
-                children: [
-                  HomeCustomAppBar(
-                    backButton: GestureDetector(
-                      onTap: () {
-                        controller.goBack();
-                      },
-                      child: const Icon(Icons.arrow_back_ios),
+      body: SafeArea(
+        child: Container(
+          padding: const EdgeInsets.all(16),
+          child: GetBuilder<ItemsControllerImp>(
+            builder: (controller) {
+              return HandlingDataView(
+                statusRequest: controller.statusRequest,
+                widget: Column(
+                  children: [
+                    HomeCustomAppBar(
+                      backButton: GestureDetector(
+                        onTap: () {
+                          controller.goBack();
+                        },
+                        child: const Icon(Icons.arrow_back_ios),
+                      ),
+                      appBarTitle: "Find your product..",
+                      onSearchPress: () {},
+                      onNotificationPress: () {},
                     ),
-                    appBarTitle: "Find your product..",
-                    onSearchPress: () {},
-                    onNotificationPress: () {},
-                  ),
-                  const ItemsCategoriesListView(),
-                  const ItemsGridBuilder(),
-                ],
-              ),
-            );
-          },
+                    const ItemsCategoriesListView(),
+                    const ItemsGridBuilder(),
+                  ],
+                ),
+              );
+            },
+          ),
         ),
       ),
     );
   }
 }
-

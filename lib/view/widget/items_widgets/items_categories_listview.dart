@@ -11,7 +11,7 @@ class ItemsCategoriesListView extends GetView<ItemsControllerImp> {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
+    return SizedBox(
       child: GridView.builder(
         padding: const EdgeInsets.symmetric(vertical: 10),
         shrinkWrap: true,
@@ -24,11 +24,9 @@ class ItemsCategoriesListView extends GetView<ItemsControllerImp> {
         physics: const NeverScrollableScrollPhysics(),
         itemCount: controller.categories.length,
         itemBuilder: (context, index) {
-          return Container(
-            child: ItemsCategoriesListViewItem(
-              categoriesMD: CategoriesMD.fromJson(controller.categories[index]),
-              selectedCategory: index,
-            ),
+          return ItemsCategoriesListViewItem(
+            categoriesMD: CategoriesMD.fromJson(controller.categories[index]),
+            selectedCategory: index,
           );
         },
       ),

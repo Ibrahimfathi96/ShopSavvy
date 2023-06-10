@@ -11,18 +11,19 @@ class ItemsGridBuilder extends GetView<ItemsControllerImp> {
 
   @override
   Widget build(BuildContext context) {
-    return GridView.builder(
-      shrinkWrap: true,
-      physics: const NeverScrollableScrollPhysics(),
-      itemCount: 2,
-      gridDelegate:
-      const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
-        childAspectRatio: 0.5,
-      ),
-      itemBuilder: (context, index) => ItemsGridViewBuilder(
-        itemsMd: ItemsMd.fromJson(
-          controller.data[index],
+    return Expanded(
+      child: GridView.builder(
+        shrinkWrap: true,
+        physics: const BouncingScrollPhysics(),
+        itemCount: controller.data.length,
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          childAspectRatio: 0.5,
+        ),
+        itemBuilder: (context, index) => ItemsGridViewBuilder(
+          itemsMd: ItemsMd.fromJson(
+            controller.data[index],
+          ),
         ),
       ),
     );
