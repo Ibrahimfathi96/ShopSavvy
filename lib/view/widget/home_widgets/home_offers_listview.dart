@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shop_savvy/controller/home_controllers/home_controller.dart';
-import 'package:shop_savvy/data/model/ItemsMD.dart';
+import 'package:shop_savvy/data/model/items_model.dart';
 import 'package:shop_savvy/view/widget/home_widgets/home_offers_listview_item.dart';
 
 class OffersListView extends GetView<HomeControllerImp> {

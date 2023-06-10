@@ -15,7 +15,7 @@ class _TestState extends State<Test> {
 
   checkingInternet() async {
     result = await checkInternet();
-    print(result);
+    debugPrint(result);
   }
 
   @override

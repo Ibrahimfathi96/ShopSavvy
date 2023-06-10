@@ -6,6 +6,7 @@ import 'package:shop_savvy/view/widget/items_widgets/items_categories_listview.d
 import 'package:shop_savvy/view/widget/items_widgets/items_gridview.dart';
 
 class ItemsView extends StatelessWidget {
+
   static const String routeName = '/items-view';
 
   const ItemsView({super.key});
@@ -33,7 +34,9 @@ class ItemsView extends StatelessWidget {
                   onNotificationPress: () {},
                 ),
                 const ItemsCategoriesListView(),
-                const ItemsGridView()
+                // const ItemsGridView(
+                //   itemsMd: ,
+                // )
               ],
             ),
           ),

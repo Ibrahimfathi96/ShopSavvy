@@ -6,12 +6,15 @@ import 'package:shop_savvy/core/services/services.dart';
 import 'package:shop_savvy/data/data_source/remote/home_data.dart';
 import 'package:shop_savvy/view/screen/items_view/items_view.dart';
 
-abstract class HomeController extends GetxController{
+abstract class HomeController extends GetxController {
   initialData();
+
   getData();
-  goToItems(List categories,int selectedCategory);
+
+  goToItems(List categories, int selectedCategory);
 }
-class HomeControllerImp extends HomeController{
+
+class HomeControllerImp extends HomeController {
   MyServices myServices = Get.find();
   String? userName;
   String? id;
@@ -19,14 +22,6 @@ class HomeControllerImp extends HomeController{
   HomeData homeData = HomeData(Get.find());
   List categories = [];
   List items = [];
-
-
-
-  @override
-  initialData(){
-    userName = myServices.prefs.getString("userName");
-    id = myServices.prefs.getString("id");
-  }
 
   @override
   void onInit() {
@@ -36,16 +31,22 @@ class HomeControllerImp extends HomeController{
   }
 
   @override
-  getData() async{
+  initialData() {
+    userName = myServices.prefs.getString("userName");
+    id = myServices.prefs.getString("id");
+  }
+
+  @override
+  getData() async {
     statusRequest = StatusRequest.loading;
     var response = await homeData.getData();
     debugPrint("================= HomeController $response");
     statusRequest = handlingData(response);
-    if(StatusRequest.success == statusRequest){
-      if(response['status']=='success'){
+    if (StatusRequest.success == statusRequest) {
+      if (response['status'] == 'success') {
         categories.addAll(response['categories']);
         items.addAll(response['items']);
-      }else{
+      } else {
         statusRequest = StatusRequest.failure;
       }
     }
@@ -54,9 +55,9 @@ class HomeControllerImp extends HomeController{
 
   @override
   goToItems(categories, selectedCategory) {
-    Get.toNamed(ItemsView.routeName,arguments: {
-      "categories":categories,
-      "selectedCategory":selectedCategory,
+    Get.toNamed(ItemsView.routeName, arguments: {
+      "categories": categories,
+      "selectedCategory": selectedCategory,
     });
   }
 }

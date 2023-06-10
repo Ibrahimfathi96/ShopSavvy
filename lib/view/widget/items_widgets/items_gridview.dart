@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:shop_savvy/core/constants/color.dart';
+import 'package:shop_savvy/data/model/items_model.dart';
 import 'package:shop_savvy/link_api.dart';
 
 class ItemsGridView extends StatelessWidget {
+  final ItemsMd itemsMd;
   const ItemsGridView({
-    super.key,
+    super.key, required this.itemsMd,
   });
 
   @override
@@ -28,13 +30,13 @@ class ItemsGridView extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Image.network(
-                      '${AppLink.laptops}/lenovo-ideapad3.jpg'),
-                  const Text(
-                    "Product Title",
-                    style: TextStyle(color: Colors.black87),
+                      '${AppLink.laptops}/${itemsMd.itemsImage}'),
+                  Text(
+                    "${itemsMd.itemsName}",
+                    style: const TextStyle(color: Colors.black87),
                   ),
                   Text(
-                    "Product Description: How Are You My Friend Product Description: How Are You My Friend",
+                    "${itemsMd.itemsDesc}",
                     textAlign: TextAlign.center,
                     style: TextStyle(color: Colors.grey[700]),
                   ),
@@ -43,9 +45,9 @@ class ItemsGridView extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        const Text(
-                          "80999\$",
-                          style: TextStyle(
+                        Text(
+                          "${itemsMd.itemsPrice}\$",
+                          style: const TextStyle(
                               color: AppColors.secondaryColor),
                         ),
                         IconButton(

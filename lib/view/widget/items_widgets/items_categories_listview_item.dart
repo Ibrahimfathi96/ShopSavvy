@@ -21,9 +21,9 @@ class ItemsCategoriesListViewItem extends GetView<ItemsControllerImp> {
       child: GetBuilder<ItemsControllerImp>(builder: (logic) {
         return Material(
           borderRadius: BorderRadius.circular(16),
-          elevation: controller.selectedCategory == selectedCategory ? 16 : 0,
+          elevation: controller.selectedCategory == selectedCategory ? 30 : 0,
           child: Container(
-            padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+            padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 22),
             decoration: controller.selectedCategory == selectedCategory
                 ? BoxDecoration(
                     color: AppColors.thirdColor,
@@ -33,9 +33,16 @@ class ItemsCategoriesListViewItem extends GetView<ItemsControllerImp> {
                       width: 2,
                     ),
                   )
-                : null,
+                : BoxDecoration(
+                    borderRadius: BorderRadius.circular(16),
+                    border: Border.all(
+                      color: AppColors.darkColor,
+                      width: 1,
+                    ),
+                  ),
             child: Text(
               "${categoriesMD.categoriesName}",
+              textAlign: TextAlign.center,
               style: const TextStyle(color: Colors.black87, fontSize: 16),
             ),
           ),

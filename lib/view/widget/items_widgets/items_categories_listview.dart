@@ -11,17 +11,20 @@ class ItemsCategoriesListView extends GetView<ItemsControllerImp> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.symmetric(vertical: 16),
-      height: 50,
-      child: ListView.separated(
-        scrollDirection: Axis.horizontal,
-        physics: const BouncingScrollPhysics(),
+    return SizedBox(
+      height: 200,
+      child: GridView.builder(
+        shrinkWrap: true,
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 3,
+          childAspectRatio: 2.6,
+          mainAxisSpacing: 8,
+          crossAxisSpacing: 6,
+        ),
+        physics: const NeverScrollableScrollPhysics(),
         itemCount: controller.categories.length,
-        separatorBuilder: (context, index) => const SizedBox(width: 2,),
         itemBuilder: (context, index) {
           return Container(
-            padding: const EdgeInsets.symmetric(horizontal: 8),
             child: ItemsCategoriesListViewItem(
               categoriesMD: CategoriesMD.fromJson(controller.categories[index]),
               selectedCategory: index,
