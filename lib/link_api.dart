@@ -24,8 +24,7 @@ class AppLink {
   static const String home = "$server/home.php";
 
   //items PHP
-  static const String itemsPHP = "$server/items";
-
+  static const String itemsPHP = "$server/items/items.php";
 
   //Image Links
   static const String imagesLink = "$server/uploads";

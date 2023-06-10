@@ -11,9 +11,9 @@ class ItemsCategoriesListView extends GetView<ItemsControllerImp> {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 200,
+    return Expanded(
       child: GridView.builder(
+        padding: const EdgeInsets.symmetric(vertical: 10),
         shrinkWrap: true,
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 3,
