@@ -10,7 +10,7 @@ import 'package:shop_savvy/view/screen/auth_view/sign_up/sign_up_successfully.da
 import 'package:shop_savvy/view/screen/auth_view/sign_up/verify_code_sign_up.dart';
 import 'package:shop_savvy/view/screen/home_view/home_body.dart';
 import 'package:shop_savvy/view/screen/home_view/home_screen.dart';
-import 'package:shop_savvy/view/screen/items_view/items.dart';
+import 'package:shop_savvy/view/screen/items_view/items_view.dart';
 import 'package:shop_savvy/view/screen/languages_view.dart';
 import 'package:shop_savvy/view/screen/onboarding_view.dart';
 

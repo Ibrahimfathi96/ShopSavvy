@@ -33,6 +33,7 @@ dependencies:
   # otp
   flutter_otp_text_field: ^1.1.1
   persistent_bottom_nav_bar_v2: ^4.2.8
+  cached_network_image: ^3.2.3
 
 
 
