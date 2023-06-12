@@ -19,28 +19,26 @@ class ItemsView extends StatelessWidget {
         child: Container(
           padding: const EdgeInsets.all(16),
           child: GetBuilder<ItemsControllerImp>(
-            builder: (controller) {
-              return HandlingDataView(
-                statusRequest: controller.statusRequest,
-                widget: Column(
-                  children: [
-                    HomeCustomAppBar(
-                      backButton: GestureDetector(
-                        onTap: () {
-                          controller.goBack();
-                        },
-                        child: const Icon(Icons.arrow_back_ios),
-                      ),
-                      appBarTitle: "Find your product..",
-                      onSearchPress: () {},
-                      onNotificationPress: () {},
-                    ),
-                    const ItemsCategoriesListView(),
-                    const ItemsGridBuilder(),
-                  ],
+            builder: (controller) => Column(
+              children: [
+                HomeCustomAppBar(
+                  backButton: GestureDetector(
+                    onTap: () {
+                      controller.goBack();
+                    },
+                    child: const Icon(Icons.arrow_back_ios),
+                  ),
+                  appBarTitle: "Find your product..",
+                  onSearchPress: () {},
+                  onNotificationPress: () {},
                 ),
-              );
-            },
+                const ItemsCategoriesListView(),
+                HandlingDataView(
+                  statusRequest: controller.statusRequest,
+                  widget: const ItemsGridBuilder(),
+                ),
+              ],
+            ),
           ),
         ),
       ),

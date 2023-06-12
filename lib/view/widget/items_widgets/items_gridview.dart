@@ -18,7 +18,7 @@ class ItemsGridBuilder extends GetView<ItemsControllerImp> {
         itemCount: controller.data.length,
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
-          childAspectRatio: 0.5,
+          childAspectRatio: 0.6,
         ),
         itemBuilder: (context, index) => ItemsGridViewBuilder(
           // selectedItem: controller.data[index],

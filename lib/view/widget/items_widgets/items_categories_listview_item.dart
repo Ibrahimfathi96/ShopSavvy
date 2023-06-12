@@ -16,7 +16,7 @@ class ItemsCategoriesListViewItem extends GetView<ItemsControllerImp> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        controller.changeCategoryOnTap(selectedCategory);
+        controller.changeCategoryOnTap(selectedCategory,categoriesMD.categoriesId.toString());
       },
       child: GetBuilder<ItemsControllerImp>(builder: (logic) {
         return Material(

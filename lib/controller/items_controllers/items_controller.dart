@@ -8,7 +8,7 @@ abstract class ItemsController extends GetxController {
 
   goBack();
 
-  changeCategoryOnTap(int val);
+  changeCategoryOnTap(int val,String categoryVal);
 
   getItems(String categoryId);
 
@@ -44,13 +44,16 @@ class ItemsControllerImp extends ItemsController {
   }
 
   @override
-  changeCategoryOnTap(val) {
+  changeCategoryOnTap(val,categoryVal) {
     selectedCategory = val;
+    catId = categoryVal;
+    getItems(catId!);
     update();
   }
 
   @override
   getItems(categoryId) async {
+    data.clear();
     statusRequest = StatusRequest.loading;
     var response = await itemsData.getData(categoryId);
     statusRequest = handlingData(response);
