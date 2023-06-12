@@ -6,15 +6,19 @@ import 'package:shop_savvy/data/model/categories_model.dart';
 import 'package:shop_savvy/link_api.dart';
 
 class HomeCategoriesListViewItem extends GetView<HomeControllerImp> {
-  final int selectedCategory ;
+  final int selectedCategory;
+
   final CategoriesMD categoriesMD;
-  const HomeCategoriesListViewItem( {required this.selectedCategory,required this.categoriesMD,super.key});
+
+  const HomeCategoriesListViewItem(
+      {required this.selectedCategory, required this.categoriesMD, super.key});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: (){
-        controller.goToItems(controller.categories, selectedCategory);
+      onTap: () {
+        controller.goToItems(controller.categories, selectedCategory,
+            categoriesMD.categoriesId.toString());
       },
       child: Column(
         children: [

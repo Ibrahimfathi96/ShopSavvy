@@ -21,6 +21,7 @@ class ItemsGridBuilder extends GetView<ItemsControllerImp> {
           childAspectRatio: 0.5,
         ),
         itemBuilder: (context, index) => ItemsGridViewBuilder(
+          // selectedItem: controller.data[index],
           itemsMd: ItemsMd.fromJson(
             controller.data[index],
           ),

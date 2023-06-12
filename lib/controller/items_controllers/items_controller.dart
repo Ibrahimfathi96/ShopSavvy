@@ -10,14 +10,15 @@ abstract class ItemsController extends GetxController {
 
   changeCategoryOnTap(int val);
 
-  getItems();
+  getItems(String categoryId);
 
-  addToFavourite();
+  addToFavourite(int itemsId);
 }
 
 class ItemsControllerImp extends ItemsController {
   List categories = [];
   int? selectedCategory;
+  String? catId;
   ItemsData itemsData = ItemsData(Get.find());
   List data = [];
   StatusRequest statusRequest = StatusRequest.none;
@@ -38,7 +39,8 @@ class ItemsControllerImp extends ItemsController {
   initialData() {
     categories = Get.arguments['categories'];
     selectedCategory = Get.arguments['selectedCategory'];
-    getItems();
+    catId = Get.arguments['categoryId'];
+    getItems(catId!);
   }
 
   @override
@@ -48,9 +50,9 @@ class ItemsControllerImp extends ItemsController {
   }
 
   @override
-  getItems() async {
+  getItems(categoryId) async {
     statusRequest = StatusRequest.loading;
-    var response = await itemsData.getData();
+    var response = await itemsData.getData(categoryId);
     statusRequest = handlingData(response);
     if (StatusRequest.success == statusRequest) {
       if (response['status'] == 'success') {
@@ -63,7 +65,7 @@ class ItemsControllerImp extends ItemsController {
   }
 
   @override
-  addToFavourite() {
+  addToFavourite(itemsId) {
     addedToFavourite = addedToFavourite == false? true:false;
     update();
   }

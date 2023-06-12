@@ -11,9 +11,8 @@ class OffersListView extends GetView<HomeControllerImp> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 250,
-      padding: const EdgeInsets.symmetric(vertical: 10),
+    return SizedBox(
+      height: MediaQuery.of(context).size.width * 0.7,
       child: ListView.separated(
         physics: const BouncingScrollPhysics(),
         scrollDirection: Axis.horizontal,

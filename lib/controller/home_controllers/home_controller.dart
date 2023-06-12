@@ -11,7 +11,7 @@ abstract class HomeController extends GetxController {
 
   getData();
 
-  goToItems(List categories, int selectedCategory);
+  goToItems(List categories, int selectedCategory, String categoryId);
 }
 
 class HomeControllerImp extends HomeController {
@@ -54,10 +54,11 @@ class HomeControllerImp extends HomeController {
   }
 
   @override
-  goToItems(categories, selectedCategory) {
+  goToItems(categories, selectedCategory, categoryId) {
     Get.toNamed(ItemsView.routeName, arguments: {
       "categories": categories,
       "selectedCategory": selectedCategory,
+      "categoryId":categoryId,
     });
   }
 }

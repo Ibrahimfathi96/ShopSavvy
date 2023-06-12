@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:marquee/marquee.dart';
@@ -8,10 +9,12 @@ import 'package:shop_savvy/link_api.dart';
 
 class ItemsGridViewBuilder extends StatelessWidget {
   final ItemsMd itemsMd;
+  // final int selectedItem;
 
   const ItemsGridViewBuilder({
     super.key,
     required this.itemsMd,
+    // required this.selectedItem,
   });
 
   @override
@@ -26,12 +29,11 @@ class ItemsGridViewBuilder extends StatelessWidget {
             children: [
               SizedBox(
                 height: 120,
-                child: Image.network(
-                  '${AppLink.laptops}/${itemsMd.itemsImage}',
-                  fit: BoxFit.fill,
+                child: CachedNetworkImage(
+                  imageUrl:'${AppLink.imagesItems}/${itemsMd.itemsImage}',
                 ),
               ),
-              const SizedBox(height: 6,),
+              const SizedBox(height: 10,),
               Expanded(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -67,7 +69,7 @@ class ItemsGridViewBuilder extends StatelessWidget {
                           GetBuilder<ItemsControllerImp>(builder: (controller) {
                             return GestureDetector(
                               onTap: () {
-                                controller.addToFavourite();
+                                // controller.addToFavourite();
                               },
                               child: Icon(
                                 controller.addedToFavourite ?
