@@ -32,7 +32,7 @@ class ProductPrice extends GetView<ProductDetailsControllerImp> {
                   color: AppColors.primaryDark,
                 ),
                 child: const Icon(
-                  Icons.add,
+                  Icons.remove,
                   color: Colors.white,
                 ),
               ),
@@ -51,7 +51,7 @@ class ProductPrice extends GetView<ProductDetailsControllerImp> {
                   color: AppColors.primaryDark,
                 ),
                 child: const Icon(
-                  Icons.remove,
+                  Icons.add,
                   color: Colors.white,
                 ),
               ),
