@@ -4,7 +4,16 @@ import 'package:shop_savvy/controller/product_details_controller.dart';
 import 'package:shop_savvy/core/constants/color.dart';
 
 class ProductPrice extends GetView<ProductDetailsControllerImp> {
-  const ProductPrice({
+  final void Function() onAddTap;
+  final void Function() onRemoveTap;
+  final String count;
+  final String price;
+
+  const ProductPrice( {
+    required this.count,
+    required this.price,
+    required this.onAddTap,
+    required this.onRemoveTap,
     super.key,
   });
 
@@ -24,7 +33,7 @@ class ProductPrice extends GetView<ProductDetailsControllerImp> {
         Row(
           children: [
             GestureDetector(
-              onTap: () {},
+              onTap: onRemoveTap,
               child: Container(
                 margin: const EdgeInsets.all(6),
                 decoration: BoxDecoration(
@@ -37,13 +46,12 @@ class ProductPrice extends GetView<ProductDetailsControllerImp> {
                 ),
               ),
             ),
-            const Text(
-              "1",
-              style: TextStyle(
-                  fontSize: 22, color: AppColors.primaryDark),
+            Text(
+              count,
+              style: const TextStyle(fontSize: 22, color: AppColors.primaryDark),
             ),
             GestureDetector(
-              onTap: () {},
+              onTap: onAddTap,
               child: Container(
                 margin: const EdgeInsets.all(6),
                 decoration: BoxDecoration(
@@ -59,11 +67,9 @@ class ProductPrice extends GetView<ProductDetailsControllerImp> {
           ],
         ),
         Text(
-          "${controller.itemsMd.itemsPrice} EGP",
+          "$price EGP",
           style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-              color: AppColors.primaryDark,
-              fontSize: 20,
-              height: 1.5),
+              color: AppColors.primaryDark, fontSize: 20, height: 1.5),
         ),
       ],
     );
