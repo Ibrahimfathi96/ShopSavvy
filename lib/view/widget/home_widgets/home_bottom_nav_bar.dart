@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:persistent_bottom_nav_bar_v2/persistent-tab-view.dart';
 import 'package:shop_savvy/controller/home_controllers/home_screen_controller.dart';
+import 'package:shop_savvy/core/constants/color.dart';
 
 class HomeBottomNavBar extends GetView<HomeScreenControllerImp> {
   const HomeBottomNavBar({
@@ -16,7 +17,7 @@ class HomeBottomNavBar extends GetView<HomeScreenControllerImp> {
       screens: controller.buildScreens(),
       items: controller.navBarsItems(),
       confineInSafeArea: true,
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.primaryDark,
       // Default is Colors.white.
       handleAndroidBackButtonPress: true,
       // Default is true.
@@ -27,7 +28,11 @@ class HomeBottomNavBar extends GetView<HomeScreenControllerImp> {
       hideNavigationBarWhenKeyboardShows: true,
       // Recommended to set 'resizeToAvoidBottomInset' as true while using this argument. Default is true.
       decoration: NavBarDecoration(
-        borderRadius: BorderRadius.circular(10.0),
+        borderRadius: const BorderRadius.only(
+          topLeft: Radius.circular(16),
+          topRight: Radius.circular(16),
+        ),
+        border: Border.all(color: AppColors.darkColor),
         colorBehindNavBar: Colors.white,
       ),
       popAllScreensOnTapOfSelectedTab: true,
@@ -43,8 +48,8 @@ class HomeBottomNavBar extends GetView<HomeScreenControllerImp> {
         curve: Curves.ease,
         duration: Duration(milliseconds: 200),
       ),
-      navBarStyle:
-          NavBarStyle.style9, // Choose the nav bar style with this property.
+      navBarStyle: NavBarStyle
+          .style9, // Choose the nav bar style with this property.
     );
   }
 }

@@ -18,7 +18,7 @@ class _HomeScreenState extends State<HomeScreen> {
     Get.put(HomeScreenControllerImp());
     return GetBuilder<HomeScreenControllerImp>(
       builder: (controller) => const Scaffold(
-        body: HomeBottomNavBar(),
+        body: SafeArea(child: HomeBottomNavBar()),
       ),
     );
   }

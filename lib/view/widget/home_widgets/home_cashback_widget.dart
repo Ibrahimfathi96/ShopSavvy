@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
+import 'package:shop_savvy/controller/home_controllers/home_controller.dart';
 import 'package:shop_savvy/core/constants/color.dart';
 
-class HomeCashBackWidget extends StatelessWidget {
+class HomeCashBackWidget extends GetView<HomeControllerImp> {
   final String homeBannerTitle;
   final String homeBannerOffer;
   final String lottieFile;
@@ -42,6 +44,7 @@ class HomeCashBackWidget extends StatelessWidget {
         Positioned(
           top: -10,
           right: -45,
+          // right: controller.lang == "en"?-45:null,
           child: Container(
             height: 170,
             width: 160,

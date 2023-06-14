@@ -2,26 +2,26 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:marquee/marquee.dart';
-import 'package:shop_savvy/controller/items_controllers/items_controller.dart';
+import 'package:shop_savvy/controller/items_controller.dart';
 import 'package:shop_savvy/core/constants/color.dart';
+import 'package:shop_savvy/core/functions/translate_database.dart';
 import 'package:shop_savvy/data/model/items_model.dart';
 import 'package:shop_savvy/link_api.dart';
 
-class ItemsGridViewBuilder extends StatelessWidget {
+class ItemsGridViewBuilder extends GetView<ItemsControllerImp> {
   final ItemsMd itemsMd;
-
-  // final int selectedItem;
-
-  const ItemsGridViewBuilder({
+  const ItemsGridViewBuilder(
+     {
     super.key,
     required this.itemsMd,
-    // required this.selectedItem,
   });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        controller.goToProductDetails(itemsMd);
+      },
       child: Card(
         elevation: 10,
         child: Padding(
@@ -31,11 +31,16 @@ class ItemsGridViewBuilder extends StatelessWidget {
             children: [
               SizedBox(
                 height: 150,
-                child: CachedNetworkImage(
-                  imageUrl: '${AppLink.imagesItems}/${itemsMd.itemsImage}',
+                child: Hero(
+                  tag: "${itemsMd.itemsId}",
+                  child: CachedNetworkImage(
+                    imageUrl: '${AppLink.imagesItems}/${itemsMd.itemsImage}',
+                  ),
                 ),
               ),
-              const SizedBox(height: 10,),
+              const SizedBox(
+                height: 10,
+              ),
               Row(
                 children: [
                   Text(
@@ -54,7 +59,7 @@ class ItemsGridViewBuilder extends StatelessWidget {
                   GetBuilder<ItemsControllerImp>(builder: (controller) {
                     return GestureDetector(
                       onTap: () {
-                        // controller.addToFavourite();
+                        controller.addToFavourite(itemsMd);
                       },
                       child: Icon(
                         controller.addedToFavourite
@@ -70,10 +75,11 @@ class ItemsGridViewBuilder extends StatelessWidget {
                 child: Column(
                   children: [
                     SizedBox(
-                      height: 20,
+                      height: 25,
                       child: Marquee(
-                        velocity: 50,
-                        text: "${itemsMd.itemsName}    ",
+                        velocity: 30,
+                        text:
+                            "${translateDB(itemsMd.itemsName, itemsMd.itemsNameAr)}    ",
                         style: const TextStyle(
                             color: Colors.black87, fontSize: 16),
                       ),
@@ -81,12 +87,19 @@ class ItemsGridViewBuilder extends StatelessWidget {
                     const SizedBox(
                       height: 6,
                     ),
-                    Text(
-                      "${itemsMd.itemsDesc}",
-                      textAlign: TextAlign.center,
-                      overflow: TextOverflow.ellipsis,
-                      maxLines: 2,
-                      style: TextStyle(color: Colors.grey[700], fontSize: 12),
+                    Container(
+                      alignment: Alignment.center,
+                      height: 60,
+                      child: Marquee(
+                        scrollAxis: Axis.vertical,
+                        velocity: 10,
+                        text:
+                            "${translateDB(itemsMd.itemsDesc, itemsMd.itemsDescAr)}",
+                        style: TextStyle(
+                          color: Colors.grey[700],
+                          fontSize: 12,
+                        ),
+                      ),
                     ),
                     const SizedBox(
                       height: 6,

@@ -2,6 +2,9 @@ import 'package:get/get.dart';
 import 'package:shop_savvy/core/class/status_request.dart';
 import 'package:shop_savvy/core/functions/handling_data.dart';
 import 'package:shop_savvy/data/data_source/items_data.dart';
+import 'package:shop_savvy/data/model/items_model.dart';
+import 'package:shop_savvy/view/screen/home_view/home_screen.dart';
+import 'package:shop_savvy/view/screen/product_details/product_details.dart';
 
 abstract class ItemsController extends GetxController {
   initialData();
@@ -12,7 +15,9 @@ abstract class ItemsController extends GetxController {
 
   getItems(String categoryId);
 
-  addToFavourite(int itemsId);
+  addToFavourite(ItemsMd itemsId);
+
+  goToProductDetails(ItemsMd itemsMd);
 }
 
 class ItemsControllerImp extends ItemsController {
@@ -32,7 +37,7 @@ class ItemsControllerImp extends ItemsController {
 
   @override
   goBack() {
-    Get.back();
+    Get.off(const HomeScreen());
   }
 
   @override
@@ -71,5 +76,12 @@ class ItemsControllerImp extends ItemsController {
   addToFavourite(itemsId) {
     addedToFavourite = addedToFavourite == false? true:false;
     update();
+  }
+
+  @override
+  goToProductDetails(itemsMd) {
+    Get.toNamed(ProductDetails.routeName, arguments: {
+      "itemsMD": itemsMd,
+    });
   }
 }

@@ -12,11 +12,16 @@ class Assets {
   static const String flagsSa = 'assets/flags/sa.png';
   static const String imagesCashBack = 'assets/images/cash_back.png';
   static const String imagesCode = 'assets/images/code.png';
+  static const String imagesGradientImage = 'assets/images/gradient_image.PNG';
   static const String imagesLogo = 'assets/images/logo.png';
   static const String imagesOnboardingfour = 'assets/images/onboardingfour.PNG';
   static const String imagesOnboardingone = 'assets/images/onboardingone.PNG';
   static const String imagesOnboardingthree = 'assets/images/onboardingthree.PNG';
   static const String imagesOnboardingtwo = 'assets/images/onboardingtwo.PNG';
+  static const String imagesTerms1 = 'assets/images/terms_1.png';
+  static const String imagesTerms2 = 'assets/images/terms_2.png';
+  static const String imagesTerms3 = 'assets/images/terms_3.png';
+  static const String imagesTerms4 = 'assets/images/terms_4.png';
   static const String lottieCashBack = 'assets/lottie/cash_back.json';
   static const String lottieLoading = 'assets/lottie/loading.json';
   static const String lottieNodata = 'assets/lottie/nodata.json';

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:shop_savvy/controller/home_controllers/home_controller.dart';
+import 'package:shop_savvy/core/functions/translate_database.dart';
 import 'package:shop_savvy/data/model/categories_model.dart';
 import 'package:shop_savvy/link_api.dart';
 
@@ -33,7 +34,7 @@ class HomeCategoriesListViewItem extends GetView<HomeControllerImp> {
             height: 4,
           ),
           Text(
-            "${categoriesMD.categoriesName}",
+            "${translateDB(categoriesMD.categoriesName, categoriesMD.categoriesNameAr)}",
             style: const TextStyle(color: Colors.black87),
           ),
         ],

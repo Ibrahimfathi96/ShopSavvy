@@ -14,7 +14,7 @@ class HomeCategoriesListView extends GetView<HomeControllerImp> {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 10),
-      height: 120,
+      height: 130,
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
         physics: const BouncingScrollPhysics(),

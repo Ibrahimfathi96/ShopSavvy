@@ -22,6 +22,7 @@ class HomeControllerImp extends HomeController {
   HomeData homeData = HomeData(Get.find());
   List categories = [];
   List items = [];
+  String? lang;
 
   @override
   void onInit() {
@@ -34,6 +35,7 @@ class HomeControllerImp extends HomeController {
   initialData() {
     userName = myServices.prefs.getString("userName");
     id = myServices.prefs.getString("id");
+    lang = myServices.prefs.getString("lang");
   }
 
   @override

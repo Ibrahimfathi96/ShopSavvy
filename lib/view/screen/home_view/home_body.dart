@@ -20,43 +20,41 @@ class HomeBody extends StatelessWidget {
     return GetBuilder<HomeControllerImp>(
       builder: (controller) => HandlingDataView(
         statusRequest: controller.statusRequest,
-        widget: Material(
-          child: SafeArea(
-            child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: Column(
-                children: [
-                  HomeCustomAppBar(
-                    appBarTitle: "Find your product..",
-                    onSearchPress: () {},
-                    onNotificationPress: () {},
+        widget: Scaffold(
+          body: Container(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: Column(
+              children: [
+                HomeCustomAppBar(
+                  appBarTitle: "Find your product..",
+                  onSearchPress: () {},
+                  onNotificationPress: () {},
+                ),
+                Expanded(
+                  child: ListView(
+                    physics: const BouncingScrollPhysics(),
+                    children: const [
+                      HomeCashBackWidget(
+                        homeBannerTitle: "A Summer Surprise",
+                        homeBannerOffer: "Cashback 20%",
+                        lottieFile: AppImageFromAssets.cashBack,
+                      ),
+                      HomeMiddleText(
+                        text: "Categories",
+                      ),
+                      HomeCategoriesListView(),
+                      HomeMiddleText(
+                        text: "Offers for you",
+                      ),
+                      OffersListView(),
+                      HomeMiddleText(
+                        text: "Trending",
+                      ),
+                      OffersListView(),
+                    ],
                   ),
-                  Expanded(
-                    child: ListView(
-                      physics: const BouncingScrollPhysics(),
-                      children: const [
-                        HomeCashBackWidget(
-                          homeBannerTitle: "A Summer Surprise",
-                          homeBannerOffer: "Cashback 20%",
-                          lottieFile: AppImageFromAssets.cashBack,
-                        ),
-                        HomeMiddleText(
-                          text: "Categories",
-                        ),
-                        HomeCategoriesListView(),
-                        HomeMiddleText(
-                          text: "Offers for you",
-                        ),
-                        OffersListView(),
-                        HomeMiddleText(
-                          text: "Trending",
-                        ),
-                        OffersListView(),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ),

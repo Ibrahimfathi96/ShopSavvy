@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:shop_savvy/controller/items_controllers/items_controller.dart';
+import 'package:shop_savvy/controller/items_controller.dart';
 import 'package:shop_savvy/core/constants/color.dart';
+import 'package:shop_savvy/core/functions/translate_database.dart';
 import 'package:shop_savvy/data/model/categories_model.dart';
 
 class ItemsCategoriesListViewItem extends GetView<ItemsControllerImp> {
@@ -23,7 +24,7 @@ class ItemsCategoriesListViewItem extends GetView<ItemsControllerImp> {
           borderRadius: BorderRadius.circular(16),
           elevation: controller.selectedCategory == selectedCategory ? 30 : 0,
           child: Container(
-            padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 22),
+            padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 22),
             decoration: controller.selectedCategory == selectedCategory
                 ? BoxDecoration(
                     color: AppColors.thirdColor,
@@ -41,7 +42,7 @@ class ItemsCategoriesListViewItem extends GetView<ItemsControllerImp> {
                     ),
                   ),
             child: Text(
-              "${categoriesMD.categoriesName}",
+              "${translateDB(categoriesMD.categoriesName, categoriesMD.categoriesNameAr)}",
               textAlign: TextAlign.center,
               style: const TextStyle(color: Colors.black87, fontSize: 16),
             ),

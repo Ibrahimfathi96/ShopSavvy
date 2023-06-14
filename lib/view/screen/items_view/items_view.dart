@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:shop_savvy/controller/items_controllers/items_controller.dart';
+import 'package:shop_savvy/controller/items_controller.dart';
 import 'package:shop_savvy/core/class/handling_data_view.dart';
 import 'package:shop_savvy/view/widget/home_widgets/home_custom_appbar.dart';
 import 'package:shop_savvy/view/widget/items_widgets/items_categories_listview.dart';

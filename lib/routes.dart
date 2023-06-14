@@ -13,6 +13,8 @@ import 'package:shop_savvy/view/screen/home_view/home_screen.dart';
 import 'package:shop_savvy/view/screen/items_view/items_view.dart';
 import 'package:shop_savvy/view/screen/languages_view.dart';
 import 'package:shop_savvy/view/screen/onboarding_view.dart';
+import 'package:shop_savvy/view/screen/product_details/product_details.dart';
+import 'package:shop_savvy/view/screen/settings/settings.dart';
 
 List<GetPage<dynamic>> routes = [
   GetPage(name: Language.routeName, page: () => const Language(), middlewares: [
@@ -42,4 +44,7 @@ List<GetPage<dynamic>> routes = [
   GetPage(name: HomeScreen.routeName, page: () => const HomeScreen()),
   //items
   GetPage(name: ItemsView.routeName, page: () => const ItemsView()),
+  GetPage(name: ProductDetails.routeName, page: () => const ProductDetails()),
+  //Settings
+  GetPage(name: SettingsView.routeName, page: () => const SettingsView()),
 ];

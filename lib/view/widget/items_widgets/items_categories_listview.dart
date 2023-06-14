@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:shop_savvy/controller/items_controllers/items_controller.dart';
+import 'package:shop_savvy/controller/items_controller.dart';
 import 'package:shop_savvy/data/model/categories_model.dart';
 import 'package:shop_savvy/view/widget/items_widgets/items_categories_listview_item.dart';
 
@@ -17,7 +17,7 @@ class ItemsCategoriesListView extends GetView<ItemsControllerImp> {
         shrinkWrap: true,
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 3,
-          childAspectRatio: 2.6,
+          childAspectRatio: 2.5,
           mainAxisSpacing: 8,
           crossAxisSpacing: 6,
         ),

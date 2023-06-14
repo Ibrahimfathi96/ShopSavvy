@@ -12,7 +12,7 @@ class OffersListView extends GetView<HomeControllerImp> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: MediaQuery.of(context).size.width * 0.7,
+      height: MediaQuery.of(context).size.width * 0.6,
       child: ListView.separated(
         physics: const BouncingScrollPhysics(),
         scrollDirection: Axis.horizontal,
