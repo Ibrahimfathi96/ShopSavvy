@@ -75,8 +75,7 @@ class ForgetPasswordVerifyCode extends StatelessWidget {
                                 minimumSize: const Size(110, 50),
                               ),
                               onPressed: () {
-                                SignUpControllerImp()
-                                    .verifyPhoneNumber(controller.phone!);
+                               controller.resendVerifyCode();
                               },
                               child: const Text("Re-send Code"),
                             ),

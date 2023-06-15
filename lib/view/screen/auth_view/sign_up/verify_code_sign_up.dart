@@ -72,7 +72,7 @@ class SignUpVerifyCode extends StatelessWidget {
                       minimumSize: const Size(110, 50),
                     ),
                     onPressed: () {
-                      // SignUpControllerImp().verifyPhoneNumber(controller.email!);
+                      controller.resendVerifyCode();
                     },
                     child: const Text("Re-send Code"),
                   ),

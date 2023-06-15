@@ -12,6 +12,8 @@ abstract class SignUpVerifyCodeController extends GetxController {
   goToSignUpSuccess(String verifyCode);
 
   verifyOtp(String otp);
+
+  resendVerifyCode();
 }
 
 class SignUpVerifyCodeControllerImp extends SignUpVerifyCodeController {
@@ -32,20 +34,18 @@ class SignUpVerifyCodeControllerImp extends SignUpVerifyCodeController {
   checkCode() {}
 
   @override
-  goToSignUpSuccess(verifyCode) async{
+  goToSignUpSuccess(verifyCode) async {
     statusRequest = StatusRequest.loading;
     update();
     var response = await verifyCodeSignUpData.postData(email!, verifyCode);
     statusRequest = handlingData(response);
-    if(StatusRequest.success == statusRequest){
-      if(response['status'] =='success'){
+    if (StatusRequest.success == statusRequest) {
+      if (response['status'] == 'success') {
         debugPrint("==================VerifyCodeSignUPController $response");
         Get.offNamed(SignUpSuccessfully.routeName);
-      }else{
+      } else {
         Get.defaultDialog(
-          title: "Warning!",
-          middleText: "Verify Code isn't Correct."
-        );
+            title: "Warning!", middleText: "Verify Code isn't Correct.");
         statusRequest = StatusRequest.failure;
       }
     }
@@ -60,5 +60,10 @@ class SignUpVerifyCodeControllerImp extends SignUpVerifyCodeController {
     if (credential.user?.uid != null) {
       // goToSignUpSuccess();
     }
+  }
+
+  @override
+  resendVerifyCode() {
+    verifyCodeSignUpData.resendData(email!);
   }
 }

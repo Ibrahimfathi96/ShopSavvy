@@ -10,6 +10,8 @@ abstract class ForgetPasswordVerifyCodeController extends GetxController {
   verifyOtp(String otp);
 
   goToResetPassword(String verifyCode);
+
+  resendVerifyCode();
 }
 
 class ForgetPasswordVerifyCodeControllerImp
@@ -72,5 +74,12 @@ class ForgetPasswordVerifyCodeControllerImp
         }
       }
       update();
+  }
+
+  @override
+  resendVerifyCode() {
+    verifyCodeForgetPasswordData.resend(
+      email!,
+    );
   }
 }

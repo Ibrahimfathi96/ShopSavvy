@@ -8,6 +8,7 @@ import 'package:shop_savvy/core/services/services.dart';
 import 'package:shop_savvy/data/data_source/remote/auth/sign_in_remote.dart';
 import 'package:shop_savvy/view/screen/auth_view/forget_password/forget_password.dart';
 import 'package:shop_savvy/view/screen/auth_view/sign_up/sign_up.dart';
+import 'package:shop_savvy/view/screen/auth_view/sign_up/verify_code_sign_up.dart';
 import 'package:shop_savvy/view/screen/home_view/home_body.dart';
 
 abstract class SignInController extends GetxController {
@@ -76,13 +77,18 @@ class SignInControllerImp extends SignInController {
       statusRequest = handlingData(response);
       if (StatusRequest.success == statusRequest) {
         if (response['status'] == 'success') {
-          services.prefs
-              .setString("id", response['data']['users_id'].toString());
-          services.prefs.setString("email", response['data']['users_email']);
-          services.prefs.setString("phone", response['data']['users_phone']);
-          services.prefs.setString("userName", response['data']['users_name']);
-          services.prefs.setString("step", "2");
-          Get.offAllNamed(HomeBody.routeName);
+          if (response['data']['users_approve'] == 1) {
+            services.prefs
+                .setString("id", response['data']['users_id'].toString());
+            services.prefs.setString("email", response['data']['users_email']);
+            services.prefs.setString("phone", response['data']['users_phone']);
+            services.prefs
+                .setString("userName", response['data']['users_name']);
+            services.prefs.setString("step", "2");
+            Get.offAllNamed(HomeBody.routeName);
+          }else{
+            Get.toNamed(SignUpVerifyCode.routeName,arguments: {"email": emailController.text});
+          }
         } else {
           Get.defaultDialog(
               title: "Warning!",

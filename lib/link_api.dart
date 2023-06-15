@@ -10,6 +10,7 @@ class AppLink {
   //AUTH PHP
   static const String signup = "$server/auth/sign_up.php";
   static const String signIn = "$server/auth/sign_in.php";
+  static const String resend = "$server/auth/resend.php";
   static const String signupVerifyCode = "$server/auth/verify_code.php";
 
   //ForgetPassword PHP

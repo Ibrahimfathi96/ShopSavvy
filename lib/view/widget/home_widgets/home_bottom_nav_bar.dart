@@ -1,54 +1,42 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:persistent_bottom_nav_bar_v2/persistent-tab-view.dart';
-import 'package:shop_savvy/controller/home_controllers/home_screen_controller.dart';
+import 'package:shop_savvy/core/constants/color.dart';
 
-class HomeBottomNavBar extends GetView<HomeScreenControllerImp> {
-  const HomeBottomNavBar({
+class CustomHomeBottomNavBar extends StatelessWidget {
+  final void Function() onPressed;
+  final String buttonText;
+  final IconData icon;
+  final bool? isActive;
+
+  const CustomHomeBottomNavBar({
     super.key,
+    required this.onPressed,
+    required this.buttonText,
+    required this.icon,
+    this.isActive,
   });
 
   @override
   Widget build(BuildContext context) {
-    return PersistentTabView(
-      context,
-      controller: controller.persistentTabController,
-      screens: controller.buildScreens(),
-      items: controller.navBarsItems(),
-      confineInSafeArea: true,
-      backgroundColor: const Color(0xFFB7935F),
-      // backgroundColor: AppColors.primaryDark,
-      // Default is Colors.white.
-      handleAndroidBackButtonPress: true,
-      // Default is true.
-      resizeToAvoidBottomInset: true,
-      // This needs to be true if you want to move up the screen when keyboard appears. Default is true.
-      stateManagement: true,
-      // Default is true.
-      hideNavigationBarWhenKeyboardShows: true,
-      // Recommended to set 'resizeToAvoidBottomInset' as true while using this argument. Default is true.
-      decoration: const NavBarDecoration(
-        borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(16),
-          topRight: Radius.circular(16),
+    return MaterialButton(
+      onPressed: onPressed,
+      child: SizedBox(
+        height: 60,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(
+              icon,
+              color: isActive == true ? AppColors.brightYellow : Colors.white,
+            ),
+            Text(
+              buttonText,
+              style: TextStyle(
+                color: isActive == true ? AppColors.brightYellow:Colors.white
+              ),
+            ),
+          ],
         ),
-        colorBehindNavBar: Colors.white,
       ),
-      popAllScreensOnTapOfSelectedTab: true,
-      popActionScreens: PopActionScreensType.all,
-      itemAnimationProperties: const ItemAnimationProperties(
-        // Navigation Bar's items animation properties.
-        duration: Duration(milliseconds: 200),
-        curve: Curves.easeInOut,
-      ),
-      screenTransitionAnimation: const ScreenTransitionAnimation(
-        // Screen transition animation on change of selected tab.
-        animateTabTransition: true,
-        curve: Curves.ease,
-        duration: Duration(milliseconds: 200),
-      ),
-      navBarStyle: NavBarStyle
-          .style13, // Choose the nav bar style with this property.
     );
   }
 }
