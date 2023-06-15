@@ -62,8 +62,12 @@ class ItemsGridViewBuilder extends GetView<ItemsControllerImp> {
                       onTap: () {
                         if (favController.isFavorite[itemsMd.itemsId] == 1) {
                           favController.setFavorite(itemsMd.itemsId, 0);
+                          favController
+                              .removeFromFavorite(itemsMd.itemsId.toString());
                         } else {
                           favController.setFavorite(itemsMd.itemsId, 1);
+                          favController
+                              .addToFavorite(itemsMd.itemsId.toString());
                         }
                       },
                       child: Icon(
