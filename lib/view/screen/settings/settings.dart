@@ -98,7 +98,7 @@ class SettingsView extends GetView<LocaleController> {
           padding: const EdgeInsets.all(8.0),
           child: Text(
             "1".tr,
-            style: TextStyle(fontSize: 22, color: AppColors.darkColor),
+            style: const TextStyle(fontSize: 22, color: AppColors.darkColor),
           ),
         ),
       ),
