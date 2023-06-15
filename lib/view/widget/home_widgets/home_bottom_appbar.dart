@@ -11,7 +11,7 @@ class CustomHomeBottomAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetBuilder<HomeScreenControllerImp>(
       builder: (controller) => Container(
-        margin: const EdgeInsets.symmetric(horizontal: 4),
+        margin: const EdgeInsets.symmetric(horizontal: 6),
         child: ClipRRect(
           borderRadius: BorderRadius.circular(16),
           child: BottomAppBar(
