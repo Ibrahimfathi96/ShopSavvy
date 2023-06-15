@@ -1,20 +1,30 @@
 import 'package:flutter/material.dart';
 
-class HomeNotificationIcon extends StatelessWidget {
-  final void Function()? onNotificationPress;
-  const HomeNotificationIcon({
-    super.key, this.onNotificationPress,
+class HomeAppBarIcons extends StatelessWidget {
+  final void Function()? onPressed;
+  final IconData iconData;
+
+  const HomeAppBarIcons({
+    super.key,
+    this.onPressed,
+    required this.iconData,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(vertical: 8),
+      width: 50,
+      alignment: Alignment.center,
+      margin: const EdgeInsets.symmetric(horizontal: 6),
+      decoration: BoxDecoration(
+        color: Colors.grey[200],
+        borderRadius: BorderRadius.circular(10),
+      ),
       child: IconButton(
-        onPressed: onNotificationPress,
+        onPressed: onPressed,
         icon: Icon(
-          Icons.notifications_active_outlined,
-          size: 36,
+          iconData,
+          size: 30,
           color: Colors.grey[600],
         ),
       ),

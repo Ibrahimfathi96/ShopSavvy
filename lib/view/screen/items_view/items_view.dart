@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shop_savvy/controller/items_controller.dart';
 import 'package:shop_savvy/core/class/handling_data_view.dart';
-import 'package:shop_savvy/view/widget/home_widgets/home_custom_appbar.dart';
+import 'package:shop_savvy/view/screen/my_favorite.dart';
+import 'package:shop_savvy/view/widget/home_widgets/custom_appbar.dart';
 import 'package:shop_savvy/view/widget/items_widgets/items_categories_listview.dart';
 import 'package:shop_savvy/view/widget/items_widgets/items_gridview.dart';
 
@@ -17,11 +18,14 @@ class ItemsView extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Container(
-          padding: const EdgeInsets.all(16),
+          padding: const EdgeInsets.symmetric(horizontal: 16),
           child: GetBuilder<ItemsControllerImp>(
             builder: (controller) => Column(
               children: [
-                HomeCustomAppBar(
+                CustomAppBar(
+                  onFavoritePress: (){
+                    Get.toNamed(MyFavoriteView.routeName);
+                  },
                   backButton: GestureDetector(
                     onTap: () {
                       controller.goBack();

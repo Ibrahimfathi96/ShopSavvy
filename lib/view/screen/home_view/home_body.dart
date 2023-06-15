@@ -3,9 +3,10 @@ import 'package:get/get.dart';
 import 'package:shop_savvy/controller/home_controllers/home_controller.dart';
 import 'package:shop_savvy/core/class/handling_data_view.dart';
 import 'package:shop_savvy/core/constants/image_assets.dart';
+import 'package:shop_savvy/view/screen/my_favorite.dart';
+import 'package:shop_savvy/view/widget/home_widgets/custom_appbar.dart';
 import 'package:shop_savvy/view/widget/home_widgets/home_cashback_widget.dart';
 import 'package:shop_savvy/view/widget/home_widgets/home_categories_listview.dart';
-import 'package:shop_savvy/view/widget/home_widgets/home_custom_appbar.dart';
 import 'package:shop_savvy/view/widget/home_widgets/home_middle_text.dart';
 import 'package:shop_savvy/view/widget/home_widgets/home_offers_listview.dart';
 
@@ -25,7 +26,10 @@ class HomeBody extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: Column(
               children: [
-                HomeCustomAppBar(
+                CustomAppBar(
+                  onFavoritePress: () {
+                    Get.toNamed(MyFavoriteView.routeName);
+                  },
                   appBarTitle: "Find your product..",
                   onSearchPress: () {},
                   onNotificationPress: () {},

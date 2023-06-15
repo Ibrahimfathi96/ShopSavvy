@@ -18,6 +18,9 @@ class HomeSearchTextField extends StatelessWidget {
             onPressed: onSearchPress,
           ),
           hintText: appBarTitle,
+          hintStyle: const TextStyle(
+            fontSize: 14
+          ),
           border: OutlineInputBorder(
             borderSide: BorderSide.none,
             borderRadius: BorderRadius.circular(16),
