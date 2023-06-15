@@ -20,6 +20,7 @@ class ItemsMd {
   String? categoriesNameAr;
   String? categoriesImage;
   String? categoriesDatetime;
+  int? favorite;
   ItemsMd({
       this.itemsId, 
       this.itemsName, 
@@ -37,6 +38,7 @@ class ItemsMd {
       this.categoriesName, 
       this.categoriesNameAr, 
       this.categoriesImage, 
+      this.favorite,
       this.categoriesDatetime,});
 
   ItemsMd.fromJson(dynamic json) {
@@ -56,6 +58,7 @@ class ItemsMd {
     categoriesName = json['categories_name'];
     categoriesNameAr = json['categories_name_ar'];
     categoriesImage = json['categories_image'];
+    favorite = json['favorite'];
     categoriesDatetime = json['categories_datetime'];
   }
 
@@ -76,6 +79,7 @@ ItemsMd copyWith({  int? itemsId,
   String? categoriesNameAr,
   String? categoriesImage,
   String? categoriesDatetime,
+  int? favorite,
 }) => ItemsMd(  itemsId: itemsId ?? this.itemsId,
   itemsName: itemsName ?? this.itemsName,
   itemsNameAr: itemsNameAr ?? this.itemsNameAr,
@@ -93,6 +97,7 @@ ItemsMd copyWith({  int? itemsId,
   categoriesNameAr: categoriesNameAr ?? this.categoriesNameAr,
   categoriesImage: categoriesImage ?? this.categoriesImage,
   categoriesDatetime: categoriesDatetime ?? this.categoriesDatetime,
+  favorite: favorite ?? this.favorite,
 );
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
@@ -104,6 +109,7 @@ ItemsMd copyWith({  int? itemsId,
     map['items_image'] = itemsImage;
     map['items_count'] = itemsCount;
     map['items_active'] = itemsActive;
+    map['favorite'] = favorite;
     map['items_price'] = itemsPrice;
     map['items_discount'] = itemsDiscount;
     map['items_date'] = itemsDate;

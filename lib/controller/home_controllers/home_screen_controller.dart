@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:persistent_bottom_nav_bar_v2/persistent-tab-view.dart';
-import 'package:shop_savvy/core/constants/color.dart';
 import 'package:shop_savvy/view/screen/home_view/home_body.dart';
 import 'package:shop_savvy/view/screen/settings/settings.dart';
 abstract class HomeScreenController extends GetxController {}
@@ -34,7 +33,7 @@ class HomeScreenControllerImp extends HomeScreenController {
         ),
         title: "Home",
         textStyle: const TextStyle(fontSize: 18),
-        activeColorPrimary: AppColors.brightYellow,
+        activeColorPrimary: Colors.black,
         inactiveColorPrimary: Colors.white.withOpacity(0.8),
       ),
       PersistentBottomNavBarItem(
@@ -44,7 +43,7 @@ class HomeScreenControllerImp extends HomeScreenController {
         ),
         title: "Favorite",
         textStyle: const TextStyle(fontSize: 18),
-        activeColorPrimary: AppColors.brightYellow,
+        activeColorPrimary: Colors.black,
         inactiveColorPrimary: Colors.white.withOpacity(0.8),
       ),
       PersistentBottomNavBarItem(
@@ -54,7 +53,7 @@ class HomeScreenControllerImp extends HomeScreenController {
         ),
         title: "Cart",
         textStyle: const TextStyle(fontSize: 18),
-        activeColorPrimary: AppColors.brightYellow,
+        activeColorPrimary: Colors.black,
         inactiveColorPrimary: Colors.white.withOpacity(0.8),
       ),
       PersistentBottomNavBarItem(
@@ -64,7 +63,7 @@ class HomeScreenControllerImp extends HomeScreenController {
         ),
         title: "Profile",
         textStyle: const TextStyle(fontSize: 18),
-        activeColorPrimary: AppColors.brightYellow,
+        activeColorPrimary: Colors.black,
         inactiveColorPrimary: Colors.white.withOpacity(0.8),
       ),
       PersistentBottomNavBarItem(
@@ -74,7 +73,7 @@ class HomeScreenControllerImp extends HomeScreenController {
         ),
         title: "Settings",
         textStyle: const TextStyle(fontSize: 18),
-        activeColorPrimary: AppColors.brightYellow,
+        activeColorPrimary: Colors.black,
         inactiveColorPrimary: Colors.white.withOpacity(0.8),
       ),
     ];

@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:shop_savvy/core/class/status_request.dart';
 import 'package:shop_savvy/core/functions/handling_data.dart';
+import 'package:shop_savvy/core/services/services.dart';
 import 'package:shop_savvy/data/data_source/items_data.dart';
 import 'package:shop_savvy/data/model/items_model.dart';
 import 'package:shop_savvy/view/screen/home_view/home_screen.dart';
@@ -15,8 +16,6 @@ abstract class ItemsController extends GetxController {
 
   getItems(String categoryId);
 
-  addToFavourite(ItemsMd itemsId);
-
   goToProductDetails(ItemsMd itemsMd);
 }
 
@@ -27,7 +26,7 @@ class ItemsControllerImp extends ItemsController {
   ItemsData itemsData = ItemsData(Get.find());
   List data = [];
   StatusRequest statusRequest = StatusRequest.none;
-  bool addedToFavourite = false;
+  MyServices services = Get.find();
 
   @override
   void onInit() {
@@ -60,7 +59,7 @@ class ItemsControllerImp extends ItemsController {
   getItems(categoryId) async {
     data.clear();
     statusRequest = StatusRequest.loading;
-    var response = await itemsData.getData(categoryId);
+    var response = await itemsData.getData(categoryId,services.prefs.getString("id")!);
     statusRequest = handlingData(response);
     if (StatusRequest.success == statusRequest) {
       if (response['status'] == 'success') {
@@ -69,12 +68,6 @@ class ItemsControllerImp extends ItemsController {
         statusRequest = StatusRequest.failure;
       }
     }
-    update();
-  }
-
-  @override
-  addToFavourite(itemsId) {
-    addedToFavourite = addedToFavourite == false? true:false;
     update();
   }
 

@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:marquee/marquee.dart';
+import 'package:shop_savvy/controller/favorite_controller.dart';
 import 'package:shop_savvy/controller/items_controller.dart';
 import 'package:shop_savvy/core/constants/color.dart';
 import 'package:shop_savvy/core/functions/translate_database.dart';
@@ -10,8 +11,8 @@ import 'package:shop_savvy/link_api.dart';
 
 class ItemsGridViewBuilder extends GetView<ItemsControllerImp> {
   final ItemsMd itemsMd;
-  const ItemsGridViewBuilder(
-     {
+
+  const ItemsGridViewBuilder({
     super.key,
     required this.itemsMd,
   });
@@ -56,13 +57,17 @@ class ItemsGridViewBuilder extends GetView<ItemsControllerImp> {
                     ),
                   ),
                   const Spacer(),
-                  GetBuilder<ItemsControllerImp>(builder: (controller) {
+                  GetBuilder<FavoriteController>(builder: (favController) {
                     return GestureDetector(
                       onTap: () {
-                        controller.addToFavourite(itemsMd);
+                        if (favController.isFavorite[itemsMd.itemsId] == 1) {
+                          favController.setFavorite(itemsMd.itemsId, 0);
+                        } else {
+                          favController.setFavorite(itemsMd.itemsId, 1);
+                        }
                       },
                       child: Icon(
-                        controller.addedToFavourite
+                        favController.isFavorite[itemsMd.itemsId] == 1
                             ? Icons.favorite
                             : Icons.favorite_border_outlined,
                         color: AppColors.primaryColor,
