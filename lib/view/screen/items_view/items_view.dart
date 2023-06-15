@@ -4,6 +4,7 @@ import 'package:shop_savvy/controller/items_controller.dart';
 import 'package:shop_savvy/core/class/handling_data_view.dart';
 import 'package:shop_savvy/view/screen/my_favorite.dart';
 import 'package:shop_savvy/view/widget/home_widgets/custom_appbar.dart';
+import 'package:shop_savvy/view/widget/home_widgets/home_notification_icon.dart';
 import 'package:shop_savvy/view/widget/items_widgets/items_categories_listview.dart';
 import 'package:shop_savvy/view/widget/items_widgets/items_gridview.dart';
 
@@ -23,14 +24,17 @@ class ItemsView extends StatelessWidget {
             builder: (controller) => Column(
               children: [
                 CustomAppBar(
-                  onFavoritePress: (){
-                    Get.toNamed(MyFavoriteView.routeName);
-                  },
                   backButton: GestureDetector(
                     onTap: () {
                       controller.goBack();
                     },
                     child: const Icon(Icons.arrow_back_ios),
+                  ),
+                  favouriteButton: HomeAppBarIcons(
+                    onPressed: () {
+                      Get.toNamed(MyFavoriteView.routeName);
+                    },
+                    iconData: Icons.favorite_border_outlined,
                   ),
                   appBarTitle: "Find your product..",
                   onSearchPress: () {},

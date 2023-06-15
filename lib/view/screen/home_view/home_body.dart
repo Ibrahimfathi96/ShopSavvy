@@ -8,6 +8,7 @@ import 'package:shop_savvy/view/widget/home_widgets/custom_appbar.dart';
 import 'package:shop_savvy/view/widget/home_widgets/home_cashback_widget.dart';
 import 'package:shop_savvy/view/widget/home_widgets/home_categories_listview.dart';
 import 'package:shop_savvy/view/widget/home_widgets/home_middle_text.dart';
+import 'package:shop_savvy/view/widget/home_widgets/home_notification_icon.dart';
 import 'package:shop_savvy/view/widget/home_widgets/home_offers_listview.dart';
 
 class HomeBody extends StatelessWidget {
@@ -27,9 +28,12 @@ class HomeBody extends StatelessWidget {
             child: Column(
               children: [
                 CustomAppBar(
-                  onFavoritePress: () {
-                    Get.toNamed(MyFavoriteView.routeName);
-                  },
+                  favouriteButton: HomeAppBarIcons(
+                    onPressed: () {
+                      Get.toNamed(MyFavoriteView.routeName);
+                    },
+                    iconData: Icons.favorite_border_outlined,
+                  ),
                   appBarTitle: "Find your product..",
                   onSearchPress: () {},
                   onNotificationPress: () {},

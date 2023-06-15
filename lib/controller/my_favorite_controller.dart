@@ -3,11 +3,14 @@ import 'package:get/get.dart';
 import 'package:shop_savvy/core/class/status_request.dart';
 import 'package:shop_savvy/core/functions/handling_data.dart';
 import 'package:shop_savvy/core/services/services.dart';
+import 'package:shop_savvy/data/data_source/remote/favorite/delete_my_favorite.dart';
 import 'package:shop_savvy/data/data_source/remote/favorite/my_favorite_data.dart';
 import 'package:shop_savvy/data/model/my_favorite_model.dart';
 
 class MyFavoriteController extends GetxController {
   MyFavoriteData favoriteData = MyFavoriteData(Get.find());
+  DeleteFromFavoriteData deleteFromFavoriteData =
+      DeleteFromFavoriteData(Get.find());
   List<MyFavoriteMd> data = [];
   MyServices services = Get.find();
   StatusRequest statusRequest = StatusRequest.none;
@@ -32,6 +35,12 @@ class MyFavoriteController extends GetxController {
         statusRequest = StatusRequest.failure;
       }
     }
+    update();
+  }
+
+  deleteData(String favId) {
+    deleteFromFavoriteData.getData(favId);
+    data.removeWhere((element) => element.favoriteId.toString() == favId);
     update();
   }
 }

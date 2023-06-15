@@ -4,19 +4,18 @@ import 'package:shop_savvy/view/widget/home_widgets/home_search_textfield.dart';
 
 class CustomAppBar extends StatelessWidget {
   final Widget? backButton;
+  final Widget? favouriteButton;
   final String appBarTitle;
   final void Function() onSearchPress;
-
   final void Function() onNotificationPress;
-  final void Function() onFavoritePress;
+
 
   const CustomAppBar(
       {super.key,
       this.backButton,
       required this.appBarTitle,
       required this.onSearchPress,
-      required this.onFavoritePress,
-      required this.onNotificationPress});
+      required this.onNotificationPress, this.favouriteButton});
 
   @override
   Widget build(BuildContext context) {
@@ -34,10 +33,7 @@ class CustomAppBar extends StatelessWidget {
             onPressed: onNotificationPress,
             iconData: Icons.notifications_active_outlined,
           ),
-          HomeAppBarIcons(
-            onPressed: onFavoritePress,
-            iconData: Icons.favorite_border_outlined,
-          ),
+          favouriteButton?? const SizedBox(),
         ],
       ),
     );

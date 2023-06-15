@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:persistent_bottom_nav_bar_v2/persistent-tab-view.dart';
 import 'package:shop_savvy/view/screen/home_view/home_body.dart';
-import 'package:shop_savvy/view/screen/my_favorite.dart';
 import 'package:shop_savvy/view/screen/settings/settings.dart';
 abstract class HomeScreenController extends GetxController {}
 
@@ -12,7 +11,6 @@ class HomeScreenControllerImp extends HomeScreenController {
   List<Widget> buildScreens() {
     return [
       const HomeBody(),
-      const MyFavoriteView(),
       Container(
         color: Colors.blueAccent,
       ),
@@ -31,16 +29,6 @@ class HomeScreenControllerImp extends HomeScreenController {
           size: 30,
         ),
         title: "Home",
-        textStyle: const TextStyle(fontSize: 18),
-        activeColorPrimary: Colors.black,
-        inactiveColorPrimary: Colors.white.withOpacity(0.8),
-      ),
-      PersistentBottomNavBarItem(
-        icon: const Icon(
-          Icons.favorite_border,
-          size: 30,
-        ),
-        title: "Favorite",
         textStyle: const TextStyle(fontSize: 18),
         activeColorPrimary: Colors.black,
         inactiveColorPrimary: Colors.white.withOpacity(0.8),
