@@ -26,6 +26,11 @@ class AppLink {
   //items PHP
   static const String itemsPHP = "$server/items/items.php";
 
+  //favorite PHP
+  static const String favorite = "$server/favorite";
+  static const String addToFavorite = "$favorite/add.php";
+  static const String removeFromFavorite = "$favorite/remove.php";
+
   //Image Links
   static const String imagesLink = "$server/uploads";
   static const String imagesCategories = "$imagesLink/categories";
