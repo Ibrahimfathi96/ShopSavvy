@@ -32,7 +32,7 @@ class ProductPrice extends GetView<ProductDetailsControllerImp> {
         ),
         Row(
           children: [
-            GestureDetector(
+            InkWell(
               onTap: onRemoveTap,
               child: Container(
                 margin: const EdgeInsets.all(6),
@@ -50,7 +50,7 @@ class ProductPrice extends GetView<ProductDetailsControllerImp> {
               count,
               style: const TextStyle(fontSize: 22, color: AppColors.primaryDark),
             ),
-            GestureDetector(
+            InkWell(
               onTap: onAddTap,
               child: Container(
                 margin: const EdgeInsets.all(6),

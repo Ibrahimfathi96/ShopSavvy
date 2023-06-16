@@ -22,8 +22,14 @@ class ProductDetailsColumn extends GetView<ProductDetailsControllerImp> {
           ProductPrice(
             price: "${controller.itemsMd.itemsPrice}",
             count: "1",
-            onAddTap: (){},
-            onRemoveTap: (){},
+            onAddTap: () {
+              controller.cartController
+                  .addToCart(controller.itemsMd.itemsId.toString());
+            },
+            onRemoveTap: () {
+              controller.cartController
+                  .deleteFromCart(controller.itemsMd.itemsId.toString());
+            },
           ),
           const ProductDescription(),
           const ProductColors(),

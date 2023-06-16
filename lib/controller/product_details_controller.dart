@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shop_savvy/controller/cart_controller.dart';
 import 'package:shop_savvy/data/model/items_model.dart';
 import 'package:shop_savvy/view/screen/items/items_view.dart';
 
@@ -9,6 +10,7 @@ abstract class ProductDetailsController extends GetxController{
   goBack();
 }
 class ProductDetailsControllerImp extends ProductDetailsController{
+  CartController cartController = Get.put(CartController());
   late ItemsMd itemsMd;
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   List subItems = [

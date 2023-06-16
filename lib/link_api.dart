@@ -27,12 +27,18 @@ class AppLink {
   //items PHP
   static const String itemsPHP = "$server/items/items.php";
 
-  //favorite PHP
+  //Favorite PHP
   static const String favorite = "$server/favorite";
   static const String addToFavorite = "$favorite/add.php";
   static const String removeFromFavorite = "$favorite/remove.php";
   static const String favoriteView = "$favorite/view.php";
   static const String deleteFromMyFavorite = "$favorite/delete_item.php";
+
+  //Cart PHP
+  static const String cart = "$server/cart";
+  static const String addToCart = "$cart/add.php";
+  static const String deleteFromCart = "$cart/delete.php";
+  static const String cartView = "$cart/view.php";
 
   //Image Links
   static const String imagesLink = "$server/uploads";
