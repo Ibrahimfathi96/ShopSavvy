@@ -12,21 +12,27 @@ class CartCoupon extends StatelessWidget {
     return Column(
       children: [
         Container(
-          padding: const EdgeInsets.symmetric(horizontal: 40,vertical: 10),
+          padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 6),
           alignment: Alignment.centerLeft,
           child: const Text(
             "Have a coupon code? enter here",
             textAlign: TextAlign.start,
-            style: TextStyle(fontSize: 14,color: AppColors.grey,),
+            style: TextStyle(
+              fontSize: 14,
+              color: AppColors.grey,
+            ),
           ),
         ),
         Container(
-          margin: EdgeInsets.symmetric(horizontal: Get.width / 12),
+          margin: EdgeInsets.symmetric(horizontal: Get.width / 14),
           padding:
-          EdgeInsets.symmetric(horizontal: Get.width / 30, vertical: 10),
+              EdgeInsets.symmetric(horizontal: Get.width / 28, vertical: 6),
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(16),
-              border: Border.all(color: AppColors.grey)),
+            borderRadius: BorderRadius.circular(16),
+            border: Border.all(
+              color: AppColors.grey,
+            ),
+          ),
           child: const Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -49,12 +55,13 @@ class CartCoupon extends StatelessWidget {
                     width: 16,
                   ),
                   CircleAvatar(
-                      radius: 16,
-                      backgroundColor: Color(0xFF3AC6A5),
-                      child: Icon(
-                        Icons.done,
-                        color: Colors.white,
-                      ))
+                    radius: 14,
+                    backgroundColor: Color(0xFF3AC6A5),
+                    child: Icon(
+                      Icons.done,
+                      color: Colors.white,
+                    ),
+                  ),
                 ],
               )
             ],

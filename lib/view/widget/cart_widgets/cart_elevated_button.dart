@@ -13,7 +13,7 @@ class CartCustomButton extends StatelessWidget {
       style: ElevatedButton.styleFrom(
         backgroundColor: AppColors.purple,
         elevation: 10,
-        minimumSize: Size(Get.width * 0.8, Get.height / 16),
+        minimumSize: Size(Get.width * 0.8, Get.height / 20),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10),
         ),

@@ -10,7 +10,7 @@ class TotalPriceText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(vertical: 10),
+      margin: const EdgeInsets.symmetric(vertical: 4),
       padding: EdgeInsets.symmetric(horizontal: Get.width / 9),
       child: const Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -18,7 +18,7 @@ class TotalPriceText extends StatelessWidget {
           Text(
             "Total:",
             style: TextStyle(
-              fontSize: 22,
+              fontSize: 20,
               fontWeight: FontWeight.bold,
               color: AppColors.purple,
             ),
@@ -26,7 +26,7 @@ class TotalPriceText extends StatelessWidget {
           Text(
             "EGP 800",
             style: TextStyle(
-              fontSize: 22,
+              fontSize: 20,
               fontWeight: FontWeight.bold,
               color: AppColors.purple,
             ),

@@ -12,8 +12,6 @@ class CartView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      floatingActionButton: const CartFAButtonWidgets(),
       appBar: AppBar(
         centerTitle: true,
         elevation: 0,
@@ -32,7 +30,7 @@ class CartView extends StatelessWidget {
         children: [
           Container(
             margin: const EdgeInsets.only(bottom: 6),
-            padding: const EdgeInsets.symmetric(vertical: 6,horizontal: 40),
+            padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 40),
             decoration: BoxDecoration(
               color: AppColors.purple,
               border: Border.all(color: AppColors.primaryDark),
@@ -44,13 +42,12 @@ class CartView extends StatelessWidget {
             ),
           ),
           Container(
-            height: Get.height * 0.41,
+            height: Get.height * 0.48,
             margin: const EdgeInsets.symmetric(horizontal: 6),
             decoration: BoxDecoration(
-              color: Colors.grey.withOpacity(0.4),
-              borderRadius: BorderRadius.circular(4),
-              border: Border.all(color: AppColors.grey,width: 2)
-            ),
+                color: Colors.grey.withOpacity(0.4),
+                borderRadius: BorderRadius.circular(4),
+                border: Border.all(color: AppColors.grey, width: 2)),
             child: Scrollbar(
               thumbVisibility: true,
               thickness: 8,
@@ -69,6 +66,8 @@ class CartView extends StatelessWidget {
               ),
             ),
           ),
+          const Spacer(),
+          const CartFAButtonWidgets(),
         ],
       ),
     );

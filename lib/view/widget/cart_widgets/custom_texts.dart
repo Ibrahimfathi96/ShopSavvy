@@ -10,7 +10,7 @@ class CustomCartTexts extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: Get.width / 9,vertical: 6),
+      padding: EdgeInsets.symmetric(horizontal: Get.width / 9,vertical: 4),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

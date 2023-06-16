@@ -24,6 +24,7 @@ class CartFAButtonWidgets extends StatelessWidget {
         CustomDotsDivider(),
         TotalPriceText(),
         CartCustomButton(),
+        SizedBox(height: 8,),
       ],
     );
   }
