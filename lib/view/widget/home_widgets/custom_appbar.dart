@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:shop_savvy/view/widget/home_widgets/home_notification_icon.dart';
 import 'package:shop_savvy/view/widget/home_widgets/home_search_textfield.dart';
 
 class CustomAppBar extends StatelessWidget {
@@ -29,10 +28,10 @@ class CustomAppBar extends StatelessWidget {
             appBarTitle: appBarTitle,
             onSearchPress: onSearchPress,
           ),
-          HomeAppBarIcons(
-            onPressed: onNotificationPress,
-            iconData: Icons.notifications_active_outlined,
-          ),
+          // HomeAppBarIcons(
+          //   onPressed: onNotificationPress,
+          //   iconData: Icons.notifications_active_outlined,
+          // ),
           favouriteButton?? const SizedBox(),
         ],
       ),

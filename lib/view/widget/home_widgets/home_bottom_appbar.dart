@@ -17,19 +17,21 @@ class CustomHomeBottomAppBar extends StatelessWidget {
           child: BottomAppBar(
             color: AppColors.primaryDark,
             child: Row(
-              mainAxisSize: MainAxisSize.min,
               children: [
                 ...List.generate(
-                  controller.pagesList.length,
+                  controller.pagesList.length + 1,
                   (index) {
-                    return CustomHomeBottomNavBar(
+                    int i = index > 2 ? index - 1 : index;
+                    return index == 2
+                        ? const Spacer()
+                        : CustomHomeBottomNavBar(
                             onPressed: () {
-                              controller.changePage(index);
+                              controller.changePage(i);
                             },
                             isActive:
-                                controller.currentPage == index ? true : false,
-                            buttonText: controller.bottomAppBar[index]['title'],
-                            icon: controller.bottomAppBar[index]['icon'],
+                                controller.currentPage == i ? true : false,
+                            buttonText: controller.bottomAppBar[i]['title'],
+                            icon: controller.bottomAppBar[i]['icon'],
                           );
                   },
                 ),

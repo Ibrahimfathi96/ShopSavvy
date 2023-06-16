@@ -11,7 +11,7 @@ class CartItemsContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: Get.height * 0.50,
+      height: Get.height * 0.57,
       margin: const EdgeInsets.symmetric(horizontal: 6),
       decoration: BoxDecoration(
         color: Colors.grey.withOpacity(0.4),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shop_savvy/core/constants/color.dart';
+import 'package:shop_savvy/view/screen/cart/cart_view.dart';
 
 class AddToCartWidget extends StatelessWidget {
   const AddToCartWidget({
@@ -10,7 +11,7 @@ class AddToCartWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal:Get.width / 6),
+      margin: EdgeInsets.symmetric(horizontal: Get.width / 8),
       height: 40,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
@@ -19,21 +20,26 @@ class AddToCartWidget extends StatelessWidget {
             borderRadius: BorderRadius.circular(16),
           ),
         ),
-        onPressed: () {},
+        onPressed: () {
+          Get.toNamed(CartView.routeName);
+        },
         child: const Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              "Add Item To Cart",
+              "go to Cart",
               style: TextStyle(
-                fontSize: 16,
-                color: Colors.white,
-              ),
+                  fontSize: 20,
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold),
             ),
             SizedBox(
               width: 10,
             ),
-            Icon(Icons.shopping_cart_outlined),
+            Icon(
+              Icons.shopping_cart_outlined,
+              size: 30,
+            ),
           ],
         ),
       ),
