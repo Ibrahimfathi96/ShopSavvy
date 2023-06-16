@@ -39,6 +39,7 @@ class AppLink {
   static const String addToCart = "$cart/add.php";
   static const String deleteFromCart = "$cart/delete.php";
   static const String cartView = "$cart/view.php";
+  static const String cartItemsCount = "$cart/items_count.php";
 
   //Image Links
   static const String imagesLink = "$server/uploads";

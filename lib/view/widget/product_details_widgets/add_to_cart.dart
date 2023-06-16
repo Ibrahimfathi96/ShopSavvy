@@ -10,11 +10,11 @@ class AddToCartWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: EdgeInsets.symmetric(horizontal:Get.width / 6),
       height: 40,
-      margin: EdgeInsets.symmetric(horizontal: Get.width / 5, vertical: 10),
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          backgroundColor: AppColors.primaryDark,
+          backgroundColor: AppColors.purple,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
           ),
@@ -24,7 +24,7 @@ class AddToCartWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              "Add To Cart",
+              "Add Item To Cart",
               style: TextStyle(
                 fontSize: 16,
                 color: Colors.white,

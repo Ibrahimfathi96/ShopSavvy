@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shop_savvy/controller/product_details_controller.dart';
 import 'package:shop_savvy/link_api.dart';
-import 'package:shop_savvy/view/widget/product_details_widgets/product_details_appbar.dart';
 
 class ProductDisplayStack extends GetView<ProductDetailsControllerImp> {
   const ProductDisplayStack({
@@ -14,16 +13,10 @@ class ProductDisplayStack extends GetView<ProductDetailsControllerImp> {
   Widget build(BuildContext context) {
     return Container(
       decoration: const BoxDecoration(
-        image: DecorationImage(
-          fit: BoxFit.fill,
-          image: AssetImage(
-            "assets/images/gradient_image.PNG",
-          ),
-        ),
+        color: Color(0xFFA7E1F9)
       ),
       child: Column(
         children: [
-          const ProductDetailsAppBar(),
           Stack(
             clipBehavior: Clip.none,
             children: [

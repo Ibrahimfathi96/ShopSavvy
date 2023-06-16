@@ -8,6 +8,7 @@ import 'package:shop_savvy/core/constants/color.dart';
 import 'package:shop_savvy/core/functions/translate_database.dart';
 import 'package:shop_savvy/data/model/items_model.dart';
 import 'package:shop_savvy/link_api.dart';
+import 'package:shop_savvy/view/widget/items_widgets/rating_widget.dart';
 
 class ItemsGridViewBuilder extends GetView<ItemsControllerImp> {
   final ItemsMd itemsMd;
@@ -57,27 +58,29 @@ class ItemsGridViewBuilder extends GetView<ItemsControllerImp> {
                     ),
                   ),
                   const Spacer(),
-                  GetBuilder<FavoriteController>(builder: (favController) {
-                    return GestureDetector(
-                      onTap: () {
-                        if (favController.isFavorite[itemsMd.itemsId] == 1) {
-                          favController.setFavorite(itemsMd.itemsId, 0);
-                          favController
-                              .removeFromFavorite(itemsMd.itemsId.toString());
-                        } else {
-                          favController.setFavorite(itemsMd.itemsId, 1);
-                          favController
-                              .addToFavorite(itemsMd.itemsId.toString());
-                        }
-                      },
-                      child: Icon(
-                        favController.isFavorite[itemsMd.itemsId] == 1
-                            ? Icons.favorite
-                            : Icons.favorite_border_outlined,
-                        color: AppColors.primaryColor,
-                      ),
-                    );
-                  }),
+                  GetBuilder<FavoriteController>(
+                    builder: (favController) {
+                      return GestureDetector(
+                        onTap: () {
+                          if (favController.isFavorite[itemsMd.itemsId] == 1) {
+                            favController.setFavorite(itemsMd.itemsId, 0);
+                            favController
+                                .removeFromFavorite(itemsMd.itemsId.toString());
+                          } else {
+                            favController.setFavorite(itemsMd.itemsId, 1);
+                            favController
+                                .addToFavorite(itemsMd.itemsId.toString());
+                          }
+                        },
+                        child: Icon(
+                          favController.isFavorite[itemsMd.itemsId] == 1
+                              ? Icons.favorite
+                              : Icons.favorite_border_outlined,
+                          color: AppColors.primaryColor,
+                        ),
+                      );
+                    },
+                  ),
                 ],
               ),
               Expanded(
@@ -113,30 +116,7 @@ class ItemsGridViewBuilder extends GetView<ItemsControllerImp> {
                     const SizedBox(
                       height: 6,
                     ),
-                    Row(
-                      children: [
-                        Row(
-                          children: [
-                            ...List.generate(
-                              5,
-                              (index) => Icon(
-                                index < 3 ? Icons.star : Icons.star_border,
-                                color:
-                                    index < 3 ? Colors.orange : Colors.black87,
-                                size: 15,
-                              ),
-                            ),
-                          ],
-                        ),
-                        const SizedBox(
-                          width: 6,
-                        ),
-                        const Text(
-                          "3.5(50)",
-                          style: TextStyle(fontSize: 13, color: Colors.black87),
-                        ),
-                      ],
-                    ),
+                    const RatingWidget(),
                   ],
                 ),
               ),
@@ -147,3 +127,4 @@ class ItemsGridViewBuilder extends GetView<ItemsControllerImp> {
     );
   }
 }
+
