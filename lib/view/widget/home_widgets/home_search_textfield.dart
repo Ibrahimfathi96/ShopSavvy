@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:shop_savvy/controller/home_controllers/home_controller.dart';
 
-class HomeSearchTextField extends StatelessWidget {
-  final String appBarTitle ;
-  final void Function()? onSearchPress ;
+class HomeSearchTextField extends GetView<HomeControllerImp> {
+  final String appBarTitle;
+
+  final void Function()? onSearchPress;
+
   const HomeSearchTextField({
-    super.key, required this.appBarTitle, this.onSearchPress,
+    super.key,
+    required this.appBarTitle,
+    this.onSearchPress,
   });
 
   @override
@@ -18,9 +24,7 @@ class HomeSearchTextField extends StatelessWidget {
             onPressed: onSearchPress,
           ),
           hintText: appBarTitle,
-          hintStyle: const TextStyle(
-            fontSize: 14
-          ),
+          hintStyle: const TextStyle(fontSize: 14),
           border: OutlineInputBorder(
             borderSide: BorderSide.none,
             borderRadius: BorderRadius.circular(16),

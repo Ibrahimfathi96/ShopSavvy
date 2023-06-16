@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shop_savvy/controller/my_favorite_controller.dart';
 import 'package:shop_savvy/core/class/handling_data_view.dart';
+import 'package:shop_savvy/view/screen/home/home_screen.dart';
 import 'package:shop_savvy/view/widget/home_widgets/custom_appbar.dart';
 import 'package:shop_savvy/view/widget/my_favorite_widgets/custom_favorite_list.dart';
 
@@ -23,7 +24,7 @@ class MyFavoriteView extends StatelessWidget {
                   CustomAppBar(
                     backButton: GestureDetector(
                       onTap: () {
-                        Get.back();
+                        Get.offAllNamed(HomeScreen.routeName);
                       },
                       child: const Icon(Icons.arrow_back_ios),
                     ),

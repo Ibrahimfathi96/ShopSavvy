@@ -5,9 +5,10 @@ import 'package:shop_savvy/core/functions/handling_data.dart';
 import 'package:shop_savvy/core/services/services.dart';
 import 'package:shop_savvy/data/data_source/remote/favorite/add_to_favorite_data.dart';
 import 'package:shop_savvy/data/data_source/remote/favorite/remove_from_favorite_data.dart';
+import 'package:shop_savvy/data/model/my_favorite_model.dart';
 
 class FavoriteController extends GetxController {
-  List data = [];
+  List<MyFavoriteMd> data = [];
   MyServices services = Get.find();
   AddToFavoriteData addToFavoriteData = AddToFavoriteData(Get.find());
   RemoveFromFavoriteData removeFromFavoriteData =
@@ -50,5 +51,6 @@ class FavoriteController extends GetxController {
         statusRequest = StatusRequest.failure;
       }
     }
+    update();
   }
 }

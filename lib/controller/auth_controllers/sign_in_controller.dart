@@ -6,10 +6,10 @@ import 'package:shop_savvy/core/class/status_request.dart';
 import 'package:shop_savvy/core/functions/handling_data.dart';
 import 'package:shop_savvy/core/services/services.dart';
 import 'package:shop_savvy/data/data_source/remote/auth/sign_in_remote.dart';
-import 'package:shop_savvy/view/screen/auth_view/forget_password/forget_password.dart';
-import 'package:shop_savvy/view/screen/auth_view/sign_up/sign_up.dart';
-import 'package:shop_savvy/view/screen/auth_view/sign_up/verify_code_sign_up.dart';
-import 'package:shop_savvy/view/screen/home_view/home_body.dart';
+import 'package:shop_savvy/view/screen/auth/forget_password/forget_password.dart';
+import 'package:shop_savvy/view/screen/auth/sign_up/sign_up.dart';
+import 'package:shop_savvy/view/screen/auth/sign_up/verify_code_sign_up.dart';
+import 'package:shop_savvy/view/screen/home/home_screen.dart';
 
 abstract class SignInController extends GetxController {
   singIn();
@@ -85,7 +85,7 @@ class SignInControllerImp extends SignInController {
             services.prefs
                 .setString("userName", response['data']['users_name']);
             services.prefs.setString("step", "2");
-            Get.offAllNamed(HomeBody.routeName);
+            Get.offAllNamed(HomeScreen.routeName);
           }else{
             Get.toNamed(SignUpVerifyCode.routeName,arguments: {"email": emailController.text});
           }
@@ -124,7 +124,7 @@ class SignInControllerImp extends SignInController {
       Get.snackbar("User Credential", credential.user?.uid ?? '');
       debugPrint(credential.user.toString());
       if (credential.user?.uid != null) {
-        Get.offAllNamed(HomeBody.routeName);
+        Get.offAllNamed(HomeScreen.routeName);
       }
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {

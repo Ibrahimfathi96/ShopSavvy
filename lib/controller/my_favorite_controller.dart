@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shop_savvy/controller/favorite_controller.dart';
 import 'package:shop_savvy/core/class/status_request.dart';
 import 'package:shop_savvy/core/functions/handling_data.dart';
 import 'package:shop_savvy/core/services/services.dart';
@@ -9,6 +10,7 @@ import 'package:shop_savvy/data/model/my_favorite_model.dart';
 
 class MyFavoriteController extends GetxController {
   MyFavoriteData favoriteData = MyFavoriteData(Get.find());
+  FavoriteController favoriteController = Get.put(FavoriteController());
   DeleteFromFavoriteData deleteFromFavoriteData =
       DeleteFromFavoriteData(Get.find());
   List<MyFavoriteMd> data = [];
@@ -41,6 +43,8 @@ class MyFavoriteController extends GetxController {
   deleteData(String favId) {
     deleteFromFavoriteData.getData(favId);
     data.removeWhere((element) => element.favoriteId.toString() == favId);
+    favoriteController.data
+        .removeWhere((element) => element.favoriteItemsId.toString() == favId);
     update();
   }
 }

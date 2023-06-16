@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:shop_savvy/core/class/status_request.dart';
 import 'package:shop_savvy/core/functions/handling_data.dart';
 import 'package:shop_savvy/data/data_source/remote/forget_password/reset_password.dart';
-import 'package:shop_savvy/view/screen/auth_view/forget_password/reset_password_success.dart';
+import 'package:shop_savvy/view/screen/auth/forget_password/reset_password_success.dart';
 
 abstract class ResetPasswordController extends GetxController {
   resetPassword();

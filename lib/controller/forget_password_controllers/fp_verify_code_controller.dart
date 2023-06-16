@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:shop_savvy/core/class/status_request.dart';
 import 'package:shop_savvy/core/functions/handling_data.dart';
 import 'package:shop_savvy/data/data_source/remote/forget_password/verify_code.dart';
-import 'package:shop_savvy/view/screen/auth_view/forget_password/reset_password.dart';
+import 'package:shop_savvy/view/screen/auth/forget_password/reset_password.dart';
 
 abstract class ForgetPasswordVerifyCodeController extends GetxController {
   verifyOtp(String otp);

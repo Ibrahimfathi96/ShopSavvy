@@ -4,7 +4,7 @@ import 'package:shop_savvy/core/class/status_request.dart';
 import 'package:shop_savvy/core/functions/handling_data.dart';
 import 'package:shop_savvy/core/services/services.dart';
 import 'package:shop_savvy/data/data_source/remote/home_data.dart';
-import 'package:shop_savvy/view/screen/items_view/items_view.dart';
+import 'package:shop_savvy/view/screen/items/items_view.dart';
 
 abstract class HomeController extends GetxController {
   initialData();
@@ -15,6 +15,7 @@ abstract class HomeController extends GetxController {
 }
 
 class HomeControllerImp extends HomeController {
+  late TextEditingController textController;
   MyServices myServices = Get.find();
   String? userName;
   String? id;
@@ -33,6 +34,7 @@ class HomeControllerImp extends HomeController {
 
   @override
   initialData() {
+    textController = TextEditingController();
     userName = myServices.prefs.getString("userName");
     id = myServices.prefs.getString("id");
     lang = myServices.prefs.getString("lang");

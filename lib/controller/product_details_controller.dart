@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shop_savvy/data/model/items_model.dart';
-import 'package:shop_savvy/view/screen/items_view/items_view.dart';
+import 'package:shop_savvy/view/screen/items/items_view.dart';
+
 
 abstract class ProductDetailsController extends GetxController{
   initialData();

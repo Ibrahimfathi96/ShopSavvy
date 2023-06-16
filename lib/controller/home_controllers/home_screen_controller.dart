@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:shop_savvy/view/screen/home_view/home_body.dart';
+import 'package:shop_savvy/view/screen/cart/cart_view.dart';
+import 'package:shop_savvy/view/screen/home/home_body.dart';
 import 'package:shop_savvy/view/screen/settings/settings.dart';
 
 abstract class HomeScreenController extends GetxController {
@@ -11,10 +12,7 @@ class HomeScreenControllerImp extends HomeScreenController {
   int currentPage = 0;
   List<Widget> pagesList = [
     const HomeBody(),
-    Container(
-      color: Colors.red,
-      child: const Text("Cart"),
-    ),
+    const CartView(),
     Container(
       color: Colors.red,
       child: const Text("Profile"),

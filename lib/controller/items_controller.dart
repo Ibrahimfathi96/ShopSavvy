@@ -4,7 +4,7 @@ import 'package:shop_savvy/core/functions/handling_data.dart';
 import 'package:shop_savvy/core/services/services.dart';
 import 'package:shop_savvy/data/data_source/items_data.dart';
 import 'package:shop_savvy/data/model/items_model.dart';
-import 'package:shop_savvy/view/screen/home_view/home_screen.dart';
+import 'package:shop_savvy/view/screen/home/home_screen.dart';
 import 'package:shop_savvy/view/screen/product_details/product_details.dart';
 
 abstract class ItemsController extends GetxController {

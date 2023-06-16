@@ -8,4 +8,5 @@ class AppColors{
   static const Color thirdColor = Color.fromARGB(255, 255, 179, 170);
   static const Color darkColor = Color(0xFF2c3e50);
   static const Color brightYellow = Color(0xFFFAB81D);
+  static const Color purple = Color(0xFF843667);
 }

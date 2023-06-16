@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:marquee/marquee.dart';
+import 'package:shop_savvy/controller/favorite_controller.dart';
 import 'package:shop_savvy/controller/my_favorite_controller.dart';
 import 'package:shop_savvy/core/constants/color.dart';
 import 'package:shop_savvy/core/functions/translate_database.dart';

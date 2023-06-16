@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:shop_savvy/core/services/services.dart';
 import 'package:shop_savvy/data/data_source/static/static.dart';
-import 'package:shop_savvy/view/screen/auth_view/sign_in.dart';
+import 'package:shop_savvy/view/screen/auth/sign_in.dart';
 
 abstract class OnBoardingController extends GetxController {
   nextPage();

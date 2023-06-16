@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shop_savvy/core/services/services.dart';
-import 'package:shop_savvy/view/screen/auth_view/sign_in.dart';
-import 'package:shop_savvy/view/screen/home_view/home_screen.dart';
+import 'package:shop_savvy/view/screen/auth/sign_in.dart';
+import 'package:shop_savvy/view/screen/home/home_screen.dart';
 
 class MyMiddleWare extends GetMiddleware {
   @override

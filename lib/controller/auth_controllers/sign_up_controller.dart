@@ -4,8 +4,8 @@ import 'package:get/get.dart';
 import 'package:shop_savvy/core/class/status_request.dart';
 import 'package:shop_savvy/core/functions/handling_data.dart';
 import 'package:shop_savvy/data/data_source/remote/auth/sign_up_remotedata.dart';
-import 'package:shop_savvy/view/screen/auth_view/sign_in.dart';
-import 'package:shop_savvy/view/screen/auth_view/sign_up/verify_code_sign_up.dart';
+import 'package:shop_savvy/view/screen/auth/sign_in.dart';
+import 'package:shop_savvy/view/screen/auth/sign_up/verify_code_sign_up.dart';
 
 abstract class SignUpController extends GetxController {
   singUp();
