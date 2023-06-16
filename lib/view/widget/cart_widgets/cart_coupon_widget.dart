@@ -9,12 +9,20 @@ class CartCoupon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-          padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 6),
-          alignment: Alignment.centerLeft,
-          child: const Text(
+    return Container(
+      margin: EdgeInsets.symmetric(horizontal: Get.width / 14),
+      padding:
+          EdgeInsets.symmetric(horizontal: Get.width / 28, vertical: 6),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(
+          color: AppColors.grey,
+        ),
+      ),
+      child: const Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Text(
             "Have a coupon code? enter here",
             textAlign: TextAlign.start,
             style: TextStyle(
@@ -22,18 +30,7 @@ class CartCoupon extends StatelessWidget {
               color: AppColors.grey,
             ),
           ),
-        ),
-        Container(
-          margin: EdgeInsets.symmetric(horizontal: Get.width / 14),
-          padding:
-              EdgeInsets.symmetric(horizontal: Get.width / 28, vertical: 6),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(16),
-            border: Border.all(
-              color: AppColors.grey,
-            ),
-          ),
-          child: const Row(
+          Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
@@ -66,8 +63,8 @@ class CartCoupon extends StatelessWidget {
               )
             ],
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

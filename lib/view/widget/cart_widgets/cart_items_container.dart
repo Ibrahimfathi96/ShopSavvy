@@ -11,7 +11,7 @@ class CartItemsContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: Get.height * 0.48,
+      height: Get.height * 0.50,
       margin: const EdgeInsets.symmetric(horizontal: 6),
       decoration: BoxDecoration(
         color: Colors.grey.withOpacity(0.4),
@@ -21,9 +21,11 @@ class CartItemsContainer extends StatelessWidget {
           width: 2,
         ),
       ),
-      child: Scrollbar(
+      child: RawScrollbar(
+        thumbColor: AppColors.primaryDark,
         thumbVisibility: true,
-        thickness: 8,
+        radius: const Radius.circular(20),
+        thickness: 5,
         child: ListView(
           physics: const BouncingScrollPhysics(),
           children: const [
