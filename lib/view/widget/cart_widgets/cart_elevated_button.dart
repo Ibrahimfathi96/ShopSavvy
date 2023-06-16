@@ -11,12 +11,13 @@ class CartCustomButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-          backgroundColor: AppColors.purple,
-          elevation: 10,
-          minimumSize: Size(Get.width * 0.8, Get.height / 16),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10),
-          )),
+        backgroundColor: AppColors.purple,
+        elevation: 10,
+        minimumSize: Size(Get.width * 0.8, Get.height / 16),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10),
+        ),
+      ),
       onPressed: () {},
       child: const Text(
         "Continue to Checkout",
