@@ -14,6 +14,7 @@ class CartView extends StatelessWidget {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: const CartFAButtonWidgets(),
       appBar: AppBar(
+        //TODO Remove AppBar and make it custom or reduce its height and work on the cart items spacing and its view
         centerTitle: true,
         elevation: 0,
         backgroundColor: Colors.transparent,
