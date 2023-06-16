@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:shop_savvy/core/constants/color.dart';
 import 'package:shop_savvy/view/widget/cart_widgets/cart_bottom_widgets.dart';
-import 'package:shop_savvy/view/widget/cart_widgets/cart_listview_item.dart';
+import 'package:shop_savvy/view/widget/cart_widgets/cart_items_container.dart';
+import 'package:shop_savvy/view/widget/cart_widgets/cart_upper_text.dart';
 
 class CartView extends StatelessWidget {
   static const String routeName = '/cart-view';
@@ -26,48 +25,12 @@ class CartView extends StatelessWidget {
           ),
         ),
       ),
-      body: Column(
+      body: const Column(
         children: [
-          Container(
-            margin: const EdgeInsets.only(bottom: 6),
-            padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 40),
-            decoration: BoxDecoration(
-              color: AppColors.purple,
-              border: Border.all(color: AppColors.primaryDark),
-              borderRadius: BorderRadius.circular(16),
-            ),
-            child: const Text(
-              "You have 4 items in your cart",
-              style: TextStyle(color: Colors.white),
-            ),
-          ),
-          Container(
-            height: Get.height * 0.48,
-            margin: const EdgeInsets.symmetric(horizontal: 6),
-            decoration: BoxDecoration(
-                color: Colors.grey.withOpacity(0.4),
-                borderRadius: BorderRadius.circular(4),
-                border: Border.all(color: AppColors.grey, width: 2)),
-            child: Scrollbar(
-              thumbVisibility: true,
-              thickness: 8,
-              child: ListView(
-                physics: const BouncingScrollPhysics(),
-                children: const [
-                  CartItem(),
-                  CartItem(),
-                  CartItem(),
-                  CartItem(),
-                  CartItem(),
-                  CartItem(),
-                  CartItem(),
-                  CartItem(),
-                ],
-              ),
-            ),
-          ),
-          const Spacer(),
-          const CartFAButtonWidgets(),
+          CartUpperText(),
+          CartItemsContainer(),
+          Spacer(),
+          CartFAButtonWidgets(),
         ],
       ),
     );
