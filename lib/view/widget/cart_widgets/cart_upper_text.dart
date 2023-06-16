@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:shop_savvy/controller/cart_controller.dart';
 import 'package:shop_savvy/core/constants/color.dart';
 
-class CartUpperText extends StatelessWidget {
+class CartUpperText extends GetView<CartController> {
   const CartUpperText({
     super.key,
   });
@@ -16,9 +18,9 @@ class CartUpperText extends StatelessWidget {
         border: Border.all(color: AppColors.primaryDark),
         borderRadius: BorderRadius.circular(10),
       ),
-      child: const Text(
-        "4 items added to your cart.",
-        style: TextStyle(color: Colors.white,fontSize: 16),
+      child: Text(
+        "${controller.countTotalItems} items added to your cart.",
+        style: const TextStyle(color: Colors.white,fontSize: 16),
       ),
     );
   }

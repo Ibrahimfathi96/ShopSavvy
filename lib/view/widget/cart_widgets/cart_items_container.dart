@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shop_savvy/controller/cart_controller.dart';
 import 'package:shop_savvy/core/constants/color.dart';
 import 'package:shop_savvy/view/widget/cart_widgets/cart_listview_item.dart';
 
-class CartItemsContainer extends StatelessWidget {
+class CartItemsContainer extends GetView<CartController> {
   const CartItemsContainer({
     super.key,
   });
@@ -28,15 +29,17 @@ class CartItemsContainer extends StatelessWidget {
         thickness: 5,
         child: ListView(
           physics: const BouncingScrollPhysics(),
-          children: const [
-            CartItem(),
-            CartItem(),
-            CartItem(),
-            CartItem(),
-            CartItem(),
-            CartItem(),
-            CartItem(),
-            CartItem(),
+          children: [
+            ...List.generate(
+              controller.data.length, (index) =>
+            CartItem(
+              productCount:"${controller.data[index].itemsTotalCount}",
+              productName: "${controller.data[index].itemsName}         ",
+              productPrice:"${controller.data[index].itemsTotalPrice} EGP" ,
+              productImage: "${controller.data[index].itemsImage}",
+
+            ),
+            ),
           ],
         ),
       ),

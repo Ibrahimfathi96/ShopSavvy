@@ -6,12 +6,17 @@ import 'package:shop_savvy/core/services/services.dart';
 import 'package:shop_savvy/data/data_source/remote/cart/add_to_cart.dart';
 import 'package:shop_savvy/data/data_source/remote/cart/cart_items_count_data.dart';
 import 'package:shop_savvy/data/data_source/remote/cart/remove_from_cart.dart';
+import 'package:shop_savvy/data/data_source/remote/cart/view.dart';
+import 'package:shop_savvy/data/model/cart_model.dart';
 
 class CartController extends GetxController {
   AddToCartData addToCartData = AddToCartData(Get.find());
   CartItemsCount cartItemsCount = CartItemsCount(Get.find());
   RemoveFromCartData removeFromCartData = RemoveFromCartData(Get.find());
-  List data = [];
+  CartViewData cartViewData = CartViewData(Get.find());
+  List<CartMd> data = [];
+  num ordersPrice = 0;
+  num countTotalItems = 0;
 
   MyServices services = Get.find();
   StatusRequest statusRequest = StatusRequest.none;
@@ -49,7 +54,23 @@ class CartController extends GetxController {
     }
   }
 
-  cartView() {}
+  cartView() async {
+    statusRequest = StatusRequest.loading;
+    var response = await cartViewData.getData(services.prefs.getString("id")!);
+    statusRequest = handlingData(response);
+    if (StatusRequest.success == statusRequest) {
+      if (response['status'] == 'success') {
+        List dataResponse = response['data'];
+        Map priceCountResponse = response['countprice'];
+        data.addAll(dataResponse.map((e) => CartMd.fromJson(e)));
+        countTotalItems = int.parse(priceCountResponse['totalcount']);
+        ordersPrice = priceCountResponse['totalprice'];
+      } else {
+        statusRequest = StatusRequest.failure;
+      }
+    }
+    update();
+  }
 
   getCartItemsCount(String itemsId) async {
     statusRequest = StatusRequest.loading;
@@ -66,5 +87,11 @@ class CartController extends GetxController {
         statusRequest = StatusRequest.failure;
       }
     }
+  }
+
+  @override
+  void onInit() {
+    cartView();
+    super.onInit();
   }
 }
