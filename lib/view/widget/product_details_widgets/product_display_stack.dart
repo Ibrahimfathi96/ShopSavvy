@@ -26,7 +26,7 @@ class ProductDisplayStack extends GetView<ProductDetailsControllerImp> {
                 padding: const EdgeInsets.all(16),
               ),
               Positioned(
-                bottom: -10,
+                bottom: 2,
                 left: Get.width / 8,
                 right: Get.width / 8,
                 child: Hero(
@@ -34,7 +34,7 @@ class ProductDisplayStack extends GetView<ProductDetailsControllerImp> {
                   child: CachedNetworkImage(
                     imageUrl:
                     '${AppLink.imagesItems}/${controller.itemsMd.itemsImage!}',
-                    height: Get.height / 3,
+                    height: Get.height / 3.5,
                     width: Get.width,
                     fit: BoxFit.fill,
                   ),

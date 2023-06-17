@@ -19,10 +19,10 @@ class CartCoupon extends StatelessWidget {
           color: AppColors.grey,
         ),
       ),
-      child: const Column(
+      child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Text(
+          const Text(
             "Have a coupon code? enter here",
             textAlign: TextAlign.start,
             style: TextStyle(
@@ -33,7 +33,7 @@ class CartCoupon extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
+              const Text(
                 "FD232D",
                 style: TextStyle(
                   fontSize: 18,
@@ -45,19 +45,15 @@ class CartCoupon extends StatelessWidget {
                   Text(
                     "Available",
                     style: TextStyle(
-                      color: Color(0xFF3AC6A5),
+                      color: const Color(0xFF3AC6A5).withOpacity(0.9),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 16,
                   ),
-                  CircleAvatar(
-                    radius: 14,
-                    backgroundColor: Color(0xFF3AC6A5),
-                    child: Icon(
-                      Icons.done,
-                      color: Colors.white,
-                    ),
+                  Icon(
+                    Icons.check_circle,size: 26,
+                    color: const Color(0xFF3AC6A5).withOpacity(0.9),
                   ),
                 ],
               )

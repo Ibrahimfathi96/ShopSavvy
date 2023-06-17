@@ -18,6 +18,7 @@ class CartView extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           leading: IconButton(
+            padding: EdgeInsets.zero,
             splashColor: Colors.transparent,
             highlightColor: Colors.transparent,
             hoverColor: Colors.transparent,
@@ -26,12 +27,13 @@ class CartView extends StatelessWidget {
             },
             icon: const Icon(
               Icons.arrow_back_ios,
-              color: Colors.black,
+              color: Colors.black54,
               size: 30,
             ),
           ),
           actions: [
             IconButton(
+              padding: EdgeInsets.zero,
               splashColor: Colors.transparent,
               highlightColor: Colors.transparent,
               hoverColor: Colors.transparent,
@@ -40,8 +42,8 @@ class CartView extends StatelessWidget {
               },
               icon: const Icon(
                 Icons.home,
-                color: Colors.black,
-                size: 32,
+                color: Colors.black54,
+                size: 36,
               ),
             ),
           ],
@@ -66,7 +68,7 @@ class CartView extends StatelessWidget {
                 CartUpperText(
                   count: "${controller.countTotalItems}",
                 ),
-                CartItemsContainer(),
+                const CartItemsContainer(),
                 CartFAButtonWidgets(
                   text1: "${controller.ordersPrice}",
                 ),
