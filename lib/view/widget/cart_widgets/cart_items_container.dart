@@ -29,7 +29,7 @@ class CartItemsContainer extends StatelessWidget {
                     productCount: "${controller.data[index].itemsTotalCount}",
                     productName: "${controller.data[index].itemsName}         ",
                     productPrice:
-                        "${controller.data[index].itemsTotalPrice} EGP",
+                        "${controller.data[index].itemsTotalPrice!.round()} EGP",
                     productImage: "${controller.data[index].itemsImage}",
                     onAdd: ()async {
                       await controller

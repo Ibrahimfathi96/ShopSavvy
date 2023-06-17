@@ -9,7 +9,6 @@ import 'package:shop_savvy/data/data_source/remote/favorite/delete_my_favorite.d
 import 'package:shop_savvy/data/data_source/remote/favorite/my_favorite_data.dart';
 import 'package:shop_savvy/data/model/my_favorite_model.dart';
 import 'package:shop_savvy/view/screen/home/home_screen.dart';
-import 'package:shop_savvy/view/screen/product_details/product_details.dart';
 
 class MyFavoriteController extends SearchMixControllerImp {
   MyFavoriteData favoriteData = MyFavoriteData(Get.find());

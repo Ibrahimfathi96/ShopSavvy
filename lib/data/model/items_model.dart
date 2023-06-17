@@ -12,6 +12,7 @@ class ItemsMd {
   int? itemsCount;
   int? itemsActive;
   int? itemsPrice;
+  num? itemsPriceAfterDiscount;
   int? itemsDiscount;
   String? itemsDate;
   int? itemsCategories;
@@ -31,7 +32,8 @@ class ItemsMd {
       this.itemsCount, 
       this.itemsActive, 
       this.itemsPrice, 
-      this.itemsDiscount, 
+      this.itemsPriceAfterDiscount,
+      this.itemsDiscount,
       this.itemsDate, 
       this.itemsCategories, 
       this.categoriesId, 
@@ -51,6 +53,7 @@ class ItemsMd {
     itemsCount = json['items_count'];
     itemsActive = json['items_active'];
     itemsPrice = json['items_price'];
+    itemsPriceAfterDiscount = json['itemspricediscount'];
     itemsDiscount = json['items_discount'];
     itemsDate = json['items_date'];
     itemsCategories = json['items_categories'];
@@ -71,6 +74,7 @@ ItemsMd copyWith({  int? itemsId,
   int? itemsCount,
   int? itemsActive,
   int? itemsPrice,
+  num? itemsPriceAfterDiscount,
   int? itemsDiscount,
   String? itemsDate,
   int? itemsCategories,
@@ -89,6 +93,7 @@ ItemsMd copyWith({  int? itemsId,
   itemsCount: itemsCount ?? this.itemsCount,
   itemsActive: itemsActive ?? this.itemsActive,
   itemsPrice: itemsPrice ?? this.itemsPrice,
+  itemsPriceAfterDiscount: itemsPriceAfterDiscount ?? this.itemsPriceAfterDiscount,
   itemsDiscount: itemsDiscount ?? this.itemsDiscount,
   itemsDate: itemsDate ?? this.itemsDate,
   itemsCategories: itemsCategories ?? this.itemsCategories,
@@ -111,6 +116,7 @@ ItemsMd copyWith({  int? itemsId,
     map['items_active'] = itemsActive;
     map['favorite'] = favorite;
     map['items_price'] = itemsPrice;
+    map['itemspricediscount'] = itemsPriceAfterDiscount;
     map['items_discount'] = itemsDiscount;
     map['items_date'] = itemsDate;
     map['items_categories'] = itemsCategories;

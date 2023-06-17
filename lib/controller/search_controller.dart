@@ -37,6 +37,7 @@ class SearchMixControllerImp extends SearchMixController {
   @override
   checkSearching(val) {
     if (val.trim().isEmpty) {
+      statusRequest = StatusRequest.none;
       searching = false;
     }
     update();

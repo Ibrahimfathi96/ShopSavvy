@@ -70,7 +70,7 @@ class CartView extends StatelessWidget {
                 ),
                 const CartItemsContainer(),
                 CartFAButtonWidgets(
-                  text1: "${controller.ordersPrice}",
+                  text1: "${controller.ordersPrice.round()}",
                 ),
               ],
             ),
