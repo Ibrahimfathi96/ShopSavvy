@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shop_savvy/controller/product_details_controller.dart';
 import 'package:shop_savvy/core/constants/color.dart';
 import 'package:shop_savvy/view/screen/cart/cart_view.dart';
 
-class AddToCartWidget extends StatelessWidget {
+class AddToCartWidget extends GetView<ProductDetailsControllerImp> {
   const AddToCartWidget({
     super.key,
   });

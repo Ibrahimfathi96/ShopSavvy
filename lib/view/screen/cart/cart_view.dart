@@ -18,6 +18,9 @@ class CartView extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           leading: IconButton(
+            splashColor: Colors.transparent,
+            highlightColor: Colors.transparent,
+            hoverColor: Colors.transparent,
             onPressed: () {
               Get.back();
             },
@@ -29,6 +32,9 @@ class CartView extends StatelessWidget {
           ),
           actions: [
             IconButton(
+              splashColor: Colors.transparent,
+              highlightColor: Colors.transparent,
+              hoverColor: Colors.transparent,
               onPressed: () {
                 Get.offAllNamed(HomeScreen.routeName);
               },
@@ -55,11 +61,15 @@ class CartView extends StatelessWidget {
         body: GetBuilder<CartController>(
           builder: (controller) => HandlingDataView(
             statusRequest: controller.statusRequest,
-            widget: const Column(
+            widget: Column(
               children: [
-                CartUpperText(),
+                CartUpperText(
+                  count: "${controller.countTotalItems}",
+                ),
                 CartItemsContainer(),
-                CartFAButtonWidgets(),
+                CartFAButtonWidgets(
+                  text1: "${controller.ordersPrice}",
+                ),
               ],
             ),
           ),

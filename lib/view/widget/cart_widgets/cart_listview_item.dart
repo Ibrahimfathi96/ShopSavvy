@@ -7,12 +7,16 @@ import 'package:shop_savvy/core/constants/color.dart';
 import 'package:shop_savvy/link_api.dart';
 
 class CartItem extends GetView<CartController> {
+  final void Function() onAdd;
+  final void Function() onRemove;
   final String productName;
   final String productPrice;
   final String productCount;
   final String productImage;
 
   const CartItem({
+    required this.onAdd,
+    required this.onRemove,
     required this.productName,
     required this.productImage,
     required this.productPrice,
@@ -23,19 +27,21 @@ class CartItem extends GetView<CartController> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 4),
+      padding: const EdgeInsets.only(top: 2, left: 2, right: 2),
       child: Column(
         children: [
           Card(
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(6),
+              side: const BorderSide(color: AppColors.darkColor, width: 1),
+            ),
             elevation: 16,
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
                   padding: const EdgeInsets.all(4),
-                  color: Colors.grey.withOpacity(0.2),
+                  color: Colors.grey.withOpacity(0.3),
                   child: CachedNetworkImage(
                     imageUrl: "${AppLink.imagesItems}/$productImage",
                     height: 90,
@@ -69,8 +75,11 @@ class CartItem extends GetView<CartController> {
                   padding: const EdgeInsets.symmetric(horizontal: 12),
                   child: Column(
                     children: [
+                      const SizedBox(
+                        height: 3,
+                      ),
                       GestureDetector(
-                        onTap: () {},
+                        onTap: onAdd,
                         child: const Icon(
                           Icons.add_circle_outline,
                           size: 32,
@@ -88,7 +97,7 @@ class CartItem extends GetView<CartController> {
                         ),
                       ),
                       GestureDetector(
-                        onTap: () {},
+                        onTap: onRemove,
                         child: const Icon(
                           Icons.remove_circle_outline,
                           size: 32,
