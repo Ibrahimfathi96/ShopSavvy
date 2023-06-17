@@ -7,9 +7,9 @@ import 'package:shop_savvy/data/data_source/remote/cart/add_to_cart.dart';
 import 'package:shop_savvy/data/data_source/remote/cart/cart_items_count_data.dart';
 import 'package:shop_savvy/data/data_source/remote/cart/remove_from_cart.dart';
 import 'package:shop_savvy/data/model/items_model.dart';
+import 'package:shop_savvy/data/model/my_favorite_model.dart';
 import 'package:shop_savvy/view/screen/cart/cart_view.dart';
-import 'package:shop_savvy/view/screen/items/items_view.dart';
-
+import 'package:shop_savvy/view/screen/home/home_screen.dart';
 
 abstract class ProductDetailsController extends GetxController {
   initialData();
@@ -44,8 +44,7 @@ class ProductDetailsControllerImp extends ProductDetailsController {
   initialData() async {
     statusRequest = StatusRequest.loading;
     itemsMd = Get.arguments['itemsMD'];
-    itemsCount =
-        await getCartItemsCount(itemsMd.itemsId.toString());
+    itemsCount = await getCartItemsCount(itemsMd.itemsId.toString());
     statusRequest = StatusRequest.success;
     update();
   }
@@ -54,7 +53,7 @@ class ProductDetailsControllerImp extends ProductDetailsController {
     statusRequest = StatusRequest.loading;
     update();
     var response =
-    await addToCartData.getData(services.prefs.getString("id")!, itemsId);
+        await addToCartData.getData(services.prefs.getString("id")!, itemsId);
     statusRequest = handlingData(response);
     if (StatusRequest.success == statusRequest) {
       if (response['status'] == 'success') {
@@ -86,15 +85,17 @@ class ProductDetailsControllerImp extends ProductDetailsController {
     }
     update();
   }
+
   cartItemCounterIncrement() {
     addToCart(itemsMd.itemsId.toString());
     itemsCount++;
     update();
   }
+
   getCartItemsCount(String itemsId) async {
     statusRequest = StatusRequest.loading;
     var response =
-    await cartItemsCount.getData(services.prefs.getString("id")!, itemsId);
+        await cartItemsCount.getData(services.prefs.getString("id")!, itemsId);
     statusRequest = handlingData(response);
     if (StatusRequest.success == statusRequest) {
       if (response['status'] == 'success') {
@@ -118,7 +119,7 @@ class ProductDetailsControllerImp extends ProductDetailsController {
 
   @override
   goBack() {
-    Get.off(const ItemsView());
+    Get.offNamed(HomeScreen.routeName);
   }
 
   @override

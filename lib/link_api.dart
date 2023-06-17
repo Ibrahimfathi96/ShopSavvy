@@ -26,6 +26,7 @@ class AppLink {
 
   //items PHP
   static const String itemsPHP = "$server/items/items.php";
+  static const String searchItems = "$server/items/search.php";
 
   //Favorite PHP
   static const String favorite = "$server/favorite";

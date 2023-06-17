@@ -6,15 +6,21 @@ class CustomAppBar extends StatelessWidget {
   final Widget? favouriteButton;
   final String appBarTitle;
   final void Function() onSearchPress;
+  final void Function() onClosePress;
   final void Function() onNotificationPress;
-
+  final void Function(String)? onChanged;
+  final TextEditingController? myController;
 
   const CustomAppBar(
       {super.key,
       this.backButton,
       required this.appBarTitle,
+      this.myController,
       required this.onSearchPress,
-      required this.onNotificationPress, this.favouriteButton});
+      required this.onClosePress,
+      required this.onNotificationPress,
+      this.favouriteButton,
+      this.onChanged});
 
   @override
   Widget build(BuildContext context) {
@@ -25,14 +31,13 @@ class CustomAppBar extends StatelessWidget {
         children: [
           backButton ?? const SizedBox(),
           HomeSearchTextField(
+            myController: myController,
+            onChanged: onChanged,
             appBarTitle: appBarTitle,
             onSearchPress: onSearchPress,
+            onClosePress: onClosePress,
           ),
-          // HomeAppBarIcons(
-          //   onPressed: onNotificationPress,
-          //   iconData: Icons.notifications_active_outlined,
-          // ),
-          favouriteButton?? const SizedBox(),
+          favouriteButton ?? const SizedBox(),
         ],
       ),
     );

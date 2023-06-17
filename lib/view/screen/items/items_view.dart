@@ -5,6 +5,7 @@ import 'package:shop_savvy/core/class/handling_data_view.dart';
 import 'package:shop_savvy/view/screen/my_favorite.dart';
 import 'package:shop_savvy/view/widget/home_widgets/custom_appbar.dart';
 import 'package:shop_savvy/view/widget/home_widgets/home_notification_icon.dart';
+import 'package:shop_savvy/view/widget/home_widgets/search_items_listview.dart';
 import 'package:shop_savvy/view/widget/items_widgets/items_categories_listview.dart';
 import 'package:shop_savvy/view/widget/items_widgets/items_gridview.dart';
 
@@ -24,6 +25,13 @@ class ItemsView extends StatelessWidget {
             builder: (controller) => Column(
               children: [
                 CustomAppBar(
+                  onClosePress: (){
+                    controller.clearController(context);
+                  },
+                  myController: controller.searchController,
+                  onChanged: (val) {
+                    controller.checkSearching(val);
+                  },
                   backButton: GestureDetector(
                     onTap: () {
                       controller.goBack();
@@ -37,13 +45,25 @@ class ItemsView extends StatelessWidget {
                     iconData: Icons.favorite_border_outlined,
                   ),
                   appBarTitle: "Find your product..",
-                  onSearchPress: () {},
+                  onSearchPress: () {
+                    controller.onItemsSearching();
+                  },
                   onNotificationPress: () {},
                 ),
-                const ItemsCategoriesListView(),
                 HandlingDataView(
                   statusRequest: controller.statusRequest,
-                  widget: const ItemsGridBuilder(),
+                  widget: controller.searching == false
+                      ? const Expanded(
+                          child: Column(
+                            children: [
+                              ItemsCategoriesListView(),
+                              ItemsGridBuilder(),
+                            ],
+                          ),
+                        )
+                      : ItemsListSearch(
+                          searchDataList: controller.searchList,
+                        ),
                 ),
               ],
             ),

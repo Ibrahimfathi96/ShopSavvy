@@ -1,27 +1,37 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shop_savvy/controller/favorite_controller.dart';
+import 'package:shop_savvy/controller/search_controller.dart';
 import 'package:shop_savvy/core/class/status_request.dart';
 import 'package:shop_savvy/core/functions/handling_data.dart';
 import 'package:shop_savvy/core/services/services.dart';
 import 'package:shop_savvy/data/data_source/remote/favorite/delete_my_favorite.dart';
 import 'package:shop_savvy/data/data_source/remote/favorite/my_favorite_data.dart';
 import 'package:shop_savvy/data/model/my_favorite_model.dart';
+import 'package:shop_savvy/view/screen/home/home_screen.dart';
+import 'package:shop_savvy/view/screen/product_details/product_details.dart';
 
-class MyFavoriteController extends GetxController {
+class MyFavoriteController extends SearchMixControllerImp {
   MyFavoriteData favoriteData = MyFavoriteData(Get.find());
   FavoriteController favoriteController = Get.put(FavoriteController());
   DeleteFromFavoriteData deleteFromFavoriteData =
       DeleteFromFavoriteData(Get.find());
   List<MyFavoriteMd> data = [];
   MyServices services = Get.find();
-  StatusRequest statusRequest = StatusRequest.none;
 
   @override
   onInit() {
     super.onInit();
     getData();
   }
+  goBack() {
+    Get.off(const HomeScreen());
+  }
+  // goToProductDetails(MyFavoriteMd itemsMd) {
+  //   Get.toNamed(ProductDetails.routeName, arguments: {
+  //     "favitemsMd": itemsMd,
+  //   });
+  // }
 
   getData() async {
     data.clear();
