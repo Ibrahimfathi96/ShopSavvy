@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:shop_savvy/core/constants/color.dart';
 
 ThemeData englishTheme = ThemeData(
+  appBarTheme: const AppBarTheme(
+    color: AppColors.primaryColor
+  ),
   scaffoldBackgroundColor: Colors.white,
   fontFamily: "RobotoMono",
   textTheme: const TextTheme(

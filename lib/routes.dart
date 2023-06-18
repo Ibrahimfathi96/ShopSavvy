@@ -13,6 +13,9 @@ import 'package:shop_savvy/view/screen/home/home_body.dart';
 import 'package:shop_savvy/view/screen/home/home_screen.dart';
 import 'package:shop_savvy/view/screen/items/items_view.dart';
 import 'package:shop_savvy/view/screen/languages_view.dart';
+import 'package:shop_savvy/view/screen/location/add_location.dart';
+import 'package:shop_savvy/view/screen/location/edit_location.dart';
+import 'package:shop_savvy/view/screen/location/view_location.dart';
 import 'package:shop_savvy/view/screen/my_favorite.dart';
 import 'package:shop_savvy/view/screen/onboarding_view.dart';
 import 'package:shop_savvy/view/screen/product_details/product_details.dart';
@@ -53,4 +56,9 @@ List<GetPage<dynamic>> routes = [
   GetPage(name: MyFavoriteView.routeName, page: () => const MyFavoriteView()),
   //Cart
   GetPage(name: CartView.routeName, page: () => const CartView()),
+  //Location
+  GetPage(name: LocationView.routeName, page: () => const LocationView()),
+  GetPage(name: AddLocation.routeName, page: () => const AddLocation()),
+  GetPage(name: EditLocation.routeName, page: () => const EditLocation()),
+
 ];

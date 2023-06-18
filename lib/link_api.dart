@@ -42,6 +42,13 @@ class AppLink {
   static const String cartView = "$cart/view.php";
   static const String cartItemsCount = "$cart/items_count.php";
 
+  //Location PHP
+  static const String location = "$server/location";
+  static const String addLocation = "$location/add.php";
+  static const String editLocation = "$location/edit.php";
+  static const String deleteLocation = "$location/delete.php";
+  static const String viewLocation = "$location/view.php";
+
   //Image Links
   static const String imagesLink = "$server/uploads";
   static const String imagesCategories = "$imagesLink/categories";

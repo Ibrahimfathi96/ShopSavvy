@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shop_savvy/controller/settings_controller.dart';
 import 'package:shop_savvy/core/functions/changeLanguage.dart';
+import 'package:shop_savvy/view/screen/location/view_location.dart';
 import 'package:shop_savvy/view/widget/settings_widgets/settings_list_tile_item.dart';
 
 class SettingsCardItems extends GetView<SettingsController> {
@@ -35,9 +36,12 @@ class SettingsCardItems extends GetView<SettingsController> {
                     value: true,
                   ),
                 ),
-                const SettingListTileItem(
-                  titleText: "Address",
-                  iconData: Icon(
+                SettingListTileItem(
+                  onTap: (){
+                    Get.toNamed(LocationView.routeName);
+                  },
+                  titleText: "Location",
+                  iconData: const Icon(
                       Icons.location_on_outlined,
                       size: 30,
                       color: Colors.black
