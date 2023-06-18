@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shop_savvy/controller/cart_controller.dart';
 import 'package:shop_savvy/core/constants/color.dart';
 
-class TotalPriceText extends StatelessWidget {
+class TotalPriceText extends GetView<CartController> {
   const TotalPriceText({
     super.key,
   });
@@ -12,7 +13,7 @@ class TotalPriceText extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 4),
       padding: EdgeInsets.symmetric(horizontal: Get.width / 9),
-      child: const Row(
+      child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
@@ -24,7 +25,7 @@ class TotalPriceText extends StatelessWidget {
             ),
           ),
           Text(
-            "EGP 800",
+            "${controller.getTotalPrice().round()}",
             style: TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.bold,

@@ -16,65 +16,62 @@ class CartView extends StatelessWidget {
   Widget build(BuildContext context) {
     Get.put(CartController());
     return Scaffold(
-        appBar: AppBar(
-          leading: IconButton(
+      appBar: AppBar(
+        leading: IconButton(
+          padding: EdgeInsets.zero,
+          splashColor: Colors.transparent,
+          highlightColor: Colors.transparent,
+          hoverColor: Colors.transparent,
+          onPressed: () {
+            Get.back();
+          },
+          icon: const Icon(
+            Icons.arrow_back_ios,
+            color: Colors.black54,
+            size: 30,
+          ),
+        ),
+        actions: [
+          IconButton(
             padding: EdgeInsets.zero,
             splashColor: Colors.transparent,
             highlightColor: Colors.transparent,
             hoverColor: Colors.transparent,
             onPressed: () {
-              Get.back();
+              Get.offAllNamed(HomeScreen.routeName);
             },
             icon: const Icon(
-              Icons.arrow_back_ios,
+              Icons.home,
               color: Colors.black54,
-              size: 30,
+              size: 36,
             ),
           ),
-          actions: [
-            IconButton(
-              padding: EdgeInsets.zero,
-              splashColor: Colors.transparent,
-              highlightColor: Colors.transparent,
-              hoverColor: Colors.transparent,
-              onPressed: () {
-                Get.offAllNamed(HomeScreen.routeName);
-              },
-              icon: const Icon(
-                Icons.home,
-                color: Colors.black54,
-                size: 36,
-              ),
-            ),
-          ],
-          centerTitle: true,
-          elevation: 0,
-          toolbarHeight: 40,
-          backgroundColor: Colors.transparent,
-          title: const Text(
-            "My Cart",
-            style: TextStyle(
-              color: Colors.black,
-              fontWeight: FontWeight.bold,
-              fontSize: 24,
-            ),
+        ],
+        centerTitle: true,
+        elevation: 0,
+        toolbarHeight: 40,
+        backgroundColor: Colors.transparent,
+        title: const Text(
+          "My Cart",
+          style: TextStyle(
+            color: Colors.black,
+            fontWeight: FontWeight.bold,
+            fontSize: 24,
           ),
         ),
-        body: GetBuilder<CartController>(
-          builder: (controller) => HandlingDataView(
-            statusRequest: controller.statusRequest,
-            widget: Column(
-              children: [
-                CartUpperText(
-                  count: "${controller.countTotalItems}",
-                ),
-                const CartItemsContainer(),
-                CartFAButtonWidgets(
-                  text1: "${controller.ordersPrice.round()}",
-                ),
-              ],
-            ),
+      ),
+      body: GetBuilder<CartController>(
+        builder: (controller) => HandlingDataView(
+          statusRequest: controller.statusRequest,
+          widget: ListView(
+            children: [
+              CartUpperText(),
+              const CartItemsContainer(),
+              CartFAButtonWidgets(),
+            ],
           ),
-        ));
+        ),
+      ),
+    );
   }
 }

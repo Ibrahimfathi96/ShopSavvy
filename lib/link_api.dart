@@ -49,6 +49,12 @@ class AppLink {
   static const String deleteLocation = "$location/delete.php";
   static const String viewLocation = "$location/view.php";
 
+  //Coupons PHP
+  static const String coupon = "$server/coupon";
+  static const String checkCoupon = "$coupon/check_coupon.php";
+
+
+
   //Image Links
   static const String imagesLink = "$server/uploads";
   static const String imagesCategories = "$imagesLink/categories";

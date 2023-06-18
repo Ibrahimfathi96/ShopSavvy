@@ -4,21 +4,27 @@ import 'package:shop_savvy/core/class/status_request.dart';
 import 'package:shop_savvy/core/functions/handling_data.dart';
 import 'package:shop_savvy/core/services/services.dart';
 import 'package:shop_savvy/data/data_source/remote/cart/add_to_cart.dart';
+import 'package:shop_savvy/data/data_source/remote/cart/check_coupon.dart';
 import 'package:shop_savvy/data/data_source/remote/cart/remove_from_cart.dart';
 import 'package:shop_savvy/data/data_source/remote/cart/view.dart';
 import 'package:shop_savvy/data/model/cart_model.dart';
+import 'package:shop_savvy/data/model/coupon_model.dart';
 
 class CartController extends GetxController {
   AddToCartData addToCartData = AddToCartData(Get.find());
   RemoveFromCartData removeFromCartData = RemoveFromCartData(Get.find());
+  CheckCouponData checkCouponData = CheckCouponData(Get.find());
   CartViewData cartViewData = CartViewData(Get.find());
   List<CartMd> data = [];
+  CouponMd? couponMd;
+  num discountCoupon = 0;
+  String? couponName;
   num ordersPrice = 0;
   num countTotalItems = 0;
+  late TextEditingController couponController;
 
   MyServices services = Get.find();
   StatusRequest statusRequest = StatusRequest.none;
-
 
   cartView() async {
     statusRequest = StatusRequest.loading;
@@ -27,7 +33,7 @@ class CartController extends GetxController {
     statusRequest = handlingData(response);
     if (StatusRequest.success == statusRequest) {
       if (response['status'] == 'success') {
-        if(response['data']['status']== 'success'){
+        if (response['data']['status'] == 'success') {
           List dataResponse = response['data']['data'];
           Map priceCountResponse = response['countprice'];
           data.clear();
@@ -46,7 +52,7 @@ class CartController extends GetxController {
     statusRequest = StatusRequest.loading;
     update();
     var response =
-    await addToCartData.getData(services.prefs.getString("id")!, itemsId);
+        await addToCartData.getData(services.prefs.getString("id")!, itemsId);
     statusRequest = handlingData(response);
     if (StatusRequest.success == statusRequest) {
       if (response['status'] == 'success') {
@@ -79,20 +85,50 @@ class CartController extends GetxController {
     update();
   }
 
-  resetCartsVariable(){
+  checkCoupon() async {
+    statusRequest = StatusRequest.loading;
+    update();
+    var response = await checkCouponData.getData(couponController.text);
+    statusRequest = handlingData(response);
+    if (StatusRequest.success == statusRequest) {
+      if (response['status'] == 'success') {
+        Map<String, dynamic> couponData = response['data'];
+        couponMd = CouponMd.fromJson(couponData);
+        discountCoupon = couponMd!.couponDiscount!;
+        couponName  = couponMd!.couponName!;
+      } else {
+        discountCoupon = 0;
+        couponName  = null;
+      }
+    }
+    update();
+  }
+
+  num getTotalPrice() {
+    return (25 + ordersPrice - ordersPrice * (discountCoupon / 100));
+  }
+
+  resetCartsVariable() {
     countTotalItems = 0;
-    ordersPrice     = 0;
+    ordersPrice = 0;
     data.clear();
   }
 
-  refreshPage(){
+  refreshPage() {
     resetCartsVariable();
     cartView();
   }
 
   @override
   void onInit() {
+    couponController = TextEditingController();
     cartView();
     super.onInit();
+  }
+
+  @override
+  void dispose() {
+    couponController.dispose();
+    super.dispose();
   }
 }
