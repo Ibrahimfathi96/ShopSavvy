@@ -108,7 +108,7 @@ class LocationViewCard extends StatelessWidget {
                     child: Text(
                       "Edit",
                       style: TextStyle(
-                        color: AppColors.primaryColor,
+                        color: AppColors.secondaryColor,
                         fontWeight: FontWeight.bold,
                         fontSize: 16,
                       ),
@@ -121,7 +121,7 @@ class LocationViewCard extends StatelessWidget {
                     child: Text(
                       "Remove",
                       style: TextStyle(
-                        color: AppColors.primaryColor,
+                        color: AppColors.secondaryColor,
                         fontWeight: FontWeight.bold,
                         fontSize: 16,
                       ),
