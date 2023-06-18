@@ -62,10 +62,15 @@ class LocationViewCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       margin:
           EdgeInsets.symmetric(horizontal: 16).add(EdgeInsets.only(top: 10)),
-      elevation: 20,
+      elevation: 6,
       child: Container(
+        decoration: BoxDecoration(
+            color: const Color(0x85BBEDED),
+            borderRadius: BorderRadius.circular(20)
+        ),
         padding: EdgeInsets.all(10),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
