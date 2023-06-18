@@ -23,6 +23,9 @@ class ViewLocationController extends GetxController {
       if (response['status'] == 'success') {
         List data = response['data'];
         locationDataList.addAll(data.map((e) => LocationMd.fromJson(e)));
+      if(locationDataList.isEmpty){
+        statusRequest = StatusRequest.failure;
+      }
       } else {
         statusRequest = StatusRequest.failure;
       }
