@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shop_savvy/core/constants/color.dart';
 
 class CustomAuthTextFormField extends StatelessWidget {
   final String hintText;
@@ -29,6 +30,7 @@ class CustomAuthTextFormField extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.only(top: 16, bottom: 16),
       child: TextFormField(
+        cursorColor: AppColors.primaryColor,
         validator: validator,
         textInputAction: textInputAction,
         obscureText: obscureText,
@@ -65,6 +67,7 @@ class CustomAuthTextFormField extends StatelessWidget {
               fontWeight: FontWeight.w600,
               color: Colors.deepOrangeAccent),
           suffixIcon: IconButton(
+            padding: EdgeInsets.only(right: 20),
             onPressed: onPressed,
             icon: Icon(iconData),
             color: Colors.deepOrangeAccent,

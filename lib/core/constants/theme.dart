@@ -3,7 +3,7 @@ import 'package:shop_savvy/core/constants/color.dart';
 
 ThemeData englishTheme = ThemeData(
   appBarTheme: const AppBarTheme(
-    color: AppColors.primaryColor
+    color: AppColors.primaryDark
   ),
   scaffoldBackgroundColor: Colors.white,
   fontFamily: "RobotoMono",

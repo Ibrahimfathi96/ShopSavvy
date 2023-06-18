@@ -7,7 +7,7 @@ class EditLocation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("العناوين"),),
+      appBar: AppBar(title: Text("Edit Your Location"),),
       body: Container(
         child: ListView(
         ),

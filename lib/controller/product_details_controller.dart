@@ -7,7 +7,6 @@ import 'package:shop_savvy/data/data_source/remote/cart/add_to_cart.dart';
 import 'package:shop_savvy/data/data_source/remote/cart/cart_items_count_data.dart';
 import 'package:shop_savvy/data/data_source/remote/cart/remove_from_cart.dart';
 import 'package:shop_savvy/data/model/items_model.dart';
-import 'package:shop_savvy/data/model/my_favorite_model.dart';
 import 'package:shop_savvy/view/screen/cart/cart_view.dart';
 import 'package:shop_savvy/view/screen/home/home_screen.dart';
 
