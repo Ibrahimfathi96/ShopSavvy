@@ -11,7 +11,7 @@ class CartItemsContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: Get.height * 0.53,
+      height: Get.height * 0.50,
       child: GetBuilder<CartController>(
         builder: (controller) {
           return ListView(

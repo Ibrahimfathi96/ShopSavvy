@@ -35,7 +35,7 @@ class CartItem extends GetView<CartController> {
               borderRadius: BorderRadius.circular(6),
               side: const BorderSide(color: AppColors.darkColor, width: 1),
             ),
-            elevation: 16,
+            elevation: 6,
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

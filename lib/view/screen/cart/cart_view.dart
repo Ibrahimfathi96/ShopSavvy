@@ -49,7 +49,6 @@ class CartView extends StatelessWidget {
         ],
         centerTitle: true,
         elevation: 0,
-        toolbarHeight: 40,
         backgroundColor: Colors.transparent,
         title: const Text(
           "My Cart",
