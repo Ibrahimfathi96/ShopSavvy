@@ -95,10 +95,10 @@ class CartController extends GetxController {
         Map<String, dynamic> couponData = response['data'];
         couponMd = CouponMd.fromJson(couponData);
         discountCoupon = couponMd!.couponDiscount!;
-        couponName  = couponMd!.couponName!;
+        couponName = couponMd!.couponName!;
       } else {
         discountCoupon = 0;
-        couponName  = null;
+        couponName = null;
       }
     }
     update();

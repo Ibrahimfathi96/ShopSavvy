@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shop_savvy/controller/checkout_controller.dart';
+import 'package:shop_savvy/core/class/handling_data_view.dart';
 import 'package:shop_savvy/core/constants/color.dart';
 import 'package:shop_savvy/generated/assets.dart';
 import 'package:shop_savvy/view/widget/checkout_widgets/check_bottom_button.dart';
@@ -15,6 +17,7 @@ class CheckOutView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Get.put(CheckOutController());
     return Scaffold(
       bottomNavigationBar: CheckoutBottomButton(),
       appBar: AppBar(
@@ -30,84 +33,127 @@ class CheckOutView extends StatelessWidget {
         title: Text(
           'CheckOut',
           style: TextStyle(
-              color: AppColors.primaryDark,
-              fontWeight: FontWeight.bold,
-              fontSize: 22),
+            color: AppColors.primaryDark,
+            fontWeight: FontWeight.bold,
+            fontSize: 22,
+          ),
         ),
         centerTitle: true,
         elevation: 0,
         backgroundColor: Colors.transparent,
       ),
-      body: Container(
-        padding: EdgeInsets.all(20),
-        child: ListView(
-          physics: const BouncingScrollPhysics(),
-          children: [
-            CustomCheckText(
-              text: "Choose Payment Method",
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            MethodPaymentContainer(
-              isActive: true,
-              text: "Cash",
-              imageUrl: Assets.imagesCash,
-            ),
-            MethodPaymentContainer(
-              isActive: false,
-              text: "Visa Card",
-              imageUrl: Assets.imagesVisaRemovebgPreview,
-            ),
-            MethodPaymentContainer(
-              isActive: false,
-              text: "Master Card",
-              imageUrl: Assets.imagesMasterCardRemovebgPreview,
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            CustomCheckText(
-              text: "Choose Delivery Method",
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+      body: GetBuilder<CheckOutController>(
+        builder: (controller) => HandlingDataView(
+          statusRequest: controller.statusRequest,
+          widget: Container(
+            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            child: ListView(
+              physics: const BouncingScrollPhysics(),
               children: [
-                MethodDeliveryContainer(
-                  isActive: true,
-                  imageUrl: Assets.imagesDelivery,
-                  text: "Delivery",
+                CustomCheckText(
+                  text: "Choose Payment Method",
                 ),
-                SizedBox(
-                  width: 20,
+                const SizedBox(
+                  height: 10,
                 ),
-                MethodDeliveryContainer(
-                  isActive: false,
-                  imageUrl: Assets.imagesDrivethru,
-                  text: "Drive Thru",
+                MethodPaymentContainer(
+                  onTap: () {
+                    controller.choosePaymentMethod("Cash");
+                  },
+                  isActive: controller.paymentMethod == "Cash" ? true : false,
+                  text: "Cash",
+                  imageUrl: Assets.imagesCash,
                 ),
+                MethodPaymentContainer(
+                  onTap: () {
+                    controller.choosePaymentMethod("Visa Card");
+                  },
+                  isActive:
+                      controller.paymentMethod == "Visa Card" ? true : false,
+                  text: "Visa Card",
+                  imageUrl: Assets.imagesVisaRemovebgPreview,
+                ),
+                MethodPaymentContainer(
+                  onTap: () {
+                    controller.choosePaymentMethod("Master Card");
+                  },
+                  isActive:
+                      controller.paymentMethod == "Master Card" ? true : false,
+                  text: "Master Card",
+                  imageUrl: Assets.imagesMasterCardRemovebgPreview,
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                CustomCheckText(
+                  text: "Choose Delivery Method",
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    MethodDeliveryContainer(
+                      onTap: () {
+                        controller.chooseDeliveryMethod("Delivery");
+                      },
+                      isActive: controller.deliveryMethod == "Delivery"
+                          ? true
+                          : false,
+                      imageUrl: Assets.imagesDelivery,
+                      text: "Delivery",
+                    ),
+                    SizedBox(
+                      width: 20,
+                    ),
+                    MethodDeliveryContainer(
+                      onTap: () {
+                        controller.chooseDeliveryMethod("Drive Thru");
+                      },
+                      isActive: controller.deliveryMethod == "Drive Thru"
+                          ? true
+                          : false,
+                      imageUrl: Assets.imagesDrivethru,
+                      text: "Drive Thru",
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                if (controller.deliveryMethod == "Delivery")
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      CustomCheckText(
+                        text: "Choose Shipping Location",
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      ...List.generate(
+                        controller.locationListData.length,
+                        (index) => CheckoutLocationCard(
+                          onTap: () {
+                            controller.chooseShippingLocation(controller
+                                .locationListData[index].locationId
+                                .toString());
+                          },
+                          title:
+                              "${controller.locationListData[index].locationName}",
+                          subtitle:
+                              "${controller.locationListData[index].locationCity},${controller.locationListData[index].locationStreet}",
+                          isActive: controller.locationId ==
+                                  controller.locationListData[index].locationId
+                                      .toString(),
+                        ),
+                      ),
+                    ],
+                  ),
               ],
             ),
-            const SizedBox(
-              height: 30,
-            ),
-            CustomCheckText(
-              text: "Choose Shipping Location",
-            ),
-            CheckoutLocationCard(
-              isActive: true,
-              title: "Home",
-              subtitle: "10 Ibrahim El-attar Street",
-            ),
-            CheckoutLocationCard(
-              isActive: false,
-              title: "Work",
-              subtitle: "10 Ibrahim El-attar Street",
-            ),
-          ],
+          ),
         ),
       ),
     );

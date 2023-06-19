@@ -15,7 +15,7 @@ class CheckoutBottomButton extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(16),
         ),
-        color: AppColors.primaryColor,
+        color: AppColors.primaryDark,
         textColor: Colors.white,
         onPressed: () {},
         child: Text(
