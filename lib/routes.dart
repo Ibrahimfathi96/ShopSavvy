@@ -9,6 +9,7 @@ import 'package:shop_savvy/view/screen/auth/sign_up/sign_up.dart';
 import 'package:shop_savvy/view/screen/auth/sign_up/sign_up_successfully.dart';
 import 'package:shop_savvy/view/screen/auth/sign_up/verify_code_sign_up.dart';
 import 'package:shop_savvy/view/screen/cart/cart_view.dart';
+import 'package:shop_savvy/view/screen/checkout.dart';
 import 'package:shop_savvy/view/screen/home/home_body.dart';
 import 'package:shop_savvy/view/screen/home/home_screen.dart';
 import 'package:shop_savvy/view/screen/items/items_view.dart';
@@ -56,6 +57,8 @@ List<GetPage<dynamic>> routes = [
   GetPage(name: MyFavoriteView.routeName, page: () => const MyFavoriteView()),
   //Cart
   GetPage(name: CartView.routeName, page: () => const CartView()),
+  //Checkout
+  GetPage(name: CheckOutView.routeName, page: () => const CheckOutView()),
   //Location
   GetPage(name: LocationView.routeName, page: () => const LocationView()),
   GetPage(name: AddLocation.routeName, page: () => const AddLocation()),

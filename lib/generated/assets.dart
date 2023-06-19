@@ -11,12 +11,16 @@ class Assets {
   static const String flagsEn = 'assets/flags/en.png';
   static const String flagsSa = 'assets/flags/sa.png';
   static const String imagesAvatar = 'assets/images/avatar.png';
+  static const String imagesCash = 'assets/images/cash.png';
   static const String imagesCashBack = 'assets/images/cash_back.png';
   static const String imagesCode = 'assets/images/code.png';
   static const String imagesCover = 'assets/images/Cover.png';
+  static const String imagesDelivery = 'assets/images/delivery.png';
+  static const String imagesDrivethru = 'assets/images/drivethru.png';
   static const String imagesGradientImage = 'assets/images/gradient_image.PNG';
   static const String imagesIcon = 'assets/images/icon.png';
   static const String imagesLogo = 'assets/images/logo.png';
+  static const String imagesMasterCardRemovebgPreview = 'assets/images/master_card-removebg-preview.png';
   static const String imagesOnboardingfour = 'assets/images/onboardingfour.PNG';
   static const String imagesOnboardingone = 'assets/images/onboardingone.PNG';
   static const String imagesOnboardingthree = 'assets/images/onboardingthree.PNG';
@@ -27,6 +31,7 @@ class Assets {
   static const String imagesTerms2 = 'assets/images/terms_2.png';
   static const String imagesTerms3 = 'assets/images/terms_3.png';
   static const String imagesTerms4 = 'assets/images/terms_4.png';
+  static const String imagesVisaRemovebgPreview = 'assets/images/visa-removebg-preview.png';
   static const String lottieCashBack = 'assets/lottie/cash_back.json';
   static const String lottieLoading = 'assets/lottie/loading.json';
   static const String lottieNodata = 'assets/lottie/nodata.json';

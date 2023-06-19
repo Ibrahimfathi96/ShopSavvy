@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shop_savvy/core/constants/color.dart';
+import 'package:shop_savvy/view/screen/checkout.dart';
 
 class CartCustomButton extends StatelessWidget {
   const CartCustomButton({
@@ -18,7 +19,9 @@ class CartCustomButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(10),
         ),
       ),
-      onPressed: () {},
+      onPressed: () {
+        Get.toNamed(CheckOutView.routeName);
+      },
       child: const Text(
         "Continue to Checkout",
         style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
