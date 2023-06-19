@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:shop_savvy/core/constants/color.dart';
 import 'package:shop_savvy/generated/assets.dart';
+import 'package:shop_savvy/view/widget/checkout_widgets/check_bottom_button.dart';
+import 'package:shop_savvy/view/widget/checkout_widgets/check_main_texts.dart';
 import 'package:shop_savvy/view/widget/checkout_widgets/checkout_delivery_container.dart';
+import 'package:shop_savvy/view/widget/checkout_widgets/checkout_location_card.dart';
 import 'package:shop_savvy/view/widget/checkout_widgets/checkout_payment_container.dart';
 
 class CheckOutView extends StatelessWidget {
@@ -12,28 +16,12 @@ class CheckOutView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: Container(
-        padding: EdgeInsets.symmetric(horizontal: 32),
-        child: MaterialButton(
-          padding: EdgeInsets.symmetric(vertical: 8),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(16),
-          ),
-          color: AppColors.primaryColor,
-          textColor: Colors.white,
-          onPressed: () {},
-          child: Text(
-            "Checkout",
-            style: TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-        ),
-      ),
+      bottomNavigationBar: CheckoutBottomButton(),
       appBar: AppBar(
         leading: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Get.back();
+          },
           icon: Icon(
             Icons.arrow_back_ios,
             color: AppColors.primaryDark,
@@ -55,13 +43,8 @@ class CheckOutView extends StatelessWidget {
         child: ListView(
           physics: const BouncingScrollPhysics(),
           children: [
-            Text(
-              "Choose Payment Method",
-              style: TextStyle(
-                fontSize: 18,
-                color: AppColors.darkColor,
-                fontWeight: FontWeight.bold,
-              ),
+            CustomCheckText(
+              text: "Choose Payment Method",
             ),
             const SizedBox(
               height: 10,
@@ -84,13 +67,8 @@ class CheckOutView extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            Text(
-              "Choose Delivery Method",
-              style: TextStyle(
-                fontSize: 18,
-                color: AppColors.darkColor,
-                fontWeight: FontWeight.bold,
-              ),
+            CustomCheckText(
+              text: "Choose Delivery Method",
             ),
             const SizedBox(
               height: 10,
@@ -116,55 +94,18 @@ class CheckOutView extends StatelessWidget {
             const SizedBox(
               height: 30,
             ),
-            Text(
-              "Choose Shipping Location",
-              style: TextStyle(
-                fontSize: 18,
-                color: AppColors.darkColor,
-                fontWeight: FontWeight.bold,
-              ),
+            CustomCheckText(
+              text: "Choose Shipping Location",
             ),
-            SizedBox(
-              width: 10,
+            CheckoutLocationCard(
+              isActive: true,
+              title: "Home",
+              subtitle: "10 Ibrahim El-attar Street",
             ),
-            Card(
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20)),
-              elevation: 6,
-              child: Container(
-                child: ListTile(
-                  title: Text(
-                    "Home",
-                  ),
-                  subtitle: Text(
-                    "10 Ibrahim El-attar Street",
-                  ),
-                ),
-              ),
-            ),
-            Card(
-              color: AppColors.primaryColor,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20)),
-              elevation: 1,
-              child: Container(
-                child: ListTile(
-                  title: Text(
-                    "Work",
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                        fontSize: 16),
-                  ),
-                  subtitle: Text(
-                    "10 Ibrahim El-attar Street",
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                        fontSize: 16),
-                  ),
-                ),
-              ),
+            CheckoutLocationCard(
+              isActive: false,
+              title: "Work",
+              subtitle: "10 Ibrahim El-attar Street",
             ),
           ],
         ),
