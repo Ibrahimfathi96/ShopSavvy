@@ -63,6 +63,7 @@ class CartView extends StatelessWidget {
         builder: (controller) => HandlingDataView(
           statusRequest: controller.statusRequest,
           widget: ListView(
+            physics: BouncingScrollPhysics(),
             children: [
               CartUpperText(),
               const CartItemsContainer(),

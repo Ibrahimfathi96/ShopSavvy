@@ -48,7 +48,7 @@ class CheckOutView extends StatelessWidget {
           widget: Container(
             padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             child: ListView(
-              physics: const BouncingScrollPhysics(),
+              physics: const NeverScrollableScrollPhysics(),
               children: [
                 CustomCheckText(
                   text: "Choose Payment Method",
@@ -132,21 +132,28 @@ class CheckOutView extends StatelessWidget {
                       const SizedBox(
                         height: 10,
                       ),
-                      ...List.generate(
-                        controller.locationListData.length,
-                        (index) => CheckoutLocationCard(
-                          onTap: () {
-                            controller.chooseShippingLocation(controller
-                                .locationListData[index].locationId
-                                .toString());
-                          },
-                          title:
-                              "${controller.locationListData[index].locationName}",
-                          subtitle:
-                              "${controller.locationListData[index].locationCity},${controller.locationListData[index].locationStreet}",
-                          isActive: controller.locationId ==
-                                  controller.locationListData[index].locationId
-                                      .toString(),
+                      SizedBox(
+                        height: Get.height * 0.3,
+                        child: ListView(
+                          physics: BouncingScrollPhysics(),
+                          children: [
+                            ...List.generate(
+                              controller.locationListData.length,
+                              (index) => CheckoutLocationCard(
+                                onTap: () {
+                                  controller.chooseShippingLocation(controller
+                                      .locationListData[index].locationId.toString());
+                                },
+                                title:
+                                    "${controller.locationListData[index].locationName}",
+                                subtitle:
+                                    "${controller.locationListData[index].locationCity},${controller.locationListData[index].locationStreet}",
+                                isActive: controller.locationId ==
+                                        controller.locationListData[index].locationId
+                                            .toString(),
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     ],

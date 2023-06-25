@@ -7,8 +7,8 @@ class AddToCartData {
   AddToCartData(this.crud);
 
   getData(String userId, String itemsId) async {
-    var response = await crud
-        .postData(AppLink.addToCart, {"itemsId": itemsId.toString(), "usersId": userId.toString()});
+    var response = await crud.postData(AppLink.addToCart,
+        {"itemsId": itemsId.toString(), "usersId": userId.toString()});
     return response.fold((l) => l, (r) => r);
   }
 }

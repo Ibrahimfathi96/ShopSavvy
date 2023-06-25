@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shop_savvy/controller/cart_controller.dart';
+import 'package:shop_savvy/core/constants/color.dart';
 import 'package:shop_savvy/view/widget/cart_widgets/cart_coupon_widget.dart';
 import 'package:shop_savvy/view/widget/cart_widgets/cart_dots_divider.dart';
 import 'package:shop_savvy/view/widget/cart_widgets/cart_elevated_button.dart';
@@ -22,7 +23,7 @@ class CartFAButtonWidgets extends GetView<CartController> {
           margin: EdgeInsets.only(bottom: 6,top: 6),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
-            border: Border.all(color: Colors.purple,width: 2)
+            border: Border.all(color: AppColors.primaryColor,width: 2)
           ),
           child: Column(
             children: [

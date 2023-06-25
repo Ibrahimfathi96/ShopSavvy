@@ -21,7 +21,7 @@ class TotalPriceText extends GetView<CartController> {
             style: TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.bold,
-              color: AppColors.purple,
+              color: AppColors.secondaryColor,
             ),
           ),
           Text(
@@ -29,7 +29,7 @@ class TotalPriceText extends GetView<CartController> {
             style: TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.bold,
-              color: AppColors.purple,
+              color: AppColors.secondaryColor,
             ),
           ),
         ],

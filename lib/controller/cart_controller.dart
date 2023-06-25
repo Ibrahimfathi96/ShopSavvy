@@ -9,6 +9,7 @@ import 'package:shop_savvy/data/data_source/remote/cart/remove_from_cart.dart';
 import 'package:shop_savvy/data/data_source/remote/cart/view.dart';
 import 'package:shop_savvy/data/model/cart_model.dart';
 import 'package:shop_savvy/data/model/coupon_model.dart';
+import 'package:shop_savvy/view/screen/checkout_view.dart';
 
 class CartController extends GetxController {
   AddToCartData addToCartData = AddToCartData(Get.find());
@@ -19,6 +20,7 @@ class CartController extends GetxController {
   CouponMd? couponMd;
   num discountCoupon = 0;
   String? couponName;
+  num? couponId;
   num ordersPrice = 0;
   num countTotalItems = 0;
   late TextEditingController couponController;
@@ -96,16 +98,26 @@ class CartController extends GetxController {
         couponMd = CouponMd.fromJson(couponData);
         discountCoupon = couponMd!.couponDiscount!;
         couponName = couponMd!.couponName!;
+        couponId   = couponMd!.couponId!;
       } else {
         discountCoupon = 0;
         couponName = null;
+        couponId = 0;
       }
     }
     update();
   }
 
   num getTotalPrice() {
-    return (25 + ordersPrice - ordersPrice * (discountCoupon / 100));
+    return (ordersPrice - ordersPrice * (discountCoupon / 100));
+  }
+  goToCheckOutView(){
+    if(data.isEmpty)return Get.snackbar("Warning!", "Can't checkout, add some items to your cart first.");
+    Get.toNamed(CheckOutView.routeName,arguments: {
+      "couponId":couponId ?? 0,
+      "ordersPrice":ordersPrice,
+
+    });
   }
 
   resetCartsVariable() {

@@ -14,7 +14,7 @@ class CartUpperText extends GetView<CartController> {
       margin: const EdgeInsets.symmetric(horizontal: 30,vertical: 4),
       padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 30),
       decoration: BoxDecoration(
-        color: AppColors.purple,
+        color: AppColors.primaryColor,
         border: Border.all(color: AppColors.primaryDark),
         borderRadius: BorderRadius.circular(10),
       ),

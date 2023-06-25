@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:shop_savvy/controller/checkout_controller.dart';
 import 'package:shop_savvy/core/constants/color.dart';
 
-class CheckoutBottomButton extends StatelessWidget {
+class CheckoutBottomButton extends GetView<CheckOutController> {
   const CheckoutBottomButton({
     super.key,
   });
@@ -17,7 +19,9 @@ class CheckoutBottomButton extends StatelessWidget {
         ),
         color: AppColors.primaryDark,
         textColor: Colors.white,
-        onPressed: () {},
+        onPressed: () {
+          controller.checkout();
+        },
         child: Text(
           "Checkout",
           style: TextStyle(

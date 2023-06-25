@@ -59,7 +59,7 @@ class CartCoupon extends StatelessWidget {
                           flex: 1,
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: AppColors.purple,
+                              backgroundColor: AppColors.primaryColor,
                             ),
                             onPressed: () {
                               controller.checkCoupon();
@@ -67,6 +67,7 @@ class CartCoupon extends StatelessWidget {
                             },
                             child: Text(
                               "Apply",
+                              style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),
                             ),
                           ),
                         ),

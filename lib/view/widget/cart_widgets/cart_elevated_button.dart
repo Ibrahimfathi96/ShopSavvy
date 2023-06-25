@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shop_savvy/controller/cart_controller.dart';
 import 'package:shop_savvy/core/constants/color.dart';
-import 'package:shop_savvy/view/screen/checkout.dart';
 
-class CartCustomButton extends StatelessWidget {
+class CartCustomButton extends GetView<CartController> {
   const CartCustomButton({
     super.key,
   });
@@ -12,7 +12,7 @@ class CartCustomButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-        backgroundColor: AppColors.purple,
+        backgroundColor: AppColors.primaryColor,
         elevation: 10,
         minimumSize: Size(Get.width * 0.8, Get.height / 20),
         shape: RoundedRectangleBorder(
@@ -20,7 +20,7 @@ class CartCustomButton extends StatelessWidget {
         ),
       ),
       onPressed: () {
-        Get.toNamed(CheckOutView.routeName);
+       controller.goToCheckOutView();
       },
       child: const Text(
         "Continue to Checkout",
