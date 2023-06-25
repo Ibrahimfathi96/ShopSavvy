@@ -103,6 +103,7 @@ class CartController extends GetxController {
         couponDiscount = 0;
         couponName = null;
         couponId = 0;
+        Get.snackbar("Alert!", "The coupon you entered is not valid");
       }
     }
     update();
