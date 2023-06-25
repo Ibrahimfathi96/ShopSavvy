@@ -45,7 +45,7 @@ class ProductDetailsColumn extends StatelessWidget {
                 },
               ),
               SizedBox(
-                height: Get.height * 0.1,
+                height: Get.height * 0.07,
               ),
               const TermsWidget(),
               const SizedBox(

@@ -5,6 +5,7 @@ import 'package:shop_savvy/core/services/services.dart';
 import 'package:shop_savvy/data/data_source/remote/location_data/view_location_data.dart';
 import 'package:shop_savvy/data/data_source/remote/orders/checkout_data.dart';
 import 'package:shop_savvy/data/model/location_model.dart';
+import 'package:shop_savvy/view/screen/home/home_screen.dart';
 
 class CheckOutController extends GetxController {
   ViewLocationData viewLocationData = Get.put(ViewLocationData(Get.find()));
@@ -16,8 +17,7 @@ class CheckOutController extends GetxController {
   String locationId = '0';
   late String ordersPrice;
   late String couponId;
-
-  // late String couponDiscount;
+  late String couponDiscount;
   List<LocationMd> locationListData = [];
   MyServices myServices = Get.find();
 
@@ -38,6 +38,11 @@ class CheckOutController extends GetxController {
   }
 
   checkout() async {
+    if (paymentMethod == null)
+      return Get.snackbar("Warning!", "Please Choose a payment method.");
+    if (deliveryMethod == null)
+      return Get.snackbar("Warning!", "Please Choose a delivery method.");
+
     statusRequest = StatusRequest.loading;
     update();
     var response = await checkOutData.getData(
@@ -48,15 +53,19 @@ class CheckOutController extends GetxController {
       ordersPrice: ordersPrice,
       ordersType: deliveryMethod!,
       paymentMethod: paymentMethod!,
+      couponDiscount: couponDiscount,
     );
     statusRequest = handlingData(response);
-    print(response.toString());
     if (StatusRequest.success == statusRequest) {
       if (response['status'] == 'success') {
-        print('===============Checkout success');
+        //TODO Order Success UI
+        Get.offAllNamed(HomeScreen.routeName);
+        Get.snackbar("Success!", "your order is ordered successfully");
+        print('===============OrdersCheckout success');
       } else {
-        statusRequest = StatusRequest.failure;
+        statusRequest = StatusRequest.none;
         print('===============Checkout Failure');
+        Get.snackbar("Error!", "Something went wrong, try again later.");
       }
     }
     update();
@@ -81,6 +90,7 @@ class CheckOutController extends GetxController {
   void onInit() {
     couponId = Get.arguments['couponId'].toString();
     ordersPrice = Get.arguments['ordersPrice'].toString();
+    couponDiscount = Get.arguments['couponDiscount'].toString();
     getLocationData();
     super.onInit();
   }

@@ -56,29 +56,30 @@ class CheckOutView extends StatelessWidget {
                 const SizedBox(
                   height: 10,
                 ),
+                //0=>cash, 1=>visa card, 2=>master card
                 MethodPaymentContainer(
                   onTap: () {
-                    controller.choosePaymentMethod("Cash");
+                    controller.choosePaymentMethod("0");
                   },
-                  isActive: controller.paymentMethod == "Cash" ? true : false,
+                  isActive: controller.paymentMethod == "0" ? true : false,
                   text: "Cash",
                   imageUrl: Assets.imagesCash,
                 ),
                 MethodPaymentContainer(
                   onTap: () {
-                    controller.choosePaymentMethod("Visa Card");
+                    controller.choosePaymentMethod("1");
                   },
                   isActive:
-                      controller.paymentMethod == "Visa Card" ? true : false,
+                      controller.paymentMethod == "1" ? true : false,
                   text: "Visa Card",
                   imageUrl: Assets.imagesVisaRemovebgPreview,
                 ),
                 MethodPaymentContainer(
                   onTap: () {
-                    controller.choosePaymentMethod("Master Card");
+                    controller.choosePaymentMethod("2");
                   },
                   isActive:
-                      controller.paymentMethod == "Master Card" ? true : false,
+                      controller.paymentMethod == "2" ? true : false,
                   text: "Master Card",
                   imageUrl: Assets.imagesMasterCardRemovebgPreview,
                 ),
@@ -94,11 +95,12 @@ class CheckOutView extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
+                    //0=>Delivery, 1=> Drive Thru
                     MethodDeliveryContainer(
                       onTap: () {
-                        controller.chooseDeliveryMethod("Delivery");
+                        controller.chooseDeliveryMethod("0");
                       },
-                      isActive: controller.deliveryMethod == "Delivery"
+                      isActive: controller.deliveryMethod == "0"
                           ? true
                           : false,
                       imageUrl: Assets.imagesDelivery,
@@ -109,9 +111,9 @@ class CheckOutView extends StatelessWidget {
                     ),
                     MethodDeliveryContainer(
                       onTap: () {
-                        controller.chooseDeliveryMethod("Drive Thru");
+                        controller.chooseDeliveryMethod("1");
                       },
-                      isActive: controller.deliveryMethod == "Drive Thru"
+                      isActive: controller.deliveryMethod == "1"
                           ? true
                           : false,
                       imageUrl: Assets.imagesDrivethru,
@@ -122,7 +124,7 @@ class CheckOutView extends StatelessWidget {
                 const SizedBox(
                   height: 20,
                 ),
-                if (controller.deliveryMethod == "Delivery")
+                if (controller.deliveryMethod == "0")
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [

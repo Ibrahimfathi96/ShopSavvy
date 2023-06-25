@@ -31,7 +31,7 @@ class CartFAButtonWidgets extends GetView<CartController> {
               const CartCoupon(),
               CustomCartTexts(text1: "Subtotal", text2: "EGP ${controller.ordersPrice.round()}"),
               const CustomCartTexts(text1: "Delivery Fees", text2: "EGP 25"),
-              CustomCartTexts(text1: "Discount", text2: "${controller.discountCoupon}%"),
+              CustomCartTexts(text1: "Discount", text2: "${controller.couponDiscount}%"),
               const CustomDotsDivider(),
               const TotalPriceText(),
             ],

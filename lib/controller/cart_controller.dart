@@ -18,7 +18,7 @@ class CartController extends GetxController {
   CartViewData cartViewData = CartViewData(Get.find());
   List<CartMd> data = [];
   CouponMd? couponMd;
-  num discountCoupon = 0;
+  num couponDiscount = 0;
   String? couponName;
   num? couponId;
   num ordersPrice = 0;
@@ -96,11 +96,11 @@ class CartController extends GetxController {
       if (response['status'] == 'success') {
         Map<String, dynamic> couponData = response['data'];
         couponMd = CouponMd.fromJson(couponData);
-        discountCoupon = couponMd!.couponDiscount!;
+        couponDiscount = couponMd!.couponDiscount!;
         couponName = couponMd!.couponName!;
-        couponId   = couponMd!.couponId!;
+        couponId = couponMd!.couponId!;
       } else {
-        discountCoupon = 0;
+        couponDiscount = 0;
         couponName = null;
         couponId = 0;
       }
@@ -109,14 +109,17 @@ class CartController extends GetxController {
   }
 
   num getTotalPrice() {
-    return (ordersPrice - ordersPrice * (discountCoupon / 100));
+    return (ordersPrice - ordersPrice * (couponDiscount / 100));
   }
-  goToCheckOutView(){
-    if(data.isEmpty)return Get.snackbar("Warning!", "Can't checkout, add some items to your cart first.");
-    Get.toNamed(CheckOutView.routeName,arguments: {
-      "couponId":couponId ?? 0,
-      "ordersPrice":ordersPrice,
 
+  goToCheckOutView() {
+    if (data.isEmpty)
+      return Get.snackbar(
+          "Warning!", "Can't checkout, add some items to your cart first.");
+    Get.toNamed(CheckOutView.routeName, arguments: {
+      "couponId": couponId ?? 0,
+      "ordersPrice": ordersPrice,
+      "couponDiscount": couponDiscount,
     });
   }
 
