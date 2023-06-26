@@ -15,7 +15,10 @@ class PendingOrders extends StatelessWidget {
     Get.put(PendingOrdersController());
     return Scaffold(
       appBar: AppBar(
-        leading: AppBarLeadingItem(),
+        automaticallyImplyLeading: false,
+        actions: [
+          AppBarItem(),
+        ],
         backgroundColor: Colors.transparent,
         elevation: 0,
         title: AppBarTitle(),

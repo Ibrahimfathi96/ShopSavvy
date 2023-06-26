@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:shop_savvy/controller/orders_controllers/pending_controller.dart';
 import 'package:shop_savvy/data/model/pending_orders_model.dart';
 import 'package:shop_savvy/view/widget/orders_widgets/orders_id_and_date_time.dart';
 import 'package:shop_savvy/view/widget/orders_widgets/orders_texts.dart';
 import 'package:shop_savvy/view/widget/orders_widgets/orders_total_price.dart';
 
-class OrdersItemCard extends StatelessWidget {
+class OrdersItemCard extends GetView<PendingOrdersController> {
   final PendingOrdersMd ordersMd;
+
   const OrdersItemCard({
-    super.key, required this.ordersMd,
+    super.key,
+    required this.ordersMd,
   });
 
   @override
@@ -26,14 +30,16 @@ class OrdersItemCard extends StatelessWidget {
               orderId: ordersMd.ordersId!,
               orderDateTime: "${ordersMd.ordersDatetime}",
             ),
-            Divider(),
+            Divider(
+              thickness: 2,
+            ),
             OrdersRowOfText(
               text1: "Tracking Number: ",
-              text2: "+201156789207",
+              text2: "${controller.services.prefs.getString("phone")}",
             ),
             OrdersRowOfText(
               text1: "Order Type     : ",
-              text2: ordersMd.ordersType == 0 ? "Delivery":"Drive Thru",
+              text2: controller.printOrderType(ordersMd.ordersType!),
             ),
             OrdersRowOfText(
               text1: "Delivery Taxes : ",
@@ -41,12 +47,15 @@ class OrdersItemCard extends StatelessWidget {
             ),
             OrdersRowOfText(
               text1: "Payment Method : ",
-              text2: ordersMd.ordersPaymentMethod == 1 ? "Cash On Delivery":"Visa",
+              text2:
+                  controller.printPaymentMethod(ordersMd.ordersPaymentMethod!),
             ),
-            Divider(),
+            Divider(thickness: 2),
             OrdersTotalPrice(
               onPressed: () {},
               text1: "Total Price",
+              status: controller.printOrderStatus(ordersMd.ordersStatus!),
+              color: controller.orderStatusColor(ordersMd.ordersStatus!),
               text2: "${ordersMd.ordersTotalPrice!.round()} EGP",
             ),
           ],
