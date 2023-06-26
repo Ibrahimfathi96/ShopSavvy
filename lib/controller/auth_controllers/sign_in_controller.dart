@@ -41,10 +41,10 @@ class SignInControllerImp extends SignInController {
 
   @override
   void onInit() {
-    FirebaseMessaging.instance.getToken().then((value) {
-      debugPrint("=========================FirebaseToken $value");
-      String? token = value;
-    });
+    // FirebaseMessaging.instance.getToken().then((value) {
+    //   debugPrint("=========================FirebaseToken $value");
+    //   String? token = value;
+    // });
     emailController = TextEditingController();
     passwordController = TextEditingController();
     super.onInit();
@@ -85,6 +85,10 @@ class SignInControllerImp extends SignInController {
             services.prefs
                 .setString("userName", response['data']['users_name']);
             services.prefs.setString("step", "2");
+            String userId = services.prefs.getString("id")!;
+            FirebaseMessaging.instance.subscribeToTopic("users");
+            FirebaseMessaging.instance.subscribeToTopic("user${userId}");
+
             Get.offAllNamed(HomeScreen.routeName);
           }else{
             Get.toNamed(SignUpVerifyCode.routeName,arguments: {"email": emailController.text});
