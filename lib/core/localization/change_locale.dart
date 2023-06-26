@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
 import 'package:shop_savvy/core/constants/theme.dart';
+import 'package:shop_savvy/core/functions/fcm_config.dart';
 import 'package:shop_savvy/core/services/services.dart';
 
 class LocaleController extends GetxController {
@@ -40,6 +41,8 @@ class LocaleController extends GetxController {
 
   @override
   void onInit() {
+    requestPermissionNotification();
+    fcmConfig();
     requestLocationPermissions();
     String? langPrefs = myServices.prefs.getString("lang");
     if (langPrefs == "ar") {
