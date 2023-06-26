@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shop_savvy/controller/orders_controllers/pending_controller.dart';
+import 'package:shop_savvy/core/class/handling_data_view.dart';
 import 'package:shop_savvy/view/widget/orders_widgets/appbar_leading_button.dart';
 import 'package:shop_savvy/view/widget/orders_widgets/appbar_title.dart';
 import 'package:shop_savvy/view/widget/orders_widgets/orders_card_item.dart';
@@ -26,11 +27,14 @@ class PendingOrders extends StatelessWidget {
       body: Container(
         padding: EdgeInsets.all(16),
         child: GetBuilder<PendingOrdersController>(
-          builder: (controller) => ListView.builder(
-            physics: const BouncingScrollPhysics(),
-            itemCount: controller.pendingDataList.length,
-            itemBuilder: (context, index) => OrdersItemCard(
-              ordersMd: controller.pendingDataList[index],
+          builder: (controller) => HandlingDataView(
+            statusRequest: controller.statusRequest,
+            widget: ListView.builder(
+              physics: const BouncingScrollPhysics(),
+              itemCount: controller.pendingDataList.length,
+              itemBuilder: (context, index) => OrdersItemCard(
+                ordersMd: controller.pendingDataList[index],
+              ),
             ),
           ),
         ),

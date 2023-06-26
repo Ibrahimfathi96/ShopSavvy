@@ -45,15 +45,15 @@ class PendingOrdersController extends GetxController {
   }
   String printOrderStatus(num val){
     if(val == 0){
-      return "Pending";
+      return "Pending For Approval";
     }else if(val == 1){
-      return "Preparing";
+      return "Currently is Preparing";
     }else if(val == 2){
       return "Done";
     }else if(val == -1){
       return "Delivered";
     }else{
-      return "On The Way";
+      return "On The Way to you";
     }
   }
   Color orderStatusColor(num val){
