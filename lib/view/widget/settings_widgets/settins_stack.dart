@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shop_savvy/core/constants/color.dart';
+import 'package:shop_savvy/core/functions/changeLanguage.dart';
 import 'package:shop_savvy/generated/assets.dart';
 
 class SettingsStack extends StatelessWidget {
@@ -15,12 +16,12 @@ class SettingsStack extends StatelessWidget {
       clipBehavior: Clip.none,
       children: [
         Container(
-          height: Get.height / 4,
+          height: Get.height / 4.5,
           width: Get.width,
           decoration: const BoxDecoration(color: AppColors.primaryColor),
         ),
         Positioned(
-          top: Get.height / 5.3,
+          top: Get.height / 6.3,
           child: const CircleAvatar(
             radius: 50,
             backgroundColor: AppColors.primaryColor,
@@ -28,6 +29,20 @@ class SettingsStack extends StatelessWidget {
               radius: 40,
               backgroundColor: Colors.white,
               backgroundImage: AssetImage(Assets.imagesAvatar),
+            ),
+          ),
+        ),
+        Positioned(
+          top:5,
+          right: Get.width / 26,
+          child: IconButton(
+            onPressed: () {
+              changeLanguage(context);
+            },
+            icon: Icon(
+              Icons.language_outlined,
+              size: 36,
+              color: Colors.white,
             ),
           ),
         ),

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shop_savvy/controller/settings_controller.dart';
-import 'package:shop_savvy/core/functions/changeLanguage.dart';
 import 'package:shop_savvy/view/screen/location/view_location.dart';
+import 'package:shop_savvy/view/screen/orders_view/archive_orders.dart';
+import 'package:shop_savvy/view/screen/orders_view/pending_orders.dart';
 import 'package:shop_savvy/view/widget/settings_widgets/settings_list_tile_item.dart';
 
 class SettingsCardItems extends GetView<SettingsController> {
@@ -48,16 +49,26 @@ class SettingsCardItems extends GetView<SettingsController> {
                   ),
                 ),
                 SettingListTileItem(
-                  onTap: () {
-                    changeLanguage(context);
+                  onTap: (){
+                    Get.toNamed(PendingOrders.routeName);
                   },
-                  titleText: "Change Language",
+                  titleText: "Your Orders",
                   iconData: const Icon(
-                      Icons.language_outlined,
+                      Icons.shopping_cart_checkout_sharp,
                       size: 30,
                       color: Colors.black
                   ),
-                  // iconData: ,
+                ),
+                SettingListTileItem(
+                  onTap: (){
+                    Get.toNamed(ArchivedOrders.routeName);
+                  },
+                  titleText: "Archived Orders",
+                  iconData: const Icon(
+                      Icons.remove_shopping_cart_sharp,
+                      size: 30,
+                      color: Colors.black
+                  ),
                 ),
                 const SettingListTileItem(
                   titleText: "About Us",

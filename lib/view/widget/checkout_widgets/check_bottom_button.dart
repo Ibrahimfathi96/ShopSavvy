@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:shop_savvy/controller/checkout_controller.dart';
+import 'package:shop_savvy/controller/orders_controllers/checkout_controller.dart';
 import 'package:shop_savvy/core/constants/color.dart';
 
 class CheckoutBottomButton extends GetView<CheckOutController> {

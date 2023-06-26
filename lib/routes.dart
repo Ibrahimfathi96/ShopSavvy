@@ -19,6 +19,8 @@ import 'package:shop_savvy/view/screen/location/edit_location.dart';
 import 'package:shop_savvy/view/screen/location/view_location.dart';
 import 'package:shop_savvy/view/screen/my_favorite.dart';
 import 'package:shop_savvy/view/screen/onboarding_view.dart';
+import 'package:shop_savvy/view/screen/orders_view/archive_orders.dart';
+import 'package:shop_savvy/view/screen/orders_view/pending_orders.dart';
 import 'package:shop_savvy/view/screen/product_details/product_details.dart';
 import 'package:shop_savvy/view/screen/settings/settings.dart';
 
@@ -63,5 +65,8 @@ List<GetPage<dynamic>> routes = [
   GetPage(name: LocationView.routeName, page: () => const LocationView()),
   GetPage(name: AddLocation.routeName, page: () => const AddLocation()),
   GetPage(name: EditLocation.routeName, page: () => const EditLocation()),
+  //orders
+  GetPage(name: PendingOrders.routeName, page: () => const PendingOrders()),
+  GetPage(name: ArchivedOrders.routeName, page: () => const ArchivedOrders()),
 
 ];

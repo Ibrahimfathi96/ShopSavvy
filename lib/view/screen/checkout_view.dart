@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:shop_savvy/controller/checkout_controller.dart';
+import 'package:shop_savvy/controller/orders_controllers/checkout_controller.dart';
 import 'package:shop_savvy/core/class/handling_data_view.dart';
 import 'package:shop_savvy/core/constants/color.dart';
 import 'package:shop_savvy/generated/assets.dart';

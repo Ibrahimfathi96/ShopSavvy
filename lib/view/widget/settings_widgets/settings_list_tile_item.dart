@@ -19,7 +19,7 @@ class SettingListTileItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 30)
-          .add(const EdgeInsets.only(top: 16)),
+          .add(const EdgeInsets.only(top: 10)),
       decoration: BoxDecoration(
         color: containerColor,
         borderRadius: BorderRadius.circular(20),
