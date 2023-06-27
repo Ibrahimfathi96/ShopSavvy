@@ -16,6 +16,7 @@ class PendingOrdersController extends GetxController {
   getPendingOrders() async {
     pendingDataList.clear();
     statusRequest = StatusRequest.loading;
+    update();
     var response = await ordersData.getData(services.prefs.getString("id")!);
     statusRequest = handlingData(response);
     if (StatusRequest.success == statusRequest) {
@@ -27,6 +28,10 @@ class PendingOrdersController extends GetxController {
       }
     }
     update();
+  }
+
+  refreshOrdersPage(){
+    getPendingOrders();
   }
 
   String printPaymentMethod(num val){
@@ -47,13 +52,13 @@ class PendingOrdersController extends GetxController {
     if(val == 0){
       return "Pending For Approval";
     }else if(val == 1){
-      return "Currently is Preparing";
+      return "your order is currently Preparing";
     }else if(val == 2){
       return "Done";
     }else if(val == -1){
       return "Delivered";
     }else{
-      return "On The Way to you";
+      return "Delivery is under 30 Mins";
     }
   }
   Color orderStatusColor(num val){

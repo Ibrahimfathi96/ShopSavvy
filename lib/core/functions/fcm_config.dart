@@ -2,6 +2,7 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ringtone_player/flutter_ringtone_player.dart';
 import 'package:get/get.dart';
+import 'package:shop_savvy/controller/orders_controllers/pending_controller.dart';
 
 requestPermissionNotification() async {
   FirebaseMessaging messaging = FirebaseMessaging.instance;
@@ -33,5 +34,17 @@ fcmConfig() {
     FlutterRingtonePlayer.playNotification();
     Get.snackbar(
         remoteMessage.notification!.title!, remoteMessage.notification!.body!);
+    updateOrdersPage(remoteMessage.data);
   });
+}
+updateOrdersPage(data){
+  debugPrint("==========refreshNotification=============");
+  debugPrint(data['pageid']);
+  debugPrint(data['pagename']);
+  debugPrint("Current Route ====> ${Get.currentRoute}");
+  if(Get.currentRoute == "/pending-orders" && data['pagename'] == "refreshPendingOrder"){
+    debugPrint("==========Refresh=============");
+    PendingOrdersController controller = Get.find();
+    controller.refreshOrdersPage();
+  }
 }

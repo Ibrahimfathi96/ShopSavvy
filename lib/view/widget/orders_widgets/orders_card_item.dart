@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:jiffy/jiffy.dart';
 import 'package:shop_savvy/controller/orders_controllers/pending_controller.dart';
 import 'package:shop_savvy/data/model/pending_orders_model.dart';
 import 'package:shop_savvy/view/widget/orders_widgets/orders_id_and_date_time.dart';
@@ -28,7 +29,8 @@ class OrdersItemCard extends GetView<PendingOrdersController> {
           children: [
             OrdersTimeAndId(
               orderId: ordersMd.ordersId!,
-              orderDateTime: "${ordersMd.ordersDatetime}",
+              // orderDateTime: "${Jiffy(ordersMd.ordersDatetime!,"yyyy-MM-dd").fromNow()}",
+              orderDateTime: "${Jiffy.parse(ordersMd.ordersDatetime!).fromNow()}",
             ),
             Divider(
               thickness: 2,

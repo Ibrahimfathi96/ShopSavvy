@@ -27,8 +27,8 @@ class OrdersTimeAndId extends StatelessWidget {
         Text(
           orderDateTime,
           style: TextStyle(
-            fontWeight: FontWeight.w300,
-            color: AppColors.grey,
+            fontWeight: FontWeight.bold,
+            color: AppColors.secondaryColor,
             fontSize: 14,
           ),
         ),
