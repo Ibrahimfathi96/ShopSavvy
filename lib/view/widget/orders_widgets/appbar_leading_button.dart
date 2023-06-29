@@ -16,7 +16,7 @@ class AppBarItem extends StatelessWidget {
         Get.offAllNamed(HomeScreen.routeName);
       },
       icon: Icon(
-        Icons.home_filled,
+        Icons.home_outlined,size: 36,
         color: AppColors.primaryDark,
       ),
     );

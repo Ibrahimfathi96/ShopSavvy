@@ -18,6 +18,11 @@ class CustomHomeBottomNavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialButton(
+      splashColor: Colors.transparent,
+      highlightColor: Colors.transparent,
+      enableFeedback: false,
+      minWidth: 70,
+      padding: EdgeInsets.zero,
       onPressed: onPressed,
       child: SizedBox(
         height: 60,

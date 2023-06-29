@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shop_savvy/controller/cart_controller.dart';
 import 'package:shop_savvy/core/class/handling_data_view.dart';
-import 'package:shop_savvy/view/screen/home/home_screen.dart';
 import 'package:shop_savvy/view/widget/cart_widgets/cart_bottom_widgets.dart';
 import 'package:shop_savvy/view/widget/cart_widgets/cart_items_container.dart';
 import 'package:shop_savvy/view/widget/cart_widgets/cart_upper_text.dart';
@@ -31,22 +30,6 @@ class CartView extends StatelessWidget {
             size: 30,
           ),
         ),
-        actions: [
-          IconButton(
-            padding: EdgeInsets.zero,
-            splashColor: Colors.transparent,
-            highlightColor: Colors.transparent,
-            hoverColor: Colors.transparent,
-            onPressed: () {
-              Get.offAllNamed(HomeScreen.routeName);
-            },
-            icon: const Icon(
-              Icons.home,
-              color: Colors.black54,
-              size: 36,
-            ),
-          ),
-        ],
         centerTitle: true,
         elevation: 0,
         backgroundColor: Colors.transparent,

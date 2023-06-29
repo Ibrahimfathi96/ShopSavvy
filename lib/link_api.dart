@@ -2,7 +2,7 @@ class AppLink {
   //emulatorServer
   // static const String server = "http://10.0.2.2/shop_savvy";
   //phoneServer
-  static const String server = "http://192.168.1.8/shop_savvy";
+  static const String server = "http://192.168.1.6/shop_savvy";
 
   // static const String server = "http://192.168.1.1/shop_savvy";
   static const String test = "$server/test.php";
@@ -57,6 +57,9 @@ class AppLink {
   static const String orders = "$server/orders";
   static const String ordersCheckout = "$orders/checkout.php";
   static const String pendingOrders = "$orders/pending.php";
+
+  //Notifications PHP
+  static const String notifications = "$server/notifications.php";
 
   //Image Links
   static const String imagesLink = "$server/uploads";
