@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:jiffy/jiffy.dart';
 import 'package:shop_savvy/controller/notifications_controller.dart';
 import 'package:shop_savvy/core/constants/color.dart';
+import 'package:shop_savvy/view/widget/notifications_widgets/notifications_item.dart';
 
 class NotificationsView extends StatelessWidget {
   static const String routeName = '/notifications';
@@ -10,7 +12,7 @@ class NotificationsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    NotificationsController controller = Get.put(NotificationsController());
+    Get.put(NotificationsController());
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -24,12 +26,23 @@ class NotificationsView extends StatelessWidget {
           ),
         ),
       ),
-      body: Container(
-        padding: EdgeInsets.all(16),
-        child: ListView(
-          children: [
-            ...List.generate(controller.data.length, (index) => Text(controller.data[index]['notifications_title']))
-          ],
+      body: GetBuilder<NotificationsController>(
+        builder: (controller) => Container(
+          padding: EdgeInsets.all(10),
+          child: ListView(
+            physics: BouncingScrollPhysics(),
+            children: [
+              ...List.generate(
+                controller.data.length,
+                (index) => NotificationItem(
+                  title: "${controller.data[index]['notifications_title']}",
+                  subTitle: "${controller.data[index]['notifications_body']}",
+                  dateTime:
+                      "${Jiffy.parse(controller.data[index]['notifications_datetime']).fromNow()}",
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

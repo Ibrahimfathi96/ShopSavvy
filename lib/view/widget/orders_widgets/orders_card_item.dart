@@ -29,7 +29,6 @@ class OrdersItemCard extends GetView<PendingOrdersController> {
           children: [
             OrdersTimeAndId(
               orderId: ordersMd.ordersId!,
-              // orderDateTime: "${Jiffy(ordersMd.ordersDatetime!,"yyyy-MM-dd").fromNow()}",
               orderDateTime: "${Jiffy.parse(ordersMd.ordersDatetime!).fromNow()}",
             ),
             Divider(
