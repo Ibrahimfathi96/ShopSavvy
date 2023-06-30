@@ -5,16 +5,16 @@ import 'package:shop_savvy/core/constants/color.dart';
 import 'package:shop_savvy/core/functions/handling_data.dart';
 import 'package:shop_savvy/core/services/services.dart';
 import 'package:shop_savvy/data/data_source/remote/orders/pending_data.dart';
-import 'package:shop_savvy/data/model/pending_orders_model.dart';
+import 'package:shop_savvy/data/model/orders_model.dart';
 
 class PendingOrdersController extends GetxController {
   PendingOrdersData ordersData = PendingOrdersData(Get.find());
   MyServices services = Get.find();
   StatusRequest statusRequest = StatusRequest.none;
-  List<PendingOrdersMd> pendingDataList = [];
+  List<OrdersMd> ordersList = [];
 
   getPendingOrders() async {
-    pendingDataList.clear();
+    ordersList.clear();
     statusRequest = StatusRequest.loading;
     update();
     var response = await ordersData.getData(services.prefs.getString("id")!);
@@ -22,7 +22,7 @@ class PendingOrdersController extends GetxController {
     if (StatusRequest.success == statusRequest) {
       if (response['status'] == 'success') {
         List data = response['data'];
-        pendingDataList.addAll(data.map((e) => PendingOrdersMd.fromJson(e)));
+        ordersList.addAll(data.map((e) => OrdersMd.fromJson(e)));
       } else {
         statusRequest = StatusRequest.failure;
       }
@@ -30,50 +30,54 @@ class PendingOrdersController extends GetxController {
     update();
   }
 
-  refreshOrdersPage(){
+  refreshOrdersPage() {
     getPendingOrders();
   }
 
-  String printPaymentMethod(num val){
-    if(val == 1){
+  String printPaymentMethod(num val) {
+    if (val == 1) {
       return "Cash On Delivery";
-    }else{
+    } else {
       return "Payment Card";
     }
   }
-  String printOrderType(num val){
-    if(val == 0){
+
+  String printOrderType(num val) {
+    if (val == 0) {
       return "Delivery";
-    }else{
+    } else {
       return "Receive";
     }
   }
-  String printOrderStatus(num val){
-    if(val == 0){
+
+  String printOrderStatus(num val) {
+    if (val == 0) {
       return "Pending For Approval";
-    }else if(val == 1){
+    } else if (val == 1) {
       return "your order is currently Preparing";
-    }else if(val == 2){
+    } else if (val == 2) {
       return "Done";
-    }else if(val == -1){
+    } else if (val == -1) {
       return "Delivered";
-    }else{
+    } else {
       return "Delivery is under 30 Mins";
     }
   }
-  Color orderStatusColor(num val){
-    if(val == 0){
+
+  Color orderStatusColor(num val) {
+    if (val == 0) {
       return Colors.red;
-    }else if(val == 1){
+    } else if (val == 1) {
       return AppColors.primaryColor;
-    }else if(val == 2){
+    } else if (val == 2) {
       return Colors.green;
-    }else if(val == -1){
+    } else if (val == -1) {
       return Colors.green;
-    }else{
+    } else {
       return AppColors.primaryDark;
     }
   }
+
   @override
   void onInit() {
     getPendingOrders();

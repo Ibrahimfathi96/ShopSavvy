@@ -57,6 +57,7 @@ class AppLink {
   static const String orders = "$server/orders";
   static const String ordersCheckout = "$orders/checkout.php";
   static const String pendingOrders = "$orders/pending.php";
+  static const String ordersDetails = "$orders/orders_details.php";
 
   //Notifications PHP
   static const String notifications = "$server/notifications.php";

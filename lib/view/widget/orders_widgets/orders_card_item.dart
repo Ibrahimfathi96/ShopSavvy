@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:jiffy/jiffy.dart';
 import 'package:shop_savvy/controller/orders_controllers/pending_controller.dart';
-import 'package:shop_savvy/data/model/pending_orders_model.dart';
+import 'package:shop_savvy/data/model/orders_model.dart';
+import 'package:shop_savvy/view/screen/orders_view/orders_details.dart';
 import 'package:shop_savvy/view/widget/orders_widgets/orders_id_and_date_time.dart';
 import 'package:shop_savvy/view/widget/orders_widgets/orders_texts.dart';
 import 'package:shop_savvy/view/widget/orders_widgets/orders_total_price.dart';
 
 class OrdersItemCard extends GetView<PendingOrdersController> {
-  final PendingOrdersMd ordersMd;
+  final OrdersMd ordersMd;
 
   const OrdersItemCard({
     super.key,
@@ -29,7 +30,8 @@ class OrdersItemCard extends GetView<PendingOrdersController> {
           children: [
             OrdersTimeAndId(
               orderId: ordersMd.ordersId!,
-              orderDateTime: "${Jiffy.parse(ordersMd.ordersDatetime!).fromNow()}",
+              orderDateTime:
+                  "${Jiffy.parse(ordersMd.ordersDatetime!).fromNow()}",
             ),
             Divider(
               thickness: 2,
@@ -53,7 +55,14 @@ class OrdersItemCard extends GetView<PendingOrdersController> {
             ),
             Divider(thickness: 2),
             OrdersTotalPrice(
-              onPressed: () {},
+              onPressed: () {
+                Get.toNamed(
+                  OrdersDetails.routeName,
+                  arguments: {
+                    "ordersMd": ordersMd,
+                  },
+                );
+              },
               text1: "Total Price",
               status: controller.printOrderStatus(ordersMd.ordersStatus!),
               color: controller.orderStatusColor(ordersMd.ordersStatus!),

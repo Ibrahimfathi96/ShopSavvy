@@ -30,11 +30,10 @@ class PendingOrders extends StatelessWidget {
           builder: (controller) => HandlingDataView(
             statusRequest: controller.statusRequest,
             widget: ListView.builder(
-              reverse: true,
               physics: const BouncingScrollPhysics(),
-              itemCount: controller.pendingDataList.length,
+              itemCount: controller.ordersList.length,
               itemBuilder: (context, index) => OrdersItemCard(
-                ordersMd: controller.pendingDataList[index],
+                ordersMd: controller.ordersList[index],
               ),
             ),
           ),
