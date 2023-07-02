@@ -20,7 +20,7 @@ class CartItemsContainer extends StatelessWidget {
               ...List.generate(
                 controller.data.length,
                 (index) => CartItem(
-                  productCount: "${controller.data[index].itemsTotalCount}",
+                  productCount: "${controller.data[index].itemCount}",
                   productName: "${controller.data[index].itemsName}         ",
                   productPrice:
                       "${controller.data[index].itemsTotalPrice!.round()} EGP",

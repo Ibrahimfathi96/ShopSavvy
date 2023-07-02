@@ -1,14 +1,11 @@
-import 'dart:convert';
-
-CartMd cartMdFromJson(String str) => CartMd.fromJson(json.decode(str));
-String cartMdToJson(CartMd data) => json.encode(data.toJson());
-class CartMd {
-  CartMd({
-      this.itemsTotalPrice,
+class OrdersDetailsMd {
+  OrdersDetailsMd({
+      this.itemPrice,
       this.itemCount,
       this.cartId, 
       this.cartUserId, 
       this.cartItemsId, 
+      this.cartOrders, 
       this.itemsId, 
       this.itemsName, 
       this.itemsNameAr, 
@@ -22,12 +19,13 @@ class CartMd {
       this.itemsDate, 
       this.itemsCategories,});
 
-  CartMd.fromJson(dynamic json) {
-    itemsTotalPrice = json['itemsprice'];
-    itemCount = json['itemscount'];
+  OrdersDetailsMd.fromJson(dynamic json) {
+    itemPrice = json['ITEMSPRICE'];
+    itemCount = json['ITEMSCOUNT'];
     cartId = json['cart_id'];
     cartUserId = json['cart_user_id'];
     cartItemsId = json['cart_items_id'];
+    cartOrders = json['cart_orders'];
     itemsId = json['items_id'];
     itemsName = json['items_name'];
     itemsNameAr = json['items_name_ar'];
@@ -41,11 +39,12 @@ class CartMd {
     itemsDate = json['items_date'];
     itemsCategories = json['items_categories'];
   }
-  num? itemsTotalPrice;
+  num? itemPrice;
   num? itemCount;
   num? cartId;
   num? cartUserId;
   num? cartItemsId;
+  num? cartOrders;
   num? itemsId;
   String? itemsName;
   String? itemsNameAr;
@@ -58,48 +57,15 @@ class CartMd {
   num? itemsDiscount;
   String? itemsDate;
   num? itemsCategories;
-CartMd copyWith({  num? itemsTotalPrice,
-  num? itemsTotalCount,
-  num? cartId,
-  num? cartUserId,
-  num? cartItemsId,
-  num? itemsId,
-  String? itemsName,
-  String? itemsNameAr,
-  String? itemsDesc,
-  String? itemsDescAr,
-  String? itemsImage,
-  num? itemsCount,
-  num? itemsActive,
-  num? itemsPrice,
-  num? itemsDiscount,
-  String? itemsDate,
-  num? itemsCategories,
-}) => CartMd(  itemsTotalPrice: itemsTotalPrice ?? this.itemsTotalPrice,
-  itemCount: itemsTotalCount ?? this.itemCount,
-  cartId: cartId ?? this.cartId,
-  cartUserId: cartUserId ?? this.cartUserId,
-  cartItemsId: cartItemsId ?? this.cartItemsId,
-  itemsId: itemsId ?? this.itemsId,
-  itemsName: itemsName ?? this.itemsName,
-  itemsNameAr: itemsNameAr ?? this.itemsNameAr,
-  itemsDesc: itemsDesc ?? this.itemsDesc,
-  itemsDescAr: itemsDescAr ?? this.itemsDescAr,
-  itemsImage: itemsImage ?? this.itemsImage,
-  itemsCount: itemsCount ?? this.itemsCount,
-  itemsActive: itemsActive ?? this.itemsActive,
-  itemsPrice: itemsPrice ?? this.itemsPrice,
-  itemsDiscount: itemsDiscount ?? this.itemsDiscount,
-  itemsDate: itemsDate ?? this.itemsDate,
-  itemsCategories: itemsCategories ?? this.itemsCategories,
-);
+
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
-    map['itemsprice'] = itemsTotalPrice;
-    map['itemscount'] = itemCount;
+    map['ITEMSPRICE'] = itemPrice;
+    map['ITEMSCOUNT'] = itemCount;
     map['cart_id'] = cartId;
     map['cart_user_id'] = cartUserId;
     map['cart_items_id'] = cartItemsId;
+    map['cart_orders'] = cartOrders;
     map['items_id'] = itemsId;
     map['items_name'] = itemsName;
     map['items_name_ar'] = itemsNameAr;

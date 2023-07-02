@@ -7,14 +7,16 @@ import 'package:shop_savvy/core/class/status_request.dart';
 import 'package:shop_savvy/core/functions/handling_data.dart';
 import 'package:shop_savvy/core/services/services.dart';
 import 'package:shop_savvy/data/data_source/remote/orders/orders_details_data.dart';
-import 'package:shop_savvy/data/model/cart_model.dart';
+import 'package:shop_savvy/data/model/orders_details_model.dart';
 import 'package:shop_savvy/data/model/orders_model.dart';
 
 class OrdersDetailsController extends GetxController {
   OrdersDetailsData ordersDetailsData = OrdersDetailsData(Get.find());
   MyServices services = Get.find();
   StatusRequest statusRequest = StatusRequest.none;
-  List<CartMd> data = [];
+
+  // List<CartMd> data = [];
+  List<OrdersDetailsMd> data = [];
   late OrdersMd ordersMd;
   List<Marker> markers = [];
   String? lat;
@@ -35,13 +37,14 @@ class OrdersDetailsController extends GetxController {
   getOrdersDetailsData() async {
     debugPrint("ordersDetails==================> TheFunctionStarted");
     statusRequest = StatusRequest.loading;
-    var response = await ordersDetailsData.getData(ordersMd.ordersId.toString());
+    var response =
+        await ordersDetailsData.getData(ordersMd.ordersId.toString());
     debugPrint("ordersDetails==================> $response");
     statusRequest = handlingData(response);
     if (StatusRequest.success == statusRequest) {
       if (response['status'] == 'success') {
         List responseData = response['data'];
-        data.addAll(responseData.map((e) => CartMd.fromJson(e)));
+        data.addAll(responseData.map((e) => OrdersDetailsMd.fromJson(e)));
       } else {
         statusRequest = StatusRequest.failure;
       }
@@ -51,6 +54,7 @@ class OrdersDetailsController extends GetxController {
 
   @override
   void onInit() {
+    completerController = Completer<GoogleMapController>();
     ordersMd = Get.arguments['ordersMd'];
     initData();
     getOrdersDetailsData();
