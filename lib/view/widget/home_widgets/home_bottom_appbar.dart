@@ -17,23 +17,33 @@ class CustomHomeBottomAppBar extends StatelessWidget {
           child: BottomAppBar(
             shape: const CircularNotchedRectangle(),
             color: AppColors.primaryDark,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                ...List.generate(
-                  controller.pagesList.length,
-                  (index) {
-                    return CustomHomeBottomNavBar(
-                      onPressed: () {
-                        controller.changePage(index);
-                      },
-                      isActive: controller.currentPage == index ? true : false,
-                      buttonText: controller.bottomAppBar[index]['title'],
-                      icon: controller.bottomAppBar[index]['icon'],
-                    );
-                  },
-                ),
-              ],
+            child: BottomAppBar(
+              elevation: 0,
+              color: Colors.transparent,
+              shape: CircularNotchedRectangle(),
+              notchMargin: 10,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  ...List.generate(
+                    controller.pagesList.length,
+                    (index) {
+                      return CustomHomeBottomNavBar(
+                        onPressed: () {
+                          controller.changePage(index);
+                        },
+                        isActive:
+                            controller.currentPage == index ? true : false,
+                        buttonText: controller.bottomAppBar[index]['title'],
+                        icon: controller.bottomAppBar[index]['icon'],
+                      );
+                    },
+                  ),
+                  const SizedBox(
+                    width: 1,
+                  ),
+                ],
+              ),
             ),
           ),
         ),

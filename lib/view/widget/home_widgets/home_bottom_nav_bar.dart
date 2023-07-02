@@ -4,14 +4,14 @@ import 'package:shop_savvy/core/constants/color.dart';
 class CustomHomeBottomNavBar extends StatelessWidget {
   final void Function() onPressed;
   final String buttonText;
-  final IconData icon;
+  final IconData? icon;
   final bool? isActive;
 
   const CustomHomeBottomNavBar({
     super.key,
     required this.onPressed,
     required this.buttonText,
-    required this.icon,
+    this.icon,
     this.isActive,
   });
 

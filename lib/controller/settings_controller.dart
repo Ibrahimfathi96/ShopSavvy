@@ -5,6 +5,12 @@ import 'package:shop_savvy/view/screen/auth/sign_in.dart';
 
 class SettingsController extends GetxController {
   MyServices services = Get.find();
+  bool isActive = false;
+
+  switchToggle() {
+    isActive = isActive == false? true:false;
+    update();
+  }
 
   userLogout() {
     String userId = services.prefs.getString("id")!;

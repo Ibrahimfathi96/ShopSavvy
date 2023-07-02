@@ -44,6 +44,7 @@ class OrdersDetails extends StatelessWidget {
               physics: BouncingScrollPhysics(),
               children: [
                 OrderTable(),
+                if(controller.ordersMd.ordersType != "0")
                 OrdersDetailsShippingCard(),
               ],
             ),

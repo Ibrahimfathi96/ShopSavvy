@@ -29,9 +29,15 @@ class OrdersDetailsController extends GetxController {
       target: LatLng(ordersMd.locationLat, ordersMd.locationLong),
       zoom: 15,
     );
-    markers.add(Marker(
+    markers.add(
+      Marker(
         markerId: MarkerId("1"),
-        position: LatLng(ordersMd.locationLat, ordersMd.locationLong)));
+        position: LatLng(
+          ordersMd.locationLat,
+          ordersMd.locationLong,
+        ),
+      ),
+    );
   }
 
   getOrdersDetailsData() async {

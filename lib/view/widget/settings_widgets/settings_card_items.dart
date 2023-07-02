@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttericon/font_awesome_icons.dart';
 import 'package:get/get.dart';
 import 'package:shop_savvy/controller/settings_controller.dart';
 import 'package:shop_savvy/core/functions/changeLanguage.dart';
@@ -9,7 +10,6 @@ import 'package:shop_savvy/view/widget/settings_widgets/settings_list_tile_item.
 class SettingsCardItems extends GetView<SettingsController> {
   const SettingsCardItems({
     super.key,
-
   });
 
   @override
@@ -32,59 +32,49 @@ class SettingsCardItems extends GetView<SettingsController> {
               children: [
                 SettingListTileItem(
                   titleText: "Disable Notifications",
-                  iconData: Switch(
-                    onChanged: (value) {},
-                    value: true,
-                  ),
+                  iconData: GetBuilder<SettingsController>(builder: (logic) {
+                    return Switch(
+                      activeColor: Colors.black,
+                      onChanged: (value) {
+                        value = logic.switchToggle();
+                      },
+                      value: controller.isActive,
+                    );
+                  }),
                 ),
                 SettingListTileItem(
-                  onTap: (){
+                  onTap: () {
                     Get.toNamed(LocationView.routeName);
                   },
                   titleText: "Location",
-                  iconData: const Icon(
-                      Icons.location_on_outlined,
-                      size: 30,
-                      color: Colors.black
-                  ),
+                  iconData: const Icon(Icons.location_on_outlined,
+                      size: 30, color: Colors.black),
                 ),
                 SettingListTileItem(
-                  onTap: (){
+                  onTap: () {
                     Get.toNamed(PendingOrders.routeName);
                   },
                   titleText: "Your Orders",
-                  iconData: const Icon(
-                      Icons.shopping_cart_checkout_sharp,
-                      size: 30,
-                      color: Colors.black
-                  ),
+                  iconData: const Icon(Icons.shopping_cart_checkout_sharp,
+                      size: 30, color: Colors.black),
                 ),
                 SettingListTileItem(
-                  onTap: (){
+                  onTap: () {
                     changeLanguage(context);
                   },
                   titleText: "App Language",
-                  iconData: const Icon(
-                      Icons.language_outlined,
-                      size: 30,
-                      color: Colors.black
-                  ),
+                  iconData: const Icon(Icons.language_outlined,
+                      size: 30, color: Colors.black),
                 ),
                 const SettingListTileItem(
                   titleText: "About Us",
-                  iconData: Icon(
-                      Icons.help_outline_outlined,
-                      size: 30,
-                      color: Colors.black
-                  ),
+                  iconData: Icon(Icons.help_outline_outlined,
+                      size: 30, color: Colors.black),
                 ),
                 const SettingListTileItem(
                   titleText: "Contact Us",
-                  iconData: Icon(
-                      Icons.phone_callback_outlined,
-                      size: 30,
-                      color: Colors.black
-                  ),
+                  iconData: Icon(Icons.phone_callback_outlined,
+                      size: 30, color: Colors.black),
                 ),
                 SettingListTileItem(
                   onTap: () {
@@ -92,11 +82,8 @@ class SettingsCardItems extends GetView<SettingsController> {
                   },
                   logoutStyle: true,
                   titleText: "Logout",
-                  iconData: const Icon(
-                      Icons.phone_callback_outlined,
-                      size: 30,
-                      color: Colors.white
-                  ),
+                  iconData: const Icon(FontAwesome.logout,
+                      size: 28, color: Colors.white),
                   containerColor: Colors.red,
                 ),
                 const SizedBox(
