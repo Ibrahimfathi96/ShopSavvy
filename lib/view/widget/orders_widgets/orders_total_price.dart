@@ -5,15 +5,20 @@ class OrdersTotalPrice extends StatelessWidget {
   final String text1;
   final String text2;
   final String status;
-  final Color  color;
-  final void Function() onPressed;
+  final Color color;
+  final void Function() onDetailsPress;
+  final void Function() onDeletePress;
+  final bool? isDelivered;
 
   const OrdersTotalPrice({
     super.key,
     required this.text1,
     required this.text2,
-    required this.onPressed,
-    required this.status, required this.color,
+    required this.onDetailsPress,
+    required this.status,
+    required this.color,
+    required this.onDeletePress,
+    this.isDelivered,
   });
 
   @override
@@ -48,7 +53,7 @@ class OrdersTotalPrice extends StatelessWidget {
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(16),
                   side: BorderSide(color: AppColors.primaryDark, width: 2)),
-              onPressed: onPressed,
+              onPressed: onDetailsPress,
               child: Text(
                 "Details",
                 style: TextStyle(
@@ -60,15 +65,33 @@ class OrdersTotalPrice extends StatelessWidget {
           ],
         ),
         Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-          Text(
-            status,
-            style: TextStyle(
-              color:color,
+            Text(
+              status,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: color,
+              ),
             ),
-          ),
-        ],)
+            if(isDelivered == true)
+            MaterialButton(
+              color: Colors.red,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16),
+              ),
+              onPressed: onDeletePress,
+              child: Text(
+                "Delete",
+                style: TextStyle(
+                  fontSize: 16,
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+          ],
+        )
       ],
     );
   }

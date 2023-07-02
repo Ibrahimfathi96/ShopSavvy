@@ -53,11 +53,12 @@ class AppLink {
   static const String coupon = "$server/coupon";
   static const String checkCoupon = "$coupon/check_coupon.php";
 
-  //Checkout PHP
+  //Orders & Checkout PHP
   static const String orders = "$server/orders";
   static const String ordersCheckout = "$orders/checkout.php";
   static const String pendingOrders = "$orders/pending.php";
   static const String ordersDetails = "$orders/orders_details.php";
+  static const String deleteOrder = "$orders/delete.php";
 
   //Notifications PHP
   static const String notifications = "$server/notifications.php";

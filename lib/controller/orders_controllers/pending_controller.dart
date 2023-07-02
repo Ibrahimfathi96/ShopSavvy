@@ -4,11 +4,13 @@ import 'package:shop_savvy/core/class/status_request.dart';
 import 'package:shop_savvy/core/constants/color.dart';
 import 'package:shop_savvy/core/functions/handling_data.dart';
 import 'package:shop_savvy/core/services/services.dart';
+import 'package:shop_savvy/data/data_source/remote/orders/delete_order_data.dart';
 import 'package:shop_savvy/data/data_source/remote/orders/pending_data.dart';
 import 'package:shop_savvy/data/model/orders_model.dart';
 
 class PendingOrdersController extends GetxController {
   PendingOrdersData ordersData = PendingOrdersData(Get.find());
+  DeleteOrderData deleteOrderData = DeleteOrderData(Get.find());
   MyServices services = Get.find();
   StatusRequest statusRequest = StatusRequest.none;
   List<OrdersMd> ordersList = [];
@@ -23,6 +25,22 @@ class PendingOrdersController extends GetxController {
       if (response['status'] == 'success') {
         List data = response['data'];
         ordersList.addAll(data.map((e) => OrdersMd.fromJson(e)));
+      } else {
+        statusRequest = StatusRequest.failure;
+      }
+    }
+    update();
+  }
+
+  deleteOrder(String orderId) async {
+    ordersList.clear();
+    statusRequest = StatusRequest.loading;
+    update();
+    var response = await deleteOrderData.getData(orderId);
+    statusRequest = handlingData(response);
+    if (StatusRequest.success == statusRequest) {
+      if (response['status'] == 'success') {
+        refreshOrdersPage();
       } else {
         statusRequest = StatusRequest.failure;
       }

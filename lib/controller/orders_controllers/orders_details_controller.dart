@@ -21,27 +21,28 @@ class OrdersDetailsController extends GetxController {
   List<Marker> markers = [];
   String? lat;
   String? lng;
-  CameraPosition? cameraPosition;
+  CameraPosition? cameraPosition ;
   late Completer<GoogleMapController> completerController;
 
   initData() {
-    cameraPosition = CameraPosition(
-      target: LatLng(ordersMd.locationLat, ordersMd.locationLong),
-      zoom: 15,
-    );
-    markers.add(
-      Marker(
-        markerId: MarkerId("1"),
-        position: LatLng(
-          ordersMd.locationLat,
-          ordersMd.locationLong,
+    if(ordersMd.ordersType == 0){
+      cameraPosition = CameraPosition(
+        target: LatLng(ordersMd.locationLat, ordersMd.locationLong),
+        zoom: 15,
+      );
+      markers.add(
+        Marker(
+          markerId: MarkerId("1"),
+          position: LatLng(
+            ordersMd.locationLat,
+            ordersMd.locationLong,
+          ),
         ),
-      ),
-    );
+      );
+    }
   }
 
   getOrdersDetailsData() async {
-    debugPrint("ordersDetails==================> TheFunctionStarted");
     statusRequest = StatusRequest.loading;
     var response =
         await ordersDetailsData.getData(ordersMd.ordersId.toString());
@@ -57,7 +58,6 @@ class OrdersDetailsController extends GetxController {
     }
     update();
   }
-
   @override
   void onInit() {
     completerController = Completer<GoogleMapController>();
