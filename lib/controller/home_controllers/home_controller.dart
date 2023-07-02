@@ -1,4 +1,3 @@
-import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shop_savvy/controller/search_controller.dart';
@@ -7,7 +6,6 @@ import 'package:shop_savvy/core/functions/handling_data.dart';
 import 'package:shop_savvy/core/services/services.dart';
 import 'package:shop_savvy/data/data_source/remote/home_data.dart';
 import 'package:shop_savvy/view/screen/items/items_view.dart';
-import 'package:shop_savvy/view/screen/product_details/product_details.dart';
 
 
 class HomeControllerImp extends SearchMixControllerImp {
@@ -57,11 +55,5 @@ class HomeControllerImp extends SearchMixControllerImp {
       "selectedCategory": selectedCategory,
       "categoryId": categoryId,
     });
-  }
-
-
-
-  goToProductDetails(itemsMD) {
-    Get.toNamed(ProductDetails.routeName, arguments: {"itemsMD": itemsMD});
   }
 }

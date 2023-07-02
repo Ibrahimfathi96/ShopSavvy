@@ -10,6 +10,7 @@ class Assets {
   static const String cairoCairoSemiBold = 'assets/fonts/Cairo/Cairo-SemiBold.ttf';
   static const String flagsEn = 'assets/flags/en.png';
   static const String flagsSa = 'assets/flags/sa.png';
+  static const String imagesAppIcon = 'assets/images/app_icon.png';
   static const String imagesAvatar = 'assets/images/avatar.png';
   static const String imagesCash = 'assets/images/cash.png';
   static const String imagesCashBack = 'assets/images/cash_back.png';

@@ -4,6 +4,7 @@ import 'package:shop_savvy/core/class/status_request.dart';
 import 'package:shop_savvy/core/functions/handling_data.dart';
 import 'package:shop_savvy/data/data_source/remote/search.dart';
 import 'package:shop_savvy/data/model/items_model.dart';
+import 'package:shop_savvy/view/screen/product_details/product_details.dart';
 
 abstract class SearchMixController extends GetxController {
   checkSearching(val);
@@ -67,7 +68,9 @@ class SearchMixControllerImp extends SearchMixController {
     searchData();
     update();
   }
-
+  goToProductDetails(ItemsMd itemsMD) {
+    Get.toNamed(ProductDetails.routeName, arguments: {"itemsMD": itemsMD});
+  }
 
   @override
   void onInit() {

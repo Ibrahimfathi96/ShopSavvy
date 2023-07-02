@@ -25,7 +25,7 @@ class ItemsView extends StatelessWidget {
             builder: (controller) => Column(
               children: [
                 CustomAppBar(
-                  onClosePress: (){
+                  onClosePress: () {
                     controller.clearController(context);
                   },
                   myController: controller.searchController,

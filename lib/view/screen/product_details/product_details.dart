@@ -19,7 +19,8 @@ class ProductDetails extends StatelessWidget {
         backgroundColor: AppColors.primaryDark,
         leading: GestureDetector(
           onTap: () {
-            controller.goBack();
+            // controller.goBack();
+            Get.back();
           },
           child: const Icon(
             Icons.arrow_back_ios_new,

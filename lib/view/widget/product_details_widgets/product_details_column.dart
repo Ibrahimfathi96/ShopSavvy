@@ -35,7 +35,10 @@ class ProductDetailsColumn extends StatelessWidget {
               const RatingWidget(),
               const ProductDescription(),
               ProductPrice(
-                price: "${controller.itemsMd.itemsPriceAfterDiscount!.round()}",
+                price:
+                controller.itemsMd.itemsPriceAfterDiscount == null?
+                "${controller.itemsMd.itemsPrice!.round()}"
+                :"${controller.itemsMd.itemsPriceAfterDiscount!.round()}",
                 count: "${controller.itemsCount}",
                 onAddTap: () {
                   controller.cartItemCounterIncrement();
