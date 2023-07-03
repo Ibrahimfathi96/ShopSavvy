@@ -68,7 +68,7 @@ List<GetPage<dynamic>> routes = [
   GetPage(name: AddLocation.routeName, page: () => const AddLocation()),
   GetPage(name: EditLocation.routeName, page: () => const EditLocation()),
   //orders
-  GetPage(name: PendingOrders.routeName, page: () => const PendingOrders()),
+  GetPage(name: MyOrdersView.routeName, page: () => const MyOrdersView()),
   GetPage(name: OrdersDetails.routeName, page: () => const OrdersDetails()),
   //Offers
   GetPage(name: OffersView.routeName, page: () => const OffersView()),

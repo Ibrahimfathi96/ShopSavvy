@@ -55,11 +55,11 @@ class PendingOrdersItemCard extends GetView<PendingOrdersController> {
             ),
             OrdersRowOfText(
               text1: "Order Status   : ",
-              text2:
-              controller.printOrderStatus(ordersMd.ordersStatus!),
+              text2: controller.printOrderStatus(ordersMd.ordersStatus!),
             ),
             Divider(thickness: 2),
             OrdersTotalPrice(
+              ordersMd: ordersMd,
               isDelivered: ordersMd.ordersStatus == 0,
               onDeletePress: () {
                 controller.deleteOrder(ordersMd.ordersId.toString());

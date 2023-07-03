@@ -56,7 +56,7 @@ class SettingsCardItems extends GetView<SettingsController> {
                 ),
                 SettingListTileItem(
                   onTap: () {
-                    Get.toNamed(PendingOrders.routeName);
+                    Get.toNamed(MyOrdersView.routeName);
                   },
                   titleText: "Your Orders",
                   iconData: const Icon(Icons.shopping_cart_checkout_sharp,

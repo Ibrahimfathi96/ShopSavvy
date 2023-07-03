@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shop_savvy/core/constants/color.dart';
+import 'package:shop_savvy/data/model/orders_model.dart';
+import 'package:shop_savvy/view/widget/orders_widgets/orders_rating_dialog.dart';
 
 class OrdersTotalPrice extends StatelessWidget {
   final String text1;
@@ -8,6 +10,7 @@ class OrdersTotalPrice extends StatelessWidget {
   final void Function() onDetailsPress;
   final void Function() onDeletePress;
   final bool? isDelivered;
+  final OrdersMd ordersMd;
 
   const OrdersTotalPrice({
     super.key,
@@ -17,72 +20,84 @@ class OrdersTotalPrice extends StatelessWidget {
     required this.color,
     required this.onDeletePress,
     this.isDelivered,
+    required this.ordersMd,
   });
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.start,
+        Column(
           children: [
-            Column(
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  text1,
-                  style: TextStyle(
-                    color: AppColors.primaryColor,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 16,
-                  ),
+                Column(
+                  children: [
+                    Text(
+                      text1,
+                      style: TextStyle(
+                        color: AppColors.primaryColor,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                      ),
+                    ),
+                    Text(
+                      text2,
+                      style: TextStyle(
+                        color: AppColors.primaryColor,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                      ),
+                    ),
+                  ],
                 ),
-                Text(
-                  text2,
-                  style: TextStyle(
-                    color: AppColors.primaryColor,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 16,
+                MaterialButton(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(16),
+                      side: BorderSide(color: AppColors.primaryDark, width: 2)),
+                  onPressed: onDetailsPress,
+                  child: Text(
+                    "Details",
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
               ],
             ),
-            MaterialButton(
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(16),
-                  side: BorderSide(color: AppColors.primaryDark, width: 2)),
-              onPressed: onDetailsPress,
-              child: Text(
-                "Details",
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
+            if(ordersMd.ordersRating == 0)
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const SizedBox(
+                  height: 10,
                 ),
-              ),
+                MaterialButton(
+                  color: AppColors.darkColor,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(16),
+                  ),
+                  onPressed: () {
+                    showRatingDialog(
+                      context,ordersMd.ordersId.toString()
+                    );
+                  },
+                  child: Text(
+                    "Rate",
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ],
             ),
           ],
         ),
-        if (isDelivered == true)
-          Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              MaterialButton(
-                color: Colors.red,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(16),
-                ),
-                onPressed: onDeletePress,
-                child: Text(
-                  "Delete",
-                  style: TextStyle(
-                    fontSize: 18,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-            ],
-          )
       ],
     );
   }

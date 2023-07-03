@@ -60,6 +60,7 @@ class ArchivedOrdersItemCard extends GetView<ArchiveOrdersController> {
             ),
             Divider(thickness: 2),
             OrdersTotalPrice(
+              ordersMd: ordersMd,
               isDelivered: ordersMd.ordersStatus == 0,
               onDeletePress: () {},
               onDetailsPress: () {

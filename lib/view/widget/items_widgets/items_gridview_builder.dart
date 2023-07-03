@@ -9,7 +9,6 @@ import 'package:shop_savvy/core/functions/translate_database.dart';
 import 'package:shop_savvy/data/model/items_model.dart';
 import 'package:shop_savvy/generated/assets.dart';
 import 'package:shop_savvy/link_api.dart';
-import 'package:shop_savvy/view/widget/items_widgets/rating_widget.dart';
 
 class ItemsGridViewBuilder extends GetView<ItemsControllerImp> {
   final ItemsMd itemsMd;
@@ -102,9 +101,7 @@ class ItemsGridViewBuilder extends GetView<ItemsControllerImp> {
                         const SizedBox(
                           height: 6,
                         ),
-                        Container(
-                          alignment: Alignment.center,
-                          height: 60,
+                        Expanded(
                           child: Marquee(
                             scrollAxis: Axis.vertical,
                             velocity: 10,
@@ -116,10 +113,10 @@ class ItemsGridViewBuilder extends GetView<ItemsControllerImp> {
                             ),
                           ),
                         ),
-                        const SizedBox(
-                          height: 6,
-                        ),
-                        const RatingWidget(),
+                        // const SizedBox(
+                        //   height: 6,
+                        // ),
+                        // // const RatingWidget(),
                       ],
                     ),
                   ),

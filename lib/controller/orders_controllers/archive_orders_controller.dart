@@ -5,25 +5,28 @@ import 'package:shop_savvy/core/constants/color.dart';
 import 'package:shop_savvy/core/functions/handling_data.dart';
 import 'package:shop_savvy/core/services/services.dart';
 import 'package:shop_savvy/data/data_source/remote/orders/archive_orders_data.dart';
+import 'package:shop_savvy/data/data_source/remote/rating_data.dart';
 import 'package:shop_savvy/data/model/orders_model.dart';
 
 class ArchiveOrdersController extends GetxController {
   ArchiveOrdersData archiveOrdersData = ArchiveOrdersData(Get.find());
+  RatingData ratingData = RatingData(Get.find());
   MyServices services = Get.find();
   StatusRequest statusRequest = StatusRequest.none;
   List<OrdersMd> ordersList = [];
   bool isSelected = false;
 
   toggleBetweenOrderType() {
-    isSelected = isSelected == false? true:false;
+    isSelected = isSelected == false ? true : false;
     update();
   }
 
-  getPendingOrders() async {
+  getArchivedOrders() async {
     ordersList.clear();
     statusRequest = StatusRequest.loading;
     update();
-    var response = await archiveOrdersData.getData(services.prefs.getString("id")!);
+    var response =
+        await archiveOrdersData.getData(services.prefs.getString("id")!);
     statusRequest = handlingData(response);
     if (StatusRequest.success == statusRequest) {
       if (response['status'] == 'success') {
@@ -36,8 +39,29 @@ class ArchiveOrdersController extends GetxController {
     update();
   }
 
+  submitRating(String orderId, String rating, String ratingComment) async {
+    ordersList.clear();
+    statusRequest = StatusRequest.loading;
+    update();
+    var response = await ratingData.getData(
+      orderId,
+      rating,
+      ratingComment,
+    );
+    statusRequest = handlingData(response);
+    if (StatusRequest.success == statusRequest) {
+      if (response['status'] == 'success') {
+        debugPrint("Submit Rating==============>Success");
+        getArchivedOrders();
+      } else {
+        statusRequest = StatusRequest.failure;
+      }
+    }
+    update();
+  }
+
   refreshOrdersPage() {
-    getPendingOrders();
+    getArchivedOrders();
   }
 
   String printPaymentMethod(num val) {
@@ -86,7 +110,7 @@ class ArchiveOrdersController extends GetxController {
 
   @override
   void onInit() {
-    getPendingOrders();
+    getArchivedOrders();
     super.onInit();
   }
 }

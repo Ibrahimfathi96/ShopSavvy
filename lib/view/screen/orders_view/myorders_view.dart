@@ -9,10 +9,10 @@ import 'package:shop_savvy/view/widget/orders_widgets/appbar_title.dart';
 import 'package:shop_savvy/view/widget/orders_widgets/archived_orders_card_item.dart';
 import 'package:shop_savvy/view/widget/orders_widgets/pending_orders_card_item.dart';
 
-class PendingOrders extends StatelessWidget {
-  static const String routeName = '/pending-orders';
+class MyOrdersView extends StatelessWidget {
+  static const String routeName = '/my-orders-view';
 
-  const PendingOrders({super.key});
+  const MyOrdersView({super.key});
 
   @override
   Widget build(BuildContext context) {

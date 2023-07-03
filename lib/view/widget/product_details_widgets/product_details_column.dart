@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:shop_savvy/controller/product_details_controller.dart';
 import 'package:shop_savvy/core/class/handling_data_view.dart';
 import 'package:shop_savvy/core/constants/color.dart';
-import 'package:shop_savvy/view/widget/items_widgets/rating_widget.dart';
 import 'package:shop_savvy/view/widget/product_details_widgets/add_to_cart.dart';
 import 'package:shop_savvy/view/widget/product_details_widgets/product_description.dart';
 import 'package:shop_savvy/view/widget/product_details_widgets/product_price.dart';
@@ -32,7 +31,6 @@ class ProductDetailsColumn extends StatelessWidget {
                   fontWeight: FontWeight.w600,
                 ),
               ),
-              const RatingWidget(),
               const ProductDescription(),
               ProductPrice(
                 price:

@@ -1,9 +1,3 @@
-import 'dart:convert';
-
-OrdersMd ordersMdFromJson(String str) => OrdersMd.fromJson(json.decode(str));
-
-String ordersMdToJson(OrdersMd data) => json.encode(data.toJson());
-
 class OrdersMd {
   OrdersMd({
     this.ordersId,
@@ -14,6 +8,8 @@ class OrdersMd {
     this.ordersPrice,
     this.ordersTotalPrice,
     this.ordersCoupon,
+    this.ordersRating,
+    this.ordersRatingNote,
     this.ordersDatetime,
     this.ordersPaymentMethod,
     this.ordersStatus,
@@ -23,8 +19,7 @@ class OrdersMd {
     this.locationCity,
     this.locationStreet,
     this.locationLat,
-    this.locationLong,
-  });
+    this.locationLong,});
 
   OrdersMd.fromJson(dynamic json) {
     ordersId = json['orders_id'];
@@ -35,6 +30,8 @@ class OrdersMd {
     ordersPrice = json['orders_price'];
     ordersTotalPrice = json['orders_total_price'];
     ordersCoupon = json['orders_coupon'];
+    ordersRating = json['orders_rating'];
+    ordersRatingNote = json['orders_rating_note'];
     ordersDatetime = json['orders_datetime'];
     ordersPaymentMethod = json['orders_payment_method'];
     ordersStatus = json['orders_status'];
@@ -46,7 +43,6 @@ class OrdersMd {
     locationLat = json['location_lat'];
     locationLong = json['location_long'];
   }
-
   num? ordersId;
   num? ordersUserId;
   num? ordersLocation;
@@ -55,57 +51,18 @@ class OrdersMd {
   num? ordersPrice;
   num? ordersTotalPrice;
   num? ordersCoupon;
+  num? ordersRating;
+  String? ordersRatingNote;
   String? ordersDatetime;
   num? ordersPaymentMethod;
   num? ordersStatus;
-  dynamic locationId;
-  dynamic locationUserId;
-  dynamic locationName;
-  dynamic locationCity;
-  dynamic locationStreet;
+  num? locationId;
+  num? locationUserId;
+  String? locationName;
+  String? locationCity;
+  String? locationStreet;
   dynamic locationLat;
   dynamic locationLong;
-
-  OrdersMd copyWith({
-    num? ordersId,
-    num? ordersUserId,
-    num? ordersLocation,
-    num? ordersType,
-    num? ordersPriceDelivery,
-    num? ordersPrice,
-    num? ordersTotalPrice,
-    num? ordersCoupon,
-    String? ordersDatetime,
-    num? ordersPaymentMethod,
-    num? ordersStatus,
-    dynamic locationId,
-    dynamic locationUserId,
-    dynamic locationName,
-    dynamic locationCity,
-    dynamic locationStreet,
-    dynamic locationLat,
-    dynamic locationLong,
-  }) =>
-      OrdersMd(
-        ordersId: ordersId ?? this.ordersId,
-        ordersUserId: ordersUserId ?? this.ordersUserId,
-        ordersLocation: ordersLocation ?? this.ordersLocation,
-        ordersType: ordersType ?? this.ordersType,
-        ordersPriceDelivery: ordersPriceDelivery ?? this.ordersPriceDelivery,
-        ordersPrice: ordersPrice ?? this.ordersPrice,
-        ordersTotalPrice: ordersTotalPrice ?? this.ordersTotalPrice,
-        ordersCoupon: ordersCoupon ?? this.ordersCoupon,
-        ordersDatetime: ordersDatetime ?? this.ordersDatetime,
-        ordersPaymentMethod: ordersPaymentMethod ?? this.ordersPaymentMethod,
-        ordersStatus: ordersStatus ?? this.ordersStatus,
-        locationId: locationId ?? this.locationId,
-        locationUserId: locationUserId ?? this.locationUserId,
-        locationName: locationName ?? this.locationName,
-        locationCity: locationCity ?? this.locationCity,
-        locationStreet: locationStreet ?? this.locationStreet,
-        locationLat: locationLat ?? this.locationLat,
-        locationLong: locationLong ?? this.locationLong,
-      );
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
@@ -117,6 +74,8 @@ class OrdersMd {
     map['orders_price'] = ordersPrice;
     map['orders_total_price'] = ordersTotalPrice;
     map['orders_coupon'] = ordersCoupon;
+    map['orders_rating'] = ordersRating;
+    map['orders_rating_note'] = ordersRatingNote;
     map['orders_datetime'] = ordersDatetime;
     map['orders_payment_method'] = ordersPaymentMethod;
     map['orders_status'] = ordersStatus;
@@ -129,4 +88,5 @@ class OrdersMd {
     map['location_long'] = locationLong;
     return map;
   }
+
 }

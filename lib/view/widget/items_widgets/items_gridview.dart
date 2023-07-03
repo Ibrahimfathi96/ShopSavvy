@@ -20,7 +20,7 @@ class ItemsGridBuilder extends GetView<ItemsControllerImp> {
         itemCount: controller.data.length,
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
-          childAspectRatio: 0.55,
+          childAspectRatio: 0.5,
         ),
         itemBuilder: (context, index) {
           favController.isFavorite[controller.data[index]['items_id']] =

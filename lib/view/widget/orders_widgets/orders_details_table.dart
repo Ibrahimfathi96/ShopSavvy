@@ -27,7 +27,7 @@ class OrderTable extends GetView<OrdersDetailsController> {
                 itemBuilder: (context, index) => OrdersTableRow(
                   leftText: "${controller.data[index].itemsName}",
                   middleText: "${controller.data[index].itemCount}",
-                  rightText: "${controller.data[index].itemsPrice}",
+                  rightText: "${controller.data[index].itemsPrice} EGP",
                 ),
               ),
             ),
@@ -35,7 +35,7 @@ class OrderTable extends GetView<OrdersDetailsController> {
               leftText: "",
               middleText: "Total Price",
               rightText:
-              "${controller.ordersMd.ordersTotalPrice!.round()}",
+              "${controller.ordersMd.ordersTotalPrice!.round()} EGP",
               isTitleText: true,
             ),
           ],
