@@ -6,6 +6,7 @@ import 'package:shop_savvy/core/functions/changeLanguage.dart';
 import 'package:shop_savvy/view/screen/location/view_location.dart';
 import 'package:shop_savvy/view/screen/orders_view/myorders_view.dart';
 import 'package:shop_savvy/view/widget/settings_widgets/settings_list_tile_item.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class SettingsCardItems extends GetView<SettingsController> {
   const SettingsCardItems({
@@ -47,8 +48,11 @@ class SettingsCardItems extends GetView<SettingsController> {
                     Get.toNamed(LocationView.routeName);
                   },
                   titleText: "Location",
-                  iconData: const Icon(Icons.location_on_outlined,
-                      size: 30, color: Colors.black),
+                  iconData: const Icon(
+                    Icons.location_on_outlined,
+                    size: 30,
+                    color: Colors.black,
+                  ),
                 ),
                 SettingListTileItem(
                   onTap: () {
@@ -66,15 +70,24 @@ class SettingsCardItems extends GetView<SettingsController> {
                   iconData: const Icon(Icons.language_outlined,
                       size: 30, color: Colors.black),
                 ),
-                const SettingListTileItem(
-                  titleText: "About Us",
-                  iconData: Icon(Icons.help_outline_outlined,
-                      size: 30, color: Colors.black),
+                SettingListTileItem(
+                  onTap: () async {
+                    await launchUrl(Uri.parse("tel:+201555518756"));
+                  },
+                  titleText: "Contact Us",
+                  iconData: Icon(
+                    Icons.phone_android_outlined,
+                    size: 30,
+                    color: Colors.black,
+                  ),
                 ),
                 const SettingListTileItem(
-                  titleText: "Contact Us",
-                  iconData: Icon(Icons.phone_callback_outlined,
-                      size: 30, color: Colors.black),
+                  titleText: "About Us",
+                  iconData: Icon(
+                    Icons.help_outline_outlined,
+                    size: 30,
+                    color: Colors.black,
+                  ),
                 ),
                 SettingListTileItem(
                   onTap: () {

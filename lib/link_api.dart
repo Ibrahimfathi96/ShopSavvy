@@ -64,6 +64,10 @@ class AppLink {
   //Notifications PHP
   static const String notifications = "$server/notifications.php";
 
+
+  //Offers PHP
+  static const String offers = "$server/offers.php";
+
   //Image Links
   static const String imagesLink = "$server/uploads";
   static const String imagesCategories = "$imagesLink/categories";

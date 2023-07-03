@@ -15,6 +15,7 @@ class NotificationsView extends StatelessWidget {
     Get.put(NotificationsController());
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         elevation: 0,
         backgroundColor: Colors.transparent,
         title: Text(

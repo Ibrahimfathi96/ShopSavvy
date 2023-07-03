@@ -16,21 +16,21 @@ class CartView extends StatelessWidget {
     Get.put(CartController());
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-          padding: EdgeInsets.zero,
-          splashColor: Colors.transparent,
-          highlightColor: Colors.transparent,
-          hoverColor: Colors.transparent,
-          onPressed: () {
-            Get.back();
-          },
-          icon: const Icon(
-            Icons.arrow_back_ios,
-            color: Colors.black54,
-            size: 30,
-          ),
-        ),
-        centerTitle: true,
+        automaticallyImplyLeading: false,
+        // leading: IconButton(
+        //   padding: EdgeInsets.zero,
+        //   splashColor: Colors.transparent,
+        //   highlightColor: Colors.transparent,
+        //   hoverColor: Colors.transparent,
+        //   onPressed: () {
+        //     Get.back();
+        //   },
+        //   icon: const Icon(
+        //     Icons.arrow_back_ios,
+        //     color: Colors.black54,
+        //     size: 30,
+        //   ),
+        // ),
         elevation: 0,
         backgroundColor: Colors.transparent,
         title: const Text(
