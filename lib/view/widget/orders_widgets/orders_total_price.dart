@@ -4,7 +4,6 @@ import 'package:shop_savvy/core/constants/color.dart';
 class OrdersTotalPrice extends StatelessWidget {
   final String text1;
   final String text2;
-  final String status;
   final Color color;
   final void Function() onDetailsPress;
   final void Function() onDeletePress;
@@ -15,7 +14,6 @@ class OrdersTotalPrice extends StatelessWidget {
     required this.text1,
     required this.text2,
     required this.onDetailsPress,
-    required this.status,
     required this.color,
     required this.onDeletePress,
     this.isDelivered,
@@ -64,34 +62,27 @@ class OrdersTotalPrice extends StatelessWidget {
             ),
           ],
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              status,
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                color: color,
-              ),
-            ),
-            if(isDelivered == true)
-            MaterialButton(
-              color: Colors.red,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(16),
-              ),
-              onPressed: onDeletePress,
-              child: Text(
-                "Delete",
-                style: TextStyle(
-                  fontSize: 16,
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
+        if (isDelivered == true)
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              MaterialButton(
+                color: Colors.red,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                onPressed: onDeletePress,
+                child: Text(
+                  "Delete",
+                  style: TextStyle(
+                    fontSize: 18,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
-            ),
-          ],
-        )
+            ],
+          )
       ],
     );
   }

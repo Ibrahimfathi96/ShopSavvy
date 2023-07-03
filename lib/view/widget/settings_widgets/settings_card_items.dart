@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:shop_savvy/controller/settings_controller.dart';
 import 'package:shop_savvy/core/functions/changeLanguage.dart';
 import 'package:shop_savvy/view/screen/location/view_location.dart';
-import 'package:shop_savvy/view/screen/orders_view/pending_orders.dart';
+import 'package:shop_savvy/view/screen/orders_view/myorders_view.dart';
 import 'package:shop_savvy/view/widget/settings_widgets/settings_list_tile_item.dart';
 
 class SettingsCardItems extends GetView<SettingsController> {

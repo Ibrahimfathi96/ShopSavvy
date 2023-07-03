@@ -21,7 +21,7 @@ import 'package:shop_savvy/view/screen/my_favorite.dart';
 import 'package:shop_savvy/view/screen/notifications/notifications.dart';
 import 'package:shop_savvy/view/screen/onboarding_view.dart';
 import 'package:shop_savvy/view/screen/orders_view/orders_details.dart';
-import 'package:shop_savvy/view/screen/orders_view/pending_orders.dart';
+import 'package:shop_savvy/view/screen/orders_view/myorders_view.dart';
 import 'package:shop_savvy/view/screen/product_details/product_details.dart';
 import 'package:shop_savvy/view/screen/settings/settings.dart';
 

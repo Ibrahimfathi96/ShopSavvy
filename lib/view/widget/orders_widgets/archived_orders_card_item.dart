@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:jiffy/jiffy.dart';
-import 'package:shop_savvy/controller/orders_controllers/pending_controller.dart';
+import 'package:shop_savvy/controller/orders_controllers/archive_orders_controller.dart';
 import 'package:shop_savvy/data/model/orders_model.dart';
 import 'package:shop_savvy/view/screen/orders_view/orders_details.dart';
 import 'package:shop_savvy/view/widget/orders_widgets/orders_id_and_date_time.dart';
 import 'package:shop_savvy/view/widget/orders_widgets/orders_texts.dart';
 import 'package:shop_savvy/view/widget/orders_widgets/orders_total_price.dart';
 
-class OrdersItemCard extends GetView<PendingOrdersController> {
+class ArchivedOrdersItemCard extends GetView<ArchiveOrdersController> {
   final OrdersMd ordersMd;
 
-  const OrdersItemCard({
+  const ArchivedOrdersItemCard({
     super.key,
     required this.ordersMd,
   });
@@ -53,12 +53,15 @@ class OrdersItemCard extends GetView<PendingOrdersController> {
               text2:
                   controller.printPaymentMethod(ordersMd.ordersPaymentMethod!),
             ),
+            OrdersRowOfText(
+              text1: "Order Status   : ",
+              text2:
+              controller.printOrderStatus(ordersMd.ordersStatus!),
+            ),
             Divider(thickness: 2),
             OrdersTotalPrice(
               isDelivered: ordersMd.ordersStatus == 0,
-              onDeletePress: () {
-                controller.deleteOrder(ordersMd.ordersId.toString());
-              },
+              onDeletePress: () {},
               onDetailsPress: () {
                 Get.toNamed(
                   OrdersDetails.routeName,
@@ -67,8 +70,7 @@ class OrdersItemCard extends GetView<PendingOrdersController> {
                   },
                 );
               },
-              text1: "Total Price",
-              status: controller.printOrderStatus(ordersMd.ordersStatus!),
+              text1: "Total Price: ",
               color: controller.orderStatusColor(ordersMd.ordersStatus!),
               text2: "${ordersMd.ordersTotalPrice!.round()} EGP",
             ),
