@@ -21,7 +21,7 @@ class OffersCustomGridViewItem extends GetView<OffersController> {
     Get.put(FavoriteController());
     return GestureDetector(
       onTap: () {
-        // controller.goToProductDetails(itemsMd);
+        controller.goToProductDetails(itemsMd);
       },
       child: Card(
         elevation: 10,
@@ -47,17 +47,11 @@ class OffersCustomGridViewItem extends GetView<OffersController> {
                   ),
                   Row(
                     children: [
-                      itemsMd.itemsPriceAfterDiscount == null
-                          ? Text(
-                              "${itemsMd.itemsPrice!.round()}",
-                              style: const TextStyle(
-                                  color: AppColors.darkColor, fontSize: 18),
-                            )
-                          : Text(
-                              "${itemsMd.itemsPriceAfterDiscount!.round()}",
-                              style: const TextStyle(
-                                  color: AppColors.darkColor, fontSize: 18),
-                            ),
+                      Text(
+                        "${itemsMd.itemsPriceAfterDiscount!.round()}",
+                        style: const TextStyle(
+                            color: AppColors.darkColor, fontSize: 18),
+                      ),
                       const Text(
                         "EGP",
                         style: TextStyle(
@@ -69,18 +63,7 @@ class OffersCustomGridViewItem extends GetView<OffersController> {
                       GetBuilder<FavoriteController>(
                         builder: (favController) {
                           return GestureDetector(
-                            onTap: () {
-                              if (favController.isFavorite[itemsMd.itemsId] ==
-                                  1) {
-                                favController.setFavorite(itemsMd.itemsId, 0);
-                                favController.removeFromFavorite(
-                                    itemsMd.itemsId.toString());
-                              } else {
-                                favController.setFavorite(itemsMd.itemsId, 1);
-                                favController
-                                    .addToFavorite(itemsMd.itemsId.toString());
-                              }
-                            },
+                            onTap: () {},
                             child: Icon(
                               favController.isFavorite[itemsMd.itemsId] == 1
                                   ? Icons.favorite

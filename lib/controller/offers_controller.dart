@@ -4,6 +4,7 @@ import 'package:shop_savvy/core/class/status_request.dart';
 import 'package:shop_savvy/core/functions/handling_data.dart';
 import 'package:shop_savvy/data/data_source/remote/offers_data.dart';
 import 'package:shop_savvy/data/model/items_model.dart';
+import 'package:shop_savvy/view/screen/product_details/product_details.dart';
 
 class OffersController extends GetxController {
   OffersData offersData = OffersData(Get.find());
@@ -25,6 +26,12 @@ class OffersController extends GetxController {
     }
     update();
   }
+  goToProductDetails(itemsMd) {
+    Get.toNamed(ProductDetails.routeName, arguments: {
+      "itemsMD": itemsMd,
+    });
+  }
+
 
   @override
   void onInit() {

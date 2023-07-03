@@ -43,8 +43,6 @@ class OffersView extends StatelessWidget {
                 childAspectRatio: 0.55,
               ),
               itemBuilder: (context, index) {
-                // favController.isFavorite[controller.data[index]['items_id']] =
-                // controller.data[index]['favorite'];
                 return OffersCustomGridViewItem(
                   itemsMd: controller.itemsListData[index],
                 );
