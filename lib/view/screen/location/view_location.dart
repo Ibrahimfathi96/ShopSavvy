@@ -23,8 +23,30 @@ class LocationView extends StatelessWidget {
         child: const Icon(Icons.add, size: 36),
       ),
       appBar: AppBar(
+        leading: IconButton(
+          padding: EdgeInsets.zero,
+          splashColor: Colors.transparent,
+          highlightColor: Colors.transparent,
+          hoverColor: Colors.transparent,
+          onPressed: () {
+            Get.back();
+          },
+          icon: const Icon(
+            Icons.arrow_back_ios,
+            color: AppColors.primaryDark,
+            size: 24,
+          ),
+        ),
+        backgroundColor: Colors.transparent,
         elevation: 0,
-        title: Text("Your Location Info"),
+        title: Text(
+          "Your Location Info",
+          style: TextStyle(
+            color: Colors.black,
+            fontWeight: FontWeight.bold,
+            fontSize: 20,
+          ),
+        ),
       ),
       body: GetBuilder<ViewLocationController>(
         builder: (controller) => HandlingDataView(

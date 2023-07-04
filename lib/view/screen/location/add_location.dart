@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:shop_savvy/controller/location/add_location_controller.dart';
 import 'package:shop_savvy/core/class/handling_data_view.dart';
+import 'package:shop_savvy/core/constants/color.dart';
 import 'package:shop_savvy/view/widget/location_widgets/floating_action_button.dart';
 
 class AddLocation extends StatelessWidget {
@@ -17,7 +18,30 @@ class AddLocation extends StatelessWidget {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: AddLocationFAButton(),
       appBar: AppBar(
-        title: Text("Add New Location"),
+        leading: IconButton(
+          padding: EdgeInsets.zero,
+          splashColor: Colors.transparent,
+          highlightColor: Colors.transparent,
+          hoverColor: Colors.transparent,
+          onPressed: () {
+            Get.back();
+          },
+          icon: const Icon(
+            Icons.arrow_back_ios,
+            color: AppColors.primaryDark,
+            size: 24,
+          ),
+        ),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        title: Text(
+          "Add New Location",
+          style: TextStyle(
+            color: Colors.black,
+            fontWeight: FontWeight.bold,
+            fontSize: 20,
+          ),
+        ),
       ),
       body: Container(
         child: GetBuilder<AddLocationController>(

@@ -26,7 +26,7 @@ class HomeScreenControllerImp extends HomeScreenController {
     {"title": "Alerts", "icon": Icons.notifications_active_outlined},
     {"title": "Cart", "icon": Icons.shopping_cart_outlined},
     {"title": "Offers", "icon": Icons.local_offer_outlined},
-    {"title": "Settings", "icon": Icons.settings_outlined},
+    {"title": "Profile", "icon": Icons.person},
   ];
 
   @override

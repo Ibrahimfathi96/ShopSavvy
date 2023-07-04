@@ -15,16 +15,16 @@ dependencies:
   get: ^4.6.5
   lottie: ^2.4.0
   # Firebase And Notification
-  firebase_messaging: ^14.6.2
-  firebase_core: ^2.13.1
-  flutter_local_notifications: ^14.1.1
-  cloud_firestore: ^4.8.0
-  firebase_auth: ^4.6.2
+  firebase_messaging: ^14.6.4
+  firebase_core: ^2.14.0
+  flutter_local_notifications: ^15.0.0
+  cloud_firestore: ^4.8.2
+  firebase_auth: ^4.6.3
   # Local Data Cache
-  shared_preferences: ^2.1.2
+  shared_preferences: ^2.2.0
   # Icon
-  flutter_svg: ^2.0.6
-  font_awesome_flutter: ^10.4.0
+  flutter_svg: ^2.0.7
+  font_awesome_flutter: ^10.5.0
   fluttericon: ^2.0.0
   dartz: ^0.10.1
   # Google Auth
@@ -34,7 +34,7 @@ dependencies:
   flutter_otp_text_field: ^1.1.1
   persistent_bottom_nav_bar_v2: ^4.2.8
   cached_network_image: ^3.2.3
-  http: ^0.13.6
+  http: ^1.1.0
   marquee: ^2.2.3
   google_maps_flutter: ^2.3.1
   geolocator: ^9.0.2
@@ -57,7 +57,7 @@ flutter_launcher_icons:
   image_path: "assets/images/app_icon.png"
   min_sdk_android: 21
 
-  flutter_lints: ^2.0.1
+  flutter_lints: ^2.0.2
 
 flutter:
 

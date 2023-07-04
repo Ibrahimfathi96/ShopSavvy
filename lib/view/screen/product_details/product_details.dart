@@ -16,22 +16,20 @@ class ProductDetails extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: AppColors.primaryDark,
+        backgroundColor:Color(0xFFA7E1F9),
         leading: GestureDetector(
           onTap: () {
-            // controller.goBack();
             Get.back();
           },
           child: const Icon(
             Icons.arrow_back_ios_new,
-            color: Colors.white,
+            color: AppColors.primaryDark,
           ),
         ),
-        centerTitle: true,
         title: const Text(
           "Product Details",
           style: TextStyle(
-            color: Colors.white,
+            color: AppColors.primaryDark,
             fontSize: 18,
             fontWeight: FontWeight.bold,
           ),

@@ -6,6 +6,8 @@ import 'package:shop_savvy/view/screen/auth/sign_in.dart';
 class SettingsController extends GetxController {
   MyServices services = Get.find();
   bool isActive = false;
+  late String userName;
+  late String email;
 
   switchToggle() {
     isActive = isActive == false? true:false;
@@ -20,5 +22,11 @@ class SettingsController extends GetxController {
     Get.offAllNamed(SignIn.routeName);
   }
 
+  @override
+  void onInit() {
+    userName = services.prefs.getString("userName")!;
+    email    = services.prefs.getString("email")!;
+    super.onInit();
+  }
 
 }

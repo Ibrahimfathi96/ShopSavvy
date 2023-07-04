@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:shop_savvy/core/constants/color.dart';
 
 class SettingListTileItem extends StatelessWidget {
   final String titleText;
@@ -13,37 +12,49 @@ class SettingListTileItem extends StatelessWidget {
       required this.titleText,
       this.containerColor,
       this.logoutStyle = false,
-      required this.iconData, this.onTap});
+      required this.iconData,
+      this.onTap});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 30)
-          .add(const EdgeInsets.only(top: 10)),
-      decoration: BoxDecoration(
-        color: containerColor,
-        borderRadius: BorderRadius.circular(20),
-        border: Border.all(
-          color: AppColors.primaryDark,
+    return InkWell(
+      onTap: onTap,
+      child: Container(
+        padding: EdgeInsets.symmetric(vertical: 10),
+        margin: const EdgeInsets.symmetric(horizontal: 30).add(
+          const EdgeInsets.only(top: 10),
         ),
-      ),
-      child: ListTile(
-        onTap: onTap,
-        trailing: iconData,
-        title: Text(
-          titleText,
-          style: logoutStyle == false
-              ? const TextStyle(
-                  fontSize: 16,
-                  color: Colors.black,
-                  fontWeight: FontWeight.bold,
-                )
-              : const TextStyle(
-                  fontSize: 16,
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                ),
-          textAlign: TextAlign.center,
+        decoration: BoxDecoration(
+            color: containerColor, borderRadius: BorderRadius.circular(25)),
+        child: Row(
+          mainAxisAlignment: logoutStyle == false
+              ? MainAxisAlignment.start
+              : MainAxisAlignment.center,
+          children: [
+            iconData,
+            const SizedBox(
+              width: 20,
+            ),
+            Text(
+              titleText,
+              style: logoutStyle == false
+                  ? const TextStyle(
+                      fontSize: 16,
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                    )
+                  : const TextStyle(
+                      fontSize: 16,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
+              textAlign: TextAlign.center,
+            ),
+            if(logoutStyle == false)
+            Spacer(),
+            if(logoutStyle == false)
+            Icon(Icons.arrow_forward_ios_outlined,size: 22,)
+          ],
         ),
       ),
     );

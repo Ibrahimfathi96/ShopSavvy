@@ -8,12 +8,16 @@ class MyCover extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-    height: Get.height / 4,
-width: Get.width,
-decoration: const BoxDecoration(
-image: DecorationImage(
-image: AssetImage(Assets.imagesCover), fit: BoxFit.cover),
-),
-);
+      height: Get.height / 4,
+      width: Get.width,
+      decoration: const BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage(
+            Assets.imagesCover,
+          ),
+          fit: BoxFit.cover,
+        ),
+      ),
+    );
   }
 }

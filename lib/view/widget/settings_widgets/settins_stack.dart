@@ -1,50 +1,50 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shop_savvy/controller/settings_controller.dart';
 import 'package:shop_savvy/core/constants/color.dart';
 import 'package:shop_savvy/generated/assets.dart';
 
-class SettingsStack extends StatelessWidget {
-  const SettingsStack({
+class SettingsTopRow extends GetView<SettingsController> {
+  const SettingsTopRow({
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      alignment: Alignment.center,
-      clipBehavior: Clip.none,
+    return Row(
       children: [
-        Container(
-          height: Get.height / 4.6,
-          width: Get.width,
-          decoration: const BoxDecoration(color: AppColors.primaryColor),
-        ),
-        Positioned(
-          top: Get.height / 6.3,
-          child: const CircleAvatar(
+        Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: CircleAvatar(
             radius: 50,
             backgroundColor: AppColors.primaryColor,
-            child: CircleAvatar(
-              radius: 42,
-              backgroundColor: Colors.white,
-              backgroundImage: AssetImage(Assets.imagesAvatar),
-            ),
+            backgroundImage: AssetImage(Assets.imagesAvatar),
           ),
         ),
-        // Positioned(
-        //   top:5,
-        //   right: Get.width / 26,
-        //   child: IconButton(
-        //     onPressed: () {
-        //       changeLanguage(context);
-        //     },
-        //     icon: Icon(
-        //       Icons.language_outlined,
-        //       size: 36,
-        //       color: Colors.white,
-        //     ),
-        //   ),
-        // ),
+        const SizedBox(
+          width: 10,
+        ),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              controller.userName,
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: AppColors.primaryDark,
+                fontSize: 20,
+              ),
+            ),
+            Text(
+              controller.email,
+              style: TextStyle(
+                fontWeight: FontWeight.w500,
+                color: AppColors.grey,
+                fontSize: 16,
+              ),
+            ),
+          ],
+        )
       ],
     );
   }

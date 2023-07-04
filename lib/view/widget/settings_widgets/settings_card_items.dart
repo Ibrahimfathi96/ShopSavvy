@@ -29,84 +29,80 @@ class SettingsCardItems extends GetView<SettingsController> {
               borderRadius: BorderRadius.circular(4),
             ),
             child: Column(
-              mainAxisSize: MainAxisSize.min,
               children: [
-                SettingListTileItem(
-                  titleText: "Disable Notifications",
-                  iconData: GetBuilder<SettingsController>(builder: (logic) {
-                    return Switch(
-                      activeColor: Colors.black,
-                      onChanged: (value) {
-                        value = logic.switchToggle();
-                      },
-                      value: controller.isActive,
-                    );
-                  }),
-                ),
-                SettingListTileItem(
-                  onTap: () {
-                    Get.toNamed(LocationView.routeName);
-                  },
-                  titleText: "Location",
-                  iconData: const Icon(
-                    Icons.location_on_outlined,
-                    size: 30,
-                    color: Colors.black,
-                  ),
-                ),
-                SettingListTileItem(
-                  onTap: () {
-                    Get.toNamed(MyOrdersView.routeName);
-                  },
-                  titleText: "Your Orders",
-                  iconData: const Icon(Icons.shopping_cart_checkout_sharp,
-                      size: 30, color: Colors.black),
-                ),
-                SettingListTileItem(
-                  onTap: () {
-                    changeLanguage(context);
-                  },
-                  titleText: "App Language",
-                  iconData: const Icon(Icons.language_outlined,
-                      size: 30, color: Colors.black),
-                ),
-                SettingListTileItem(
-                  onTap: () async {
-                    await launchUrl(Uri.parse("tel:+201555518756"));
-                  },
-                  titleText: "Contact Us",
-                  iconData: Icon(
-                    Icons.phone_android_outlined,
-                    size: 30,
-                    color: Colors.black,
-                  ),
-                ),
-                const SettingListTileItem(
-                  titleText: "About Us",
-                  iconData: Icon(
-                    Icons.help_outline_outlined,
-                    size: 30,
-                    color: Colors.black,
-                  ),
-                ),
-                SettingListTileItem(
-                  onTap: () {
-                    controller.userLogout();
-                  },
-                  logoutStyle: true,
-                  titleText: "Logout",
-                  iconData: const Icon(FontAwesome.logout,
-                      size: 28, color: Colors.white),
-                  containerColor: Colors.red,
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-              ],
+              SettingListTileItem(
+              titleText: "Settings",
+              iconData: const Icon(
+              Icons.settings,
+              size: 30,
+              color: Colors.black,
             ),
+          ),
+          SettingListTileItem(
+            onTap: () {
+              Get.toNamed(LocationView.routeName);
+            },
+            titleText: "Location",
+            iconData: const Icon(
+              Icons.location_on_outlined,
+              size: 30,
+              color: Colors.black,
+            ),
+          ),
+          SettingListTileItem(
+            onTap: () {
+              Get.toNamed(MyOrdersView.routeName);
+            },
+            titleText: "Your Orders",
+            iconData: const Icon(Icons.shopping_cart_checkout_sharp,
+                size: 30, color: Colors.black),
+          ),
+          SettingListTileItem(
+            onTap: () {
+              changeLanguage(context);
+            },
+            titleText: "App Language",
+            iconData: const Icon(Icons.language_outlined,
+                size: 30, color: Colors.black),
+          ),
+          SettingListTileItem(
+            onTap: () async {
+              await launchUrl(Uri.parse("tel:+201555518756"));
+            },
+            titleText: "Contact Us",
+            iconData: Icon(
+              Icons.phone_android_outlined,
+              size: 30,
+              color: Colors.black,
+            ),
+          ),
+          const SettingListTileItem(
+            titleText: "About Us",
+            iconData: Icon(
+              Icons.help_outline_outlined,
+              size: 30,
+              color: Colors.black,
+            ),
+          ),
+          SettingListTileItem(
+            onTap: () {
+              controller.userLogout();
+            },
+            logoutStyle: true,
+            titleText: "Logout",
+            iconData: const Icon(FontAwesome.logout,
+                size: 28, color: Colors.white),
+            containerColor: Colors.red,
+          ),
+          const SizedBox(
+            height: 20,
           ),
         ],
       ),
+    ),]
+    ,
+    )
+    ,
     );
   }
 }
