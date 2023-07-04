@@ -68,34 +68,53 @@ class OrdersTotalPrice extends StatelessWidget {
                 ),
               ],
             ),
-            if(ordersMd.ordersRating == 0)
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const SizedBox(
-                  height: 10,
-                ),
-                MaterialButton(
-                  color: AppColors.darkColor,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(16),
+            if (ordersMd.ordersRating == 0 && ordersMd.ordersStatus == 4)
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const SizedBox(
+                    height: 10,
                   ),
-                  onPressed: () {
-                    showRatingDialog(
-                      context,ordersMd.ordersId.toString()
-                    );
-                  },
-                  child: Text(
-                    "Rate",
-                    style: TextStyle(
-                      fontSize: 20,
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
+                  MaterialButton(
+                    color: AppColors.darkColor,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(16),
+                    ),
+                    onPressed: () {
+                      showRatingDialog(context, ordersMd.ordersId.toString());
+                    },
+                    child: Text(
+                      "Rate",
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
-                ),
-              ],
-            ),
+                ],
+              ),
+            if (isDelivered == true)
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  MaterialButton(
+                    color: Colors.red,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(16),
+                    ),
+                    onPressed: onDeletePress,
+                    child: Text(
+                      "Delete",
+                      style: TextStyle(
+                        fontSize: 19,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
           ],
         ),
       ],

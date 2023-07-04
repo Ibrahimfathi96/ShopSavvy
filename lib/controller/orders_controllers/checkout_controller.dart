@@ -5,7 +5,9 @@ import 'package:shop_savvy/core/services/services.dart';
 import 'package:shop_savvy/data/data_source/remote/location_data/view_location_data.dart';
 import 'package:shop_savvy/data/data_source/remote/orders/checkout_data.dart';
 import 'package:shop_savvy/data/model/location_model.dart';
+import 'package:shop_savvy/link_api.dart';
 import 'package:shop_savvy/view/screen/home/home_screen.dart';
+import 'package:shop_savvy/view/screen/location/add_location.dart';
 
 class CheckOutController extends GetxController {
   ViewLocationData viewLocationData = Get.put(ViewLocationData(Get.find()));
@@ -37,12 +39,17 @@ class CheckOutController extends GetxController {
     update();
   }
 
+  goToAddNewLocation(){
+    Get.toNamed(AddLocation.routeName);
+  }
   checkout() async {
     if (paymentMethod == null)
       return Get.snackbar("Warning!", "Please Choose a payment method.");
     if (deliveryMethod == null)
       return Get.snackbar("Warning!", "Please Choose a delivery method.");
-
+    if(locationListData.isEmpty || locationId == "0"){
+      return Get.snackbar("Warning!", "Please Choose your shipping location.");
+    }
     statusRequest = StatusRequest.loading;
     update();
     var response = await checkOutData.getData(

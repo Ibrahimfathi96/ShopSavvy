@@ -51,7 +51,7 @@ class CheckOutView extends StatelessWidget {
               physics: const NeverScrollableScrollPhysics(),
               children: [
                 CustomCheckText(
-                  text: "Choose Payment Method",
+                  text: "Payment Method",
                 ),
                 const SizedBox(
                   height: 10,
@@ -69,8 +69,7 @@ class CheckOutView extends StatelessWidget {
                   onTap: () {
                     controller.choosePaymentMethod("1");
                   },
-                  isActive:
-                      controller.paymentMethod == "1" ? true : false,
+                  isActive: controller.paymentMethod == "1" ? true : false,
                   text: "Visa Card",
                   imageUrl: Assets.imagesVisaRemovebgPreview,
                 ),
@@ -78,8 +77,7 @@ class CheckOutView extends StatelessWidget {
                   onTap: () {
                     controller.choosePaymentMethod("2");
                   },
-                  isActive:
-                      controller.paymentMethod == "2" ? true : false,
+                  isActive: controller.paymentMethod == "2" ? true : false,
                   text: "Master Card",
                   imageUrl: Assets.imagesMasterCardRemovebgPreview,
                 ),
@@ -87,7 +85,7 @@ class CheckOutView extends StatelessWidget {
                   height: 20,
                 ),
                 CustomCheckText(
-                  text: "Choose Delivery Method",
+                  text: "Delivery Method",
                 ),
                 const SizedBox(
                   height: 10,
@@ -100,9 +98,7 @@ class CheckOutView extends StatelessWidget {
                       onTap: () {
                         controller.chooseDeliveryMethod("0");
                       },
-                      isActive: controller.deliveryMethod == "0"
-                          ? true
-                          : false,
+                      isActive: controller.deliveryMethod == "0" ? true : false,
                       imageUrl: Assets.imagesDelivery,
                       text: "Delivery",
                     ),
@@ -113,9 +109,7 @@ class CheckOutView extends StatelessWidget {
                       onTap: () {
                         controller.chooseDeliveryMethod("1");
                       },
-                      isActive: controller.deliveryMethod == "1"
-                          ? true
-                          : false,
+                      isActive: controller.deliveryMethod == "1" ? true : false,
                       imageUrl: Assets.imagesDrivethru,
                       text: "Drive Thru",
                     ),
@@ -128,36 +122,71 @@ class CheckOutView extends StatelessWidget {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      CustomCheckText(
-                        text: "Choose Shipping Location",
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          CustomCheckText(
+                            text: "Shipping Location",
+                          ),
+                          InkWell(
+                            onTap: (){
+                              controller.goToAddNewLocation();
+                            },
+                            child: Container(
+                              padding: EdgeInsets.all(6),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(12),
+                                color: AppColors.primaryDark,
+                              ),
+                              child: Icon(
+                                Icons.location_on_rounded,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                       const SizedBox(
                         height: 10,
                       ),
-                      SizedBox(
-                        height: Get.height * 0.3,
-                        child: ListView(
-                          physics: BouncingScrollPhysics(),
-                          children: [
-                            ...List.generate(
-                              controller.locationListData.length,
-                              (index) => CheckoutLocationCard(
-                                onTap: () {
-                                  controller.chooseShippingLocation(controller
-                                      .locationListData[index].locationId.toString());
-                                },
-                                title:
-                                    "${controller.locationListData[index].locationName}",
-                                subtitle:
-                                    "${controller.locationListData[index].locationCity},${controller.locationListData[index].locationStreet}",
-                                isActive: controller.locationId ==
-                                        controller.locationListData[index].locationId
-                                            .toString(),
+                      controller.locationListData.isEmpty
+                          ? Container(
+                              child: Center(
+                                child: ElevatedButton(
+                                  onPressed: () {
+                                    controller.goToAddNewLocation();
+                                  },
+                                  child: Text("add New Location"),
+                                ),
+                              ),
+                            )
+                          : SizedBox(
+                              height: Get.height * 0.25,
+                              child: ListView(
+                                physics: BouncingScrollPhysics(),
+                                children: [
+                                  ...List.generate(
+                                    controller.locationListData.length,
+                                    (index) => CheckoutLocationCard(
+                                      onTap: () {
+                                        controller.chooseShippingLocation(
+                                            controller.locationListData[index]
+                                                .locationId
+                                                .toString());
+                                      },
+                                      title:
+                                          "${controller.locationListData[index].locationName}",
+                                      subtitle:
+                                          "${controller.locationListData[index].locationCity},${controller.locationListData[index].locationStreet}",
+                                      isActive: controller.locationId ==
+                                          controller.locationListData[index]
+                                              .locationId
+                                              .toString(),
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
-                          ],
-                        ),
-                      ),
                     ],
                   ),
               ],
