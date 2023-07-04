@@ -52,12 +52,9 @@ class HomeBody extends StatelessWidget {
                       child: ListView(
                         physics: const BouncingScrollPhysics(),
                         children: [
-                          if (controller.salesData.isNotEmpty)
                             HomeCashBackWidget(
-                              homeBannerTitle: controller.salesData[0]
-                                  ['sales_title'],
-                              homeBannerOffer: controller.salesData[0]
-                                  ['sales_body'],
+                              homeBannerTitle: controller.homeCardTitle,
+                              homeBannerOffer: controller.homeCardBody,
                               lottieFile: AppImageFromAssets.cashBack,
                             ),
                           HomeMiddleText(

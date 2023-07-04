@@ -38,13 +38,29 @@ class ItemsGridViewBuilder extends GetView<ItemsControllerImp> {
                     child: Hero(
                       tag: "${itemsMd.itemsId}",
                       child: CachedNetworkImage(
-                        imageUrl: '${AppLink.imagesItems}/${itemsMd.itemsImage}',
+                        imageUrl:
+                            '${AppLink.imagesItems}/${itemsMd.itemsImage}',
                       ),
                     ),
                   ),
-                  const SizedBox(
-                    height: 10,
-                  ),
+                  //delivery Timer
+                  // Row(
+                  //   mainAxisAlignment: MainAxisAlignment.center,
+                  //   children: [
+                  //     Icon(
+                  //       Icons.timer_outlined,
+                  //       color: AppColors.primaryDark,
+                  //     ),
+                  //     const SizedBox(
+                  //       width: 10,
+                  //     ),
+                  //     Text(
+                  //       "${controller.deliveryTime} mins",
+                  //       style: TextStyle(
+                  //           fontSize: 14, color: AppColors.primaryDark),
+                  //     ),
+                  //   ],
+                  // ),
                   Row(
                     children: [
                       Text(
@@ -64,10 +80,11 @@ class ItemsGridViewBuilder extends GetView<ItemsControllerImp> {
                         builder: (favController) {
                           return GestureDetector(
                             onTap: () {
-                              if (favController.isFavorite[itemsMd.itemsId] == 1) {
+                              if (favController.isFavorite[itemsMd.itemsId] ==
+                                  1) {
                                 favController.setFavorite(itemsMd.itemsId, 0);
-                                favController
-                                    .removeFromFavorite(itemsMd.itemsId.toString());
+                                favController.removeFromFavorite(
+                                    itemsMd.itemsId.toString());
                               } else {
                                 favController.setFavorite(itemsMd.itemsId, 1);
                                 favController
@@ -123,12 +140,11 @@ class ItemsGridViewBuilder extends GetView<ItemsControllerImp> {
                 ],
               ),
             ),
-            if(itemsMd.itemsDiscount != 0)
-            Image.asset(Assets.imagesSale,width: 50),
+            if (itemsMd.itemsDiscount != 0)
+              Image.asset(Assets.imagesSale, width: 50),
           ],
         ),
       ),
     );
   }
 }
-

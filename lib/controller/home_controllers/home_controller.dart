@@ -6,11 +6,15 @@ import 'package:shop_savvy/core/functions/handling_data.dart';
 import 'package:shop_savvy/core/services/services.dart';
 import 'package:shop_savvy/data/data_source/remote/home_data.dart';
 import 'package:shop_savvy/view/screen/items/items_view.dart';
+import 'package:shop_savvy/view/screen/product_details/product_details.dart';
 
 class HomeControllerImp extends SearchMixControllerImp {
   MyServices myServices = Get.find();
   String? userName;
   String? id;
+  String homeCardTitle = '';
+  String homeCardBody = '';
+  int deliveryTime = 0;
   HomeData homeData = HomeData(Get.find());
   List categories = [];
   List salesData = [];
@@ -40,6 +44,10 @@ class HomeControllerImp extends SearchMixControllerImp {
         categories.addAll(response['categories']['data']);
         items.addAll(response['items']['data']);
         salesData.addAll(response['sales']['data']);
+        homeCardTitle = salesData[0]['sales_title'];
+        homeCardBody  = salesData[0]['sales_body'];
+        deliveryTime  = salesData[0]['sales_delivery_time'];
+        myServices.prefs.setInt('deliveryTime', deliveryTime);
       } else {
         statusRequest = StatusRequest.failure;
       }
@@ -52,6 +60,12 @@ class HomeControllerImp extends SearchMixControllerImp {
       "categories": categories,
       "selectedCategory": selectedCategory,
       "categoryId": categoryId,
+    });
+  }
+
+  goToProductDetails(itemsMd) {
+    Get.toNamed(ProductDetails.routeName, arguments: {
+      "itemsMD": itemsMd,
     });
   }
 }

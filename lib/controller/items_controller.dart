@@ -14,6 +14,7 @@ class ItemsControllerImp extends SearchMixControllerImp {
   ItemsData itemsData = ItemsData(Get.find());
   List data = [];
   MyServices services = Get.find();
+  late int deliveryTime;
 
   @override
   void onInit() {
@@ -27,6 +28,7 @@ class ItemsControllerImp extends SearchMixControllerImp {
   }
 
   initialData() {
+    deliveryTime = services.prefs.getInt("deliveryTime")!;
     categories = Get.arguments['categories'];
     selectedCategory = Get.arguments['selectedCategory'];
     catId = Get.arguments['categoryId'];
