@@ -7,13 +7,13 @@ import 'package:shop_savvy/core/services/services.dart';
 import 'package:shop_savvy/data/data_source/remote/home_data.dart';
 import 'package:shop_savvy/view/screen/items/items_view.dart';
 
-
 class HomeControllerImp extends SearchMixControllerImp {
   MyServices myServices = Get.find();
   String? userName;
   String? id;
   HomeData homeData = HomeData(Get.find());
   List categories = [];
+  List salesData = [];
   List items = [];
   String? lang;
 
@@ -24,13 +24,11 @@ class HomeControllerImp extends SearchMixControllerImp {
     super.onInit();
   }
 
-
   initialData() {
     userName = myServices.prefs.getString("userName");
     id = myServices.prefs.getString("id");
     lang = myServices.prefs.getString("lang");
   }
-
 
   getData() async {
     statusRequest = StatusRequest.loading;
@@ -41,13 +39,13 @@ class HomeControllerImp extends SearchMixControllerImp {
       if (response['status'] == 'success') {
         categories.addAll(response['categories']['data']);
         items.addAll(response['items']['data']);
+        salesData.addAll(response['sales']['data']);
       } else {
         statusRequest = StatusRequest.failure;
       }
     }
     update();
   }
-
 
   goToItems(categories, selectedCategory, categoryId) {
     Get.toNamed(ItemsView.routeName, arguments: {

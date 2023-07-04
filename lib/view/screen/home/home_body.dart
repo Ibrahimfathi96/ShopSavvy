@@ -30,7 +30,7 @@ class HomeBody extends StatelessWidget {
                 controller.checkSearching(val);
               },
               myController: controller.searchController,
-              onClosePress: (){
+              onClosePress: () {
                 controller.clearController(context);
               },
               favouriteButton: HomeAppBarIcons(
@@ -51,18 +51,21 @@ class HomeBody extends StatelessWidget {
                   ? Expanded(
                       child: ListView(
                         physics: const BouncingScrollPhysics(),
-                        children: const [
-                          HomeCashBackWidget(
-                            homeBannerTitle: "A Summer Surprise",
-                            homeBannerOffer: "Cashback 20%",
-                            lottieFile: AppImageFromAssets.cashBack,
-                          ),
+                        children: [
+                          if (controller.salesData.isNotEmpty)
+                            HomeCashBackWidget(
+                              homeBannerTitle: controller.salesData[0]
+                                  ['sales_title'],
+                              homeBannerOffer: controller.salesData[0]
+                                  ['sales_body'],
+                              lottieFile: AppImageFromAssets.cashBack,
+                            ),
                           HomeMiddleText(
                             text: "Categories",
                           ),
                           HomeCategoriesListView(),
                           HomeMiddleText(
-                            text: "Offers for you",
+                            text: "Top Selling",
                           ),
                           OffersListView(),
                           HomeMiddleText(
