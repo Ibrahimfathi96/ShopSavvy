@@ -5,7 +5,6 @@ import 'package:shop_savvy/core/services/services.dart';
 import 'package:shop_savvy/data/data_source/remote/location_data/view_location_data.dart';
 import 'package:shop_savvy/data/data_source/remote/orders/checkout_data.dart';
 import 'package:shop_savvy/data/model/location_model.dart';
-import 'package:shop_savvy/link_api.dart';
 import 'package:shop_savvy/view/screen/home/home_screen.dart';
 import 'package:shop_savvy/view/screen/location/add_location.dart';
 
