@@ -17,7 +17,7 @@ class CheckOutView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Get.put(CheckOutController());
+    CheckOutController controller = Get.put(CheckOutController());
     return Scaffold(
       bottomNavigationBar: CheckoutBottomButton(),
       appBar: AppBar(
@@ -129,7 +129,7 @@ class CheckOutView extends StatelessWidget {
                             text: "Shipping Location",
                           ),
                           InkWell(
-                            onTap: (){
+                            onTap: () {
                               controller.goToAddNewLocation();
                             },
                             child: Container(
@@ -153,10 +153,23 @@ class CheckOutView extends StatelessWidget {
                           ? Container(
                               child: Center(
                                 child: ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                    backgroundColor: AppColors.primaryDark,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(16),
+                                    )
+                                  ),
                                   onPressed: () {
                                     controller.goToAddNewLocation();
                                   },
-                                  child: Text("add New Location"),
+                                  child: Text(
+                                    "add New Location",
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
                                 ),
                               ),
                             )

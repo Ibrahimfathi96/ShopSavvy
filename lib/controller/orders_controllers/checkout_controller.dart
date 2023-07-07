@@ -38,15 +38,16 @@ class CheckOutController extends GetxController {
     update();
   }
 
-  goToAddNewLocation(){
+  goToAddNewLocation() {
     Get.toNamed(AddLocation.routeName);
   }
+
   checkout() async {
     if (paymentMethod == null)
       return Get.snackbar("Warning!", "Please Choose a payment method.");
     if (deliveryMethod == null)
       return Get.snackbar("Warning!", "Please Choose a delivery method.");
-    if(locationListData.isEmpty || locationId == "0"){
+    if (locationListData.isEmpty || locationId == "0") {
       return Get.snackbar("Warning!", "Please Choose your shipping location.");
     }
     statusRequest = StatusRequest.loading;

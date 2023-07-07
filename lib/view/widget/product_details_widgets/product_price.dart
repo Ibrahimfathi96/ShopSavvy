@@ -20,7 +20,7 @@ class ProductPrice extends GetView<ProductDetailsControllerImp> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(vertical: 20,horizontal: 6),
+      padding: const EdgeInsets.symmetric(vertical: 14,horizontal: 6),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

@@ -11,12 +11,11 @@ class ProductDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ProductDetailsControllerImp controller =
-        Get.put(ProductDetailsControllerImp());
+    Get.put(ProductDetailsControllerImp());
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        backgroundColor:Color(0xFFA7E1F9),
+        backgroundColor: Color(0xFFA7E1F9),
         leading: GestureDetector(
           onTap: () {
             Get.back();
