@@ -50,16 +50,12 @@ class ItemsView extends StatelessWidget {
                   },
                   onNotificationPress: () {},
                 ),
+                ItemsCategoriesListView(),
                 HandlingDataView(
                   statusRequest: controller.statusRequest,
                   widget: controller.searching == false
                       ? const Expanded(
-                          child: Column(
-                            children: [
-                              ItemsCategoriesListView(),
-                              ItemsGridBuilder(),
-                            ],
-                          ),
+                          child: ItemsGridBuilder(),
                         )
                       : ItemsListSearch(
                           searchDataList: controller.searchList,

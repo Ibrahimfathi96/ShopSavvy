@@ -16,8 +16,8 @@ class ItemsCategoriesListView extends GetView<ItemsControllerImp> {
         padding: const EdgeInsets.symmetric(vertical: 10),
         shrinkWrap: true,
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 3,
-          childAspectRatio: 2.7,
+          crossAxisCount: 4,
+          childAspectRatio: 2.2,
           mainAxisSpacing: 8,
           crossAxisSpacing: 6,
         ),

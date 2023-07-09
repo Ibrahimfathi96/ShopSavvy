@@ -17,14 +17,15 @@ class ItemsCategoriesListViewItem extends GetView<ItemsControllerImp> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        controller.changeCategoryOnTap(selectedCategory,categoriesMD.categoriesId.toString());
+        controller.changeCategoryOnTap(
+            selectedCategory, categoriesMD.categoriesId.toString());
       },
       child: GetBuilder<ItemsControllerImp>(builder: (logic) {
         return Material(
           borderRadius: BorderRadius.circular(16),
           elevation: controller.selectedCategory == selectedCategory ? 30 : 0,
           child: Container(
-            padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 22),
+            padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 10),
             decoration: controller.selectedCategory == selectedCategory
                 ? BoxDecoration(
                     color: AppColors.thirdColor,
@@ -44,7 +45,10 @@ class ItemsCategoriesListViewItem extends GetView<ItemsControllerImp> {
             child: Text(
               "${translateDB(categoriesMD.categoriesName, categoriesMD.categoriesNameAr)}",
               textAlign: TextAlign.center,
-              style: const TextStyle(color: Colors.black87, fontSize: 16),
+              style: const TextStyle(
+                color: Colors.black87,
+                fontSize: 14,
+              ),
             ),
           ),
         );
