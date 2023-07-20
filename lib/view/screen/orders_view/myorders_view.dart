@@ -19,7 +19,7 @@ class MyOrdersView extends StatelessWidget {
     Get.put(PendingOrdersController());
     Get.put(ArchiveOrdersController());
     return DefaultTabController(
-      initialIndex: 1,
+      initialIndex: 0,
       length: 2,
       child: Scaffold(
         appBar: AppBar(
