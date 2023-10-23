@@ -21,15 +21,26 @@ class Language extends GetView<LocaleController> {
               width: double.infinity,
               height: MediaQuery.of(context).size.height / 4,
               color: Colors.green,
-              child: Center(
-                child: Text(
-                  "1".tr,
-                  style: const TextStyle(
-                    fontSize: 24,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "1".tr,
+                    style: const TextStyle(
+                      fontSize: 24,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                ),
+                  Text(
+                    "60".tr,
+                    style: const TextStyle(
+                      fontSize: 14,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
               ),
             ),
             Padding(

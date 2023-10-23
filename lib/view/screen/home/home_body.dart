@@ -21,62 +21,69 @@ class HomeBody extends StatelessWidget {
   Widget build(BuildContext context) {
     Get.put(HomeControllerImp());
     return GetBuilder<HomeControllerImp>(
-      builder: (controller) => Container(
-        padding: const EdgeInsets.symmetric(horizontal: 16),
-        child: Column(
-          children: [
-            CustomAppBar(
-              onChanged: (val) {
-                controller.checkSearching(val);
-              },
-              myController: controller.searchController,
-              onClosePress: () {
-                controller.clearController(context);
-              },
-              favouriteButton: HomeAppBarIcons(
-                onPressed: () {
-                  Get.toNamed(MyFavoriteView.routeName);
+      builder: (controller) => HandlingDataView(
+        statusRequest: controller.statusRequest,
+        widget: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: Column(
+            children: [
+              CustomAppBar(
+                onChanged: (val) {
+                  controller.checkSearching(val);
                 },
-                iconData: Icons.favorite_border_outlined,
+                myController: controller.searchController,
+                onClosePress: () {
+                  controller.clearController(context);
+                },
+                favouriteButton: HomeAppBarIcons(
+                  onPressed: () {
+                    Get.toNamed(MyFavoriteView.routeName);
+                  },
+                  iconData: Icons.favorite_border_outlined,
+                ),
+                appBarTitle: "61".tr,
+                onSearchPress: () {
+                  controller.onItemsSearching();
+                },
+                onNotificationPress: () {},
               ),
-              appBarTitle: "Find your product..",
-              onSearchPress: () {
-                controller.onItemsSearching();
-              },
-              onNotificationPress: () {},
-            ),
-            HandlingDataView(
-              statusRequest: controller.statusRequest,
-              widget: controller.searching == false
-                  ? Expanded(
-                      child: ListView(
-                        physics: const BouncingScrollPhysics(),
-                        children: [
+              HandlingDataView(
+                statusRequest: controller.statusRequest,
+                widget: controller.searching == false
+                    ? Expanded(
+                        child: ListView(
+                          physics: const BouncingScrollPhysics(),
+                          children: [
                             HomeCashBackWidget(
-                              homeBannerTitle: controller.homeCardTitle,
-                              homeBannerOffer: controller.homeCardBody,
+                              homeBannerTitle: controller.lang == 'en'
+                                  ? controller.homeCardTitle
+                                  : controller.homeCardTitleInArabic,
+                              homeBannerOffer: controller.lang == 'en'
+                                  ? controller.homeCardBody
+                                  : controller.homeCardBodyInArabic,
                               lottieFile: AppImageFromAssets.cashBack,
                             ),
-                          HomeMiddleText(
-                            text: "Categories",
-                          ),
-                          HomeCategoriesListView(),
-                          HomeMiddleText(
-                            text: "Top Selling",
-                          ),
-                          OffersListView(),
-                          HomeMiddleText(
-                            text: "Trending",
-                          ),
-                          OffersListView(),
-                        ],
+                            HomeMiddleText(
+                              text: "Categories",
+                            ),
+                            HomeCategoriesListView(),
+                            HomeMiddleText(
+                              text: "Top Selling",
+                            ),
+                            OffersListView(),
+                            HomeMiddleText(
+                              text: "Trending",
+                            ),
+                            OffersListView(),
+                          ],
+                        ),
+                      )
+                    : ItemsListSearch(
+                        searchDataList: controller.searchList,
                       ),
-                    )
-                  : ItemsListSearch(
-                      searchDataList: controller.searchList,
-                    ),
-            ),
-          ],
+              ),
+            ],
+          ),
         ),
       ),
     );

@@ -13,12 +13,15 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     Get.put(HomeScreenControllerImp());
     return GetBuilder<HomeScreenControllerImp>(
-      builder: (controller) => Scaffold(
-        bottomNavigationBar: const CustomHomeBottomAppBar(),
-        body: SafeArea(
-          child: WillPopScope(
-            onWillPop: exitAppAlertDialog,
-            child: controller.pagesList[controller.currentPage],
+      builder: (controller) => GestureDetector(
+        onTap: ()=>FocusManager.instance.primaryFocus?.unfocus(),
+        child: Scaffold(
+          bottomNavigationBar: const CustomHomeBottomAppBar(),
+          body: SafeArea(
+            child: WillPopScope(
+              onWillPop: exitAppAlertDialog,
+              child: controller.pagesList[controller.currentPage],
+            ),
           ),
         ),
       ),

@@ -36,15 +36,15 @@ class HomeCashBackWidget extends GetView<HomeControllerImp> {
               homeBannerOffer,
               style: const TextStyle(
                 color: Colors.white,
-                fontSize: 30,
+                fontSize: 26,
               ),
             ),
           ),
         ),
         Positioned(
           top: -10,
-          right: -45,
-          // right: controller.lang == "en"?-45:null,
+          right:  controller.lang == 'en'?-45:null,
+          left: controller.lang == 'ar'?-45:null,
           child: Container(
             height: 170,
             width: 160,

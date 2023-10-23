@@ -17,14 +17,17 @@ class ShopSavvy extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     LocaleController localeController = Get.put(LocaleController());
-    return GetMaterialApp(
-      translations: MyTranslations(),
-      debugShowCheckedModeBanner: false,
-      locale: localeController.startingLanguage,
-      title: 'ShopSavvy',
-      theme: localeController.appTheme,
-      getPages: routes,
-      initialBinding: InitialBindings(),
+    return GestureDetector(
+      onTap: ()=>FocusManager.instance.primaryFocus?.unfocus(),
+      child: GetMaterialApp(
+        translations: MyTranslations(),
+        debugShowCheckedModeBanner: false,
+        locale: localeController.startingLanguage,
+        title: 'ShopSavvy',
+        theme: localeController.appTheme,
+        getPages: routes,
+        initialBinding: InitialBindings(),
+      ),
     );
   }
 }

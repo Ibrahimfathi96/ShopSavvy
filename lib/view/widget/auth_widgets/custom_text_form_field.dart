@@ -67,7 +67,7 @@ class CustomAuthTextFormField extends StatelessWidget {
               fontWeight: FontWeight.w600,
               color: Colors.deepOrangeAccent),
           suffixIcon: IconButton(
-            padding: EdgeInsets.only(right: 20),
+            padding: EdgeInsets.symmetric(horizontal: 20),
             onPressed: onPressed,
             icon: Icon(iconData),
             color: Colors.deepOrangeAccent,

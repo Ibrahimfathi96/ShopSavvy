@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shop_savvy/core/constants/color.dart';
 import 'package:shop_savvy/core/localization/change_locale.dart';
+import 'package:shop_savvy/view/screen/home/home_screen.dart';
 
 changeLanguage(BuildContext context) {
   LocaleController controller = Get.put(LocaleController());
@@ -28,7 +29,7 @@ changeLanguage(BuildContext context) {
               GestureDetector(
                 onTap: () {
                   controller.changeLanguage("ar");
-                  Get.back();
+                  Get.toNamed(HomeScreen.routeName);
                 },
                 child: Row(
                   children: [
@@ -45,9 +46,10 @@ changeLanguage(BuildContext context) {
                     const Text(
                       "العربية",
                       style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18,
-                          color: Colors.black),
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                        color: Colors.black,
+                      ),
                     ),
                   ],
                 ),
@@ -55,7 +57,7 @@ changeLanguage(BuildContext context) {
               GestureDetector(
                 onTap: () {
                   controller.changeLanguage("en");
-                  Get.back();
+                  Get.toNamed(HomeScreen.routeName);
                 },
                 child: Row(
                   children: [

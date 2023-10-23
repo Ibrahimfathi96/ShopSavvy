@@ -4,7 +4,7 @@ class MyTranslations extends Translations {
   @override
   Map<String, Map<String, String>> get keys => {
         "ar": {
-          "1": "أختر اللغة",
+          "1": "أختر لغتك المفضلة",
           "2": "أختر المنتج",
           "3": "لدينا مايزيد عن 100 ألف منتج\n أختر منتجك من متجرنا الإلكتروني.",
           "4":"التالي",
@@ -63,9 +63,11 @@ class MyTranslations extends Translations {
           "57":"هذا الحقل لا يمكن ان يكون فارغ",
           "58":"لا يمكن ان يكون اقل من",
           "59":"لا يمكن ان يكون اكبر من",
+          "60":"باشر بالدخول بحسابك لدينا",
+          "61":"ابحث عن منتجك ..",
         },
         "en": {
-          "1": "Select a Language",
+          "1": "Select your favourite Language",
           "2": "Choose Product",
           "3": "We Have a +100k Products.\n Choose your Product From Our \n E-Commerce Shop.",
           "4":"Continue",
@@ -124,6 +126,8 @@ class MyTranslations extends Translations {
           "57":"Required Field! Can't be empty.",
           "58":"Can't be less than ",
           "59":"Can't be larger than ",
+          "60":"Start logging in to your account with us",
+          "61":"Find your product..",
          }
       };
 }

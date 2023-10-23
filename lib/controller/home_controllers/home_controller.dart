@@ -13,7 +13,9 @@ class HomeControllerImp extends SearchMixControllerImp {
   String? userName;
   String? id;
   String homeCardTitle = '';
+  String homeCardTitleInArabic = '';
   String homeCardBody = '';
+  String homeCardBodyInArabic = '';
   int deliveryTime = 0;
   HomeData homeData = HomeData(Get.find());
   List categories = [];
@@ -45,7 +47,9 @@ class HomeControllerImp extends SearchMixControllerImp {
         items.addAll(response['items']['data']);
         salesData.addAll(response['sales']['data']);
         homeCardTitle = salesData[0]['sales_title'];
+        homeCardTitleInArabic = salesData[0]['sales_title_ar'];
         homeCardBody  = salesData[0]['sales_body'];
+        homeCardBodyInArabic  = salesData[0]['sales_body_ar'];
         deliveryTime  = salesData[0]['sales_delivery_time'];
         myServices.prefs.setInt('deliveryTime', deliveryTime);
       } else {
