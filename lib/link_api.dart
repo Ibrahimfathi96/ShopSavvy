@@ -4,7 +4,6 @@ class AppLink {
   //phoneServer
   static const String server = "http://192.168.1.11/shop_savvy";
 
-  // static const String server = "http://192.168.1.1/shop_savvy";
   static const String test = "$server/test.php";
 
   //AUTH PHP

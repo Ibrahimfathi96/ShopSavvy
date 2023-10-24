@@ -26,16 +26,9 @@ class Language extends GetView<LocaleController> {
                 children: [
                   Text(
                     "1".tr,
+                    textAlign: TextAlign.center,
                     style: const TextStyle(
                       fontSize: 24,
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  Text(
-                    "60".tr,
-                    style: const TextStyle(
-                      fontSize: 14,
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
                     ),
