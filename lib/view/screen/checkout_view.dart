@@ -17,7 +17,7 @@ class CheckOutView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    CheckOutController controller = Get.put(CheckOutController());
+    Get.put(CheckOutController());
     return Scaffold(
       bottomNavigationBar: CheckoutBottomButton(),
       appBar: AppBar(
@@ -154,11 +154,10 @@ class CheckOutView extends StatelessWidget {
                               child: Center(
                                 child: ElevatedButton(
                                   style: ElevatedButton.styleFrom(
-                                    backgroundColor: AppColors.primaryDark,
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(16),
-                                    )
-                                  ),
+                                      backgroundColor: AppColors.primaryDark,
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(16),
+                                      )),
                                   onPressed: () {
                                     controller.goToAddNewLocation();
                                   },
